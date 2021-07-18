@@ -41,3 +41,5 @@ https://www.bilibili.com/video/BV1wN411f7hs/
 [![geKNjO.png](https://z3.ax1x.com/2021/05/02/geKNjO.png)](https://imgtu.com/i/geKNjO)
 
 你好，小P！以后我们好好相处吧。
+
+如果对小鹏感兴趣的话，可以走我的试驾[邀请链接](https://events.xiaopeng.com/r18f95.html?token=2cf68377)试驾。
