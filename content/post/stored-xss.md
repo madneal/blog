@@ -147,4 +147,59 @@ function getDefaultWhiteList() {
 
 另外前端过滤的时机一般是选择数据在页面渲染之前。在 vue 中，选择在 `created()` 做过滤即可。不过在 JS 中有一种绕过过滤的方案，就是在过滤函数之前让 JS 报错，那么这样过滤函数就不会执行了，从而导致绕过。
 
-这么看来，在数据储存之前，后端做过滤也不失为一个稳妥的方案。因为公司是以 golang 为主的技术栈，就讨论一下 golang 方面的技术栈。
+这么看来，在数据储存之前，后端做过滤也不失为一个稳妥的方案。因为公司是以 golang 为主的技术栈，就讨论一下 golang 方面的技术方案。[bluemonday](https://github.com/microcosm-cc/bluemonday) 是一款 golang 的 HTML 过滤器，相对于 js-xss 来说，这个库的可定制性更高。
+
+基于默认的过滤策略：
+
+```
+Hello <STYLE>.XSS{background-image:url("javascript:alert('XSS')");}</STYLE><A CLASS=XSS></A>World
+```
+
+会被过滤为 
+
+`Hello World`
+
+而对于：
+
+```
+<a href="http://www.google.com/">
+  <img src="https://ssl.gstatic.com/accounts/ui/logo_2x.png"/>
+</a>
+```
+
+大部分内容不会变化，只是给 a 标签增加了一个 rel 属性，更安全。
+
+```
+<a href="http://www.google.com/" rel="nofollow">
+  <img src="https://ssl.gstatic.com/accounts/ui/logo_2x.png"/>
+</a>
+```
+
+默认的策略使用 bluemonday 非常方便：
+
+```go
+package main
+import (
+  "fmt"
+  "github.com/microcosm-cc/bluemonday"
+)
+
+func main() {
+  p := bluemonday.UGCPolicy()
+  html := p.Sanitize("<a onblur="alert(secret)" href="http://www.google.com">Google</a>")
+  fmt.Println(html)
+}
+```
+
+另外定制性真的特别强大，语义性好，傻瓜式入门，可以便捷地自定义过滤策略。
+
+```go
+p := bluemonday.NewPolicy()
+// 标签白名单
+p.AllowElements("b", "strong")
+// 正则表达式白名单
+p.AllowElementMatch(regex.MustCompile("^my-element-"))
+```
+
+其实从原理上来说，bluemonday 与 js-xss 并没有本质的区别，主要就是基于标签和属性的过滤，可以基于自己的技术场景去选择。不过记得一点是两种方案过滤时机的选择。
+
