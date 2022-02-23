@@ -2,6 +2,7 @@
 title: "安全运营平台从0到1"
 author: Neal
 tags: [安全运营,应用安全,漏洞管理,事件管理]
+keywords: [安全运营,应用安全,漏洞管理,事件管理]
 categories: [安全]
 date: "2022-01-21"
 ---
