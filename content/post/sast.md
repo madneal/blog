@@ -19,9 +19,6 @@ date: "2022-03-28"
 
 相反，在评估 SAST 测试工具时，你需要考虑 3 个参数：
 
-accuracy
-completeness
-any unique additional values
 * 准确性
 * 完整性
 * 任意其它独特价值
