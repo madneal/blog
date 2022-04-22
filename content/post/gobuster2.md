@@ -7,7 +7,7 @@ categories: [源码阅读]
 date: "2022-04-21" 
 ---
 
-在本系列的第一篇中，主要阅读了 gobuster 入口的这一部分。后续主要是阅读各个模块工作的细节，本文主要讲解 `dir` 模块。`dir` 模块主要是实现目录包括的功能，其主要命令行配置项包括以下内容：
+在本系列的第一篇中，主要阅读了 gobuster 入口的这一部分。后续主要是阅读各个模块工作的细节，本文主要讲解 `dir` 模块。`dir` 模块主要是实现目录爆破的功能，其主要命令行配置项包括以下内容：
 
 ```
 Usage:
@@ -167,17 +167,27 @@ Scan:
 
 ## 核心 worker
 
-```
-	var workerGroup sync.WaitGroup
-	workerGroup.Add(g.Opts.Threads)
-	wordChan := make(chan string, g.Opts.Threads)
+```go
+var workerGroup sync.WaitGroup
+workerGroup.Add(g.Opts.Threads)
+wordChan := make(chan string, g.Opts.Threads)
 
-	for i := 0; i < g.Opts.Threads; i++ {
-		go g.worker(ctx, wordChan, &workerGroup)
-	}
+for i := 0; i < g.Opts.Threads; i++ {
+    go g.worker(ctx, wordChan, &workerGroup)
+}
 ```
 
 以上代码是扫描任务执行的核心逻辑，通过 `Threads` 来控制扫描任务的并发数量。通过 `worker` 进入，可以看到的也是依据 `workChan` 来进行扫描任务的爆破。`worker` 中的核心函数为 `g.plugin.Run`，其它的主要也是任务的结束以及一些超时的处理。值得注意的是 gobuster 中各个模块都是通过 `libgobuster/interfaces.go` 中的 `GobusterPlugin` 来实现的。找到对应的实现方法。不过 `Run` 函数的逻辑也变得非常直白了，主要是通过 `urlsToCheck` 来构建需要扫描的 url 链接，比如是否扫描备份文件或者指定后缀路径。最终请求的结果，如果状态码不在 `StatusCodesBlacklistParsed` 中或者状态码在 `StatusCodesParsed` 则认为其为有效结果。
+
+```go
+type GobusterPlugin interface {
+	Name() string
+	RequestsPerRun() int
+	PreRun(context.Context) error
+	Run(context.Context, string, chan<- Result) error
+	GetConfigString() (string, error)
+}
+```
 
 ## 总结
 
