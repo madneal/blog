@@ -7,7 +7,7 @@ categories: [源码阅读]
 date: "2022-04-22" 
 ---
 
-在搞完 gobuster 系列源码阅读的[第一篇]以及[dir篇]之后，对于 gobuster 的实现思路已经比较熟悉。本文就对剩下的模块进行一个讲解，由于一些公共模块在前面的两篇文章中已经提过，所以本文主要专注于每个模块所独有的部分。
+在搞完 gobuster 系列源码阅读的[第一篇](https://madneal.com/post/gobuster1/)以及[dir篇](https://madneal.com/post/gobuster2/)之后，对于 gobuster 的实现思路已经比较熟悉。本文就对剩下的模块进行一个讲解，由于一些公共模块在前面的两篇文章中已经提过，所以本文主要专注于每个模块所独有的部分。
 
 在前面的文章中提到过，gobuster 中的各个模块中的核心功能都是基于 `libgobuster/interfaces.go` 中接口的实现。而 `PreRun` 以及 `Run` 函数则是每个模块实现的核心所在，所以关注其它模块这两个函数的实现的即可。
 
