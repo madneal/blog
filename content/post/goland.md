@@ -17,19 +17,34 @@ date: "2022-05-01"
 
 ![go_modify_json_for_a_struct_in_a_separate_dialog.animated.gif](https://s2.loli.net/2022/05/01/3vfFiJLTnHZ7h5q.gif)
 
-同时还可以添加新的 tag，key 以及修改 key 的代码风格。
+同时还可以添加新的 tag，key 以及修改 key 的代码风格，调用来说一般使用 `alt+enter` 快捷键即可。
 
-添加新的 tag 
+## Intention actions
+
+字段添加新的 tag 
+
+1. 点击 `struct` 的字段然后按 `alt+enter`
+2. 选择 `Add key to tags`
 
 ![go_add_new_tags_to_a_struct_field.animated.gif](https://s2.loli.net/2022/05/01/GQ4BeAxFrzinKPw.gif)
 
 修改 key
 
+1. 点击 `struct` 的字段然后按 `alt+enter`
+2. 选择 `Update key value in tags`
+
 ![go_modify_keys_in_field_tags.animated.gif](https://s2.loli.net/2022/05/01/fEBJmDLhl8KeoIa.gif)
 
 修改 key 的代码风格
 
+1. 点击 `struct` 的字段然后按 `alt+enter`
+2. 选择 `Change field name style in tags`
+
 ![go_change_code_style_of_tag_keys.animated.gif](https://s2.loli.net/2022/05/01/vfxXRiu8U9QGN2h.gif)
+
+## 代码补全
+
+当修改 key 的时候，Goland 会展示最有可能的候选值。比如，`json` 会建议 `omitempty`，`xml` 会建议 `attr`，`cdata`，`chardata` 以及 `innerxml` 等。
 
 ## Reference
 
