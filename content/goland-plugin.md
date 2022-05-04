@@ -82,6 +82,13 @@ used as a denial of service vector.
 
 ## Impact
 Severity: UNKNOWN
+
+Reeferences:
+
+* https://github.com/antchfx/xmlquery/commit/5648b2f39e8d5d3fc903c45a4f1274829df71821 
+* https://github.com/antchfx/xmlquery/issues/39 
+* https://go.googlesource.com/vulndb/+/refs/heads/master/reports/GO-2020-0048.yaml 
+* https://storage.googleapis.com/go-vulndb/byID/GO-2020-0048.json 
 ```
 
 ## 插件开发
@@ -149,8 +156,9 @@ directory.add(createFileFromText)
 毫无疑问，本次插件的开发过程还是比较曲折。目前插件的状态还是非常初步的，后续还会进行插件功能的进一步优化，甚至扩大插件覆盖的功能范围，比如覆盖 Golang 中的代码安全问题。
 
 ## References:
-* https://github.com/antchfx/xmlquery/commit/5648b2f39e8d5d3fc903c45a4f1274829df71821 
-* https://github.com/antchfx/xmlquery/issues/39 
-* https://go.googlesource.com/vulndb/+/refs/heads/master/reports/GO-2020-0048.yaml 
-* https://storage.googleapis.com/go-vulndb/byID/GO-2020-0048.json 
-                # github.com/spf13/cobra  v1.1.3
+
+* https://developerlife.com/2021/03/13/ij-idea-plugin-advanced/#generate-psi-elements-from-text
+* https://plugins.jetbrains.com/docs/intellij/build-number-ranges.html#intellij-platform-based-products-of-recent-ide-versions
+* https://data.services.jetbrains.com/products?code=DG%2CPS%2CDL%2CMPS%2CMPSIIP%2CRDCPPP%2CWS%2CAC%2CIIC%2CIIE%2CGO%2CCL%2CPCD%2CPCC%2CRD%2CPCE%2CIIU%2CRM%2CPCP&fields=code%2Cname%2Creleases.downloads%2Creleases.version%2Creleases.build%2Creleases.type
+* https://github.com/JetBrains/intellij-platform-plugin-template
+* https://github.com/JetBrains/gradle-intellij-plugin
