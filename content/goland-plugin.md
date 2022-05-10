@@ -11,25 +11,25 @@ date: "2022-05-03"
 
 ## 先吐槽
 
-五一期间，疫情实在是憋得无趣。Jetbrains 作为一个 IDE 开发公司，通过 Java 的语言生态开发出 IDEA 全家桶系列如此精美并且功能强大的 IDEA 工具。其背后的技术能力不得不让人折服。IDE 是程序猿开发的生产力，而 Jetbrains 公司则是生产力的生产力。这几天，笔者就在着力开发一款针对 Goland 的第一款 SCA 检测插件。相较于以往 Chrome 或者 Burp 的插件开发而言，Jetbrains 插件开发的难度大大提升，主要是因为以下几点原因：
+五一期间，疫情实在是憋得无趣，于是就成生了编写一款 Goland 上的 SCA 检测的插件的想法。Jetbrains 作为一个 IDE 开发公司，通过 Java 的语言生态开发出 IDEA 全家桶系列如此精美并且功能强大的 IDE 产品。其背后的技术能力不得不让人折服。IDE 是程序猿开发的生产力，而 Jetbrains 公司则是生产力的生产力。这几天，笔者就在着力开发一款针对 Goland 的第一款 SCA 检测插件。相较于以往 Chrome 或者 Burp 的插件开发而言，Jetbrains 插件开发的难度大大提升，主要是因为以下几点原因：
 
 * API 文档过于简单
 
-IntelliJ 只提供了官方的[文档地址](https://plugins.jetbrains.com/docs/intellij/welcome.html)。这里面包含了一些 API 的实现以及介绍，但是太简单了。全篇中几乎找不到相关实现的示例代码，通常只有寥寥数语的介绍。举一个例子，我希望能够通过插件能够创建文件，在找遍了官方的文档后，只发现了以下内容：
+IntelliJ 只提供了官方的[文档地址](https://plugins.jetbrains.com/docs/intellij/welcome.html)。这里面包含了一些 API 的实现以及介绍，但是太简单了。全篇中几乎找不到相关实现的示例代码，通常只有寥寥数语的介绍。举一个例子，希望能够通过插件能够创建文件，在找遍了官方的文档后，只发现了以下内容：
 
 ![image.png](https://s2.loli.net/2022/05/03/wGphsPyntzdJgqc.png)
 
-文档里面提到可以使用 `PsiDirectory` 中的 `add` 方法来保存 PSI 文件，但它没说 HOW！那怎么办，只能去 Github 中去搜索代码关键字，然后扒别人的代码去看别人是如何实现的，这绝对是一个非常痛苦的过程，尤其是你看的是一个实现很糟糕的插件。
+文档里面提到可以使用 `PsiDirectory` 中的 `add` 方法来保存 `PSI` 文件，但它没说 HOW！那怎么办，只能去 Github 中去搜索代码关键字，然后扒别人的代码去看别人是如何实现的，这绝对是一个非常痛苦的过程，尤其是你看的是一个实现很糟糕的插件。
 
 * API 复杂性
 
-由于 IDEA 强大的生态，其 API 要考虑到兼容性以及很多特性，所以 API 中很多的含义不好理解。其本身也是包含了很多复杂的配置项。
+由于 IDEA 强大的生态，其 API 要考虑到兼容性以及很多特性，所以 API 中很多的含义不好理解。其本身也是包含了很多复杂的配置项，同时还需要综合考虑插件是通过什么样的形式去实现。
 
 * 太“强大的”官方模板
 
-官方提供了一个创建插件的[模板](https://github.com/JetBrains/intellij-platform-plugin-template)。首先承认的一点是这个插件的功能非常强大，涵盖这个插件开发、发布的整个生命周期，并且与 Github 无缝集成。但既然是模板，它包含的内容是不是太多了呢？这个模板的 README 几乎看了3遍之后才知道里面包含了哪些内容。实际上，对于一个小白来说，这个过程挺痛苦的，甚至可能有的人看了一下就萌发了退意。
+官方提供了一个创建插件的[模板](https://github.com/JetBrains/intellij-platform-plugin-template)。首先承认的一点是这个模板的功能非常强大，涵盖插件开发、单元测试、质量检查、发布的整个生命周期，并且与 Github 无缝集成。不过作为模板，它包含的内容是不是太多了呢？这个模板的 README 几乎看了3遍之后才知道里面包含了哪些内容。实际上，对于一个小白来说，这个过程挺痛苦的，甚至可能有的人看了一下就萌发了退意。里面的一些模块，比如单元测试模块以及覆盖率检查这些模块，可以作为可选项，并不一定要默认就包含进去。
 
-* 某些 Bug
+* Bug 有一点点多
 
 目前尚未确定是否这是一个 Bug，但是笔者严重怀疑这是一个 Bug。上面提到的模板，通过 Gradle 实现了一系列的任务。在 `Run Verifications` 中，有个小任务是 `./gradlew listProductsReleases`，它会在 `build` 文件中生成一个 `listProductsReleases.txt` 的文件。而这个文件中的版本应该适用于 IDE 兼容型的检查。但是在运行这个 task 的过程中，反复遇到下面的报错：
 
@@ -41,7 +41,13 @@ IntelliJ 只提供了官方的[文档地址](https://plugins.jetbrains.com/docs/
 
 在 Go 的 release 信息中，的确没有看到 `2021.1.4` 版本信息，而这个版本号则是 `listProductsRelases` 生成的。并且无法得知这个生成的原理是什么。在一个下午的持续尝试中，终于发现了这个版本信息与 [gradle.properties](https://github.com/madneal/sec-dog/blob/main/gradle.properties) 中的 `pluginSinceBuild` 以及 `pluginUntilBuild` 相关，并且最终定位到是由于 `pluginSinceBuild = 211` 这个配置项导致的，最终将这个版本号改为212，则没有产生 `2021.1.4` 这个版本。而这个版本信息配置是官方的模板配置提供的，在 Github 也看到一些插件使用了同样的配置，所以目前怀疑这是官方的一个 Bug 导致的。
 
-当然 IDEA YYDS，尽管有以上的这些槽点，但瑕不掩瑜，IDEA 生态的插件的功能还是非常强大。而且，在踩过坑之后，官方模板给你带来的则是各种各样的便捷性。下面，则开始本次 Goland 插件开发的真正旅途。
+目前这个已经被官方确认为一个 [bug](https://github.com/JetBrains/intellij-platform-plugin-template/issues/263#issuecomment-1117266636)。不过这个 bug 的影响还比较大，因为插件发布之前需要做兼容性检查，但是目前又没法通过 Goland 最新版的的兼容性检查，就会导致在最新版本上无法使用插件。
+
+后面有遇到一个非常奇怪的 bug，一开始是发现 `map` 在代码中无法获取。经过折腾了一段时间才发现原来是每次 `Run Plugin` 的时候，并没有重新编译插件。这导致的后果是，修改代码后，修改的代码并没有生效。这个问题也被确定为 [gradle-intellij-plugin](https://github.com/JetBrains/gradle-intellij-plugin) 的 bug。截止目前，这个插件模板已经有两个 bug 了，其实 `changelog` 方面也有一个小 bug，不过不是特别影响使用就暂且不提了。
+
+![image.png](https://s2.loli.net/2022/05/09/YOecDy35E4lrMix.png)
+
+当然 Jetrains YYDS，尽管有以上的这些槽点，但瑕不掩瑜，IDEA 生态的插件的功能还是非常强大。而且，在踩过坑之后，官方模板给你带来的则是各种各样的便捷性，让你享受从开发到发布的一条龙服务。下面，则开始本次 Goland 插件开发的真正旅途。
 
 ## SCA
 
@@ -145,15 +151,15 @@ directory.add(createFileFromText)
 
 至此，插件的开发，发布过程基本都打通了，后续的发布过程也比较简单。模板也提供了通过 Release 来进行发布以及更新 `CHANGELOG.md` 的功能。
 
-插件的安装可以通过应用市场或者 [releases](https://github.com/madneal/sec-dog/releases) 中的压缩包文件。插件的使用可以点击菜单栏中的 `SCA Checker` 中的 `Check` 来运行，或者直接调用 action 来触发。
+插件的安装可以通过[应用市场](https://plugins.jetbrains.com/plugin/19098-sca-checker)或者 [releases](https://github.com/madneal/sec-dog/releases) 中的压缩包文件。插件的使用可以点击菜单栏中的 `SCA Checker` 中的 `SCA Check` 来运行，或者直接调用 `action` 来触发。插件的安装和使用可以参考这个[教学视频](https://www.bilibili.com/video/BV1u44y1g752/)。
 
-![image.png](https://s2.loli.net/2022/05/03/DQusrqMTO1afAbE.png)
+![image.png](https://user-images.githubusercontent.com/12164075/166859685-3ced9cbf-6260-4c4f-8653-8457f6d035b4.png)
 
-![image.png](https://s2.loli.net/2022/05/03/ohRiWrmpbx4G72C.png)
+![image.png](https://user-images.githubusercontent.com/12164075/166859772-079e6b39-d767-41c0-9805-98863c61ffda.png)
 
 ## 总结
 
-毫无疑问，本次插件的开发过程还是比较曲折。目前插件的状态还是非常初步的，后续还会进行插件功能的进一步优化，甚至扩大插件覆盖的功能范围，比如覆盖 Golang 中的代码安全问题。
+毫无疑问，本次插件的开发过程还是比较曲折，在插件开发过程中遇到各种各样的问题。目前插件的状态还是非常初步的，后续还会进行插件功能的进一步优化，甚至扩大插件覆盖的功能范围，比如覆盖 Golang 中的代码安全问题。
 
 ## References:
 
@@ -162,3 +168,4 @@ directory.add(createFileFromText)
 * https://data.services.jetbrains.com/products?code=DG%2CPS%2CDL%2CMPS%2CMPSIIP%2CRDCPPP%2CWS%2CAC%2CIIC%2CIIE%2CGO%2CCL%2CPCD%2CPCC%2CRD%2CPCE%2CIIU%2CRM%2CPCP&fields=code%2Cname%2Creleases.downloads%2Creleases.version%2Creleases.build%2Creleases.type
 * https://github.com/JetBrains/intellij-platform-plugin-template
 * https://github.com/JetBrains/gradle-intellij-plugin
+* https://plugins.jetbrains.com/intellij-platform-explorer/extensions
