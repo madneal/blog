@@ -1,5 +1,5 @@
 ---
-title: "goland-2022.01版本最新实用功能"
+title: "第一款Goland的SCA插件开发之旅"
 author: Neal
 tags: [goland,Go,jetbrains,plugin development]
 keywords: [goland,Go,jetbrains,插件开发]
