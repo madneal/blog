@@ -21,7 +21,7 @@ copyright = "© This post is licensed under a Creative Commons Attribution-NonCo
   name = "Home"
   weight = 10
   identifier = "home"
-  url = "/"
+  url = "/post"
 
 [[menu.main]]
   name = "Works"
