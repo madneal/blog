@@ -2,7 +2,7 @@
 title: "iMac+Studio Display，双 5k 屏体验"
 author: Neal
 tags: [Studio Diplay, 苹果, apple]
-tags: [Studio Diplay, 苹果, apple]
+keywords: [Studio Diplay, 苹果, apple]
 categories: [生产力工具]
 date: "2022-08-12" 
 ---
