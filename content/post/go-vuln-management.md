@@ -4,7 +4,7 @@ author: Neal
 tags: [Go, vulnerability]
 keywords: [Go, vulnerability]
 categories: [应用安全]
-date: "2022-09-08" 
+date: "2022-09-07" 
 ---
 
 >原文：[Vulnerability Management for Go](https://go.dev/blog/vuln)
