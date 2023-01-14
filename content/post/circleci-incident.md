@@ -9,7 +9,7 @@ date: "2023-01-14"
 
 # CircleCI 20230104 安全事件报告
 
->原文：[CircleCI incident report for January 4, 2023 security incident(https://circleci.com/blog/jan-4-2023-incident-report/)
+>原文：[CircleCI incident report for January 4, 2023 security incident](https://circleci.com/blog/jan-4-2023-incident-report/)
 >
 >译者：[madneal](https://github.com/madneal)
 >
