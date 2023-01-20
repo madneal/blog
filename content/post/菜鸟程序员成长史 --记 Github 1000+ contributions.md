@@ -4,7 +4,7 @@ author: Neal
 description: "其实一直以来想写一篇文章总结这几年的技术学习，刚好趁着自己的第一次github contribution 达到1000+，写篇文章总结以下。本文篇幅较长，我会分为几个章节来分别阐述。博客篇为什么我要把博客放在第一位呢？因为我认为博客是developer学习技术的平台，也是developer分享知识的平台，博客差不多也就相当于是developer的名片。现如今，博客平台形形色色，有老牌的博客园，CSD"
 tags: [github,javascript,html]
 categories: [web前端]
-keywords: [前端,github,开源,博客,chrome 插件,pwa]
+keywords: [前端,github,开源,博客,chrome插件,pwa]
 date: "2017-05-19 08:53:06"
 ---
 ![1000contributions](http://i4.buimg.com/588926/07e0b61eb9aec42a.png)
