@@ -1,14 +1,14 @@
 ---
 title: "如何写一个 burp 插件"
 author: Neal
-tags: [安全,web 安全,安全开发,burp,burp 插件]
-keywords: [Burp,Burp 插件,Web 安全,IDEA]
+tags: [安全,web安全,安全开发,burp,burp 插件]
+keywords: [Burp,Burp 插件,web安全,IDEA]
 description: "开发 Burp 插件，并学会如何调试"
 categories: [安全开发]
 date: "2019-08-31" 
 ---
 
-Burp 是 Web 安全测试中不可或缺的神器。每一个师傅的电脑里面应该都有一个 Burp。同时 Burp 和很多其他神器一样，它也支持插件。但是目前总体来说网上 Burp 插件开发的资料不是特别特别的丰富。今天我也来讲讲自己如何从一个完全不会 Burp 插件开发的小白如何学习 Burp 插件的开发。
+Burp 是 web安全测试中不可或缺的神器。每一个师傅的电脑里面应该都有一个 Burp。同时 Burp 和很多其他神器一样，它也支持插件。但是目前总体来说网上 Burp 插件开发的资料不是特别特别的丰富。今天我也来讲讲自己如何从一个完全不会 Burp 插件开发的小白如何学习 Burp 插件的开发。
 
 ## 如何调试
 

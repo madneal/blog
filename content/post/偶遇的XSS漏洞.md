@@ -1,7 +1,7 @@
 ---
 title: "偶遇 XSS 漏洞"
 author: Neal
-tags: [安全, web 安全]
+tags: [安全, web安全]
 categories: [安全]
 date: "2019-08-22" 
 ---

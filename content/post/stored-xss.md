@@ -1,7 +1,7 @@
 ---
 title: "富文本场景下的 XSS"
 author: Neal
-tags: [web 安全, XSS, JS, GO]
+tags: [web安全, XSS, JS, GO]
 categories: [安全]
 date: 2021-08-30
 ---

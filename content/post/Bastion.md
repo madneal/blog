@@ -2,7 +2,7 @@
 title: "Bastion -- Hack the box"
 author: Neal
 description: ""
-tags: [web 安全, hack the box]
+tags: [web安全, hack the box]
 categories: [安全]
 date: "2019-09-22"
 ---

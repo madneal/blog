@@ -1,7 +1,7 @@
 ---
 title: "MyBatis 和 SQL 注入的恩恩怨怨"
 author: Neal
-tags: [安全, web 安全, SQL 注入]
+tags: [安全, web安全, SQL 注入]
 keywords: [sql注入,mybatis,JDBC,mybatis generator,预编译]
 categories: [安全]
 date: "2019-10-30" 
