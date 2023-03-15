@@ -1,5 +1,5 @@
 ---
-title: "Logstash 技巧之处理不同的 output"
+title: "Logstash技巧之处理不同的output"
 author: Neal
 tags: [ELK, Logstash]
 keywords: [插件, logstash]
