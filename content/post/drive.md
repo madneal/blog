@@ -137,3 +137,26 @@ func main() {
 ![image.png](https://s2.loli.net/2023/09/07/spyaPztHqLovZ69.png)
 
 另外一个重要的实现就是 API 的翻页功能。不过 API 的翻页和其它普通的翻页不太一样，因为它不是使用普通的 page_no 来进行翻页。它是通过 pageToken 来进行翻页，而 pageToken 是随机字符串，而不是普通的数字。
+
+```go
+func getResults(keyword, query string) {
+	pageToken := ""
+	results := make([]file.File, 0)
+	for {
+		r, err := scanner.service.Files.List().PageSize(10).Fields("nextPageToken,files(*)").
+			Q(query).Corpus("domain").
+			PageToken(pageToken).Do()
+		if err != nil {
+			
+		}
+		results = append(results, r.file())
+		if r.NextPageToken == "" {
+			break
+		}
+		pageToken = r.NextPageToken
+	}
+	return results
+}
+```
+
+通过 `Fields` 可以指定响应里面返回的字段，通过 Corpus 可以限定域内资源的搜索。
