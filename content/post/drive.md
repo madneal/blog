@@ -1,5 +1,5 @@
 ---
-title: "Google Drive 的信息监控"
+title: "Google Drive 的信息检索"
 author: Neal
 tags: [开发]
 keywords: [开发,Google Drive,API]
@@ -159,4 +159,4 @@ func getResults(keyword, query string) {
 }
 ```
 
-通过 `Fields` 可以指定响应里面返回的字段，通过 Corpus 可以限定域内资源的搜索。
+通过 `Fields` 可以指定响应里面返回的字段，通过 Corpus 可以限定域内资源的搜索。至此，基本上可以实现通过关键词实现对 Google Drive 信息的检索。虽然 Google Drive 支持关键词的全文搜索，但是搜索结果不支持展示匹配的上下文，这是唯一一个比较欠缺的地方。
