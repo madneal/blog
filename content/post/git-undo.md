@@ -15,19 +15,25 @@ When you make a new commit, Git stores a snapshot of your repository at that spe
 
 In this post, I’m going to take a look at some common scenarios where you might want to “undo” a change you’ve made and the best way to do it using Git.
 
+任何版本控制系统最有用的功能之一就是能够“撤消”错误。在 Git 中，“撤消”可能意味着许多略有不同的事情。
+
+当你进行新的 commit 时，Git 会及时存储你的仓库在该特定时刻的快照；之后，你可以使用 Git 返回到项目的早期版本。
+
+在这篇文章中，我将介绍一些你可能想要“撤消”所做更改的常见场景，以及使用 Git 执行此操作的最佳方法。
+
 ## Undo a “public” change
 
-**Scenario:** You just ran git push, sending your changes to GitHub, now you realize there’s a problem with one of those commits. You’d like to undo that commit.
+**Scenario:** You just ran `git push`, sending your changes to GitHub, now you realize there’s a problem with one of those commits. You’d like to undo that commit.
 
-**Undo with:** git revert <SHA>
+**Undo with:** `git revert<SHA>`
 
-**What’s happening:** git revert will create a new commit that’s the opposite (or inverse) of the given SHA. If the old commit is “matter”, the new commit is “anti-matter”—anything removed in the old commit will be added in the new commit and anything added in the old commit will be removed in the new commit.
+**What’s happening:** `git revert`will create a new commit that’s the opposite (or inverse) of the given SHA. If the old commit is “matter”, the new commit is “anti-matter”—anything removed in the old commit will be added in the new commit and anything added in the old commit will be removed in the new commit.
 
-This is Git’s safest, most basic “undo” scenario, because it doesn’t alter history—so you can now git push the new “inverse” commit to undo your mistaken commit.
+This is Git’s safest, most basic “undo” scenario, because it doesn’t alter history—so you can now `git push` the new “inverse” commit to undo your mistaken commit.
 
 ## Fix the last commit message
 
-**Scenario:** You just typo’d the last commit message, you did git commit -m "Fxies bug #42" but before git push you realized that really should say “Fixes bug #42”.
+**Scenario:** You just typo’d the last commit message, you did git commit -m "Fxies bug #42" but before `git push` you realized that really should say “Fixes bug #42”.
 
 **Undo with:** git commit --amend or git commit --amend -m "Fixes bug #42"
 
