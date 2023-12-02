@@ -7,7 +7,13 @@ categories: [git,GitHub,开发]
 date: "2023-11-12" 
 ---
 
-https://github.blog/2015-06-08-how-to-undo-almost-anything-with-git/
+>原文：[How to undo (almost) anything with Git](https://github.blog/2015-06-08-how-to-undo-almost-anything-with-git/)
+>
+>译者：[madneal](https://github.com/madneal)
+>
+>welcome to star my [articles-translator](https://github.com/madneal/articles-translator/), providing you advanced articles translation. Any suggestion, please issue or contact [me](mailto:bing@stu.ecnu.edu.cn)
+>
+>LICENSE: [MIT](https://opensource.org/licenses/MIT)
 
 ![](https://github.blog/wp-content/uploads/2019/03/community-twitter.png?resize=1201%2C630)
 
