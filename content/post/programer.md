@@ -5,12 +5,12 @@ description: "其实一直以来想写一篇文章总结这几年的技术学习
 tags: [github,javascript,html,开源]
 categories: [web前端]
 keywords: [前端,github,开源,博客,chrome插件,pwa]
-date: "2017-05-19 08:53:06"
+date: "2017-05-19"
 ---
 
 ![image.png](https://s2.loli.net/2024/03/29/48EWRegFvPGiMnw.png)
 
-其实一直以来想写一篇文章总结这几年的技术学习，刚好趁着自己的第一次github contribution 达到1000+，写篇文章总结以下。本文篇幅较长，我会分为几个章节来分别阐述。
+其实一直以来想写一篇文章总结这几年的技术学习，刚好趁着自己的第一次 github contribution 达到1000+，写篇文章总结以下。本文篇幅较长，我会分为几个章节来分别阐述。
 
 # 博客篇
 
