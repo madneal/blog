@@ -22,7 +22,7 @@ Home Assistant 支持多种安装方案，不过他们主推的是他们自己�
 
 接着需要把虚机的网络里面去配置桥接，官方文档里面说必须要使用有线连接网络，但是我的笔记本使用 WIFI 也没有什么问题。
 
-![image.png](https://s2.loli.net/2024/06/30/mVqNXzxMaUrcY9s.png)
+![网络设置](https://s2.loli.net/2024/06/30/mVqNXzxMaUrcY9s.png)
 
 系统全都配置好了之后，就直接启动系统，等待系统初始化好后即可。系统初始化好后，即可进入页面 http://homeassistant.local:8123/ 。一般进入页面的时候可能还需要等待一段时间初始化。
 
@@ -68,7 +68,7 @@ wget -O - https://get.hacs.xyz | bash -
 
 ## 小米插件安装
 
-通过 [hass-xiaomi-miot](https://github.com/al-one/hass-xiaomi-miot) 可以小米的插件，插件文档可以参考[这一篇](https://mp.weixin.qq.com/s/1y_EV6xcg17r743aV-2eRw)。这个文档里面是之前的老版本的界面，新版的界面已经发生变化了。小米插件安装成功后，也需要重启一下机器。安装完成之后继续选择 xiaomi 集成开始安装，需要通过小米账号来进行集成。小米账号可以支持小米的数字 ID 以及邮箱，就是你的小米账号。
+通过 [hass-xiaomi-miot](https://github.com/al-one/hass-xiaomi-miot) 安装小米的插件，插件文档可以参考[这一篇](https://mp.weixin.qq.com/s/1y_EV6xcg17r743aV-2eRw)。这个文档里面是之前的老版本的界面，新版的界面已经发生变化。小米插件安装成功后，也需要重启一下机器。安装完成之后继续选择 xiaomi 集成开始安装，需要通过小米账号来进行集成。小米账号可以支持小米的数字 ID 以及邮箱，就是你的小米账号。安装成功后，小米的设备都能够直接在 Overview 中展示。
 
 ![xiao-integration.png](https://s2.loli.net/2024/06/30/A4COpBN72KjkUr6.png)
 
@@ -145,6 +145,8 @@ shell_command:
 ```
 
 最终重启之后，尝试了终于保存视频成功了。
+
+![视频文件](https://s2.loli.net/2024/07/01/w8pXvBmZJPjAGFe.png)
 
 ## 遗留问题
 
