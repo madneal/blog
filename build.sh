@@ -18,7 +18,7 @@ git push origin master
 
 
 # Build the project. 
-hugo -t hugo-nuo > hugo.log
+hugo --buildFuture -t hugo-nuo > hugo.log
 # if using a theme, replace by `hugo -t <yourtheme>`
 
 # Go To Public folder
