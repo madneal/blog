@@ -3,7 +3,7 @@ title: "NilAway：实用的 Go Nil Panic 检测方式"
 author: Neal
 tags: [Go, nil panic]
 categories: [开发]
-date: "2024-11-30" 
+date: "2024-12-1" 
 ---
 
 >原文：[NilAway: Practical Nil Panic Detection for Go](https://www.uber.com/en-NL/blog/nilaway-practical-nil-panic-detection-for-go/)
