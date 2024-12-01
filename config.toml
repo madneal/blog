@@ -7,6 +7,8 @@ enableRobotsTXT = true
 PygmentsCodeFences = true
 canonifyurls = true
 buildfuture = true
+[frontmatter]  
+date = ["local"] 
 
 # Disqus Username
 disqusShortname = "nealecnu"
