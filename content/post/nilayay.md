@@ -28,7 +28,7 @@ nil panic 是指程序尝试解引用一个 nil 指针时发生的运行时 pani
 
 <p align="center">图 1：Nil panic 报错</p>
 
-图 2 显示了在实现 Go 标准库（特别是 *net* 包）中发现并解决的最近一次 [nil panic 问题](https://github.com/golang/go/pull/60823?uclick_id=6f537554-73b3-4559-9cd3-4ce624452b1f) 的示例。由于在第 1859 行直接调用了方法 `RemoteAddr()` 的返回值上的 `String()` 方法，假设它总是非 nil 的，如图2所示，从而引发了 panic。当接口类型 `net.Conn` 的字段 `c.rwc` 被分配给结构 `net.conn` 时导致了这个问题，因为如果发现连接 c 异常的话，它的 `RemoteAddr()` 的具体实现可以返回 nil 值（如图 3 所示）。具体来说，`RemoteAddr()` 可以在 L225 返回一个 [nil 接口值](https://go.dev/tour/methods/13?uclick_id=6f537554-73b3-4559-9cd3-4ce624452b1f#:~:text=A%20nil%20interface%20value%20holds,which%20concrete%20method%20to%20call.)，当被调用方法（`.String()`）时，由于 `nil` 值不包含任何指向可以调用的具体方法的指针，从而导致 nil panic。
+图 2 显示了在实现 Go 标准库（特别是 *net* 包）中发现并解决的最近一次 [nil panic 问题](https://github.com/golang/go/pull/60823?uclick_id=6f537554-73b3-4559-9cd3-4ce624452b1f) 的示例。由于在第 1859 行直接调用了方法 *RemoteAddr()* 的返回值上的 *String()* 方法，假设它总是非 nil 的，如图2所示，从而引发了 panic。当接口类型 *net.Conn* 的字段 *c.rwc* 被分配给结构 *net.conn* 时导致了这个问题，因为如果发现连接 c 异常的话，它的 *RemoteAddr()* 的具体实现可以返回 nil 值（如图 3 所示）。具体来说，*RemoteAddr()* 可以在 L225 返回一个 [nil 接口值](https://go.dev/tour/methods/13?uclick_id=6f537554-73b3-4559-9cd3-4ce624452b1f#:~:text=A%20nil%20interface%20value%20holds,which%20concrete%20method%20to%20call.)，当被调用方法（*.String()*）时，由于 *nil* 值不包含任何指向可以调用的具体方法的指针，从而导致 nil panic。
 
 ![Figure 2: Fix commit from golang/go fixing a nil panic in its net package (PR #60823). The nil panic is caused by calling method String() on the return of RemoteAddr() on L1859, which can be a nil interface value (as shown in Figure 3)](https://blog.uber-cdn.com/cdn-cgi/image/width=2048,quality=80,onerror=redirect,format=auto/wp-content/uploads/2023/11/figure_2.jpeg)
 
@@ -41,9 +41,9 @@ nil panic 是指程序尝试解引用一个 nil 指针时发生的运行时 pani
 
 nil panic 还可能导致拒绝服务攻击。例如，[CVE-2020-29652](https://www.cvedetails.com/cve/CVE-2020-29652/?uclick_id=620f1ca1-e871-4193-9f25-2bc76417cfa7) 就是由于在 [golang.org/x/crypto/ssh](https://cs.opensource.google/go/x/crypto?uclick_id=620f1ca1-e871-4193-9f25-2bc76417cfa7) 中的 nil 指针解引用，允许远程攻击者对 SSH 服务器发动拒绝服务攻击。
 
-存在一个名为 [nilness](https://pkg.go.dev/golang.org/x/tools/go/analysis/passes/nilness?uclick_id=620f1ca1-e871-4193-9f25-2bc76417cfa7) 的自动化工具，由 Go 发行版提供，用于检测 nil panic。这个 nilness 检查器是一种轻量级静态分析技术，仅报告简单错误，例如明显的 nil 解引用位置（例如，*if x == nil { print(*x) }*）。然而，这种简单的检查无法捕捉到真实程序中复杂的 nil 流，如图2所示。因此，我们需要一种能够进行严格分析并在生产代码上有效的技术。
+存在一个名为 [nilness](https://pkg.go.dev/golang.org/x/tools/go/analysis/passes/nilness?uclick_id=620f1ca1-e871-4193-9f25-2bc76417cfa7) 的自动化工具，由 Go 发行版提供，用于检测 nil panic。这个 nilness 检查器是一种轻量级静态分析技术，仅报告简单错误，例如明显的 nil 解引用位置（例如，*if x == nil { print(*x) }* ）。然而，这种简单的检查无法捕捉到真实程序中复杂的 nil 流，如图2所示。因此，我们需要一种能够进行严格分析并在生产代码上有效的技术。
 
-为了处理 Java 中的空指针异常（NPE），Uber开发了 [NullAway](https://www.uber.com/blog/nullaway/?uclick_id=620f1ca1-e871-4193-9f25-2bc76417cfa7)。NullAwa 要求代码使用 `@Nullable` 注解进行标注，以保证在编译时不出现 NPE。这限制了我们直接改编类似 `NullAway` 技术的可行性，因为与 Java 不同，Go 语言并不支持注解。此外，为大型代码库（例如，Uber 的 Go 单体库，包含 9000 万行代码）添加注解是一项繁琐的任务。此外，Go语言的各种独特特性和特有习惯也带来了独特的挑战。
+为了处理 Java 中的空指针异常（NPE），Uber开发了 [NullAway](https://www.uber.com/blog/nullaway/?uclick_id=620f1ca1-e871-4193-9f25-2bc76417cfa7)。NullAwa 要求代码使用 *@Nullable* 注解进行标注，以保证在编译时不出现 NPE。这限制了我们直接改编类似 *NullAway* 技术的可行性，因为与 Java 不同，Go 语言并不支持注解。此外，为大型代码库（例如，Uber 的 Go 单体库，包含 9000 万行代码）添加注解是一项繁琐的任务。此外，Go语言的各种独特特性和特有习惯也带来了独特的挑战。
 
 我们克服这些限制的答案是？**NilAway**。
 
@@ -98,8 +98,6 @@ NilAway 在 Go 单体库中集中部署，与 Bazel+Nogo 框架紧密集成，�
 
 我们已在 Uber 的多个服务中接入了 NilAway，涵盖了这两种选项，团队反馈总体积极。一位满意的用户表示：“NilAway 帮助他们的团队及早发现问题，防止了部署回滚。”另一位用户则表示：“NilAway 留下的评论非常可操作，并没有造成任何噪音。”用户们也积极报告他们可能遇到的误报，并建议可用性改进，我们正在积极进行改进。
 
-### Impactful Example
-
 ### 影响深远的例子
 
 我们现在讨论一个有趣的案例，NilAway 报告了一个重要错误，该服务在生产代码中每天记录超过 3,000 次 nil panic。图 7 显示了导致 nil panic 的代码的简化和编辑摘录。这个例子使用了 Go 语言中的消息传递构造 —— [通道](https://go.dev/tour/concurrency/2?uclick_id=620f1ca1-e871-4193-9f25-2bc76417cfa7)。在 L16 行，函数调用 *t.s.foo(…)* 返回一个通道 *ch*，随后被变量 *a* 接收。不幸的是，Go 语言允许从关闭的通道读取，在这种情况下将返回一个零值（即 nil）。如果在函数 foo 中执行代码路径 L7->L8->L5，通道将被关闭而没有任何写入。这将在 L17 行的解引用点 *a.Items[*id]* 处导致 nil panic。NilAway 正确地报告了这个错误，因为它观察到了可能从关闭通道接收的变量上的不安全解引用。
@@ -108,9 +106,7 @@ NilAway 在 Go 单体库中集中部署，与 Bazel+Nogo 框架紧密集成，�
 
 <p align="center">图7：来自内部Uber服务的简化和删减代码摘录，显示在生产环境中每天记录超过3000个nil panic。</p>
 
-The fix for this problem is to properly guard the receive from a closed channel, either using the ok construct of Go (e.g., if a, ok := <-t.s.foo(…); ok { … }) or by a nilness check on the result variable a (e.g., if a != nil { … }) before the dereference on L17. Our developers applied the nilness check fix right after NilAway reported this error, and the impact was remarkable: the service went from logging 3,000+ nil panics daily to 0, as shown in Figure 8.
-
-解决此问题的方法是正确地防止从关闭的通道接收数据，可以使用 Go 的 ok 结构（例如，*if a, ok := <-t.s.foo(…); ok { … }*）或在结果变量 a 上进行 nil 检查（例如，在 L17 解引用之前，*if a != nil { … }*）。我们的开发人员在 NilAway 报告此错误后立即应用了 nil 检查修复，效果显著：服务的每日 nil panic 日志从 3000+ 降至 0，如图 8 所示。
+解决此问题的方法是正确地防止从关闭的通道接收数据，可以使用 Go 的 ok 结构（例如，*if a, ok := <-t.s.foo(…); ok { … }*）或在结果变量 a 上进行 nil 检查（例如，在 L17 解引用之前，*if a != nil { … }* ）。我们的开发人员在 NilAway 报告此错误后立即应用了 nil 检查修复，效果显著：服务的每日 nil panic 日志从 3000+ 降至 0，如图 8 所示。
 
 ![Figure 8: Complete addressal of the 3000+ nil panics being logged per day in production.](https://blog.uber-cdn.com/cdn-cgi/image/width=1252,quality=80,onerror=redirect,format=auto/wp-content/uploads/2023/11/figure_8.jpg)
 
