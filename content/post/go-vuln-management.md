@@ -11,7 +11,7 @@ date: "2022-09-07"
 >
 >译者：[madneal](https://github.com/madneal)
 >
->welcome to star my [articles-translator](https://github.com/madneal/articles-translator/), providing you advanced articles translation. Any suggestion, please issue or contact [me](mailto:bing@stu.ecnu.edu.cn)
+>welcome to star my [articles-translator](https://github.com/madneal/articles-translator/), providing you advanced articles translation. Any suggestion, please issue or contact [me](mailto:bing.ecnu@gmail.com)
 >
 >LICENSE: [MIT](https://opensource.org/licenses/MIT)
 

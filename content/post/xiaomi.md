@@ -1,7 +1,7 @@
 ---
 title: "Home Assistant 小米门铃视频本地存储"
 author: Neal
-tags: [全屋智能~,小米]
+tags: [全屋智能,小米]
 categories: [生活]
 date: "2024-06-29" 
 ---

@@ -1,6 +1,6 @@
 ---
 title: "消灭 star 大作战--Front-end-tutorial"
-tags: ["js"]
+tags: ["javascirpt"]
 categories: ["前端"]
 date: "2018-04-07"
 ---
