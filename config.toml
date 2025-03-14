@@ -8,6 +8,7 @@ PygmentsCodeFences = true
 canonifyurls = true
 
 # Disqus Username
+[params]
 disqusShortname = "nealecnu"
 
 # Google Analytics UA number
