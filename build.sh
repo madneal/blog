@@ -1,43 +1,69 @@
 #!/bin/bash  
-set -e  # Exit immediately if a command exits with a non-zero status  
 
-echo -e "\033[0;32mDeploying updates to GitHub...\033[0m"  
+# Set strict error handling  
+set -e  
 
-# Use current timestamp if no commit message provided  
-msg="${1:-Rebuilding site $(date)}"  
+# Color codes  
+GREEN='\033[0;32m'  
+RED='\033[0;31m'  
+NC='\033[0m' # No Color  
 
-# Ensure you're on the correct branch  
-git checkout master  
+# Function for logging  
+log() {  
+    echo -e "${GREEN}[DEPLOY] $1${NC}"  
+}  
 
-# Pull latest changes first  
-git pull origin master  
+# Function for error handling  
+error() {  
+    echo -e "${RED}[ERROR] $1${NC}"  
+    exit 1  
+}  
 
-# Stage all changes  
+# Timestamp for commit message  
+TIMESTAMP=$(date "+%Y-%m-%d %H:%M:%S")  
+COMMIT_MSG="${1:-Site update: $TIMESTAMP}"  
+
+# Step 1: Verify current branch  
+CURRENT_BRANCH=$(git rev-parse --abbrev-ref HEAD)  
+if [ "$CURRENT_BRANCH" != "master" ]; then  
+    error "Not on master branch. Current branch: $CURRENT_BRANCH"  
+fi  
+
+# Step 2: Pull latest changes  
+log "Pulling latest changes..."  
+git pull origin master || error "Failed to pull changes"  
+
+# Step 3: Stage all changes  
+log "Staging all changes..."  
 git add -A  
 
-# Commit changes  
-git commit -m "$msg" || echo "No changes to commit"  
+# Step 4: Commit changes  
+log "Committing changes: $COMMIT_MSG"  
+git commit -m "$COMMIT_MSG" || log "No changes to commit"  
 
-# Push to remote  
-git push origin master  
+# Step 5: Push to repository  
+log "Pushing to remote repository..."  
+git push origin master || error "Failed to push to repository"  
 
-# Build Hugo site with verbose output  
-hugo -t hugo-nuo --verbose > hugo.log  
+# Step 6: Hugo build  
+log "Building Hugo site..."  
+hugo -t hugo-nuo || error "Hugo build failed"  
 
-# Check build log for errors  
-cat hugo.log  
+# Optional: Generate build log  
+hugo -t hugo-nuo > hugo_build.log 2>&1  
 
-# Enter public directory  
+# Step 7: Deploy public directory  
 cd public  
 
 # Stage public directory changes  
 git add -A  
 
-# Commit public directory changes  
-git commit -m "$msg" || echo "No public changes to commit"  
+# Commit public changes  
+git commit -m "$COMMIT_MSG" || log "No public directory changes"  
 
-# Pull and push public directory  
+# Push public directory  
 git pull origin master  
 git push origin master  
 
-echo -e "\033[0;32mDeployment completed!\033[0m"  
+# Final success message  
+log "Deployment completed successfully! 🚀"  
