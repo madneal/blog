@@ -7,10 +7,6 @@ enableRobotsTXT = true
 PygmentsCodeFences = true
 canonifyurls = true
 
-# Disqus Username
-[params]
-disqusShortname = "nealecnu"
-
 # Google Analytics UA number
 googleAnalytics = "UA-104405154-2"
 
@@ -53,6 +49,7 @@ copyright = "© This post is licensed under a Creative Commons Attribution-NonCo
   # Google Webmaster
   # https://www.google.com/webmasters/
   googleSiteVerification = "_moDmnnBNVLBN1rzNxyGUGdPHE20YgbmrtzLIbxaWFc"
+  disqusShortname = "nealecnu"
 
   # Bing Webmaster
   # https://www.bing.com/toolbox/webmaster/
