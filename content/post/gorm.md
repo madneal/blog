@@ -1,6 +1,6 @@
 
 ---
-title: "AI 审代码，靠谱吗？——一个 GORM SQL 注入漏洞的思考"
+title: "AI 审代码，靠谱吗？"
 author: Neal
 tags: [安全, GORM, Go, AI]
 categories: [安全]
