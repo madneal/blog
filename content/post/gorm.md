@@ -4,7 +4,7 @@ title: "AI 审代码，靠谱吗？"
 author: Neal
 tags: [安全, GORM, Go, AI]
 categories: [安全]
-date: "2025-08-2" 
+date: "2025-08-22" 
 ---
 
 ### 背景：一道出乎意料的笔试题
