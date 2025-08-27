@@ -58,7 +58,7 @@ func (db *DB) First(dest interface{}, conds ...interface{}) (tx *DB) {
 
 从源码看，当 `conds` 参数不为空时，GORM 会调用 `tx.Statement.BuildCondition`来处理查询条件。
 
-[image.png](https://postimg.cc/Wqgh48vx)
+[![image.png](https://i.postimg.cc/BbwDM7wZ/image.png)](https://postimg.cc/Wqgh48vx)
 
 乍看之下，`BuildCondition` 似乎会对传入的条件进行某种安全处理。但事实果真如此吗？
 
