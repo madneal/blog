@@ -308,9 +308,9 @@ myapp: go1.24.0
 
 看来 toolchain 的版本设置也并没有这么简单。最终 go 编译的版本还取决于 `GOTOOLCHAIN` 这一环境变量。这一环境变量有 3 种形式：
 
-* <name>
-* <name>+auto
-* <name>+path
+* \<name\>
+* \<name\>+auto
+* \<name\>+path
 
 `GOTOOLCHAIN=auto` 是 `GOTOOLCHAIN=local+auto` 的缩写，`GOTOOLCHAIN=pth` 是 `GOTOOLCHAIN=local+path` 的简写。实际上当 `GOTOLLCHAIN` 为 auto 或者 local 的时候，toolchain 都会默认使用本地的 go 版本来进行编译，即 `go1.24.0`。但是当我们指定 `GOTOOLCHAIN` 版本的时候：
 
