@@ -20,7 +20,7 @@ toolchain go1.22.9
 提问：go.mod 中 Go 版本与 Toolchain 版本不一致会带来什么问题？
 ```
 
-<pre>
+```markdown
 在 Go 1.21+（尤其是 1.22/1.23 引入 `toolchain` 机制）后，`go.mod` 中有两个相关但不同的概念：
 
 - `go <X.Y>`：声明模块期望的语言语义、标准库 API 可用性、构建默认行为（如 `for loop` 变量捕获、`vendor` 行为等）的最低版本。
@@ -111,7 +111,7 @@ toolchain go1.22.9
   ```
 
 如果你能提供你的 `go.mod`（含 `go` 与 `toolchain` 字段）和团队/CI 的 `go version`，我可以给出更具体的风险评估与对齐方案。
-</pre>
+```
 
 但是这种不一致真的有问题吗，如果真的有问题，go 为什么要推出 toolchain？如果一定要保持版本的一致，我理解那就没必要有 toolchain 这个概念。让我们追问下 AI：
 
