@@ -69,7 +69,7 @@ toolchain go1.21.0  // 却想用 1.21 的旧工具链编译，编译器当场去
 >     ```
 > **核心意义：** `toolchain` 实现了 **语言版本** 和 **工具版本** 的解耦。你可以用最新的锤子（工具链）去造一把符合旧图纸（`go` 版本）的椅子，又快又好。但你不能用一把旧锤子去造一把需要新工艺的椅子。
 >
-> **最佳实践：** 推荐使用“保守的语言版本 + 激进的工具链版本”策略，这在大型项目渐进式升级时特别有用。
+> **最佳实践：** 推荐使用“保守的语言版本 + 激进的 toolchain 版本”策略，这在大型项目渐进式升级时特别有用。
 
 看到没？AI 开始“摇摆”了。它承认了这种不一致是“安全且有益的”。
 
@@ -96,7 +96,7 @@ toolchain go1.21.0  // 却想用 1.21 的旧工具链编译，编译器当场去
 
 ## 深入探索：`GOTOOLCHAIN` 才是幕后黑手
 
-创建一个 sample [项目](https://github.com/madneal/codehub/tree/master/toolchain)来进行验证，`go.mod` 里面的版本声明与之前的保持一致。
+创建一个 sample [项目](https://github.com/madneal/codehub/tree/master/toolchain)来进行验证，`go.mod` 里面的版本声明与之前的项目保持一致。
 
 执行构建和版本检查命令：
 
@@ -117,7 +117,7 @@ myapp: go1.24.0
 
 这个环境变量决定了 Go 命令到底如何选择 toolchain，它有几种常见的设置：
 
-1.  `GOTOOLCHAIN=local`：强制使用本地安装的 Go 版本。如果 `go version` 显示是 `1.24.0`，那就用 `1.24.0`，完全无视 `go.mod` 里的 `toolchain` 指令。这通常是默认行为。
+1.  `GOTOOLCHAIN=local`：强制使用本地安装的 Go 版本。如果 `go version` 显示是 `1.24.0`，那就用 `1.24.0`，完全无视 `go.mod` 里的 `toolchain` 指令。
 2.  `GOTOOLCHAIN=auto`：这是 `local+auto` 的简写。它会先尝试使用本地版本。但如果 `go.mod` 要求的 `toolchain` 版本比本地版本新，它就会**自动下载并使用**指定的版本。
 3.  `GOTOOLCHAIN=<version>`：例如 `GOTOOLCHAIN=go1.22.9`。这种设置最为霸道，它会强制 Go 命令使用 `go1.22.9` 版本。如果本地没有，它也会**自动下载**。
 
@@ -140,6 +140,25 @@ Bingo！这次构建的产物版本就是我们期望的 `go1.22.9`。
 答案取决于容器环境里的 `GOTOOLCHAIN` 设置。
 *   如果设为 `local` (默认)，它会用容器自带的 `1.21` 版本去编译，此时 `toolchain go1.22.9` 的声明就会被忽略，但因为 `go 1.21.1` 的兼容性保证，代码依旧能正确编译。
 *   如果设为 `auto` 或 `go1.22.9`，容器在构建时会尝试下载 `go1.22.9` 工具链来编译项目。
+
+如果在 go.mod 里面不指定 toolchain 的版本，结果会不会不一样呢？我们移除 `go.mod` 中 `toolchain` 配置，看看 build 的结果如何。
+
+```bash
+go build -o myapp main.go
+goolchain git:(master) ✗ go version myapp         
+myapp: go1.24.0
+```
+
+可以看出，即使不使用 `toolchain`，go 也会选择本地的版本来进行编译。
+
+综合来看，Go 的工具链选择逻辑非常清晰：
+
+* go.mod 未声明 toolchain：Go 命令总是使用本地环境的 Go 版本，前提是它必须满足 go 指令的最低版本要求。
+* go.mod 声明了 toolchain：
+    * GOTOOLCHAIN=local：强制使用本地版本，忽略 toolchain 指令。
+    * GOTOOLCHAIN=auto (默认)：在本地版本和 toolchain 版本中，选择较新的那个。如果 toolchain 版本更新，则自动下载。
+
+可以看出无论是否有 toolchain 声明，本地开发的版本都是与线上的版本不一致。具体的编译版本还需要取决于 `GOTOOLCHAIN` 环境变量的配置以及本地安装的 go 版本。
 
 #### 总结：拥抱这种“不一致”
 
