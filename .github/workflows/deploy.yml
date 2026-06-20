@@ -32,7 +32,9 @@ jobs:
           extended: true
 
       - name: Fetch theme
-        run: git submodule update --init --depth 1 themes/hugo-nuo
+        run: |
+          git submodule sync --recursive
+          git submodule update --init --depth 1 themes/hugo-nuo
 
       - name: Build site
         run: hugo -t hugo-nuo
@@ -45,6 +47,5 @@ jobs:
           publish_branch: master
           publish_dir: ./public
           cname: madneal.com
-          keep_files: true
           user_name: github-actions[bot]
           user_email: 41898282+github-actions[bot]@users.noreply.github.com
