@@ -6,6 +6,7 @@ keywords: [黄金, Au99.99, 上海黄金交易所, 金价, 投资, 数据分析]
 categories: [投资]
 date: "2026-06-20"
 slug: "au9999-gold-trend-2026"
+cover: "/img/au9999-gold-trend/cover.png"
 toc: true
 ---
 
