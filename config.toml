@@ -36,8 +36,8 @@ copyright = "© This post is licensed under a Creative Commons Attribution-NonCo
 # Add your own params here
 [params]
   author = "Neal"
-  avatar = "https://cdn.jsdelivr.net/gh/neal1991/neal1991.github.io/img/avatar.jpg"
-  wechat = "https://cdn.jsdelivr.net/gh/neal1991/neal1991.github.io/img/wechat.jpg"
+  avatar = "images/avatar.jpg"
+  wechat = "images/wechat.jpg"
   seotitle = "Neal 的博客"
   subtitle = "Development & Security"
   description = "全栈工程师的进击"
