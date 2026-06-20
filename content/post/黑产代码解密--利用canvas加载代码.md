@@ -2,7 +2,7 @@
 title: "黑产代码解密--利用canvas加载代码"
 author: Neal
 description: ""
-tags: [canvas,前端开发,安全]
+tags: [安全, 前端]
 categories: [web security]
 date: "2018-08-12"
 ---

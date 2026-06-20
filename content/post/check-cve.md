@@ -1,7 +1,7 @@
 ---
 title: "cve check"
 author: Neal
-tags: [python]
+tags: [安全, 漏洞分析, Python]
 categories: [安全开发]
 date: "2019-07-04" 
 ---

@@ -1,7 +1,7 @@
 ---
 title: "ChatGPT账户接管 - 通配符网页缓存欺骗"
 author: Neal
-tags: [安全]
+tags: [安全, Web安全, 漏洞分析]
 keywords: [AI,web 安全]
 categories: [安全]
 date: "2025-02-10" 

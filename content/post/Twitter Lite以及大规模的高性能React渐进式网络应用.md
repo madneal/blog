@@ -7,7 +7,7 @@ description: "Twitter Lite以及大规模的高性能React渐进式网络应用
   译者：neal1991
   
   welcome to star my articles-translator , providing you advanced articl"
-tags: [twitter,高性能]
+tags: [JavaScript, 前端, 翻译]
 categories: [web前端]
 date: "2017-04-16 08:27:46"
 ---

@@ -2,7 +2,7 @@
 title: "web 狗之writeup--phone"
 author: Neal
 description: ""
-tags: [CTF, WEB]
+tags: [学习笔记]
 categories: [CTF]
 date: "2018-08-23"
 ---

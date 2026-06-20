@@ -6,7 +6,7 @@ windows
 https://windows.github.com 
 mac 
 https://mac.github.com配置工具对于本地版本配置用户信息git config --global user.n"
-tags: [github]
+tags: [Git, 开发工具]
 categories: [web前端]
 date: "2015-10-25 22:30:00"
 ---

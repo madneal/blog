@@ -2,7 +2,7 @@
 title: "Elasticsearch 团队开发章程"
 author: Neal
 description: "我们作为 Elasticsearch 核心开发人员团队希望尽可能快地向可靠，健壮，安全，可扩展且易于使用的系统迁移。我们希望为创新而努力，取代传统的构造和功能，删除脆弱的代码，并致力于改善用户体验，同时在我们快速变化的同时保持用户增长。"
-tags: [elastic, 团队, 翻译]
+tags: [工程化, 翻译]
 categories: [团队]
 date: "2018-06-16"
 ---

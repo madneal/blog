@@ -1,7 +1,7 @@
 ---
 title: "gobuster源码阅读--dir篇"
 author: Neal
-tags: [web安全, gobuster, 源码阅读]
+tags: [安全, Web安全, Go, Gobuster]
 keywords: [web安全, gobuster, 源码阅读]
 categories: [源码阅读]
 date: "2022-04-21" 

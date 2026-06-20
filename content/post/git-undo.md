@@ -1,7 +1,7 @@
 ---
 title: "如何使用 Git 撤消（几乎）任何操作"
 author: Neal
-tags: [开发]
+tags: [Git, 开发工具]
 keywords: [git,GitHub,开发]
 categories: [git,GitHub,开发]
 date: "2023-11-12" 

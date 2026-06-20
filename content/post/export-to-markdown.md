@@ -1,7 +1,7 @@
 ---
 title: "大佬，您这是在借鉴嘛"
 author: Neal
-tags: [前端开发, Chrome 插件]
+tags: [前端, 工程化, 工具]
 categories: [前端开发]
 date: "2024-06-27" 
 ---

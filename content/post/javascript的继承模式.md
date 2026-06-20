@@ -6,7 +6,7 @@ http://segmentfault.com/a/1190000000766541基本模式var Parent = function(){
     this.name = 'parent';
 ｝;
 Parent"
-tags: [javascript,继承]
+tags: [JavaScript]
 categories: [web前端]
 date: "2015-10-24 14:03:33"
 ---

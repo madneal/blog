@@ -1,7 +1,7 @@
 ---
 title: "GitHub 更新了 RSA SSH host key"
 author: Neal
-tags: [GitHub,cybersecurity,RSA,git]
+tags: [安全, Git, 开源]
 categories: [security]
 date: "2023-03-24" 
 ---

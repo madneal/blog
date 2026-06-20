@@ -2,7 +2,7 @@
 title: "僵尸网络 Stantinko 犯罪活动新增加密货币挖矿"
 author: Neal
 keywords: [僵尸网络,挖矿,恶意软件,门罗币,加密货币]
-tags: [恶意软件,挖矿]
+tags: [安全]
 keywords: [wmic,windows,补丁,patch]
 categories: [安全情报]
 date: "2019-11-29"

@@ -1,7 +1,7 @@
 ---
 title: "持续发布 Chrome 插件"
 author: Neal
-tags: [chrome插件, CirecleCI]
+tags: [安全, 安全开发, 前端, 工程化]
 categories: [开发]
 date: "2019-05-27" 
 ---

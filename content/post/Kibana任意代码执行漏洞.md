@@ -1,7 +1,7 @@
 ---
 title: "Kibana 任意代码执行漏洞"
 author: Neal
-tags: [Kibana,漏洞,安全]
+tags: [安全, Web安全, 漏洞分析]
 categories: [安全]
 date: "2019-10-17"
 ---

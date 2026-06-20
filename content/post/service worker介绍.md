@@ -9,7 +9,7 @@ description: "原文：Service workers explained
   
   LICENSE: MIT
 那么它"
-tags: [pwa,sw]
+tags: [前端]
 categories: [web前端]
 date: "2017-05-02 12:21:13"
 ---

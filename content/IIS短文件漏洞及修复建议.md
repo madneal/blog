@@ -1,7 +1,7 @@
 ---
 title: "IIS短文件漏洞及修复建议"
 author: Neal
-tags: [安全]
+tags: [安全, Web安全, 漏洞分析]
 categories: [安全]
 date: "2019-01-14" 
 ---

@@ -2,7 +2,7 @@
 title: "GShark-监测你的 Github 敏感信息泄露"
 author: Neal
 description: ""
-tags: [go, 安全]
+tags: [安全, 安全工程, Go, GShark]
 categories: [安全]
 date: "2018-10-31"
 ---

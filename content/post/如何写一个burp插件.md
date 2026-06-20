@@ -1,7 +1,7 @@
 ---
 title: "如何写一个 burp 插件"
 author: Neal
-tags: [安全,web安全,安全开发,burp,burp 插件]
+tags: [安全, Web安全, 安全开发, Burp]
 keywords: [Burp,Burp 插件,web安全,IDEA]
 description: "开发 Burp 插件，并学会如何调试"
 categories: [安全开发]

@@ -1,6 +1,6 @@
 ---
 title: "service worker之cache实践--sw-precache"
-tags: ["pwa"]
+tags: [前端]
 categories: ["前端"]
 date: 2017-04-22
 ---

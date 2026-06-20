@@ -2,7 +2,7 @@
 title: "Wmic 使用中的一些问题"
 author: Neal
 description: "Wmic, 即 Windows Management Instrumentation Command-Line Utility，通过这个工具我们可以获取计算本地的很多信息。"
-tags: [wmic, windows]
+tags: [工具]
 keywords: [wmic,windows,补丁,patch]
 categories: [windows]
 date: "2018-06-21"

@@ -5,7 +5,7 @@ description: "使用matlab做实验的时候，保存的文件里面的变量名
 %% 变量批量重命名 
 clear all 
 rootn"
-tags: [matlab,eval]
+tags: [计算机视觉]
 categories: [matlab]
 date: "2015-09-08 09:31:21"
 ---

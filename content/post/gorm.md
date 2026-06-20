@@ -2,7 +2,7 @@
 ---
 title: "AI 审代码，靠谱吗？"
 author: Neal
-tags: [安全, GORM, Go, AI]
+tags: [安全, 代码审计, Go, AI]
 categories: [安全]
 date: "2025-08-22" 
 ---

@@ -1,7 +1,7 @@
 ---
 title: "Shopee 靠谱内推"
 author: Neal
-tags: [内推]
+tags: [生活]
 categories: [内推]
 date: "2022-08-07"
 ---

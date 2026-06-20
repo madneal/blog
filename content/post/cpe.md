@@ -1,7 +1,7 @@
 ---
 title: "CPE 获取指南"
 author: Neal
-tags: [CISSP,CPE,认证]
+tags: [安全, 安全工程, 认证考试]
 categories: [认证]
 date: "2022-12-02"
 ---

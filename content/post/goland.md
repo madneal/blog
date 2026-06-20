@@ -1,7 +1,7 @@
 ---
 title: "goland-2022.01版本最新实用功能"
 author: Neal
-tags: [goland,Go]
+tags: [Go, 开发工具]
 keywords: [goland,Go]
 categories: [开发工具]
 date: "2022-05-01" 

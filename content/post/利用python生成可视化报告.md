@@ -2,7 +2,7 @@
 title: "利用 python 生成可视化报告"
 author: Neal
 description: ""
-tags: [python, 可视化]
+tags: [Python, 数据可视化]
 categories: [python]
 date: "2018-08-16"
 ---

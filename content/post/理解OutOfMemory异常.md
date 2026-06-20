@@ -1,6 +1,6 @@
 ---
 title: "理解 OutOfMemoryError 异常"
-tags: ["Java"]
+tags: [学习笔记]
 categories: ["后端"]
 keywords: [OutOfMemory,Error,JAVA,Exception]
 date: "2018-05-26"

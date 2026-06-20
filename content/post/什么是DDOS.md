@@ -1,7 +1,7 @@
 ---
 title: "什么是DDOS"
 author: Neal
-tags: [DDOS, 安全]
+tags: [安全, 漏洞分析]
 categories: [安全]
 date: "2019-01-04"
 ---

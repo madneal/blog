@@ -8,7 +8,7 @@ description: "原文链接 : Why object literals in JavaScript are cool
 在ECMAScript 2015之前，Javascript中的对象字面量（也称为对象初始化器）是非常基础的。能够定义两种类型的属性：
 成对出现的名称以及相应的值{ name1: value1 }
 Getters {"
-tags: [javascript,对象]
+tags: [JavaScript]
 categories: [web前端]
 date: "2016-07-26 22:37:18"
 ---

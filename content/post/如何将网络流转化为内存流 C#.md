@@ -6,7 +6,7 @@ description: "//将获取的文件流转化为内存流
         {
             MemoryStream memoryStream = new MemoryStream();
             if (stream != null)"
-tags: [c#]
+tags: [后端]
 categories: [winform开发]
 date: "2015-04-28 11:45:14"
 ---

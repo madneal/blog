@@ -5,7 +5,7 @@ description: "需要找到django的安装路径，官方说的那个方法不好
 import django 
 django 
 这样就可以找django的安装路径了，真心不懂为什么国内都看不到"
-tags: [django]
+tags: [后端]
 categories: [web前端]
 date: "2015-10-10 18:35:51"
 ---

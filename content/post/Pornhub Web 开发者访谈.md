@@ -1,7 +1,7 @@
 ---
 title: "Pornhub Web 开发者访谈"
 author: Neal
-tags: [翻译,前端开发]
+tags: [前端, 翻译]
 categories: [web开发]
 date: "2019-10-13"
 ---

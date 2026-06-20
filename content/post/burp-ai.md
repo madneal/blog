@@ -1,7 +1,7 @@
 ---
 title: "不到一分钟拿到可用 PoC：Julen Garrido Estévez 测试 Burp AI  "
 author: Neal
-tags: [安全, web安全, Burp]
+tags: [安全, Web安全, AI, Burp]
 keywords: [Burp, AI]
 categories: [安全]
 date: "2026-01-17" 

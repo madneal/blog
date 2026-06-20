@@ -2,7 +2,7 @@
 title: "css盒子模型设置的缩略形式"
 author: Neal
 description: "css里面的盒子模型里面设置padding,margin的上下或者左右的大小有很多方式，下面说说两种不同的方式"
-tags: [css]
+tags: [前端]
 categories: [web前端]
 date: "2015-10-24 10:48:23"
 ---

@@ -1,7 +1,7 @@
 ---
 title: "让你的SQL盲注快起来"
 author: Neal
-tags: [安全, web安全]
+tags: [安全, Web安全]
 keywords: [安全, web安全, sql injection, sql 注入, 与运算, 暴力破解]
 categories: [安全]
 date: "2020-03-30" 

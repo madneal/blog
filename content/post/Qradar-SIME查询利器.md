@@ -2,7 +2,7 @@
 title: "Qradar SIEM--查询利器 AQL"
 author: Neal
 description: ""
-tags: [siem, 安全]
+tags: [安全, 安全运营]
 categories: [安全]
 date: "2018-10-26"
 ---

@@ -1,7 +1,7 @@
 ---
 title: "小鹏 P7 之殤"
 author: Neal
-tags: [汽车,辅助驾驶,小鹏]
+tags: [汽车]
 categories: [汽车]
 date: "2022-09-25"
 ---

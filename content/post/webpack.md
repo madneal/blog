@@ -1,7 +1,7 @@
 ---
 title: "hey,我能看到你的源码哎"
 author: Neal
-tags: [web安全, webpack, 信息泄露, chrome插件]
+tags: [安全, Web安全, 安全开发, 前端]
 keywords: [web安全, webpack, 信息泄露, chrome插件]
 categories: [web安全]
 date: "2022-03-07" 

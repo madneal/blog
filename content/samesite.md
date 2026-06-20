@@ -1,7 +1,7 @@
 ---
 title: "SameSite 的七八事"
 author: Neal
-tags: [开发,安全,应用安全,security,development,web security,chrome,cross-site,csrf]
+tags: [安全, Web安全, 漏洞分析, 前端]
 categories: [安全]
 date: "2021-02-17" 
 ---
