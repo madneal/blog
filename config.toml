@@ -6,6 +6,7 @@ theme = "hugo-nuo"
 enableRobotsTXT = true
 PygmentsCodeFences = true
 canonifyurls = true
+rssLimit = 20
 
 # Google Analytics UA number
 googleAnalytics = "UA-104405154-2"
@@ -41,6 +42,7 @@ copyright = "© This post is licensed under a Creative Commons Attribution-NonCo
   subtitle = "Development & Security"
   description = "全栈工程师的进击"
   paginate = 10
+  summaryLength = 220
 
   # Choose your social networks
   email = "bing.ecnu@gmail.com"
