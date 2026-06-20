@@ -8,3 +8,6 @@ to `madneal/madneal.github.io`.
 
 The source repository needs a `GH_PAGES_TOKEN` secret with permission to push to
 `madneal/madneal.github.io`.
+
+The Hugo theme is tracked as a submodule from `madneal/hugo-nuo`, so theme
+changes can be maintained independently from the blog content.

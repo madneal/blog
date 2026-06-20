@@ -3,7 +3,7 @@
 	url = https://github.com/madneal/madneal.github.io.git
 [submodule "themes/hugo-nuo"]
 	path = themes/hugo-nuo
-	url = https://github.com/laozhu/hugo-nuo.git
+	url = https://github.com/madneal/hugo-nuo.git
 [submodule "madneal.github.io"]
 	path = madneal.github.io
 	url = https://github.com/madneal/madneal.github.io
