@@ -1,7 +1,7 @@
 ---
 title: "基于golang实现报告生成技术方案"
 author: Neal
-tags: [golang, 数据可视化, word, go-echarts]
+tags: [Go, 数据可视化]
 keywords: [golang, 数据可视化, word, go-echarts]
 categories: [开发]
 date: "2022-02-23" 

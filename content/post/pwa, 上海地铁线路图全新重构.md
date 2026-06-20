@@ -1,6 +1,6 @@
 ---
 title: "pwa, 上海地铁线路图全新重构"
-tags: [pwa, react]
+tags: [JavaScript, 前端]
 keywords: [pwa,react,subway,shanghai,shanghai subway,上海地铁,上海]
 date: "2018-03-21"
 ---

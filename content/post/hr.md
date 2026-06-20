@@ -1,7 +1,7 @@
 ---
 title: "关于招人的那点小事"
 author: Neal
-tags: [招聘, HR]
+tags: [生活]
 keywords: [招聘, HR]
 categories: [HR]
 date: "2022-09-17" 

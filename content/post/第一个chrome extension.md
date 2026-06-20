@@ -2,7 +2,7 @@
 title: "第一个chrome extension"
 author: Neal
 description: "如今，chrome浏览器的使用如越来越流行，chrome extension往往能提供更多很丰富的功能。以前一直想了解这方面的东西，可是又担心很复杂。前段时间，在斗鱼看一个直播，想刷弹幕，但是每次自己输入有很麻烦，所以写个小脚本就可以了，后来想以下也可以使用chrome extension来实现。关于chrome extension,google就给出了相关的文档，另外国内360也翻译了这篇文档。当"
-tags: [chrome,扩展]
+tags: [前端]
 categories: [web前端]
 keywords: [chrome extension, chrome]
 date: "2017-03-04 13:47:34"

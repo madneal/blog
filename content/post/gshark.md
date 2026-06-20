@@ -1,7 +1,7 @@
 ---
 title: "多平台的敏感信息检测工具-GShark"
 author: Neal
-tags: [开发,安全,应用安全,security,development,信息收集,github,gitlab]
+tags: [安全, 安全工程, 工程化, GShark]
 categories: [安全]
 date: "2021-04-17" 
 ---

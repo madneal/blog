@@ -7,7 +7,7 @@ I am cool
 \\begin{large}
 you are right
 \\end{large}, yeah, y"
-tags: [latex]
+tags: [LaTeX]
 categories: [论文写作]
 date: "2017-01-06 22:09:53"
 ---

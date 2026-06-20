@@ -4,7 +4,7 @@ author: Neal
 description: "接着上一节的内容来说。我们将继续关注与上一节制作的polls应用以及Django自动产生额度管理网站。产生一个管理员用户首先我们需要产生一个管理员用户，运行如下命令； 
 python manage.py createsuperuser 
 下面会让你输入用户名，邮箱以及用户密码，按照要求填写就可以了，这样我们就产生了一个管理员账户了。开发服务器Django的管理员网站是默认激活的，我们可以通过上节讲到"
-tags: [django,python]
+tags: [Python, 后端]
 categories: [web前端]
 date: "2015-10-11 13:02:59"
 ---

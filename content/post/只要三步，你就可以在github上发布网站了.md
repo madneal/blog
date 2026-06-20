@@ -7,7 +7,7 @@ description: "今天，看到github推送了一个新的消息，Publishing with
 提交markdown文件
 激活Github pages
 现在github对于markdown文件真的支持的特别好，比csdn的markdown好多了。老实说，如果不是"
-tags: [github]
+tags: [Git, 开发工具, 博客]
 categories: [IT新闻]
 date: "2016-12-09 10:41:39"
 ---

@@ -1,7 +1,7 @@
 ---
 title: "Go 版本不一致？别慌，这是特性！"
 author: Neal
-tags: [Go]
+tags: [Go, 工程化, 开发工具]
 categories: [开发]
 date: "2025-08-30" 
 ---

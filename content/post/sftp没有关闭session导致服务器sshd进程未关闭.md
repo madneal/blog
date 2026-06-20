@@ -7,7 +7,7 @@ description: "项目中需要用Sftp上传下载文件，通过jsch中的sftp实
         try {
             JSch jsch = new JSch();
             jsch.getSession(userName, ho"
-tags: [服务器,sftp]
+tags: [后端, 工具]
 categories: [java开发]
 date: "2016-07-28 17:09:59"
 ---

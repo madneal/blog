@@ -1,7 +1,7 @@
 ---
 title: "为什么 2022 年是漏洞赏金奖破纪录的一年"
 author: Neal
-tags: [gitlab,漏洞赏金,h1]
+tags: [安全, 漏洞分析, 工程化, 开源]
 keywords: [gitlab,漏洞赏金,h1]
 categories: [漏洞赏金]
 date: "2023-01-16" 

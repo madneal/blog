@@ -1,7 +1,7 @@
 ---
 title: "JavaScript能否修改Referer请求头"
 author: Neal
-tags: [开发,安全,web-security,web,request,JavaScript,Referer]
+tags: [安全, Web安全, JavaScript]
 categories: [安全]
 date: 2021-03-09
 ---

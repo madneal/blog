@@ -1,7 +1,7 @@
 ---
 title: "电车的高速之行"
 author: Neal
-tags: [汽车,新能源车,辅助驾驶,ngp]
+tags: [汽车]
 categories: [汽车]
 date: "2021-09-06"
 ---

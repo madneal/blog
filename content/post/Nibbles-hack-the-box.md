@@ -1,7 +1,7 @@
 ---
 title: "Nibbles - Hack the box"
 author: Neal
-tags: [安全, hack the box, walkthrough, linux,HTB]
+tags: [安全, 渗透测试, HTB]
 categories: [htb]
 date: "2019-03-17" 
 ---

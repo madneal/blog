@@ -1,7 +1,7 @@
 ---
 title: "lucene 中 query 的实现"
 author: Neal
-tags: [java, lucene]
+tags: [后端, 学习笔记]
 categories: [java]
 date: "2018-10-09"
 ---

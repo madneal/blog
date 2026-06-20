@@ -1,7 +1,7 @@
 ---
 title: "Go 的漏洞管理"
 author: Neal
-tags: [Go, vulnerability]
+tags: [安全, 漏洞分析, 安全工程, Go]
 keywords: [Go, vulnerability]
 categories: [应用安全]
 date: "2022-09-07" 

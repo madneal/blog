@@ -7,7 +7,7 @@ description: "只能生成一个实例的类是为了实现单例模式的类型
     {
     }
 private static object syncObj = n"
-tags: [singleton]
+tags: [算法]
 categories: [winform开发]
 date: "2015-11-13 12:48:17"
 ---

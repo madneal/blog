@@ -1,7 +1,7 @@
 ---
 title: "SAST 测试中要测量的三个参数"
 author: Neal
-tags: [web安全, SAST, 源码扫描]
+tags: [安全, Web安全, 代码审计]
 keywords: [web安全, SAST, 源码扫描]
 categories: [web安全]
 date: "2022-03-28" 

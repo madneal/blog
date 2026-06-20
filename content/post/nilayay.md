@@ -1,7 +1,7 @@
 ---
 title: "NilAway：实用的 Go Nil Panic 检测方式"
 author: Neal
-tags: [Go, nil panic]
+tags: [安全, 代码审计, Go]
 categories: [开发]
 date: "2024-11-30" 
 ---

@@ -2,7 +2,7 @@
 title: "Haystack - hack the box"
 author: Neal
 keywords: [HTB,hack the box,ELK,elasticsearch,logstash,kibana,CVE]
-tags: [HTB,靶机]
+tags: [安全, 渗透测试, HTB]
 categories: [靶机]
 date: "2019-11-30"
 ---

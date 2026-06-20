@@ -1,7 +1,7 @@
 ---
 title: "停车被蹭的那些小事"
 author: Neal
-tags: [生活,汽车]
+tags: [生活, 汽车]
 keywords: [生活,汽车]
 categories: [生活]
 date: "2022-07-20" 

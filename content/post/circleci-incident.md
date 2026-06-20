@@ -1,7 +1,7 @@
 ---
 title: "CircleCI 20230104 安全事件报告"
 author: Neal
-tags: [网络安全,安全事件,事件报告]
+tags: [安全, 安全运营, 工程化, 数据可视化]
 keywords: [网络安全,安全事件,事件报告,CircleCI]
 categories: [网络安全]
 date: "2023-01-14" 

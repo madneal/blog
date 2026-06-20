@@ -1,7 +1,7 @@
 ---
 title: "微软开源对于 Solorigate 活动捕获的开源 CodeQL 查询"
 author: Neal
-tags: [开发,安全,codeql,微软,SolarWinds,IOCs,威胁情报]
+tags: [安全, 代码审计, 开源, CodeQL]
 categories: [安全]
 date: 2021-03-07
 ---

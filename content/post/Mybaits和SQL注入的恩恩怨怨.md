@@ -1,7 +1,7 @@
 ---
 title: "MyBatis 和 SQL 注入的恩恩怨怨"
 author: Neal
-tags: [安全, web安全, SQL 注入]
+tags: [安全, Web安全, 漏洞分析]
 keywords: [sql注入,mybatis,JDBC,mybatis generator,预编译]
 categories: [安全]
 date: "2019-10-30" 
@@ -271,5 +271,4 @@ jdbc:mysql://localhost:3306/mybatis?&useServerPrepStmts=true&cachePrepStmts=true
 本文由安全客原创发布
 转载，请参考转载声明，注明出处： https://www.anquanke.com/post/id/190170
 安全客 - 有思想的安全新媒体
-
 

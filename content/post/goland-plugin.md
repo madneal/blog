@@ -1,7 +1,7 @@
 ---
 title: "第一款Goland的SCA插件开发之旅"
 author: Neal
-tags: [goland,Go,jetbrains,plugin development]
+tags: [Go, 开发工具]
 keywords: [goland,Go,jetbrains,插件开发]
 categories: [插件开发]
 date: "2022-05-03" 

@@ -6,7 +6,7 @@ description: "在latex中，想给表格添加注释，可以使用threeparttabl
 \\begin{table*}
 \\begin{threeparttable}
 \\centering \\caption{Statistical results of the IGD values of the final populations obtaine"
-tags: [latex]
+tags: [LaTeX]
 keywords: [latex]
 categories: [论文写作]
 date: "2015-12-10 15:41:52"

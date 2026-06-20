@@ -1,7 +1,7 @@
 ---
 title: "米哈游内推"
 author: Neal
-tags: [内推]
+tags: [生活]
 categories: [内推]
 date: 2021-08-07
 ---

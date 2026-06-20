@@ -1,7 +1,7 @@
 ---
 title: "通过 Cookie Tossing 劫持 OAUTH 流程"
 author: Neal
-tags: [安全]
+tags: [安全, Web安全]
 keywords: [API,web 安全]
 categories: [安全]
 date: "2025-02-06" 

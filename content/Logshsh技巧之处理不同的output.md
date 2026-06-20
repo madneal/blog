@@ -1,7 +1,7 @@
 ---
 title: "Logstash技巧之处理不同的output"
 author: Neal
-tags: [ELK, Logstash]
+tags: [工具]
 keywords: [插件, logstash]
 categories: [工具]
 date: "2020-05-18" 

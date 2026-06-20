@@ -2,7 +2,7 @@
 title: "基于Vue JS, Webpack 以及Material Design的渐进式web应用 [Part 1]"
 author: Neal
 description: "基于Vue JS, Webpack 以及Material Design的渐进式web应用 [Part 1]原文：基于Vue JS, Webpack 以及Material Design的渐进式web应用 [Part 1]译者：neal1991welcome to star my articles-translator , providing you advanced articles translat"
-tags: [vue-js,pwa,material-design,webpack]
+tags: [安全, Web安全, JavaScript, 前端]
 categories: [web前端]
 date: "2017-05-11 09:28:40"
 ---

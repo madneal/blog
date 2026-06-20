@@ -1,7 +1,7 @@
 ---
 title: "PWK 以及 OSCP 最常见的问题"
 author: Neal
-tags: [PWK,OSCP,渗透测试,认证,证书]
+tags: [安全, 渗透测试, 认证考试]
 keywords: [PWK,OSCP,渗透测试,认证,证书]
 categories: [安全]
 date: "2020-02-20" 

@@ -1,6 +1,6 @@
 ---
 title: "Mongoose中document和object的区别"
-tags: ["nodejs", "js", "mongoose"]
+tags: [JavaScript, 后端]
 categories: ["前端"]
 date: 2017-09-17
 ---
