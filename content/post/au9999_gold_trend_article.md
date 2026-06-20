@@ -33,7 +33,7 @@ toc: true
 
 ## 2. 近一年日线和均线：主升结束了吗？
 
-![Au99.99 近一年日线与均线](/images/au9999-gold-trend/au9999_price_ma.svg)
+![Au99.99 近一年日线与均线](/img/au9999-gold-trend/au9999_price_ma.svg)
 
 截至 2026-06-18：
 
@@ -68,7 +68,7 @@ toc: true
 
 ## 4. 回撤曲线：高位调整集中在2026年之后
 
-![Au99.99 近一年回撤曲线](/images/au9999-gold-trend/au9999_drawdown.svg)
+![Au99.99 近一年回撤曲线](/img/au9999-gold-trend/au9999_drawdown.svg)
 
 从回撤曲线看，近一年的压力主要集中在2026年1月冲高之后：
 
@@ -81,7 +81,7 @@ toc: true
 
 ## 5. 近十年回顾：黄金不是最近一年才强
 
-![Au99.99 近十年日线与均线](/images/au9999-gold-trend/au9999_price_ma_10y.svg)
+![Au99.99 近十年日线与均线](/img/au9999-gold-trend/au9999_price_ma_10y.svg)
 
 上金所接口覆盖的 Au99.99 日线从 2016-12-19 开始，接近十年。这个区间里：
 
@@ -99,9 +99,9 @@ toc: true
 
 ## 6. 年度收益热力图：2024、2025 是加速，2026 是降温
 
-![Au99.99 年度收益热力图](/images/au9999-gold-trend/au9999_annual_heatmap.svg)
+![Au99.99 年度收益热力图](/img/au9999-gold-trend/au9999_annual_heatmap.svg)
 
-![Au99.99 年度涨跌幅](/images/au9999-gold-trend/au9999_annual_returns.svg)
+![Au99.99 年度涨跌幅](/img/au9999-gold-trend/au9999_annual_returns.svg)
 
 | 年份 | 年末/样本末日价 | 年度涨跌 |
 |---|---:|---:|
@@ -125,7 +125,7 @@ toc: true
 
 ### 近一年月度收益
 
-![Au99.99 近一年月度收益热力图](/images/au9999-gold-trend/au9999_monthly_heatmap.svg)
+![Au99.99 近一年月度收益热力图](/img/au9999-gold-trend/au9999_monthly_heatmap.svg)
 
 近一年最强的两个阶段：
 
@@ -144,7 +144,7 @@ toc: true
 
 ### 近十年月度收益
 
-![Au99.99 近十年月度收益热力图](/images/au9999-gold-trend/au9999_monthly_heatmap_10y.svg)
+![Au99.99 近十年月度收益热力图](/img/au9999-gold-trend/au9999_monthly_heatmap_10y.svg)
 
 近十年月度热力图比年度图更细：它能看出黄金经常不是“每个月慢慢涨”，而是少数月份突然大涨，随后用几个月震荡或回撤来消化涨幅。
 
