@@ -1,0 +1,50 @@
+name: Deploy Hugo site
+
+on:
+  push:
+    branches:
+      - master
+  workflow_dispatch:
+
+concurrency:
+  group: deploy-hugo-site
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    env:
+      HUGO_ENV: production
+
+    steps:
+      - name: Checkout source
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Hugo
+        uses: peaceiris/actions-hugo@v3
+        with:
+          hugo-version: "0.55.6"
+          extended: true
+
+      - name: Fetch theme
+        run: git submodule update --init --depth 1 themes/hugo-nuo
+
+      - name: Build site
+        run: hugo -t hugo-nuo
+
+      - name: Deploy to pages repository
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          personal_token: ${{ secrets.GH_PAGES_TOKEN }}
+          external_repository: madneal/madneal.github.io
+          publish_branch: master
+          publish_dir: ./public
+          cname: madneal.com
+          keep_files: true
+          user_name: github-actions[bot]
+          user_email: 41898282+github-actions[bot]@users.noreply.github.com
