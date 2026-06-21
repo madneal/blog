@@ -36,8 +36,9 @@ copyright = "© This post is licensed under a Creative Commons Attribution-NonCo
 # Add your own params here
 [params]
   author = "Neal"
-  avatar = "images/avatar.jpg"
-  wechat = "images/wechat.jpg"
+  avatar = "img/avatar.jpg"
+  bg = "img/grey-prism.svg"
+  wechat = "img/wechat.jpg"
   seotitle = "Neal 的博客"
   subtitle = "Development & Security"
   description = "全栈工程师的进击"
