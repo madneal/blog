@@ -1,12 +1,14 @@
 ---
 title: "winform中进行post上传文件"
 author: Neal
+summary: "本文围绕《winform中进行post上传文件》梳理winform开发和学习笔记相关的背景、方法和实践细节，可作为排查与学习记录。"
 description: "winform中要上传文件到远程的服务器上面，我在本地用的是post方式传递数据，用的是HTTP协议，具体代码如下： 
 下面的代码就是一个上传的方法，参数需要路径和文件路径就可以了，我本地winform只需要提交post请求就可以了，止于对于post请求如何处理，那就是远程服务端的事情了。        private string uploadFile(string uriAddress, str"
 tags: [学习笔记]
 categories: [winform开发]
 date: "2015-04-17 18:04:50"
 ---
+
 winform中要上传文件到远程的服务器上面，我在本地用的是post方式传递数据，用的是HTTP协议，具体代码如下：
 下面的代码就是一个上传的方法，参数需要路径和文件路径就可以了，我本地winform只需要提交post请求就可以了，止于对于post请求如何处理，那就是远程服务端的事情了。
 

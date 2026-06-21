@@ -1,9 +1,10 @@
 ---
 title: "大佬，您这是在借鉴嘛"
 author: Neal
+summary: "本文围绕《大佬，您这是在借鉴嘛》展开，重点梳理对比、插件介绍和我的插件等内容，提炼背景、思路与实践注意点。"
 tags: [前端, 工程化, 工具]
 categories: [前端开发]
-date: "2024-06-27" 
+date: "2024-06-27"
 ---
 
 今天闲来没事看到一篇文章，感觉质量挺好的，就想翻译一下。之前写过一个将文档导出成 markdown 的插件，因为这个插件一开始是为了翻译 Medium 文章开发的，但是后来因为 Medium 的 json 接口启用了，所以这个插件后面也不怎么维护了。不搜不知道，一搜吓一跳，居然发现一个和插件差不多的插件，不会吧，这么烂的插件也有人抄？后来仔细看了一看，这个大佬应该是在借鉴我的插件，辛苦地改了几个中文。
@@ -49,7 +50,3 @@ date: "2024-06-27"
 ## 总结
 
 鄙人的这款[插件](https://github.com/madneal/export-to-markdown)是在 GitHub 上开源的，当时也是出于个人需求搞得这么个小玩意，但是没想到居然还有李鬼借鉴，还真是离谱他妈给离谱开门。大家如果有空的话，还是动一下发财的小手点一下 Report，这个[李鬼插件](https://chromewebstore.google.com/detail/olfhadgfelbdikjlnejcfjeockobpijm?hl=zh-CN&utm_source=ext_sidebar)还是下架比较好。我也联系了这个开发同学，希望他能及时下架。
-
-
-
-

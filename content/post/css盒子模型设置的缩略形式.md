@@ -1,11 +1,13 @@
 ---
 title: "css盒子模型设置的缩略形式"
 author: Neal
+summary: "本文围绕《css盒子模型设置的缩略形式》梳理web前端和前端相关的背景、方法和实践细节，可作为排查与学习记录。"
 description: "css里面的盒子模型里面设置padding,margin的上下或者左右的大小有很多方式，下面说说两种不同的方式"
 tags: [前端]
 categories: [web前端]
 date: "2015-10-24 10:48:23"
 ---
+
 css里面的盒子模型里面设置padding,margin的上下或者左右的大小有很多方式，下面说说两种不同的方式：
 original method:
 
@@ -79,4 +81,3 @@ border:solid
 boder:blcak solid
 ```
 还有很多其他的简写方式，我就不一一阐述了。
-

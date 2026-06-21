@@ -1,10 +1,11 @@
 ---
 title: "一键 Shell，我的 OSWE 之旅"
 author: Neal
+summary: "本文围绕《一键 Shell，我的 OSWE 之旅》展开，重点梳理初识 AWAE、AWAE 课程和OSWE 考试等内容，提炼背景、思路与实践注意点。"
 tags: [安全, Web安全, 代码审计, 认证考试]
 keywords: [OSWE,OFFSEC,OSWE 考试,AWAE,certification,security certifications]
 categories: [安全]
-date: "2020-09-06" 
+date: "2020-09-06"
 ---
 
 原文来自于安全客，https://www.anquanke.com/post/id/217301

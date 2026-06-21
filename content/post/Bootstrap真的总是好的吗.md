@@ -1,11 +1,13 @@
 ---
 title: "Bootstrap真的总是好的吗"
 author: Neal
+summary: "本文围绕《Bootstrap真的总是好的吗》展开，重点梳理Bootstrap的好处是什么、什么时候你最好别用它和当需要很多异常来复位Bootstrap等内容，提炼背景、思路与实践注意点。"
 description: "原文地址：Bootstrap considered harmful原文作者：Hidde de Vries译文出自：neal译者： Neal个人主页：http://neal1991.pythonanywhere.com这些年Bootstrap已经在前端项目中流行起来，它能够带来很多好处。然而，但是如果以你们的团队已经有了在职的前端开发人员，我觉得最好还是不要用Bootstrap，在某些地方，弊大于利。"
 tags: [前端]
 categories: [web前端]
 date: "2016-08-15 13:16:39"
 ---
+
 原文地址：Bootstrap considered harmful
 
 原文作者：Hidde de Vries

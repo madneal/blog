@@ -1,9 +1,10 @@
 ---
 title: "cve check"
 author: Neal
+summary: "本文围绕《cve check》梳理安全开发、安全、漏洞分析和Python相关的背景、方法和实践细节，可作为排查与学习记录。"
 tags: [安全, 漏洞分析, Python]
 categories: [安全开发]
-date: "2019-07-04" 
+date: "2019-07-04"
 ---
 
 今天想检查一下 Gitlab 11.9.0 产品受哪些 cve 的影响。其实网上已经有很多网站可以查询产品的相关 cve，但就是粒度比较粗。我想在 cve 列表中筛选出特定的版本，已经特定的版本，比如是社区版还是旗舰版。找了一下，没有发现完全符合这个要求的。后来在网上我就看到了一个网站是可以提供 cve 的 API 查询的。可以通过网站 API 可以获取特定的数据。
@@ -73,5 +74,3 @@ def search(params, options):
 ```
 
 完整的项目地址可以参考 https://github.com/neal1991/check-cve/blob/master/check-cve.py
-
-

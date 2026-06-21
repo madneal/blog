@@ -1,6 +1,7 @@
 ---
 title: "什么是服务端伪造（SSRF）"
 author: Neal
+summary: "本文围绕《什么是服务端伪造（SSRF）》展开，重点梳理检测SSRF、避免SSRF和白名单和DNS解析等内容，提炼背景、思路与实践注意点。"
 description: "什么是服务端伪造（SSRF）
   原文：GitHub Pages and Single-Page Apps
   
@@ -11,6 +12,7 @@ tags: [安全, Web安全, 漏洞分析]
 categories: [安全]
 date: "2017-08-06 21:44:24"
 ---
+
 # 什么是服务端伪造（SSRF）
 
 > 原文：[GitHub Pages and Single-Page Apps](https://www.acunetix.com/blog/articles/server-side-request-forgery-vulnerability/)
@@ -123,4 +125,3 @@ Host: example.com
 ### 认证内部服务
 
 服务比如Memcached，Redis，Elasticsearch以及MongoDB默认不需要认证的。SSRF漏洞可以提供给攻击者一个没有任何认证阻拦的机会来访问这些服务。因此，最好实在人地方都使用认证，这也是一个防护机制。
-

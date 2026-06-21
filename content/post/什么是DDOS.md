@@ -1,6 +1,7 @@
 ---
 title: "什么是DDOS"
 author: Neal
+summary: "本文围绕《什么是DDOS》展开，重点梳理什么是 DDOS、DDOS 攻击类型和传输层 DDOS 攻击等内容，提炼背景、思路与实践注意点。"
 tags: [安全, 漏洞分析]
 categories: [安全]
 date: "2019-01-04"
@@ -69,7 +70,3 @@ DDOS 攻击类型是多种多样的，而往往黑客的攻击它地攻击方式
 
 * https://help.aliyun.com/document_detail/28401.html?spm=a2c4g.11186623.6.549.15c03c37UOcTM6
 * https://mp.weixin.qq.com/s?__biz=MjM5MDgwMzc4MA==&mid=2654867427&idx=1&sn=d09df0b09ec445005ed462507ce144e7&chksm=bd759dc88a0214de61c6a143b093a45fb08c6f6565b6930df6a6c9e191d709a2e708d585b15b&mpshare=1&scene=1&srcid=0104D90WcK7mHAPRN0Dyd39V#rd
-
-
-
-

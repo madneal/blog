@@ -1,6 +1,7 @@
 ---
 title: "Twitter Lite以及大规模的高性能React渐进式网络应用"
 author: Neal
+summary: "本文围绕《Twitter Lite以及大规模的高性能React渐进式网络应用》展开，重点梳理在继续阅读之前、避免函数导致的Jank和使用更小的图片等内容，提炼背景、思路与实践注意点。"
 description: "Twitter Lite以及大规模的高性能React渐进式网络应用
   原文：Twitter Lite and High Performance React Progressive Web Apps at Scale
   
@@ -11,6 +12,7 @@ tags: [JavaScript, 前端, 翻译]
 categories: [web前端]
 date: "2017-04-16 08:27:46"
 ---
+
 # Twitter Lite以及大规模的高性能React渐进式网络应用
 
 > 原文：[Twitter Lite and High Performance React Progressive Web Apps at Scale](https://medium.com/@paularmstrong/twitter-lite-and-high-performance-react-progressive-web-apps-at-scale-d28a00e780a3)
@@ -287,33 +289,3 @@ window.navigator.serviceWorker.register('/sw.js');
 通过延迟ServiceWorker的注册直到我们完成了额外的API，CSS以及图片资源的请求，我们可以让页面完成渲染并且是响应式的，在下面的截图可以看到（下面的）。
 
 总的来说，这是我们在[Twitter Lite](https://mobile.twitter.com/)的开发过程中的众多性能提升的列表。当然还会有更多的事情，我们希望能够继续分享我们发现的问题，以及我们克服问题所做的工作。关于事实以及耕作React以及PWA的更多状态，可以在Twitter上关注[我](https://mobile.twitter.com/paularmstrong)以及[我的团队](https://mobile.twitter.com/paularmstrong/lists/twitter-lite/members)。
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

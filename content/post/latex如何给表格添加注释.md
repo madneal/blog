@@ -1,6 +1,7 @@
 ---
 title: "latex如何给表格添加注释"
 author: Neal
+summary: "本文围绕《latex如何给表格添加注释》梳理论文写作和LaTeX相关的背景、方法和实践细节，可作为排查与学习记录。"
 description: "在latex中，想给表格添加注释，可以使用threeparttable这个包 
 代码如下：\\usepackage{threeparttable}
 \\begin{table*}
@@ -11,6 +12,7 @@ keywords: [latex]
 categories: [论文写作]
 date: "2015-12-10 15:41:52"
 ---
+
 在latex中，想给表格添加注释，可以使用threeparttable这个包
 代码如下：
 
