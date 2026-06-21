@@ -44,9 +44,6 @@ copyright = "© This post is licensed under a Creative Commons Attribution-NonCo
   description = "全栈工程师的进击"
   paginate = 10
   summaryLength = 220
-  readingtimeformat = "约 %d 分钟阅读"
-  readingtimewordsperminute = 180
-  readingtimecjkcharsperminute = 220
 
   # Choose your social networks
   email = "bing.ecnu@gmail.com"
