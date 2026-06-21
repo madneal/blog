@@ -39,6 +39,9 @@ jobs:
       - name: Build site
         run: hugo -t hugo-nuo
 
+      - name: Disable Jekyll processing
+        run: touch public/.nojekyll
+
       - name: Deploy to pages repository
         uses: peaceiris/actions-gh-pages@v4
         with:
