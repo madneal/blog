@@ -2,6 +2,7 @@
 title: "Logstash技巧之处理不同的output"
 author: Neal
 summary: "本文围绕《Logstash技巧之处理不同的output》梳理工具相关的背景、方法和实践细节，可作为排查与学习记录。"
+cover: "/img/post-covers/logshsh-output-d17ae3fd1f.png"
 tags: [工具]
 keywords: [插件, logstash]
 categories: [工具]

@@ -2,6 +2,7 @@
 title: "Bashed -- hack the box"
 author: Neal
 summary: "本文围绕《Bashed -- hack the box》展开，重点梳理Introduction、Information Enumeration和Exploit等内容，提炼背景、思路与实践注意点。"
+cover: "/img/post-covers/bashed-hack-the-box-e4871f5bea.png"
 tags: [安全, 渗透测试, HTB]
 categories: [htb]
 date: "2019-04-04"

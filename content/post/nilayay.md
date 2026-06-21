@@ -2,6 +2,7 @@
 title: "NilAway：实用的 Go Nil Panic 检测方式"
 author: Neal
 summary: "本文围绕《NilAway：实用的 Go Nil Panic 检测方式》展开，重点梳理nil panic 问题、NilAway 的核心理念和NilAway 的设计和实现等内容，提炼背景、思路与实践注意点。"
+cover: "/img/post-covers/nilayay-78e9ed4841.png"
 tags: [安全, 代码审计, Go]
 categories: [开发]
 date: "2024-11-30"

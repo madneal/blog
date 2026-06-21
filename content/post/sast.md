@@ -2,6 +2,7 @@
 title: "SAST 测试中要测量的三个参数"
 author: Neal
 summary: "本文围绕《SAST 测试中要测量的三个参数》展开，重点梳理定量方面、准确性和完整性等内容，提炼背景、思路与实践注意点。"
+cover: "/img/post-covers/sast-e24017e57a.png"
 tags: [安全, Web安全, 代码审计]
 keywords: [web安全, SAST, 源码扫描]
 categories: [web安全]

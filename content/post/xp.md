@@ -2,6 +2,7 @@
 title: "提车二月记--小鹏P7"
 author: Neal
 summary: "本文围绕《提车二月记--小鹏P7》展开，重点梳理驾驶体验、外观颜值和车机等内容，提炼背景、思路与实践注意点。"
+cover: "/img/post-covers/xp-cb8dc44fcb.png"
 tags: [汽车]
 categories: [汽车]
 date: 2021-06-25

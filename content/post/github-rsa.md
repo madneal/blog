@@ -2,6 +2,7 @@
 title: "GitHub 更新了 RSA SSH host key"
 author: Neal
 summary: "本文围绕《GitHub 更新了 RSA SSH host key》梳理security、安全、Git和开源相关的背景、方法和实践细节，可作为排查与学习记录。"
+cover: "/img/post-covers/github-rsa-144c1dec63.png"
 tags: [安全, Git, 开源]
 categories: [security]
 date: "2023-03-24"

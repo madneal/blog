@@ -2,6 +2,7 @@
 title: "CircleCI 20230104 安全事件报告"
 author: Neal
 summary: "本文围绕《CircleCI 20230104 安全事件报告》展开，重点梳理发生了什么？、我们怎么知道这个攻击向量已经关闭并且可以安全构建？和与客户的沟通和支持等内容，提炼背景、思路与实践注意点。"
+cover: "/img/post-covers/circleci-incident-59dbbb3a1b.png"
 tags: [安全, 安全运营, 工程化, 数据可视化]
 keywords: [网络安全,安全事件,事件报告,CircleCI]
 categories: [网络安全]

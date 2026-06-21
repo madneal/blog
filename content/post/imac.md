@@ -2,6 +2,7 @@
 title: "imac 2020，真香？"
 author: Neal
 summary: "本文围绕《imac 2020，真香？》展开，重点梳理开箱、内存和使用体验等内容，提炼背景、思路与实践注意点。"
+cover: "/img/post-covers/imac-d33f2d5d66.png"
 tags: [数码]
 categories: [数码]
 date: "2020-09-19"

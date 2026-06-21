@@ -2,6 +2,7 @@
 title: "Help -- hack the box"
 author: Neal
 summary: "本文围绕《Help -- hack the box》展开，重点梳理Introduction和Infomation Enumeration等内容，提炼背景、思路与实践注意点。"
+cover: "/img/post-covers/help-hack-the-box-1d3051737a.png"
 tags: [安全, 渗透测试, HTB, Python]
 categories: [htb]
 date: "2019-04-22"

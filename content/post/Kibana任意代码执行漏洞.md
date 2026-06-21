@@ -2,6 +2,7 @@
 title: "Kibana 任意代码执行漏洞"
 author: Neal
 summary: "本文围绕《Kibana 任意代码执行漏洞》展开，重点梳理原型链攻击和漏洞防范等内容，提炼背景、思路与实践注意点。"
+cover: "/img/post-covers/kibana-6f2bf395b2.png"
 tags: [安全, Web安全, 漏洞分析]
 categories: [安全]
 date: "2019-10-17"

@@ -2,6 +2,7 @@
 title: "持续发布 Chrome 插件"
 author: Neal
 summary: "本文围绕《持续发布 Chrome 插件》展开，重点梳理介绍、Google API和CircleCI 配置等内容，提炼背景、思路与实践注意点。"
+cover: "/img/post-covers/chrome-5b5e2cd39a.png"
 tags: [安全, 安全开发, 前端, 工程化]
 categories: [开发]
 date: "2019-05-27"

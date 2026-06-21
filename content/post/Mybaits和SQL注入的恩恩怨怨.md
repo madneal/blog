@@ -2,6 +2,7 @@
 title: "MyBatis 和 SQL 注入的恩恩怨怨"
 author: Neal
 summary: "本文围绕《MyBatis 和 SQL 注入的恩恩怨怨》展开，重点梳理起源、正确写法和使用 {} 可以避免 SQL 注入吗等内容，提炼背景、思路与实践注意点。"
+cover: "/img/post-covers/mybaits-sql-40ae87bea2.png"
 tags: [安全, Web安全, 漏洞分析]
 keywords: [sql注入,mybatis,JDBC,mybatis generator,预编译]
 categories: [安全]

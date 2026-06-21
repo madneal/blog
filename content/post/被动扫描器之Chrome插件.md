@@ -2,6 +2,7 @@
 title: "被动扫描器之插件篇"
 author: Neal
 summary: "本文围绕《被动扫描器之插件篇》展开，重点梳理Chrome 插件、兼容问题和requestBody 的格式问题等内容，提炼背景、思路与实践注意点。"
+cover: "/img/post-covers/chrome-775f1d5fbd.png"
 tags: [安全, Web安全, 安全开发, 前端]
 categories: [安全]
 keywords: [chrome extension,chrome插件,被动扫描器,web安全,burp]

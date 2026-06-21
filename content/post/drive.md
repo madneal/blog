@@ -2,6 +2,7 @@
 title: "Google Drive 的信息检索"
 author: Neal
 summary: "本文围绕《Google Drive 的信息检索》展开，重点梳理Auth和检索等内容，提炼背景、思路与实践注意点。"
+cover: "/img/post-covers/drive-446bd10c28.png"
 tags: [学习笔记]
 keywords: [开发,Google Drive,API]
 date: "2023-08-28"

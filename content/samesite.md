@@ -2,6 +2,7 @@
 title: "SameSite 的七八事"
 author: Neal
 summary: "本文围绕《SameSite 的七八事》展开，重点梳理起源等内容，提炼背景、思路与实践注意点。"
+cover: "/img/post-covers/samesite-6b626a3e0a.png"
 tags: [安全, Web安全, 漏洞分析, 前端]
 categories: [安全]
 date: "2021-02-17"

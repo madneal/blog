@@ -2,6 +2,7 @@
 title: "gobuster源码阅读--dir篇"
 author: Neal
 summary: "本文围绕《gobuster源码阅读--dir篇》展开，重点梳理ErrWildcard、Label和核心 worker等内容，提炼背景、思路与实践注意点。"
+cover: "/img/post-covers/gobuster2-7b9123b6cd.png"
 tags: [安全, Web安全, Go, Gobuster]
 keywords: [web安全, gobuster, 源码阅读]
 categories: [源码阅读]

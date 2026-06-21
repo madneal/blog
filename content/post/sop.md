@@ -2,6 +2,7 @@
 title: "安全运营平台从0到1"
 author: Neal
 summary: "本文围绕《安全运营平台从0到1》展开，重点梳理开发、需求建设和漏洞管理等内容，提炼背景、思路与实践注意点。"
+cover: "/img/post-covers/sop-4aa75c72cd.png"
 tags: [安全, 漏洞分析, 安全工程, 安全运营]
 keywords: [安全运营,应用安全,漏洞管理,事件管理]
 categories: [安全]

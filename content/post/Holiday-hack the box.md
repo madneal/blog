@@ -2,6 +2,7 @@
 title: "Holiday -- hack the box"
 author: Neal
 summary: "本文围绕《Holiday -- hack the box》展开，重点梳理Introduction和Information enumeration等内容，提炼背景、思路与实践注意点。"
+cover: "/img/post-covers/holiday-hack-the-box-80cb184d07.png"
 tags: [安全, Web安全, 漏洞分析, HTB]
 categories: [htb]
 date: "2019-05-20"

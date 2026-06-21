@@ -2,6 +2,7 @@
 title: "PWK 以及 OSCP 最常见的问题"
 author: Neal
 summary: "本文围绕《PWK 以及 OSCP 最常见的问题》展开，重点梳理如何以及在哪参加 PWK、如何注册 PWK 以及 OSCP 考试和前提条件等内容，提炼背景、思路与实践注意点。"
+cover: "/img/post-covers/pwk-oscp-bf218fa961.png"
 tags: [安全, 渗透测试, 认证考试]
 keywords: [PWK,OSCP,渗透测试,认证,证书]
 categories: [安全]

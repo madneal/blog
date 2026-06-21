@@ -2,6 +2,7 @@
 title: "真香系列之 Golang 升级"
 author: Neal
 summary: "本文围绕《真香系列之 Golang 升级》展开，重点梳理升级 Golang 版本、原有代码升级和GShark等内容，提炼背景、思路与实践注意点。"
+cover: "/img/post-covers/gproxy-a3b61bd065.png"
 tags: [安全, 安全开发, Go]
 categories: [golang]
 date: "2019-09-23"

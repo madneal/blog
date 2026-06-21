@@ -1,9 +1,11 @@
 #!/usr/bin/env python3
-"""Generate Hugo post summaries from article content."""
+"""Generate Hugo post summaries and image-generation cover prompts."""
 
 from __future__ import annotations
 
 import argparse
+import hashlib
+import json
 import math
 import re
 from collections import Counter
@@ -214,13 +216,31 @@ def build_summary(title: str, tags: list[str], categories: list[str], body: str)
     return summary.rstrip("，,；;:：") + ("。" if not re.search(r"[。！？.!?]$", summary) else "")
 
 
+def slug_for(path: Path, title: str, front: list[str]) -> str:
+    source = get_scalar(front, "slug") or path.stem
+    ascii_slug = re.sub(r"[^a-zA-Z0-9]+", "-", source.lower()).strip("-")
+    digest = hashlib.sha1(f"{path.as_posix()}:{title}".encode("utf-8")).hexdigest()[:10]
+    if ascii_slug:
+        return f"{ascii_slug[:48].strip('-')}-{digest}"
+    return f"post-{digest}"
+
+
 def quote_yaml(value: str) -> str:
     value = value.replace("\\", "\\\\").replace('"', '\\"').replace("\n", " ")
     return f'"{value}"'
 
 
-def rewrite_front_matter(front: list[str], summary: str) -> list[str]:
-    rewritten = [line for line in front if not re.match(r"^\s*summary\s*:", line)]
+def rewrite_front_matter(front: list[str], summary: str, cover: str | None) -> list[str]:
+    rewritten: list[str] = []
+    for line in front:
+        if re.match(r"^\s*summary\s*:", line):
+            continue
+        if re.match(r"^\s*cover\s*:\s*['\"]?\s*['\"]?\s*$", line):
+            continue
+        if cover is not None and re.match(r"^\s*cover\s*:", line):
+            continue
+        rewritten.append(line)
+
     insert_at = 0
     for index, line in enumerate(rewritten):
         if re.match(r"^\s*author\s*:", line):
@@ -228,29 +248,104 @@ def rewrite_front_matter(front: list[str], summary: str) -> list[str]:
             break
         if re.match(r"^\s*title\s*:", line):
             insert_at = index + 1
-    return rewritten[:insert_at] + [f"summary: {quote_yaml(summary)}"] + rewritten[insert_at:]
+    inserted = [f"summary: {quote_yaml(summary)}"]
+    if cover is not None:
+        inserted.append(f"cover: {quote_yaml(cover)}")
+    return rewritten[:insert_at] + inserted + rewritten[insert_at:]
 
 
-def process(content_dir: Path) -> tuple[int, int]:
+def body_excerpt(body: str, limit: int = 520) -> str:
+    clean = strip_markdown(body)
+    clean = re.sub(r"(原文|译者|LICENSE|welcome to star).*", "", clean, flags=re.I)
+    return clean[:limit].strip()
+
+
+def choose_visual_style(tags: list[str], categories: list[str], title: str) -> tuple[str, str]:
+    joined = " ".join(tags + categories + [title]).lower()
+    if any(word in joined for word in ["安全", "漏洞", "xss", "csrf", "ssrf", "burp", "hack", "cve", "oscp"]):
+        return "editorial cyber-security illustration", "application screens, network paths, code traces, defensive analysis artifacts"
+    if any(word in joined for word in ["latex", "论文", "写作", "matlab", "算法", "pca", "svd", "计算机视觉"]):
+        return "clean educational technical illustration", "notebooks, formulas, diagrams, plotted curves, research desk details"
+    if any(word in joined for word in ["前端", "javascript", "react", "vue", "css", "chrome", "pwa"]):
+        return "modern web engineering editorial illustration", "browser windows, component grids, performance traces, interface architecture"
+    if any(word in joined for word in ["键盘", "小米", "mac", "imac", "studio", "行车", "生活", "数码"]):
+        return "realistic product-and-lifestyle editorial image", "desk setup, device details, practical usage scene, tactile materials"
+    return "polished editorial digital illustration", "conceptual objects and scene details that communicate the article topic"
+
+
+def build_cover_prompt(title: str, summary: str, tags: list[str], categories: list[str], body: str) -> str:
+    headings = extract_headings(body)[:4]
+    style, visual_language = choose_visual_style(tags, categories, title)
+    topics = natural_join(fit_items(categories + tags, 34))
+    heading_text = "、".join(headings) if headings else "no explicit section headings"
+    return f"""Use case: stylized-concept
+Asset type: blog post cover image, 1200x630 landscape
+Primary request: Create a cover image that visually summarizes this article's actual content, not just its title.
+Article title: {title}
+Article summary: {summary}
+Article topics: {topics or "technical blog"}
+Important article sections: {heading_text}
+Content excerpt for visual grounding: {body_excerpt(body)}
+Scene/backdrop: Build a concrete editorial scene around the article's main technical ideas: {visual_language}.
+Subject: The core concepts, workflow, vulnerability, tool, device, or analysis described in the article.
+Style/medium: {style}; sophisticated, original, high-quality blog cover.
+Composition/framing: wide landscape hero composition, strong focal subject, meaningful background details, safe edges for responsive cropping.
+Lighting/mood: focused, thoughtful, professional.
+Color palette: balanced and topic-appropriate; avoid one-note purple or generic dark-blue gradients.
+Text (verbatim): none
+Constraints: no readable text, no title typography, no logos, no watermarks, no fake UI labels, no screenshots unless abstracted, no generic title-card design.
+Avoid: decorative blobs, simple geometric cards, unrelated stock-photo feeling, literal title text."""
+
+
+def raster_cover_for_slug(cover_dir: Path, slug: str) -> str | None:
+    for suffix in (".png", ".webp", ".jpg", ".jpeg"):
+        candidate = cover_dir / f"{slug}{suffix}"
+        if candidate.exists():
+            return f"/img/post-covers/{candidate.name}"
+    return None
+
+
+def process(content_dir: Path, static_dir: Path, prompt_manifest: Path) -> tuple[int, int]:
     posts = sorted(content_dir.rglob("*.md"))
+    cover_dir = static_dir / "img" / "post-covers"
+    prompt_manifest.parent.mkdir(parents=True, exist_ok=True)
     updated = 0
 
-    for post in posts:
-        text = post.read_text(encoding="utf-8")
-        front, body = split_front_matter(text)
-        if not front:
-            title = title_from_body(post, body)
-            front = [f"title: {quote_yaml(title)}", "author: Neal"]
-        else:
-            title = get_scalar(front, "title", post.stem)
-        tags = get_list(front, "tags")
-        categories = get_list(front, "categories")
-        summary = build_summary(title, tags, categories, body)
-        new_front = rewrite_front_matter(front, summary)
-        new_text = "---\n" + "\n".join(new_front).rstrip() + "\n---\n\n" + body.strip() + "\n"
-        if new_text != text:
-            post.write_text(new_text, encoding="utf-8")
-            updated += 1
+    with prompt_manifest.open("w", encoding="utf-8") as manifest:
+        for post in posts:
+            text = post.read_text(encoding="utf-8")
+            front, body = split_front_matter(text)
+            if not front:
+                title = title_from_body(post, body)
+                front = [f"title: {quote_yaml(title)}", "author: Neal"]
+            else:
+                title = get_scalar(front, "title", post.stem)
+            tags = get_list(front, "tags")
+            categories = get_list(front, "categories")
+            summary = build_summary(title, tags, categories, body)
+            slug = slug_for(post, title, front)
+            public_cover = raster_cover_for_slug(cover_dir, slug)
+
+            manifest.write(
+                json.dumps(
+                    {
+                        "path": str(post),
+                        "title": title,
+                        "slug": slug,
+                        "output": f"static/img/post-covers/{slug}.png",
+                        "summary": summary,
+                        "prompt": build_cover_prompt(title, summary, tags, categories, body),
+                    },
+                    ensure_ascii=False,
+                )
+                + "\n"
+            )
+
+            new_front = rewrite_front_matter(front, summary, public_cover)
+            new_text = "---\n" + "\n".join(new_front).rstrip() + "\n---\n\n" + body.strip() + "\n"
+            if new_text != text:
+                post.write_text(new_text, encoding="utf-8")
+                updated += 1
 
     return updated, len(posts)
 
@@ -258,9 +353,11 @@ def process(content_dir: Path) -> tuple[int, int]:
 def main() -> None:
     parser = argparse.ArgumentParser()
     parser.add_argument("--content-dir", default="content", type=Path)
+    parser.add_argument("--static-dir", default="static", type=Path)
+    parser.add_argument("--prompt-manifest", default="data/post-cover-prompts.jsonl", type=Path)
     args = parser.parse_args()
-    updated, posts = process(args.content_dir)
-    print(f"Updated {updated} posts with generated summaries out of {posts}.")
+    updated, prompts = process(args.content_dir, args.static_dir, args.prompt_manifest)
+    print(f"Updated {updated} posts and wrote {prompts} image-generation prompts.")
 
 
 if __name__ == "__main__":

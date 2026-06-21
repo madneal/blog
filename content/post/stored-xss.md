@@ -2,6 +2,7 @@
 title: "富文本场景下的 XSS"
 author: Neal
 summary: "本文围绕《富文本场景下的 XSS》梳理安全、Web安全、Go和JavaScript相关的背景、方法和实践细节，可作为排查与学习记录。"
+cover: "/img/post-covers/stored-xss-fb4942f010.png"
 tags: [安全, Web安全, Go, JavaScript]
 categories: [安全]
 date: 2021-08-30
