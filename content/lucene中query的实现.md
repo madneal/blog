@@ -1,6 +1,7 @@
 ---
 title: "lucene 中 query 的实现"
 author: Neal
+summary: "本文围绕《lucene 中 query 的实现》梳理java、后端和学习笔记相关的背景、方法和实践细节，可作为排查与学习记录。"
 tags: [后端, 学习笔记]
 categories: [java]
 date: "2018-10-09"

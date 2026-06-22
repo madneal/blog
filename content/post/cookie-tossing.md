@@ -1,10 +1,11 @@
 ---
 title: "通过 Cookie Tossing 劫持 OAUTH 流程"
 author: Neal
+summary: "本文围绕《通过 Cookie Tossing 劫持 OAUTH 流程》展开，重点梳理什么是 Cookie Tossing?、什么是 HTTP cookies？和属性等内容，提炼背景、思路与实践注意点。"
 tags: [安全, Web安全]
 keywords: [API,web 安全]
 categories: [安全]
-date: "2025-02-06" 
+date: "2025-02-06"
 ---
 
 > 原文：[Hijacking OAUTH flows via Cookie Tossing](https://snyk.io/articles/hijacking-oauth-flows-via-cookie-tossing/)

@@ -1,6 +1,7 @@
 ---
 title: "如何将网络流转化为内存流 C#"
 author: Neal
+summary: "本文围绕《如何将网络流转化为内存流 C#》梳理winform开发和后端相关的背景、方法和实践细节，可作为排查与学习记录。"
 description: "//将获取的文件流转化为内存流
         public static MemoryStream ConvertStreamToMemoryStream(Stream stream)
         {
@@ -10,6 +11,7 @@ tags: [后端]
 categories: [winform开发]
 date: "2015-04-28 11:45:14"
 ---
+
 ```
         //将获取的文件流转化为内存流
         public static MemoryStream ConvertStreamToMemoryStream(Stream stream)

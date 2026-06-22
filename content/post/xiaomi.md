@@ -1,9 +1,10 @@
 ---
 title: "Home Assistant 小米门铃视频本地存储"
 author: Neal
+summary: "本文围绕《Home Assistant 小米门铃视频本地存储》展开，重点梳理Home Assistant 安装、HACS 安装和小米插件安装等内容，提炼背景、思路与实践注意点。"
 tags: [数码]
 categories: [生活]
-date: "2024-06-29" 
+date: "2024-06-29"
 ---
 
 小米的门铃，免费的云存储时间只有 72 小时，希望保存更多时间的视频，只能去充钱。后来网上搜了一下，通过 [Home Assistant](https://www.home-assistant.io/) 的小米插件可以实现这样的功能。刚好家里有一台闲置的 Macbook 用来发挥余热不是刚好。其实我之前已经安装好了，只不过手残把镜像文件删掉了，这样刚好出个教程从头来一次。

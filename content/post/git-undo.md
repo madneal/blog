@@ -1,10 +1,11 @@
 ---
 title: "如何使用 Git 撤消（几乎）任何操作"
 author: Neal
+summary: "本文围绕《如何使用 Git 撤消（几乎）任何操作》展开，重点梳理撤销一个“public”修改、修复上一个 commit message和撤销本地修改等内容，提炼背景、思路与实践注意点。"
 tags: [Git, 开发工具]
 keywords: [git,GitHub,开发]
 categories: [git,GitHub,开发]
-date: "2023-11-12" 
+date: "2023-11-12"
 ---
 
 >原文：[How to undo (almost) anything with Git](https://github.blog/2015-06-08-how-to-undo-almost-anything-with-git/)

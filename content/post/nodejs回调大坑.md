@@ -1,11 +1,13 @@
 ---
 title: "nodejs回调大坑"
 author: Neal
+summary: "本文围绕《nodejs回调大坑》梳理web前端、JavaScript和后端相关的背景、方法和实践细节，可作为排查与学习记录。"
 description: "最近看到nodejs，因为有一个处理里面有好几个异步操作，调入回调大坑，不禁觉得很恶心，真的很讨厌发明这种写法的人，简直反社会！！！遂转载一篇解坑的文章，原文地址：http://www.infoq.com/cn/articles/nodejs-callback-hell/。Node.js需要按顺序执行异步逻辑时一般采用后续传递风格，也就是将后续逻辑封装在回调函数中作为起始函数的参数，逐层嵌套。这种风"
 tags: [JavaScript, 后端]
 categories: [web前端]
 date: "2016-04-27 08:57:52"
 ---
+
 最近看到nodejs，因为有一个处理里面有好几个异步操作，调入回调大坑，不禁觉得很恶心，真的很讨厌发明这种写法的人，简直反社会！！！遂转载一篇解坑的文章，原文地址：http://www.infoq.com/cn/articles/nodejs-callback-hell/。
 
 
@@ -295,21 +297,3 @@ generator返回的不是原始值，而是有两个属性的对象：value和don
 
 用generator平坑
 Node.js社区中有很多借助generator实现异步回调顺序化的库，比如suspend、co等，不过我们重点介绍的还是Q。它提供了一个spawn方法。这个方法可以立即运行一个generator，并将其中未捕获的错误发给Q.onerror。
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

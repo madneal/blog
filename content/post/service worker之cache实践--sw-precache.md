@@ -1,5 +1,6 @@
 ---
 title: "service worker之cache实践--sw-precache"
+summary: "本文围绕《service worker之cache实践--sw-precache》梳理前端相关的背景、方法和实践细节，可作为排查与学习记录。"
 tags: [前端]
 categories: ["前端"]
 date: 2017-04-22
@@ -55,5 +56,3 @@ gulp.task('generate-sw', function(callback) {
 我们通过利用 sw-precache 来生成 [sw.js 文件](https://github.com/neal1991/subway-shanghai/blob/master/sw.js)。主要的方式是检测你在staticFileGlobs里面的文件有没有发生变化，如果发生变化就会重新生成hash码，从而能够使得APP在代码更新之后向远程请求新的代码。
 
 这篇文章可能只是很小的一点，关于 service worker 的使用还有很多东西值得学习，欢迎关注我的 [github](https://neal1991.github.io/neal1991/) 共同探讨。
-
-

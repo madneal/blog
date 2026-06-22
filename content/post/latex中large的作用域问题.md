@@ -1,6 +1,7 @@
 ---
 title: "latex中large的作用域问题"
 author: Neal
+summary: "本文围绕《latex中large的作用域问题》梳理论文写作和LaTeX相关的背景、方法和实践细节，可作为排查与学习记录。"
 description: "在毕业论文的写作过程中，遇到了一个\\large 作用域的问题。假设下面有三种写法：I am cool \\large{you are right}, yeah, yeah, yeah
 I am cool {\\large you are right}, yeah, yeah, yeah
 I am cool 
@@ -11,6 +12,7 @@ tags: [LaTeX]
 categories: [论文写作]
 date: "2017-01-06 22:09:53"
 ---
+
 在毕业论文的写作过程中，遇到了一个`\large` 作用域的问题。假设下面有三种写法：
 ```[latex]
 I am cool \large{you are right}, yeah, yeah, yeah

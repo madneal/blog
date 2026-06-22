@@ -1,6 +1,7 @@
 ---
 title: "如何查找django安装路径"
 author: Neal
+summary: "本文围绕《如何查找django安装路径》梳理web前端和后端相关的背景、方法和实践细节，可作为排查与学习记录。"
 description: "需要找到django的安装路径，官方说的那个方法不好用，国内搜索都是都不到的，后来谷歌搜到了很简单 
 import django 
 django 
@@ -9,6 +10,7 @@ tags: [后端]
 categories: [web前端]
 date: "2015-10-10 18:35:51"
 ---
+
 需要找到django的安装路径，官方说的那个方法不好用，国内搜索都是都不到的，后来谷歌搜到了很简单
 import django
 django

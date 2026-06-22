@@ -1,11 +1,13 @@
 ---
 title: "datagridview里面的checkbox全选和取消全选"
 author: Neal
+summary: "本文围绕《datagridview里面的checkbox全选和取消全选》展开，重点梳理全选和取消全选等内容，提炼背景、思路与实践注意点。"
 description: "全选设置全选button，选中所有的checkbox"
 tags: [学习笔记]
 categories: [winform开发]
 date: "2015-04-22 10:25:19"
 ---
+
 ## 全选 ##
 设置全选button，选中所有的checkbox
 

@@ -1,6 +1,7 @@
 ---
 title: "matlab调试技巧"
 author: Neal
+summary: "本文围绕《matlab调试技巧》梳理matlab和计算机视觉相关的背景、方法和实践细节，可作为排查与学习记录。"
 description: "Matlab的调试总体分为，直接调试和间接调试。 
 1.直接调试： 
 （1）去掉句末的分号； 
@@ -14,6 +15,7 @@ tags: [计算机视觉]
 categories: [matlab]
 date: "2015-10-13 18:49:10"
 ---
+
 Matlab的调试总体分为，直接调试和间接调试。
 1.直接调试：
 （1）去掉句末的分号；
