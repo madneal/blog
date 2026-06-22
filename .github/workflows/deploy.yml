@@ -1,13 +1,14 @@
 name: Deploy Hugo site
 
 on:
+  pull_request:
   push:
     branches:
       - master
   workflow_dispatch:
 
 concurrency:
-  group: deploy-hugo-site
+  group: deploy-hugo-site-${{ github.event_name }}-${{ github.ref }}
   cancel-in-progress: true
 
 permissions:
@@ -40,9 +41,11 @@ jobs:
         run: hugo -t hugo-nuo
 
       - name: Disable Jekyll processing
+        if: github.event_name != 'pull_request'
         run: touch public/.nojekyll
 
       - name: Deploy to pages repository
+        if: github.event_name != 'pull_request'
         uses: peaceiris/actions-gh-pages@v4
         with:
           personal_token: ${{ secrets.GH_PAGES_TOKEN }}
