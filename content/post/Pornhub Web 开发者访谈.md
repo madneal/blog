@@ -1,6 +1,7 @@
 ---
 title: "Pornhub Web 开发者访谈"
 author: Neal
+summary: "本文围绕《Pornhub Web 开发者访谈》梳理web开发、前端和翻译相关的背景、方法和实践细节，可作为排查与学习记录。"
 tags: [前端, 翻译]
 categories: [web开发]
 date: "2019-10-13"

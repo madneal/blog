@@ -1,9 +1,10 @@
 ---
 title: "持续发布 Chrome 插件"
 author: Neal
+summary: "本文围绕《持续发布 Chrome 插件》展开，重点梳理介绍、Google API和CircleCI 配置等内容，提炼背景、思路与实践注意点。"
 tags: [安全, 安全开发, 前端, 工程化]
 categories: [开发]
-date: "2019-05-27" 
+date: "2019-05-27"
 ---
 
 Chrome 插件对于 Chrome 浏览器用户来说是必不可少的利器之一。之前我有开发过一款七牛云图床的 Chrome 插件 [image-host](https://github.com/neal1991/image-host)。后来由于我自己没有自己的域名，所以不太好使用这个插件了。后面，有其他的同学来提交 PR 来维护这一个插件。这样就有一个问题，一旦新的代码发布，就需要自己再重新发布一下插件。虽然发布插件不算特别麻烦，打包成压缩包，上传就可以了，但是对于程序员来说，可以自动做的绝对不要手动做。以下就是通过 CircleCI 来持续发布 Chrome 插件，参考了官方的文章，自己也才了一些坑。
@@ -163,6 +164,3 @@ CircleCi 是一款还不错的持续发布工具，结合 Github 其实还有还
 ## Reference
 
 * https://circleci.com/blog/continuously-deploy-a-chrome-extension/
-
-
-

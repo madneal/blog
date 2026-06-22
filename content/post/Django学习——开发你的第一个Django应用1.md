@@ -1,12 +1,14 @@
 ---
 title: "Django学习——开发你的第一个Django应用1"
 author: Neal
+summary: "本文围绕《Django学习——开发你的第一个Django应用1》展开，重点梳理创建一个项目、建立数据库和开发服务器等内容，提炼背景、思路与实践注意点。"
 description: "突然对Django热情似火，所以就开学习了，我是根据官方文档学习的，所以我打算把官方文档翻译一遍，全当学习，首先贴官方文档的地址：https://docs.djangoproject.com/en/1.8/intro/tutorial01/。我是根据我自己的理解翻译，可能和官方有一些差入，如有不当之处，还望指正。 
 首先请确保你已经安装了python,Django是建立在python的基础之上，所以"
 tags: [Python, 后端]
 categories: [web前端]
 date: "2015-10-10 16:39:31"
 ---
+
 突然对Django热情似火，所以就开学习了，我是根据官方文档学习的，所以我打算把官方文档翻译一遍，全当学习，首先贴官方文档的地址：https://docs.djangoproject.com/en/1.8/intro/tutorial01/。我是根据我自己的理解翻译，可能和官方有一些差入，如有不当之处，还望指正。
 首先请确保你已经安装了python,Django是建立在python的基础之上，所以首先要安装python,mac上面的这些安装都比较简单，用pip 就可以了。下面就开始来创建项目吧
 ## 创建一个项目 ##

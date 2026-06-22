@@ -1,6 +1,7 @@
 ---
 title: "Haystack - hack the box"
 author: Neal
+summary: "本文围绕《Haystack - hack the box》展开，重点梳理Introduction、Information Enumeration和Exploit等内容，提炼背景、思路与实践注意点。"
 keywords: [HTB,hack the box,ELK,elasticsearch,logstash,kibana,CVE]
 tags: [安全, 渗透测试, HTB]
 categories: [靶机]

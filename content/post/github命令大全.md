@@ -1,6 +1,7 @@
 ---
 title: "github命令大全"
 author: Neal
+summary: "本文围绕《github命令大全》展开，重点梳理github安装、配置工具和建立版本库等内容，提炼背景、思路与实践注意点。"
 description: "github是一种开源的版本控制工具，现在已经得到很多人的应用。所以想介绍一下github的一些使用。github安装github提供了桌面客户端，我们也可以通过命令行的方式来进行控制。 
 windows 
 https://windows.github.com 
@@ -10,6 +11,7 @@ tags: [Git, 开发工具]
 categories: [web前端]
 date: "2015-10-25 22:30:00"
 ---
+
 github是一种开源的版本控制工具，现在已经得到很多人的应用。所以想介绍一下github的一些使用。
 ## github安装 ##
 github提供了桌面客户端，我们也可以通过命令行的方式来进行控制。

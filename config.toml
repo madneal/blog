@@ -6,6 +6,12 @@ theme = "hugo-nuo"
 enableRobotsTXT = true
 PygmentsCodeFences = true
 canonifyurls = true
+rssLimit = 20
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
 
 # Google Analytics UA number
 googleAnalytics = "UA-104405154-2"
@@ -35,12 +41,14 @@ copyright = "© This post is licensed under a Creative Commons Attribution-NonCo
 # Add your own params here
 [params]
   author = "Neal"
-  avatar = "https://cdn.jsdelivr.net/gh/neal1991/neal1991.github.io/img/avatar.jpg"
-  wechat = "https://cdn.jsdelivr.net/gh/neal1991/neal1991.github.io/img/wechat.jpg"
+  avatar = "img/avatar.jpg"
+  bg = "img/grey-prism.svg"
+  wechat = "img/wechat.jpg"
   seotitle = "Neal 的博客"
   subtitle = "Development & Security"
   description = "全栈工程师的进击"
   paginate = 10
+  summaryLength = 220
 
   # Choose your social networks
   email = "bing.ecnu@gmail.com"

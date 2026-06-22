@@ -1,11 +1,13 @@
 ---
 title: "基于Vue JS, Webpack 以及Material Design的渐进式web应用 [Part 1]"
 author: Neal
+summary: "本文围绕《基于Vue JS, Webpack 以及Material Design的渐进式web应用 [Part 1]》展开，重点梳理教程目标和我们的PWA的基本组件等内容，提炼背景、思路与实践注意点。"
 description: "基于Vue JS, Webpack 以及Material Design的渐进式web应用 [Part 1]原文：基于Vue JS, Webpack 以及Material Design的渐进式web应用 [Part 1]译者：neal1991welcome to star my articles-translator , providing you advanced articles translat"
 tags: [安全, Web安全, JavaScript, 前端]
 categories: [web前端]
 date: "2017-05-11 09:28:40"
 ---
+
 # 基于Vue JS, Webpack 以及Material Design的渐进式web应用 [Part 1]
 
 原文：[基于Vue JS, Webpack 以及Material Design的渐进式web应用 [Part 1]](https://blog.sicara.com/a-progressive-web-application-with-vue-js-webpack-material-design-part-1-c243e2e6e402)
@@ -698,4 +700,4 @@ Git commit: [39360f251da153c780cd148dc3cf234348bb1e87](https://github.com/charle
 *   [Service worker介绍](https://github.com/neal1991/articles-translator/blob/master/Service%20worker%E4%BB%8B%E7%BB%8D.md)
 *   [weather app](https://neal1991.github.io/pwa/)
 *   [subway-shanghai](https://neal1991.github.io/subway-shanghai/)
-    ​              
+    ​

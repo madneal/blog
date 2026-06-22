@@ -1,9 +1,10 @@
 ---
 title: "Google Drive 的信息检索"
 author: Neal
+summary: "本文围绕《Google Drive 的信息检索》展开，重点梳理Auth和检索等内容，提炼背景、思路与实践注意点。"
 tags: [学习笔记]
 keywords: [开发,Google Drive,API]
-date: "2023-08-28" 
+date: "2023-08-28"
 ---
 
 对于使用 Google 全家桶的公司，Google 文档类的信息泄露也时常发生。出现这种情况主要的原因是文档的权限设置问题，用户可能将文档配置为 anyoneCanFind, anyoneWithLink, domainCanFind, domainWithLink，这四种权限都属于比较公开的权限。后两个属于在域内可以查看到文档，一般来说也是不提倡如此设置，尤其是文档中包含敏感信息的。

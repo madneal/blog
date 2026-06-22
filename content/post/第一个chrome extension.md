@@ -1,12 +1,14 @@
 ---
 title: "第一个chrome extension"
 author: Neal
+summary: "本文围绕《第一个chrome extension》梳理web前端和前端相关的背景、方法和实践细节，可作为排查与学习记录。"
 description: "如今，chrome浏览器的使用如越来越流行，chrome extension往往能提供更多很丰富的功能。以前一直想了解这方面的东西，可是又担心很复杂。前段时间，在斗鱼看一个直播，想刷弹幕，但是每次自己输入有很麻烦，所以写个小脚本就可以了，后来想以下也可以使用chrome extension来实现。关于chrome extension,google就给出了相关的文档，另外国内360也翻译了这篇文档。当"
 tags: [前端]
 categories: [web前端]
 keywords: [chrome extension, chrome]
 date: "2017-03-04 13:47:34"
 ---
+
 如今，chrome浏览器的使用如越来越流行，chrome extension往往能提供更多很丰富的功能。以前一直想了解这方面的东西，可是又担心很复杂。前段时间，在斗鱼看一个直播，想刷弹幕，但是每次自己输入有很麻烦，所以写个小脚本就可以了，后来想以下也可以使用chrome extension来实现。关于chrome extension,[google](https://developer.chrome.com/extensions)就给出了相关的文档，另外国内[360](http://open.chrome.360.cn/extension_dev/overview.html)也翻译了这篇文档。当然我所做的东西还是很基础的，在此，也是就是说一下自己第一次尝试的经验。
 其实，chrome extension似乎和现在很火的pwa有一点类似，对于chrome extension来说，有个文件是必不可少的，即`manifest.json`，这对于extension是非常重要的。这个文件主要是项目的某些描述，以及一些文件的引入。以我的文件为例：
 ```
