@@ -2,6 +2,7 @@
 title: "隐写术-深入研究 PDF 混淆漏洞"
 author: Neal
 summary: "本文围绕《隐写术-深入研究 PDF 混淆漏洞》展开，重点梳理总结等内容，提炼背景、思路与实践注意点。"
+cover: "/img/post-covers/pdf-92bd333304.png"
 tags: [安全, 漏洞分析, 翻译]
 categories: [安全]
 date: "2019-01-28"
