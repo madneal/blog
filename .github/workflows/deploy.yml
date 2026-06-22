@@ -8,7 +8,7 @@ on:
   workflow_dispatch:
 
 concurrency:
-  group: deploy-hugo-site-${{ github.event_name }}-${{ github.ref }}
+  group: deploy-hugo-site
   cancel-in-progress: true
 
 permissions:
@@ -41,11 +41,9 @@ jobs:
         run: hugo -t hugo-nuo
 
       - name: Disable Jekyll processing
-        if: github.event_name != 'pull_request'
         run: touch public/.nojekyll
 
       - name: Deploy to pages repository
-        if: github.event_name != 'pull_request'
         uses: peaceiris/actions-gh-pages@v4
         with:
           personal_token: ${{ secrets.GH_PAGES_TOKEN }}
