@@ -1,6 +1,7 @@
 ---
 title: "通过利用immutability的能力编写更安全和更整洁的代码"
 author: Neal
+summary: "本文围绕《通过利用immutability的能力编写更安全和更整洁的代码》展开，重点梳理Immutable数组、函数和并发等内容，提炼背景、思路与实践注意点。"
 description: "通过利用immutability的能力编写更安全和更整洁的代码
   原文：Write safer and cleaner code by leveraging the power of “Immutability”
   
@@ -11,6 +12,7 @@ tags: [安全, JavaScript, 前端, 翻译]
 categories: [web前端]
 date: "2017-05-21 11:41:05"
 ---
+
 # 通过利用immutability的能力编写更安全和更整洁的代码
 
 > 原文：[Write safer and cleaner code by leveraging the power of “Immutability”](https://medium.freecodecamp.com/write-safer-and-cleaner-code-by-leveraging-the-power-of-immutability-7862df04b7b6)

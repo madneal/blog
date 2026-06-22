@@ -1,6 +1,7 @@
 ---
 title: "出去就餐并且理解Express.js的基本知识"
 author: Neal
+summary: "本文围绕《出去就餐并且理解Express.js的基本知识》梳理web前端、JavaScript和后端相关的背景、方法和实践细节，可作为排查与学习记录。"
 description: "Going out to eat and understanding the basics of Express.js出去就餐并且理解Express.js的基本知识
   原文：Going out to eat and understanding the basics of Express.js
   
@@ -11,6 +12,7 @@ tags: [JavaScript, 后端]
 categories: [web前端]
 date: "2017-11-12 17:12:53"
 ---
+
 ![](https://cdn-images-1.medium.com/max/11520/1*iMkFu1T52fkSnlZDlCrvkQ.jpeg)
 
 ## Going out to eat and understanding the basics of Express.js出去就餐并且理解Express.js的基本知识

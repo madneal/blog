@@ -1,6 +1,7 @@
 ---
 title: "CPE 获取指南"
 author: Neal
+summary: "本文围绕《CPE 获取指南》展开，重点梳理Webinars、Professional Development Institute和其它等内容，提炼背景、思路与实践注意点。"
 tags: [安全, 安全工程, 认证考试]
 categories: [认证]
 date: "2022-12-02"

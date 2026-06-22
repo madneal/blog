@@ -1,6 +1,7 @@
 ---
 title: "service worker介绍"
 author: Neal
+summary: "本文围绕《service worker介绍》展开，重点梳理那么它是什么？、开始和只有你说HTTPS？等内容，提炼背景、思路与实践注意点。"
 description: "原文：Service workers explained
   
   译者：neal1991
@@ -13,6 +14,7 @@ tags: [前端]
 categories: [web前端]
 date: "2017-05-02 12:21:13"
 ---
+
 > 原文：[Service workers explained](https://github.com/w3c/ServiceWorker/blob/master/explainer.md)
 >
 > 译者：[neal1991](https://github.com/neal1991)

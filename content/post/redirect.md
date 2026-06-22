@@ -1,10 +1,11 @@
 ---
 title: "白名单，被谁饶过了？"
 author: Neal
+summary: "本文围绕《白名单，被谁饶过了？》展开，重点梳理起因、apache/dubbo 的问题和URL 的其它门道等内容，提炼背景、思路与实践注意点。"
 tags: [安全, Web安全, 漏洞分析, 代码审计]
 keywords: [架构,apache dubbo,开源,开放重定向,open redirect, SSRF, 开发,安全,代码审计,security,development,web security,]
 categories: [代码审计]
-date: "2021-01-03" 
+date: "2021-01-03"
 ---
 
 本文首发于安全客平台，https://www.anquanke.com/post/id/228916
@@ -160,6 +161,3 @@ func main() {
 通过这次的开放重定向的绕过，发现了很多很有意思的问题。即使可能看起来微不足道的问题，可能也会暗含玄机。由于开发使用了 dubbo 中的 `parseURL` 方法去解析 url，从而导致白名单的校验被绕过，这可能是开发也没有预料到的。对于某些方法，如果研究的比较深入，的确是会有一些未预料到的影响。
 
 声明：本文经安全客授权发布，转载请联系安全客平台。
-
-
-

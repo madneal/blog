@@ -1,11 +1,12 @@
 ---
 title: "Chrome 最新零日漏洞"
 author: Neal
+summary: "本文围绕《Chrome 最新零日漏洞》展开，重点梳理摘要、技术细节和有效载荷说明等内容，提炼背景、思路与实践注意点。"
 tags: [安全, Web安全, 漏洞分析, 前端]
 keywords: [Chrome,安全漏洞,零日漏洞,apt,卡巴斯基,javascript]
 categories: [安全]
 description: "Chrome 最新在野零日漏洞，赶紧升级你的 Chrome 浏览器"
-date: "2019-11-10" 
+date: "2019-11-10"
 ---
 
 >原文：[Chrome 0-day exploit CVE-2019-13720 used in Operation WizardOpium](https://securelist.com/chrome-0-day-exploit-cve-2019-13720-used-in-operation-wizardopium/94866/)
@@ -132,8 +133,3 @@ SHA256: cafe8f704095b1f5e0a885f75b1b41a7395a1c62fd893ef44348f9702b3a0deb
 * f614909fbd57ece81d00b01958338ec2
 * cafe8f704095b1f5e0a885f75b1b41a7395a1c62fd893ef44348f9702b3a0deb
 * kennethosborne@protonmail.com
-
-
- 
-
- 
