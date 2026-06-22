@@ -7,3 +7,6 @@
 [submodule "madneal.github.io"]
 	path = madneal.github.io
 	url = https://github.com/madneal/madneal.github.io
+[submodule "themes/hugo-nuo"]
+	path = themes/hugo-nuo
+	url = https://github.com/madneal/hugo-nuo.git
