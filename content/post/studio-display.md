@@ -2,6 +2,7 @@
 title: "iMac+Studio Display，双 5k 屏体验"
 author: Neal
 summary: "本文围绕《iMac+Studio Display，双 5k 屏体验》展开，重点梳理选型、开箱和使用体验等内容，提炼背景、思路与实践注意点。"
+cover: "/img/post-covers/studio-display-f4894a75c2.jpg"
 tags: [数码]
 keywords: [Studio Diplay, 苹果, apple]
 categories: [生产力工具]

@@ -2,6 +2,7 @@
 title: "基于golang实现报告生成技术方案"
 author: Neal
 summary: "本文围绕《基于golang实现报告生成技术方案》梳理开发、Go和数据可视化相关的背景、方法和实践细节，可作为排查与学习记录。"
+cover: "/img/post-covers/go-report-f10b787779.jpg"
 tags: [Go, 数据可视化]
 keywords: [golang, 数据可视化, word, go-echarts]
 categories: [开发]

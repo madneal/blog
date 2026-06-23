@@ -2,6 +2,7 @@
 title: "Home Assistant 小米门铃视频本地存储"
 author: Neal
 summary: "本文围绕《Home Assistant 小米门铃视频本地存储》展开，重点梳理Home Assistant 安装、HACS 安装和小米插件安装等内容，提炼背景、思路与实践注意点。"
+cover: "/img/post-covers/xiaomi-f1849fc0ee.jpg"
 tags: [数码]
 categories: [生活]
 date: "2024-06-29"

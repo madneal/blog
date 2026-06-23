@@ -2,6 +2,7 @@
 title: "mac mini，真香？"
 author: Neal
 summary: "本文围绕《mac mini，真香？》展开，重点梳理5K显示器横向对比（5120×2880分辨率）、主机对比和键盘等内容，提炼背景、思路与实践注意点。"
+cover: "/img/post-covers/mac-mini-e8a4010407.jpg"
 tags: [数码]
 categories: [数码]
 date: "2025-02-24"

@@ -2,6 +2,7 @@
 title: "停车被蹭的那些小事"
 author: Neal
 summary: "本文围绕《停车被蹭的那些小事》梳理生活和汽车相关的背景、方法和实践细节，可作为排查与学习记录。"
+cover: "/img/post-covers/shanghai-b0a0a440b1.jpg"
 tags: [生活, 汽车]
 keywords: [生活,汽车]
 categories: [生活]

@@ -2,6 +2,7 @@
 title: "微软开源对于 Solorigate 活动捕获的开源 CodeQL 查询"
 author: Neal
 summary: "本文围绕《微软开源对于 Solorigate 活动捕获的开源 CodeQL 查询》展开，重点梳理CodeQL 入门以及微软如何使用它和我们使用 CodeQL 寻找代码级威胁情报的方法等内容，提炼背景、思路与实践注意点。"
+cover: "/img/post-covers/ms-codeql-39fd297283.jpg"
 tags: [安全, 代码审计, 开源, CodeQL]
 categories: [安全]
 date: 2021-03-07

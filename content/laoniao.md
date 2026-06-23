@@ -2,6 +2,7 @@
 title: "疯狂的键盘：老鸟成长史"
 author: Neal
 summary: "本文围绕《疯狂的键盘：老鸟成长史》梳理技术、安全、工程化和学习笔记相关的背景、方法和实践细节，可作为排查与学习记录。"
+cover: "/img/post-covers/laoniao-0a0cdb3334.jpg"
 tags: [安全, 工程化, 学习笔记]
 categories: [技术]
 date: "2024-03-29"
