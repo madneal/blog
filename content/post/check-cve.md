@@ -2,6 +2,7 @@
 title: "cve check"
 author: Neal
 summary: "本文围绕《cve check》梳理安全开发、安全、漏洞分析和Python相关的背景、方法和实践细节，可作为排查与学习记录。"
+cover: "/img/post-covers/check-cve-de56a112ab.jpg"
 tags: [安全, 漏洞分析, Python]
 categories: [安全开发]
 date: "2019-07-04"

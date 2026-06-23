@@ -2,6 +2,7 @@
 title: "关于招人的那点小事"
 author: Neal
 summary: "本文围绕《关于招人的那点小事》梳理HR和生活相关的背景、方法和实践细节，可作为排查与学习记录。"
+cover: "/img/post-covers/hr-9b5e8c944f.jpg"
 tags: [生活]
 keywords: [招聘, HR]
 categories: [HR]

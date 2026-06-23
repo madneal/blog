@@ -2,6 +2,7 @@
 title: "僵尸网络 Stantinko 犯罪活动新增加密货币挖矿"
 author: Neal
 summary: "本文围绕《僵尸网络 Stantinko 犯罪活动新增加密货币挖矿》展开，重点梳理修改后的开源加密货币挖矿软件、挖矿代理的使用和加密货币挖矿软件能力等内容，提炼背景、思路与实践注意点。"
+cover: "/img/post-covers/botnet-c41a37b1cc.jpg"
 keywords: [僵尸网络,挖矿,恶意软件,门罗币,加密货币,wmic,windows,补丁,patch]
 tags: [安全]
 categories: [安全情报]

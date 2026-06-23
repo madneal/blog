@@ -2,6 +2,7 @@
 title: "让你的SQL盲注快起来"
 author: Neal
 summary: "本文围绕《让你的SQL盲注快起来》梳理安全和Web安全相关的背景、方法和实践细节，可作为排查与学习记录。"
+cover: "/img/post-covers/sql-8116e4f09d.jpg"
 tags: [安全, Web安全]
 keywords: [安全, web安全, sql injection, sql 注入, 与运算, 暴力破解]
 categories: [安全]

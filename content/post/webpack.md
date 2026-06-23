@@ -2,6 +2,7 @@
 title: "hey,我能看到你的源码哎"
 author: Neal
 summary: "本文围绕《hey,我能看到你的源码哎》梳理web安全、安全、安全开发和前端相关的背景、方法和实践细节，可作为排查与学习记录。"
+cover: "/img/post-covers/webpack-ebf62f98a0.jpg"
 tags: [安全, Web安全, 安全开发, 前端]
 keywords: [web安全, webpack, 信息泄露, chrome插件]
 categories: [web安全]

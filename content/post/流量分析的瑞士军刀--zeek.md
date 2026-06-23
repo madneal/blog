@@ -2,6 +2,7 @@
 title: "网络安全分析的瑞士军刀--zeek"
 author: Neal
 summary: "本文围绕《网络安全分析的瑞士军刀--zeek》展开，重点梳理安装、集群安装和Zeek 结合被动扫描器的玩法等内容，提炼背景、思路与实践注意点。"
+cover: "/img/post-covers/zeek-bea549e443.jpg"
 tags: [安全, 安全运营]
 keywords: [安全, 网络安全, zeek, bro, kafka, bro-plugin, logstash]
 categories: [安全]

@@ -2,6 +2,7 @@
 title: "AI 审代码，靠谱吗？"
 author: Neal
 summary: "本文围绕《AI 审代码，靠谱吗？》展开，重点梳理背景：一道出乎意料的笔试题、初探源码：First 函数的内部实现和AI 怎么说？等内容，提炼背景、思路与实践注意点。"
+cover: "/img/post-covers/gorm-5ddaf2b887.jpg"
 tags: [安全, 代码审计, Go, AI]
 categories: [安全]
 date: "2025-08-22"

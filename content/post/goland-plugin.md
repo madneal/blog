@@ -2,6 +2,7 @@
 title: "第一款Goland的SCA插件开发之旅"
 author: Neal
 summary: "本文围绕《第一款Goland的SCA插件开发之旅》展开，重点梳理先吐槽、API 文档过于简单和API 复杂性等内容，提炼背景、思路与实践注意点。"
+cover: "/img/post-covers/goland-plugin-3d7d1c8031.jpg"
 tags: [Go, 开发工具]
 keywords: [goland,Go,jetbrains,插件开发]
 categories: [插件开发]
