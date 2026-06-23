@@ -1,4 +1,11 @@
-.vscode
+.DS_Store
+.vscode/
+.hugo_build.lock
 hugo.log
+hugo_build.log
+node_modules/
+public/
+resources/_gen/
+themes/**/node_modules/
 wechat_publish/
 
