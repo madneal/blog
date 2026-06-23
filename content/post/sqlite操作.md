@@ -1,6 +1,7 @@
 ---
 title: "sqlite操作"
 author: Neal
+summary: "本文围绕《sqlite操作》展开，重点梳理导入excel到表格、导入文件乱码和datatime()函数时间出错等内容，提炼背景、思路与实践注意点。"
 description: "导入excel到表格
 
 本来想使用sqlite expert personal导入表格的，后来发现软件里面没有import/export菜单，后来问只有professional版本才有这个菜单的，我晕，穷人那只能敲命令行了。"
@@ -8,6 +9,7 @@ tags: [后端]
 categories: [数据库]
 date: "2015-04-15 15:48:00"
 ---
+
 ## 导入excel到表格 ##
 本来想使用sqlite expert personal导入表格的，后来发现软件里面没有import/export菜单，后来问只有professional版本才有这个菜单的，我晕，穷人那只能敲命令行了。
 注意导入的excel表格是要把表头给去掉的，然后按照sqlite表格里面标头的顺序进行导入，excel的表格用csv的格式来保存。

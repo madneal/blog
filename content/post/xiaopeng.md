@@ -1,6 +1,8 @@
 ---
 title: "技术宅的第一辆车--小鹏P7"
 author: Neal
+summary: "本文围绕《技术宅的第一辆车--小鹏P7》展开，重点梳理买车、驾驶体验和不幸的事等内容，提炼背景、思路与实践注意点。"
+cover: "/img/post-covers/xiaopeng-a175c6ed8a.jpg"
 tags: [汽车]
 categories: [汽车]
 date: 2021-05-01

@@ -1,10 +1,12 @@
 ---
 title: "被动扫描器之插件篇"
 author: Neal
+summary: "本文围绕《被动扫描器之插件篇》展开，重点梳理Chrome 插件、兼容问题和requestBody 的格式问题等内容，提炼背景、思路与实践注意点。"
+cover: "/img/post-covers/chrome-775f1d5fbd.jpg"
 tags: [安全, Web安全, 安全开发, 前端]
 categories: [安全]
 keywords: [chrome extension,chrome插件,被动扫描器,web安全,burp]
-date: "2019-09-28" 
+date: "2019-09-28"
 ---
 
 本文首发于 freebuf, https://www.freebuf.com/articles/web/219818.html
@@ -178,7 +180,3 @@ java -agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=5005 -jar bur
 ## 总结
 
 以上就是在开发被动扫描器 Chrome 插件以及 Burp 插件遇到的一些坑，在这里和大家分享一下。其实被动扫描器开发，最重要的还是一些细节方面的考虑，可以将插件的功能做到更完美。
-
-
-
-

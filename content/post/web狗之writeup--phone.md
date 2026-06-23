@@ -1,6 +1,7 @@
 ---
 title: "web 狗之writeup--phone"
 author: Neal
+summary: "本文围绕《web 狗之writeup--phone》展开，重点梳理正常用户、数据库名和表名等内容，提炼背景、思路与实践注意点。"
 description: ""
 tags: [学习笔记]
 categories: [CTF]
@@ -113,4 +114,3 @@ There only 12345678912 people use the same phone as you
 There only 111111 people use the same phone as you
 
 哈哈，常规套路，这个 wp 除了浏览器没有使用任何第三方工具即可完成，是不是很方便。不过我的 writeup 也是站在巨人的肩膀上完成的。
-

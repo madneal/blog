@@ -1,10 +1,12 @@
 ---
 title: "为什么 2022 年是漏洞赏金奖破纪录的一年"
 author: Neal
+summary: "本文围绕《为什么 2022 年是漏洞赏金奖破纪录的一年》梳理漏洞赏金、安全、漏洞分析、工程化和开源相关的背景、方法和实践细节，可作为排查与学习记录。"
+cover: "/img/post-covers/github-bug-bounty-0c504ef49e.jpg"
 tags: [安全, 漏洞分析, 工程化, 开源]
 keywords: [gitlab,漏洞赏金,h1]
 categories: [漏洞赏金]
-date: "2023-01-16" 
+date: "2023-01-16"
 ---
 
 # 为什么 2022 年是漏洞赏金奖破纪录的一年
@@ -72,4 +74,3 @@ _注：数据为截至 2022 年 12 月 16 日。_
 一如既往，与我们行业最好的安全研究人员（包括许多新人）一起工作真的很高兴。 GitLab 的 AppSec 团队致力于在漏洞赏金计划和奖励的透明度方面成为行业领导者。 [让我们知道我们在做什么](https://gitlab.com/gitlab-com/gl-security/appsec/hackerone-questions/) 这样我们就可以迭代我们的程序流程。
 
 为 2023 年干杯 - 快乐挖洞！
-

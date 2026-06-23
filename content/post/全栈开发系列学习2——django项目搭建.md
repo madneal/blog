@@ -1,6 +1,7 @@
 ---
 title: "全栈开发系列学习2——django项目搭建"
 author: Neal
+summary: "本文围绕《全栈开发系列学习2——django项目搭建》梳理web前端、Python和后端相关的背景、方法和实践细节，可作为排查与学习记录。"
 description: "项目代码：http://yunpan.cn/cHajgT4HvgHqx （提取码：8350） 
 配置项目： 
 1. 首先确保你的机器安装了python和pip，这两种安装比较简单，这里就不说了。 
@@ -11,6 +12,7 @@ tags: [Python, 后端]
 categories: [web前端]
 date: "2015-10-10 11:16:11"
 ---
+
 项目代码：http://yunpan.cn/cHajgT4HvgHqx （提取码：8350）
 配置项目：
 1. 首先确保你的机器安装了python和pip，这两种安装比较简单，这里就不说了。
@@ -97,4 +99,3 @@ web_dev_tutorial文件夹
 controllers.py 我们曾经说过，controller是为了响应某个动作的。在Django中，一个controller是一个函数响应客户端的请求并且响应一个对象。
 
 urls.py 一个应用可以定义它自己的url路径。如果一个应用中的所有url都是有相同的前缀，那么你就可定义他们在这个应用中。
-    

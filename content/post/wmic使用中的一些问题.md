@@ -1,6 +1,7 @@
 ---
 title: "Wmic 使用中的一些问题"
 author: Neal
+summary: "本文围绕《Wmic 使用中的一些问题》展开，重点梳理起源、程序和功能和补丁信息等内容，提炼背景、思路与实践注意点。"
 description: "Wmic, 即 Windows Management Instrumentation Command-Line Utility，通过这个工具我们可以获取计算本地的很多信息。"
 tags: [工具]
 keywords: [wmic,windows,补丁,patch]
@@ -61,5 +62,3 @@ Wmic, 即 Windows Management Instrumentation Command-Line Utility，通过这个
 在本地连接之后，就可以通过查询语句来查询一些信息了。比如，`select * from win32_process` 就可以看到一些进程相关的信息。关于测试工具的更过用法，参考[这篇文章](https://www.codeproject.com/Articles/46390/WMI-Query-Language-by-Example)。
 
 关于 wmi 的更多用法，可以参考[微软的官方文档](https://msdn.microsoft.com/en-us/library/aa394572(v=vs.85).aspx)。
-
-

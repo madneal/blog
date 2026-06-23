@@ -1,5 +1,6 @@
 ---
 title: "理解 OutOfMemoryError 异常"
+summary: "本文围绕《理解 OutOfMemoryError 异常》展开，重点梳理发生 OutOfMemoryError 的原因等内容，提炼背景、思路与实践注意点。"
 tags: [学习笔记]
 categories: ["后端"]
 keywords: [OutOfMemory,Error,JAVA,Exception]
@@ -99,4 +100,3 @@ try (FileInputStream input = new FileInputStream("file.txt")) {
 总而言之，导致内存溢出的原因可能各种各样，可能不是某单单一个原因导致的，其表现可能也不是稳定的。这也就是 OutOfMemoryError 为什么排查起来比较困难，也比较难解决。有时候可能也需要借助于性能分析工具，比如 dump 内存日志或者使用 jdk 自带的 jvm 性能分析工具 jConsole 分析内存的使用情况排查问题。
 
 以上
-   

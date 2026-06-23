@@ -1,9 +1,11 @@
 ---
 title: "mac mini，真香？"
 author: Neal
+summary: "本文围绕《mac mini，真香？》展开，重点梳理5K显示器横向对比（5120×2880分辨率）、主机对比和键盘等内容，提炼背景、思路与实践注意点。"
+cover: "/img/post-covers/mac-mini-e8a4010407.jpg"
 tags: [数码]
 categories: [数码]
-date: "2025-02-24" 
+date: "2025-02-24"
 ---
 
 距离上次换 [iMac 2020](https://madneal.com/post/imac/) 已经有4年多的时间。最近 mac 国补的价格，感觉不买就在亏钱一样。本来是在 iMac 和 mac mini 之间犹豫，但是现在新版本的 iMac 只有 24 寸，并且只有 4.5 k。另外还有一个重要的问题是京东没有 vesa 版本的 iMac，但是我只想买 vesa 支架友好的显示器。后来，又听同事说 m4pro 芯片是 m4 芯片性能的将近2倍。果断拿下了 mac mini m4pro 丐版配置，m4 pro (24 G 内存 + 512 G 存储)。对于来说基本足够了，苹果的内存是黄金做的，实在是加不起。

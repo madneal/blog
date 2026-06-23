@@ -1,9 +1,11 @@
 ---
 title: "GitHub 更新了 RSA SSH host key"
 author: Neal
+summary: "本文围绕《GitHub 更新了 RSA SSH host key》梳理security、安全、Git和开源相关的背景、方法和实践细节，可作为排查与学习记录。"
+cover: "/img/post-covers/github-rsa-144c1dec63.jpg"
 tags: [安全, Git, 开源]
 categories: [security]
-date: "2023-03-24" 
+date: "2023-03-24"
 ---
 
 今天在 push 自己 GitHub 仓库代码的时候遇到了报错，后来发现是 GitHub 已经将 RSA SSH host key 进行了更新。依据[官方博客](https://github.blog/2023-03-23-we-updated-our-rsa-ssh-host-key/)，GitHub 于 3月24日 05:00 UTC 时间 由于安全原因将 RSA SSH host key 进行了更新。主要是为了避免 GitHub 用户的 git 操作被任何不法分子监听。这个变更仅影响基于 RSA 的 SSH 协议使用 GitHub 进行 git 操作的用户。变更也只影响 RSA 算法，不影响 ECDSA 或者 Ed25519 用户。

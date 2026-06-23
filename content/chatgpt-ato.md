@@ -1,10 +1,12 @@
 ---
 title: "ChatGPT账户接管 - 通配符网页缓存欺骗"
 author: Neal
+summary: "本文围绕《ChatGPT账户接管 - 通配符网页缓存欺骗》展开，重点梳理Intro、介绍和Initial Discovery等内容，提炼背景、思路与实践注意点。"
+cover: "/img/post-covers/chatgpt-ato-3671a744ac.jpg"
 tags: [安全, Web安全, 漏洞分析]
 keywords: [AI,web 安全]
 categories: [安全]
-date: "2025-02-10" 
+date: "2025-02-10"
 ---
 
 ![](https://nokline.github.io/images/Robber.jpeg)

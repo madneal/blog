@@ -1,10 +1,12 @@
 ---
 title: "gobuster源码阅读--终篇"
 author: Neal
+summary: "本文围绕《gobuster源码阅读--终篇》展开，重点梳理dns、s3和vhost等内容，提炼背景、思路与实践注意点。"
+cover: "/img/post-covers/gobuster3-2da3831c05.jpg"
 tags: [安全, Web安全, Go, Gobuster]
 keywords: [web安全, gobuster, 源码阅读]
 categories: [源码阅读]
-date: "2022-04-22" 
+date: "2022-04-22"
 ---
 
 在搞完 gobuster 系列源码阅读的[第一篇](https://madneal.com/post/gobuster1/)以及[dir篇](https://madneal.com/post/gobuster2/)之后，对于 gobuster 的实现思路已经比较熟悉。本文就对剩下的模块进行一个讲解，由于一些公共模块在前面的两篇文章中已经提过，所以本文主要专注于每个模块所独有的部分。

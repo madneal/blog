@@ -1,9 +1,11 @@
 ---
 title: "多平台的敏感信息检测工具-GShark"
 author: Neal
+summary: "本文围绕《多平台的敏感信息检测工具-GShark》展开，重点梳理架构、部署和发布步骤等内容，提炼背景、思路与实践注意点。"
+cover: "/img/post-covers/gshark-0a91e37472.jpg"
 tags: [安全, 安全工程, 工程化, GShark]
 categories: [安全]
-date: "2021-04-17" 
+date: "2021-04-17"
 ---
 
 GShark has beem maintained for alomost two years as an open source sensitive infomation detection tool. This tool is utilized in my own company and sparetime, multi information sensi
@@ -127,5 +129,3 @@ proxy_pass http://127.0.0.1:8888;
 ## 总结
 
 目前基于新的框架做的重构对于前端方面说可以说是做了非常大的改善，不管是在功能性上亦或是美观性都强了不少。另外，由于完善的权限控制，这也对于系统的控制性的加强也有帮助。同时，由于技术栈的基础，后续开发也会更加的便捷。后续的计划可能是增加更多的搜索源并且修复现在存在的一些小 BUG 吧。
-
-

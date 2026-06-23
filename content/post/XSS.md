@@ -1,10 +1,12 @@
 ---
 title: "GMail XSS 漏洞分析"
 author: Neal
+summary: "本文围绕《GMail XSS 漏洞分析》展开，重点梳理什么是 AMP4Email和DOM Clobbering等内容，提炼背景、思路与实践注意点。"
+cover: "/img/post-covers/xss-30280c38aa.jpg"
 tags: [安全, Web安全, 漏洞分析]
 keywords: [XSS,web安全]
 categories: [安全]
-date: "2019-11-24" 
+date: "2019-11-24"
 ---
 
 >原文：[XSS in GMail’s AMP4Email via DOM Clobbering](https://research.securitum.com/xss-in-amp4email-dom-clobbering/)

@@ -1,6 +1,7 @@
 ---
 title: "只要三步，你就可以在github上发布网站了"
 author: Neal
+summary: "本文围绕《只要三步，你就可以在github上发布网站了》梳理IT新闻、Git、开发工具和博客相关的背景、方法和实践细节，可作为排查与学习记录。"
 description: "今天，看到github推送了一个新的消息，Publishing with GitHub Pages, now as easy as 1, 2, 3。总结起来就是在github将你的文档或者发布网页将会变得十分简单。 
 三步：
 创建仓库
@@ -11,6 +12,7 @@ tags: [Git, 开发工具, 博客]
 categories: [IT新闻]
 date: "2016-12-09 10:41:39"
 ---
+
 今天，看到github推送了一个新的消息，[Publishing with GitHub Pages, now as easy as 1, 2, 3](https://github.com/blog/2289-publishing-with-github-pages-now-as-easy-as-1-2-3)。总结起来就是在github将你的文档或者发布网页将会变得十分简单。
 三步：
 

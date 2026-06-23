@@ -1,6 +1,8 @@
 ---
 title: "富文本场景下的 XSS"
 author: Neal
+summary: "本文围绕《富文本场景下的 XSS》梳理安全、Web安全、Go和JavaScript相关的背景、方法和实践细节，可作为排查与学习记录。"
+cover: "/img/post-covers/stored-xss-fb4942f010.jpg"
 tags: [安全, Web安全, Go, JavaScript]
 categories: [安全]
 date: 2021-08-30
@@ -202,4 +204,3 @@ p.AllowElementMatch(regex.MustCompile("^my-element-"))
 ```
 
 其实从原理上来说，bluemonday 与 js-xss 并没有本质的区别，主要就是基于标签和属性的过滤，可以基于自己的技术场景去选择。不过记得一点是两种方案过滤时机的选择。
-

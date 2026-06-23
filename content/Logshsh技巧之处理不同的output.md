@@ -1,10 +1,12 @@
 ---
 title: "Logstash技巧之处理不同的output"
 author: Neal
+summary: "本文围绕《Logstash技巧之处理不同的output》梳理工具相关的背景、方法和实践细节，可作为排查与学习记录。"
+cover: "/img/post-covers/logshsh-output-d17ae3fd1f.jpg"
 tags: [工具]
 keywords: [插件, logstash]
 categories: [工具]
-date: "2020-05-18" 
+date: "2020-05-18"
 ---
 
 之前在用 Logstash 遇到了一个棘手的小问题，一直没找到好的解决方案，后来找到了一个有用的插件，分享一下。场景是这样的，Logstash 有两个 output，一个是 output 到 Kafka，另外一个则是 ES。但是对于 Kafka，希望能够移除日志中的 @timestamp 字段，对于 ES 则希望能够进行保留。

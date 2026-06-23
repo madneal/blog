@@ -1,9 +1,11 @@
 ---
 title: "Bashed -- hack the box"
 author: Neal
+summary: "本文围绕《Bashed -- hack the box》展开，重点梳理Introduction、Information Enumeration和Exploit等内容，提炼背景、思路与实践注意点。"
+cover: "/img/post-covers/bashed-hack-the-box-e4871f5bea.jpg"
 tags: [安全, 渗透测试, HTB]
 categories: [htb]
-date: "2019-04-04" 
+date: "2019-04-04"
 ---
 
 [![AgdMvj.md.png](https://s2.ax1x.com/2019/04/03/AgdMvj.md.png)](https://imgchr.com/i/AgdMvj)
@@ -108,7 +110,3 @@ Set the kali listen to port 4444. Download the python script in the target machi
 ![AgICRJ.png](https://s2.ax1x.com/2019/04/04/AgICRJ.png)
 
 [![AgIks1.png](https://s2.ax1x.com/2019/04/04/AgIks1.png)](https://imgchr.com/i/AgIks1)
-
-
-
-

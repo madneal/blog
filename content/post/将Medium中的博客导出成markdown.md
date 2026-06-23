@@ -1,6 +1,7 @@
 ---
 title: "将Medium中的博客导出成markdown"
 author: Neal
+summary: "本文围绕《将Medium中的博客导出成markdown》梳理开发工具、安全、安全开发、前端和工程化相关的背景、方法和实践细节，可作为排查与学习记录。"
 description: "Medium(https://medium.com)（需要翻墙访问）是国外非常知名的一个博客平台。上面经常有很多知名的技术大牛在上面发布博客，现在一般国内的搬运的技术文章大多数都是来自于这个平台。 
 Medium文章格式显示地非常优雅，但是存在一个问题。众所周知，markdown已经是最受程序猿欢迎的文本编辑格式之一。但是Medium仅仅支持markdown格式导入，不支持markdown格式的导出"
 tags: [安全, 安全开发, 前端, 工程化]
@@ -8,6 +9,7 @@ keywords: [medium,markdown,chrome extension]
 categories: [开发工具]
 date: "2017-09-23 16:33:06"
 ---
+
 [Medium](https://medium.com)（需要翻墙访问）是国外非常知名的一个博客平台。上面经常有很多知名的技术大牛在上面发布博客，现在一般国内的搬运的技术文章大多数都是来自于这个平台。
 
 Medium 文章格式显示地非常优雅，但是存在一个问题。众所周知，markdown已经是最受程序猿欢迎的文本编辑格式之一。但是Medium仅仅支持markdown格式导入，不支持markdown格式的导出。这也正是我当初开发这个插件[export-medium](https://github.com/neal1991/export-medium)的原因，现在这个项目是放在github上面的，欢迎大家多多star,或者pr。自己也花了5美金，注册了开发者账号，因为现在chrome对于不是商店的插件限制很严格，如果没上商店，一直有提醒，很麻烦。商店访问地址在[这](https://chrome.google.com/webstore/detail/dodkihcbgpjblncjahodbnlgkkflliim/publish-accepted?utm_source=chrome-ntp-icon&authuser=1),需要翻墙访问。不过你可以手动安装:

@@ -1,10 +1,13 @@
 ---
 title: "JavaScript能否修改Referer请求头"
 author: Neal
+summary: "本文围绕《JavaScript能否修改Referer请求头》梳理安全、Web安全和JavaScript相关的背景、方法和实践细节，可作为排查与学习记录。"
+cover: "/img/post-covers/referer-6807e52ec2.jpg"
 tags: [安全, Web安全, JavaScript]
 categories: [安全]
 date: 2021-03-09
 ---
+
 正如题目，本文的也很直白，主要就是围绕这个问题展开。JavaScript 能否修改 Referer 请求头？现在 JavaScript 的能力越来越强大，JavaScript 似乎无所不能，修改一个小小的 Referer 请求头似乎看来不在话下（本文讨论的 JavaScript 仅限于在浏览器中执行，不包括 Nodejs）。
 
 其实不然，在 web 浏览器中，绝大多数浏览器都禁止了 JavaScript 直接去操作 Referfer 请求头，当然这一方面也是出于安全方面的考虑。当然除了 Referer 请求头之外，还有其它请求头也被禁止通过 JavaScript 操作。

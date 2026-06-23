@@ -1,9 +1,11 @@
 ---
 title: "Go 版本不一致？别慌，这是特性！"
 author: Neal
+summary: "本文围绕《Go 版本不一致？别慌，这是特性！》展开，重点梳理故事的开端：一场“奇葩”的争论和AI 的“第一次接触”：危言耸听等内容，提炼背景、思路与实践注意点。"
+cover: "/img/post-covers/toolchain-d951b4cd4b.jpg"
 tags: [Go, 工程化, 开发工具]
 categories: [开发]
-date: "2025-08-30" 
+date: "2025-08-30"
 ---
 
 ## 故事的开端：一场“奇葩”的争论

@@ -1,12 +1,14 @@
 ---
 title: "Latex--入门系列三"
 author: Neal
+summary: "本文围绕《Latex--入门系列三》展开，重点梳理TeX语法、TeX语法，编辑和特殊符号的总结等内容，提炼背景、思路与实践注意点。"
 description: "Latex 专业的参考tex对于论文写作或者其他的一些需要排版的写作来说，还是非常有意义的。我在网上看到这个对于Latex的入门介绍还是比较全面的，Arbitrary  reference .所以将会翻译出来，供初学者学习。TeX语法TeX语法，编辑你可能已经注意到，(La)TeX文档是蠢笨的基本上不包含什么具有特殊意义的符号，经常是依赖环境的并且很容易就可以看得出来。下面有一段LaTeX的代码，你"
 tags: [LaTeX]
 keywords: [latex]
 categories: [论文写作]
 date: "2016-12-12 15:48:08"
 ---
+
 # Latex 专业的参考
 
 tex对于论文写作或者其他的一些需要排版的写作来说，还是非常有意义的。我在网上看到这个对于Latex的入门介绍还是比较全面的，[Arbitrary  reference](http://latex.knobs-dials.com) .所以将会翻译出来，供初学者学习。

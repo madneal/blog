@@ -1,6 +1,8 @@
 ---
 title: "文武双全，看我如何过CISSP"
 author: Neal
+summary: "本文围绕《文武双全，看我如何过CISSP》展开，重点梳理考试报名、备考和考试等内容，提炼背景、思路与实践注意点。"
+cover: "/img/post-covers/cissp-domain1-ac155db344.jpg"
 tags: [安全, 认证考试]
 keywords: [认证,CISSP,信息安全,网络安全]
 categories: [认证]
