@@ -1,3 +1,12 @@
+---
+title: "Burp MCP Setup for Claude CLI"
+description: "介绍如何在 Burp Suite 中安装 MCP Server 扩展，并配置 Claude CLI 连接本地 Burp MCP 服务。"
+summary: "配置 Burp Suite MCP Server 与 Claude CLI，让 Claude 能够连接并使用 Burp Suite 的安全测试工具。"
+tags: [Burp Suite, MCP, Claude]
+categories: [安全工具]
+date: "2026-07-15"
+---
+
 # Burp MCP Setup for Claude CLI
 
 ## Prerequisites

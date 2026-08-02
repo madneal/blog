@@ -2,7 +2,7 @@
 title: "利用 python 生成可视化报告"
 author: Neal
 summary: "本文围绕《利用 python 生成可视化报告》展开，重点梳理模板和Matplotlib等内容，提炼背景、思路与实践注意点。"
-description: ""
+description: "使用 Python、docxtpl 和 Matplotlib 获取 SIEM 数据并生成月度可视化报告，记录模板渲染和图片插入方法。"
 tags: [Python, 数据可视化]
 categories: [python]
 date: "2018-08-16"

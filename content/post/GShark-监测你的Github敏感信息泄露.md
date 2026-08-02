@@ -2,7 +2,7 @@
 title: "GShark-监测你的 Github 敏感信息泄露"
 author: Neal
 summary: "本文围绕《GShark-监测你的 Github 敏感信息泄露》展开，重点梳理起源、原理和遇到过的问题等内容，提炼背景、思路与实践注意点。"
-description: ""
+description: "介绍基于 Go 和 GitHub API 的 GShark 敏感信息检测工具，梳理代码搜索、结果审核和权限管理的实现思路。"
 tags: [安全, 安全工程, Go, GShark]
 categories: [安全]
 date: "2018-10-31"

@@ -1,0 +1,130 @@
+{{- $isPost := and (eq .Type "post") (eq .Kind "page") -}}
+{{- $title := .Site.Title -}}
+{{- if .IsHome -}}
+  {{- $title = .Site.Params.seotitle | default .Site.Title -}}
+{{- else if .Title -}}
+  {{- $title = printf "%s | %s" .Title .Site.Title -}}
+{{- end -}}
+
+{{- $description := .Site.Params.description -}}
+{{- if $isPost -}}
+  {{- if .Params.description -}}
+    {{- $description = .Params.description -}}
+  {{- else if .Params.summary -}}
+    {{- $description = .Params.summary -}}
+  {{- else if .Summary -}}
+    {{- $description = .Summary -}}
+  {{- else -}}
+    {{- $description = .RawContent | replaceRE "(?s)```.*?```" "" | replaceRE "!\\[[^\\]]*\\]\\([^)]*\\)" "" -}}
+  {{- end -}}
+{{- end -}}
+{{- $description = $description | plainify | htmlUnescape | replaceRE "\\s+" " " | truncate 160 -}}
+
+{{- $avatar := "img/avatar.jpg" | absURL -}}
+{{- $image := $avatar -}}
+{{- if and $isPost .Params.cover -}}
+  {{- $image = .Params.cover | absURL -}}
+{{- end -}}
+{{- $isPagination := and .IsNode (gt .Paginator.PageNumber 1) -}}
+{{- $isThinTaxonomy := and (eq .Kind "taxonomyTerm") (lt (len .Pages) 2) -}}
+{{- $robots := "index,follow" -}}
+{{- if or (eq .Kind "404") $isPagination $isThinTaxonomy -}}
+  {{- $robots = "noindex,follow" -}}
+{{- end -}}
+
+<meta name="author" content="{{ .Site.Params.author }}" />
+<meta name="description" content="{{ $description }}" />
+<meta name="generator" content="Hugo {{ hugo.Version }}" />
+
+<!-- Open Graph -->
+<meta property="og:type" content="{{ if $isPost }}article{{ else }}website{{ end }}" />
+<meta property="og:title" content="{{ $title }}" />
+<meta property="og:description" content="{{ $description }}" />
+<meta property="og:url" content="{{ .Permalink }}" />
+<meta property="og:image" content="{{ $image }}" />
+<meta property="og:image:alt" content="{{ $title }}" />
+<meta property="og:site_name" content="{{ .Site.Title }}" />
+<meta property="og:locale" content="zh_CN" />
+{{ if $isPost }}
+<meta property="article:published_time" content="{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}" />
+<meta property="article:modified_time" content="{{ .Lastmod.Format "2006-01-02T15:04:05Z07:00" }}" />
+{{ range .Params.tags }}<meta property="article:tag" content="{{ . }}" />
+{{ end }}
+{{ end }}
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="{{ if and $isPost .Params.cover }}summary_large_image{{ else }}summary{{ end }}" />
+<meta name="twitter:title" content="{{ $title }}" />
+<meta name="twitter:description" content="{{ $description }}" />
+<meta name="twitter:image" content="{{ $image }}" />
+<meta name="twitter:image:alt" content="{{ $title }}" />
+{{ with .Site.Params.twitter }}<meta name="twitter:site" content="@{{ . }}" />{{ end }}
+
+{{ if .IsHome }}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": {{ .Site.Title | jsonify | safeJS }},
+  "url": {{ .Site.BaseURL | jsonify | safeJS }},
+  "description": {{ $description | jsonify | safeJS }},
+  "inLanguage": {{ .Site.LanguageCode | jsonify | safeJS }},
+  "publisher": {
+    "@type": "Person",
+    "name": {{ .Site.Params.author | jsonify | safeJS }},
+    "url": {{ .Site.BaseURL | jsonify | safeJS }},
+    "sameAs": ["https://github.com/{{ .Site.Params.github }}"]
+  }
+}
+</script>
+{{ else if $isPost }}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": {{ .Title | jsonify | safeJS }},
+  "description": {{ $description | jsonify | safeJS }},
+  "url": {{ .Permalink | jsonify | safeJS }},
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": {{ .Permalink | jsonify | safeJS }}
+  },
+  "inLanguage": {{ .Site.LanguageCode | jsonify | safeJS }},
+  "datePublished": {{ .Date.Format "2006-01-02T15:04:05Z07:00" | jsonify | safeJS }},
+  "dateModified": {{ .Lastmod.Format "2006-01-02T15:04:05Z07:00" | jsonify | safeJS }},
+  "wordCount": {{ .WordCount }},
+  "author": {
+    "@type": "Person",
+    "name": {{ (.Params.author | default .Site.Params.author) | jsonify | safeJS }},
+    "url": {{ .Site.BaseURL | jsonify | safeJS }}
+  },
+  "publisher": {
+    "@type": "Person",
+    "name": {{ .Site.Params.author | jsonify | safeJS }},
+    "url": {{ .Site.BaseURL | jsonify | safeJS }},
+    "sameAs": ["https://github.com/{{ .Site.Params.github }}"]
+  },
+  "image": [{{ $image | jsonify | safeJS }}]
+}
+</script>
+{{ end }}
+
+<!-- Permalink & RSS link -->
+<link rel="canonical" href="{{ .Permalink }}" />
+<link rel="alternate" href="{{ "index.xml" | absURL }}" title="{{ .Site.Title }}" type="application/rss+xml" />
+
+<!-- SEO Prefs -->
+{{ with .Keywords }}<meta name="keywords" content="{{ delimit . ", " }}" />{{ end }}
+<meta name="robots" content="{{ $robots }}" />
+<meta name="referrer" content="origin-when-cross-origin" />
+{{ with .Site.Params.googleSiteVerification }}<meta name="google-site-verification" content="{{ . }}" />{{ end }}
+{{ with .Site.Params.msValidate }}<meta name="msvalidate.01" content="{{ . }}" />{{ end }}
+{{ with .Site.Params.baiduSiteVerification }}<meta name="baidu-site-verification" content="{{ . }}" />{{ end }}
+{{ with .Site.Params.sogouSiteVerification }}<meta name="sogou_site_verification" content="{{ . }}" />{{ end }}
+{{ with .Site.Params.soSiteVerification }}<meta name="360-site-verification" content="{{ . }}" />{{ end }}
+
+<!-- Rendering Prefs -->
+<meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<meta name="format-detection" content="telephone=no,email=no,address=no" />
+<meta http-equiv="Cache-Control" content="no-transform" />

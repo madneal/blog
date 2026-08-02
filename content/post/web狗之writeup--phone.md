@@ -2,7 +2,7 @@
 title: "web 狗之writeup--phone"
 author: Neal
 summary: "本文围绕《web 狗之writeup--phone》展开，重点梳理正常用户、数据库名和表名等内容，提炼背景、思路与实践注意点。"
-description: ""
+description: "Phone number CTF Web 题解，分析 phone 参数的 SQL 注入点，并演示数据库名、表名和字段信息的获取过程。"
 tags: [学习笔记]
 categories: [CTF]
 date: "2018-08-23"
