@@ -40,6 +40,9 @@ jobs:
       - name: Build site
         run: hugo -t hugo-nuo
 
+      - name: Validate SEO output
+        run: bash scripts/check-seo.sh public
+
       - name: Disable Jekyll processing
         run: touch public/.nojekyll
 

@@ -3,7 +3,7 @@ title: "Bastion -- Hack the box"
 author: Neal
 summary: "本文围绕《Bastion -- Hack the box》展开，重点梳理介绍、信息枚举和利用等内容，提炼背景、思路与实践注意点。"
 cover: "/img/post-covers/bastion-a6152de482.jpg"
-description: ""
+description: "Bastion Hack The Box 靶机实战，记录 Windows 主机的端口枚举、SMB 文件共享分析与权限利用过程。"
 tags: [安全, Web安全, 渗透测试, HTB]
 categories: [安全]
 date: "2019-09-22"

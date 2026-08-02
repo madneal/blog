@@ -1,6 +1,6 @@
 baseURL = "https://madneal.com"
 #baseURL = "https://cdn.jsdelivr.net/gh/neal1991/neal1991.github.io"
-languageCode = "en"
+languageCode = "zh-CN"
 title = "Neal's Blog"
 theme = "hugo-nuo"
 enableRobotsTXT = true
@@ -51,7 +51,7 @@ copyright = "© This post is licensed under a Creative Commons Attribution-NonCo
   wechat = "img/wechat.jpg"
   seotitle = "Neal 的博客"
   subtitle = "Development & Security"
-  description = "全栈工程师的进击"
+  description = "Neal 的技术博客，记录 Web 安全、软件开发、漏洞分析与工程实践。"
   paginate = 10
   summaryLength = 220
 

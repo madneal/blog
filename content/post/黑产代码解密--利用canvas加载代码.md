@@ -2,7 +2,7 @@
 title: "黑产代码解密--利用canvas加载代码"
 author: Neal
 summary: "本文围绕《黑产代码解密--利用canvas加载代码》梳理web security、安全和前端相关的背景、方法和实践细节，可作为排查与学习记录。"
-description: ""
+description: "分析利用图片和 Canvas 隐藏并执行 JavaScript 的混淆代码，解释像素数据还原恶意脚本的实现过程。"
 tags: [安全, 前端]
 categories: [web security]
 date: "2018-08-12"
