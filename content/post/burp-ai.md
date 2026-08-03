@@ -1,7 +1,7 @@
 ---
 title: "不到一分钟拿到可用 PoC：Julen Garrido Estévez 测试 Burp AI  "
 author: Neal
-summary: "本文围绕《不到一分钟拿到可用 PoC：Julen Garrido Estévez 测试 Burp AI  》展开，重点梳理方法论、提示词风格校准和关键结果等内容，提炼背景、思路与实践注意点。"
+summary: "PortSwigger 客座文译文：对比三种提示词风格，用 Academy 实验室验证 Burp AI 能否在约一分钟内产出可用 PoC，并附可复用的提示词与 Notes 模板。"
 cover: "/img/post-covers/burp-ai-0d500a4cf1.jpg"
 tags: [安全, Web安全, AI, Burp]
 keywords: [Burp, AI]
