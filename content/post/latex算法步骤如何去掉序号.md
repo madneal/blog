@@ -2,6 +2,7 @@
 title: "latex算法步骤如何去掉序号"
 author: Neal
 summary: "本文围绕《latex算法步骤如何去掉序号》梳理论文写作、算法和LaTeX相关的背景、方法和实践细节，可作为排查与学习记录。"
+cover: "/img/post-covers/latex-algo-numbers-b53d8ef71b.jpg"
 description: "想去掉latex算法步骤前面的序号，如下 
  
 我想去掉每个算法步骤前面的数字序号，1，2，3，因为我已经写了step。我们只需要引用 algorithmic 这个包就可以了，"

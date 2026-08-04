@@ -2,6 +2,7 @@
 title: "剑指offer学习--实现单例模式"
 author: Neal
 summary: "本文围绕《剑指offer学习--实现单例模式》展开，重点梳理加同步锁前后两次判断实例是否已存在、利用静态构造函数和实现按需创建实例等内容，提炼背景、思路与实践注意点。"
+cover: "/img/post-covers/jianzhi-singleton-e1cc222437.jpg"
 description: "只能生成一个实例的类是为了实现单例模式的类型。加同步锁前后两次判断实例是否已存在我们只是在实例还没有创建之前加锁操作，以保证只有一个线程创建出实例。而当实例已经创建之后，我们已经不需要再做加锁操作了。public sealed class Singleton
 {
     private Singelton()

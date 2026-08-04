@@ -2,6 +2,7 @@
 title: "sftp没有关闭session导致服务器sshd进程未关闭"
 author: Neal
 summary: "本文围绕《sftp没有关闭session导致服务器sshd进程未关闭》梳理java开发、后端和工具相关的背景、方法和实践细节，可作为排查与学习记录。"
+cover: "/img/post-covers/sftp-session-leak-457e2fd060.jpg"
 description: "项目中需要用Sftp上传下载文件，通过jsch中的sftp实现。代码上了服务器之后，发觉服务器多了很多进程没有被关闭。 
  
 连接sftp代码： protected boolean connectToServer() {

@@ -2,6 +2,7 @@
 title: "基于Vue JS, Webpack 以及Material Design的渐进式web应用 [Part 1]"
 author: Neal
 summary: "本文围绕《基于Vue JS, Webpack 以及Material Design的渐进式web应用 [Part 1]》展开，重点梳理教程目标和我们的PWA的基本组件等内容，提炼背景、思路与实践注意点。"
+cover: "/img/post-covers/vue-webpack-pwa-d5a4b27ca2.jpg"
 description: "基于Vue JS, Webpack 以及Material Design的渐进式web应用 [Part 1]原文：基于Vue JS, Webpack 以及Material Design的渐进式web应用 [Part 1]译者：neal1991welcome to star my articles-translator , providing you advanced articles translat"
 tags: [安全, Web安全, JavaScript, 前端]
 categories: [web前端]

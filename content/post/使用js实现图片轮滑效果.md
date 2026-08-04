@@ -2,6 +2,7 @@
 title: "使用js实现图片轮滑效果"
 author: Neal
 summary: "本文围绕《使用js实现图片轮滑效果》梳理web前端和前端相关的背景、方法和实践细节，可作为排查与学习记录。"
+cover: "/img/post-covers/js-carousel-48e629cb6b.jpg"
 description: "经常在购物网站，看到那种图片轮滑的效果，所以看到有人实现了，所以我也就学习下了。 
 首先贴出html代码"
 tags: [前端]

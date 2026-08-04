@@ -2,6 +2,7 @@
 title: "css样式表的引入方式"
 author: Neal
 summary: "本文围绕《css样式表的引入方式》梳理web前端和前端相关的背景、方法和实践细节，可作为排查与学习记录。"
+cover: "/img/post-covers/css-import-ways-55e4b07683.jpg"
 description: "一般来说，css 有两种样式表的引入方式，在这里我记录一下，比较这两种引入方式的区别："
 tags: [前端]
 categories: [web前端]

@@ -2,6 +2,7 @@
 title: "http响应代码解释"
 author: Neal
 summary: "本文围绕《http响应代码解释》梳理web前端和工具相关的背景、方法和实践细节，可作为排查与学习记录。"
+cover: "/img/post-covers/http-status-codes-6de6734224.jpg"
 description: "200：成功响应 
 302：找到，但是请求的资源在另外一个不同的url中。 
 400：错误请求。这个请求不能被服务器所理解，客户端必须修改请求。 

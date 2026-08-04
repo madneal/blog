@@ -2,6 +2,7 @@
 title: "the sum of two fixed value"
 author: Neal
 summary: "本文围绕《the sum of two fixed value》梳理算法OJ和算法相关的背景、方法和实践细节，可作为排查与学习记录。"
+cover: "/img/post-covers/two-sum-algorithm-9338550bc1.jpg"
 description: "the sum of two fixed valuedescriptionInput an array and an integer, fina a pair of number in the array so that the sum is equals to the inputed integer. If there are several pairs, you can output any p"
 tags: [算法]
 categories: [算法OJ]

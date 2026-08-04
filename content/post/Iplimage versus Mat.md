@@ -2,6 +2,7 @@
 title: "Iplimage versus Mat"
 author: Neal
 summary: "本文围绕《Iplimage versus Mat》展开，重点梳理将Iplimage转化为Mat等内容，提炼背景、思路与实践注意点。"
+cover: "/img/post-covers/iplimage-vs-mat-529bd2555a.jpg"
 description: "我们可能经常面临这样的困惑，Iplimage和Mat这两种数据结构，我们应该用哪一种数据结构。 
 Iplimage一开始就存在opencv库之中，他来源于Intel的另外一个函数库Intel Image Processing Library(IPL)，这是一种非常重要的数据结构。在经典书籍里面的sample用的基本都是Iplimage这个数据结构。但是这是一种C风格的数据结构，你必须为他分配以及释放"
 tags: [计算机视觉]
