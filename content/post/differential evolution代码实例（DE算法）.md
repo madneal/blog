@@ -2,6 +2,7 @@
 title: "differential evolution代码实例（DE算法）"
 author: Neal
 summary: "本文围绕《differential evolution代码实例（DE算法）》梳理机器学习和算法相关的背景、方法和实践细节，可作为排查与学习记录。"
+cover: "/img/post-covers/de-algorithm-ce0e3fb7b0.jpg"
 description: "DE算法是遗传算法中一种比较流行的算法，这种算法比较简单，速度也比较快，下面给出一份示例代码clear all; close all; clc
  2 %Function to be minimized
  3 D=2;

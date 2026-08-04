@@ -2,6 +2,7 @@
 title: "javascript中的对象字面量为啥这么酷"
 author: Neal
 summary: "本文围绕《javascript中的对象字面量为啥这么酷》展开，重点梳理1.在对象构造函数中设置原型和2.1proto使用的一些特别案例等内容，提炼背景、思路与实践注意点。"
+cover: "/img/post-covers/js-object-literal-1cfa5f7a48.jpg"
 description: "原文链接 : Why object literals in JavaScript are cool
   原文作者 : Dmitri Pavlutin
   译者 : neal1991

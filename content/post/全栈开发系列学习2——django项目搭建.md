@@ -2,6 +2,7 @@
 title: "全栈开发系列学习2——django项目搭建"
 author: Neal
 summary: "本文围绕《全栈开发系列学习2——django项目搭建》梳理web前端、Python和后端相关的背景、方法和实践细节，可作为排查与学习记录。"
+cover: "/img/post-covers/fullstack-django-setup-12a5643314.jpg"
 description: "项目代码：http://yunpan.cn/cHajgT4HvgHqx （提取码：8350） 
 配置项目： 
 1. 首先确保你的机器安装了python和pip，这两种安装比较简单，这里就不说了。 

@@ -2,6 +2,7 @@
 title: "Twitter Lite以及大规模的高性能React渐进式网络应用"
 author: Neal
 summary: "本文围绕《Twitter Lite以及大规模的高性能React渐进式网络应用》展开，重点梳理在继续阅读之前、避免函数导致的Jank和使用更小的图片等内容，提炼背景、思路与实践注意点。"
+cover: "/img/post-covers/twitter-lite-pwa-4c630b48f6.jpg"
 description: "Twitter Lite以及大规模的高性能React渐进式网络应用
   原文：Twitter Lite and High Performance React Progressive Web Apps at Scale
   

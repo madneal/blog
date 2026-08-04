@@ -2,6 +2,7 @@
 title: "Ext.js性能优化漫谈"
 author: Neal
 summary: "本文围绕《Ext.js性能优化漫谈》梳理web前端和前端相关的背景、方法和实践细节，可作为排查与学习记录。"
+cover: "/img/post-covers/extjs-perf-638276df57.jpg"
 description: "Ext.js是一个用于建立企业级应用的纯JS框架。毫无疑问，它为我们提供了大量的组件，比如container,panel,field,grid，这些组件使用起来很方便，不需要去写js和html，但是ext.js的性能却存在很大的问题。比如，我在公司负责的页面，在本地的加载时间居然需要十几秒，当然这可能和后台服务有关，但是前台的渲染和执行也耗费了大量的时间。下面就我个人感受和网上的一些信息对Ext.j"
 tags: [前端]
 categories: [web前端]
