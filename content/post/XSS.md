@@ -118,7 +118,7 @@ Object.getOwnPropertyNames(window)
 
 那么访问 `window.test1` 时我们将得到什么？我直觉上希望得到具有该 id 的第一个元素（当你尝试调用`document.getElementById('#test1')` 时会发生这种情况。但是，在 Chromium 中，我们实际上得到了一个`HTMLCollection`！
 
-> **（配图未能自动恢复）** 原地址：`https://s2.ax1x.com/2019/11/18/McKGoq.png`
+![window.test1 指向 HTMLCollection](https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/recovered/sekurak-amp4email-image-6.png)
 
 图4. window.test1 指向 HTMLCollection
 
@@ -130,7 +130,7 @@ Object.getOwnPropertyNames(window)
 ```
 我们可以通过 `window.test1.test2` 访问第二个锚元素。
 
-> **（配图未能自动恢复）** 原地址：`https://s2.ax1x.com/2019/11/19/Mc53RA.png`
+![window.test1.test2 属性](https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/recovered/sekurak-amp4email-image-5.png)
 
 图5. 我们可以定义 window.test1.test2
 
@@ -147,13 +147,13 @@ Object.getOwnPropertyNames(window)
 
 我已经提到过，通过向元素添加我自己的 id 属性，AMP4Email 可能容易受到 DOM Clobbering 的攻击。为了找到可利用的条件，我决定看一下 `window` 的属性（图6）。立即引起注意的是开头的 AMP。
 
-> **（配图未能自动恢复）** 原地址：`https://s2.ax1x.com/2019/11/19/Mc5DRs.png`
+![window 全局对象属性](https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/recovered/sekurak-amp4email-image-7.png)
 
 图6. window 全局对象的属性
 
 在这一点上，事实证明 AMP4Email 实际上对 DOM Clobbering 采取了某种保护措施，因为它严格禁止 id 属性的某些值，例如：`AMP`（图7）。
 
-> **（配图未能自动恢复）** 原地址：`https://s1.ax1x.com/2019/11/19/MRVc2F.png`
+![AMP 无效的 id 值](https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/recovered/sekurak-amp4email-image-8.png)
 
 图7. AMP 是 AMP4Email 中的 id 的无效值
 
@@ -161,7 +161,7 @@ Object.getOwnPropertyNames(window)
 
 …然后我注意到控制台中有一个非常有趣的错误（图8）。
 
-> **（配图未能自动恢复）** 原地址：`https://s2.ax1x.com/2019/11/19/Mc5WoF.png`
+![AMP4Email 脚本加载 404](https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/recovered/sekurak-amp4email-image-9.png)
 
 图8. 加载某些JS文件的 404 错误
 

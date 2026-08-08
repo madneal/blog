@@ -49,7 +49,7 @@ OSCP 是永久的，一旦通过了，就彻底完成了。不需要像 CISSP �
 
 OSCP 最近涨价了，最低价格 999 刀。
 
-> **（配图未能自动恢复）** 原地址：`https://s2.ax1x.com/2020/02/20/3eN9wd.png`
+![PWK/OSCP 课程价格](https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/recovered/pwk-oscp-pricing.png)
 
 # 2020 年更新了
 
