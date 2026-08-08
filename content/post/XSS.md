@@ -31,28 +31,19 @@ AMP4Email（也称为动态邮件）是 Gmail 的一项新功能，可以让电�
 
 AMP4Email 具有[强验证器](https://github.com/ampproject/amphtml/blob/master/validator/validator-main.protoascii)，简而言之，它是允许在动态邮件中使用的标签和属性的强大白名单。你可以在 https://amp.gmail.dev/playground/ 上尝试，你还可以给自己发送动态电子邮件来研究工作原理！
 
-
-
-> **（原外链配图已失效移除，请以正文说明为准）**
-
+> **（配图未能自动恢复）** 原地址：`https://s2.ax1x.com/2019/11/18/Mceabq.png`
 
 图1. AMP4Email playground
 
 如果你尝试添加验证器未明确允许的任何 HTML 元素或属性，则会收到错误消息。
 
-
-
-> **（原外链配图已失效移除，请以正文说明为准）**
-
+> **（配图未能自动恢复）** 原地址：`https://s2.ax1x.com/2019/11/18/McmnWF.png`
 
 图2. AMP 验证器禁止使用任意脚本标签
 
 在使用 AMP4Email 并尝试各种方法绕过它时，我注意到标签中不允许 id 属性（图3）。
 
-
-
-> **（原外链配图已失效移除，请以正文说明为准）**
-
+> **（配图未能自动恢复）** 原地址：`https://s2.ax1x.com/2019/11/18/McuZ2F.png`
 
 图3.不允许使用属性 id
 
@@ -127,10 +118,7 @@ Object.getOwnPropertyNames(window)
 
 那么访问 `window.test1` 时我们将得到什么？我直觉上希望得到具有该 id 的第一个元素（当你尝试调用`document.getElementById('#test1')` 时会发生这种情况。但是，在 Chromium 中，我们实际上得到了一个`HTMLCollection`！
 
-
-
-> **（原外链配图已失效移除，请以正文说明为准）**
-
+> **（配图未能自动恢复）** 原地址：`https://s2.ax1x.com/2019/11/18/McKGoq.png`
 
 图4. window.test1 指向 HTMLCollection
 
@@ -142,10 +130,7 @@ Object.getOwnPropertyNames(window)
 ```
 我们可以通过 `window.test1.test2` 访问第二个锚元素。
 
-
-
-> **（原外链配图已失效移除，请以正文说明为准）**
-
+> **（配图未能自动恢复）** 原地址：`https://s2.ax1x.com/2019/11/19/Mc53RA.png`
 
 图5. 我们可以定义 window.test1.test2
 
@@ -162,19 +147,13 @@ Object.getOwnPropertyNames(window)
 
 我已经提到过，通过向元素添加我自己的 id 属性，AMP4Email 可能容易受到 DOM Clobbering 的攻击。为了找到可利用的条件，我决定看一下 `window` 的属性（图6）。立即引起注意的是开头的 AMP。
 
-
-
-> **（原外链配图已失效移除，请以正文说明为准）**
-
+> **（配图未能自动恢复）** 原地址：`https://s2.ax1x.com/2019/11/19/Mc5DRs.png`
 
 图6. window 全局对象的属性
 
 在这一点上，事实证明 AMP4Email 实际上对 DOM Clobbering 采取了某种保护措施，因为它严格禁止 id 属性的某些值，例如：`AMP`（图7）。
 
-
-
-> **（原外链配图已失效移除，请以正文说明为准）**
-
+> **（配图未能自动恢复）** 原地址：`https://s1.ax1x.com/2019/11/19/MRVc2F.png`
 
 图7. AMP 是 AMP4Email 中的 id 的无效值
 
@@ -182,10 +161,7 @@ Object.getOwnPropertyNames(window)
 
 …然后我注意到控制台中有一个非常有趣的错误（图8）。
 
-
-
-> **（原外链配图已失效移除，请以正文说明为准）**
-
+> **（配图未能自动恢复）** 原地址：`https://s2.ax1x.com/2019/11/19/Mc5WoF.png`
 
 图8. 加载某些JS文件的 404 错误
 

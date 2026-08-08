@@ -11,11 +11,7 @@ date: "2020-09-06"
 
 原文来自于安全客，https://www.anquanke.com/post/id/217301
 
-
-
-> **（原外链配图已失效移除，请以正文说明为准）**
-
-
+![ww1smR.png](https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/recovered/42125b140416.png)
 
 终于收到了 Offsensive Security 的官方邮件通知最终结果，我的 OSWE 之旅也算是尘埃落定。打算以本文回顾一下自己的 OSWE 的准备过程，包括 AWAE 课程的学习和准备以及我在考试过程中踩得一些坑，希望对 OSWE 有兴趣的人能有所帮助。
 

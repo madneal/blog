@@ -8,11 +8,7 @@ categories: [htb]
 date: "2019-04-22"
 ---
 
-
-
-> **（原外链配图已失效移除，请以正文说明为准）**
-
-
+![EFe80A.png](https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/recovered/1df0723f0d7c.png)
 
 ## Introduction
 
@@ -56,21 +52,13 @@ gobuster -u http://10.10.10.121 -w /usr/share/dirbuster/wordlists/directory-list
 
 We have found an interesting folder called: `support`:
 
-
-
-> **（原外链配图已失效移除，请以正文说明为准）**
-
-
+![EFeHtx.png](https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/recovered/1e683a42015d.png)
 
 The 80 seems to be help support website. We will dive in  more later.
 
 For the `3000` port, it seems to be an express application. And nothing found for this.
 
-
-
-> **（原外链配图已失效移除，请以正文说明为准）**
-
-
+![EFeXcD.png](https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/recovered/760da5f9b8c4.png)
 
 ## Exploitation
 
@@ -78,11 +66,7 @@ For the `3000` port, it seems to be an express application. And nothing found fo
 
 In the above, we can see `HelpDeskZ` on the web page. It may be a kind of product. Search related exploits, `searchsploit HelpDeskZ`.
 
-
-
-> **（原外链配图已失效移除，请以正文说明为准）**
-
-
+![EF0rkt.png](https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/recovered/75b478f48b80.png)
 
 There two exploits about `HelpDeskZ`. `Arbitrary File Upload` is interesting, it seems that it can be exploited without valid credentials. The payload can be seen [here](https://www.exploit-db.com/exploits/40300). It's really significant to understand the root cause of the exploit. So know the details of the payload will be beneficial.
 
@@ -129,11 +113,7 @@ if(!isset($error_msg) && $settings['ticket_attachment']==1){
 
 The most important code: `$filename = md5($_FILES['attachment']['name'].time()).".".$ext;`. We can find the rule of the name of the uploaded file. So it will be possible to find the uploaded attachment. And there is another stuff when submitted a reverse shell php file, you will get a hint: `File is not allowed`. However, the attachment has been uploaded. Because it will upload the attachment firstly. And then just give the error information.
 
-
-
-> **（原外链配图已失效移除，请以正文说明为准）**
-
-
+![EF4Ezd.png](https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/recovered/2dae3aaa1805.png)
 
 <pre>
 <b>if (!move_uploaded_file($_FILES['attachment']['tmp_name'], $uploadedfile)) {</b>
@@ -149,11 +129,7 @@ The most important code: `$filename = md5($_FILES['attachment']['name'].time()).
 
 Firstly, submit a ticket with the attachment of `a.php(php-reverse-shell.php` and will get error information `File is not allowed`. However, the script has been uploaded actually. 
 
-
-
-> **（原外链配图已失效移除，请以正文说明为准）**
-
-
+![EFe80A.png](https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/recovered/1df0723f0d7c.png)
 
 Then, try to run the script:
 
@@ -169,11 +145,7 @@ timedatectl set-timezone GMT
 
 After modifying the timezone, still have not found anything. It has some problem with the url. Read the source code and you will find the upload directory should be: `UPLOAD_DIR.'tickets/`:
 
-
-
-> **（原外链配图已失效移除，请以正文说明为准）**
-
-
+![EFeHtx.png](https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/recovered/1e683a42015d.png)
 
 Hence, the url should be `http://10.10.10.121/support/uploads/tickets/`. So run the script:
 
@@ -216,11 +188,7 @@ print "Sorry, I did not find anything"
 
 Remember to set nc listen to a port in the beginning. After some time, the shell is returned.
 
-
-
-> **（原外链配图已失效移除，请以正文说明为准）**
-
-
+![EFeXcD.png](https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/recovered/760da5f9b8c4.png)
 
 ## Privilege escalation
 
@@ -230,8 +198,5 @@ In contrast to the user shell, the root shell is extremely simple. But the basic
 
 Google for `linux kernel 4.4.0--116`. Congratulations! Find the [payload](https://github.com/SecWiki/linux-kernel-exploits/tree/master/2017/CVE-2017-16995). Just download the payload and compile. After execution, the root shell is obtained.
 
-
-
-> **（原外链配图已失效移除，请以正文说明为准）**
-
+![EF0rkt.png](https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/recovered/75b478f48b80.png)
 

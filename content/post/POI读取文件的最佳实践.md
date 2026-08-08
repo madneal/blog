@@ -49,10 +49,7 @@ org.apache.poi.poifs.filesystem.OfficeXmlFileException: The supplied data appear
 
 其实 doc 和 docx 的本质不同的，doc 是 OLE2 类型，而 docx 而是 OOXML 类型。如果你用压缩文件打开一个 docx 文件，你会发现一些文件夹：
 
-
-> **（原外链配图已失效移除，请以正文说明为准）**
-
-
+![这里写图片描述](https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/recovered/5076095300e7.png)
 
 本质上 docx 文件就是一个 zip 文件，里面包含了一些 xml 文件。所以，一些 docx 文件虽然大小不大，但是其内部的 xml 文件确实比较大的，这也是为什么在读取某些看起来不是很大的 docx 文件的时候却耗费了大量的内存。
 

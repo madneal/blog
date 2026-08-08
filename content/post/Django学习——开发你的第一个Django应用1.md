@@ -109,11 +109,7 @@ Running migrations:
 `python manage.py shell`
 一旦你进入这个shell
 
-
-> **（原外链配图已失效移除，请以正文说明为准）**
-
-
-
+![这里写图片描述](https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/recovered/87c92cae1496.jpg)
 
 但是我们会发现Question的对象是无意义的，我们还需要再做一些改变，打开`polls/models.py`，添加一个'_str_()`方法。
 ```

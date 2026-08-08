@@ -68,9 +68,6 @@ c = a + b
 ## 3.python的对象模型导致存储效率低下 ##
 python存储数据效率低下的原因，主要可以从下图看出：
 
-
-> **（原外链配图已失效移除，请以正文说明为准）**
-
-
+![这里写图片描述](https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/recovered/a6b879c41beb.png)
 
 当然说了python这么多缺点，为什么python用的人还这么多，因为它很简单啊。python用起来的确很简单，就我个人的使用感受而言，除了matlab，我没有看过比python还要简单的语言了。而且python的开源的库很多，所以做很多东西都很方便。

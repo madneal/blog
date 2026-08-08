@@ -170,8 +170,5 @@ transform: translate(-100px, -300px)
 
 欢迎搜索微信号 mad_coder 或者扫描二维码关注公众号：
 
-
-
-> **（原外链配图已失效移除，请以正文说明为准）**
-
+> **（配图未能自动恢复）** 原地址：`http://ozfo4jjxb.bkt.clouddn.com/map.png`
 

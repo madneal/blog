@@ -21,11 +21,7 @@ Burp 是 web安全测试中不可或缺的神器。每一个师傅的电脑里�
 
 首先是在 IDEA 里面配置调试。点击右上角里面的配置，点击 "Edit Configurations" 就可以进入对 DEBUG 的配置页面。新增一个 Remote 配置，命名可以随自己的喜好。
 
-
-
-> **（原外链配图已失效移除，请以正文说明为准）**
-
-
+![nSZGi8.png](https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/recovered/b011a99f7497.png)
 
 2. 命令行启动 Burp
 
@@ -39,11 +35,7 @@ java -agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=5005 -jar bur
 
 可以现在程序中打一下断点。接着就是编译 jar 包，并且启动 IDE 的 DEBUG。将 jar 包部署到 Burp 中，下面就可以快乐地调试了。
 
-
-
-> **（原外链配图已失效移除，请以正文说明为准）**
-
-
+> **（配图未能自动恢复）** 原地址：`https://s2.ax1x.com/2019/08/31/mxiIde.png`
 
 ## Burp 开发
 

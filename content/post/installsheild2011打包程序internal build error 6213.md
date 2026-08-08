@@ -15,8 +15,7 @@ lastmod: "2026-08-08"
 http://1978l.blog.163.com/blog/static/4494441620098704049756/原文帖子如下
 后来找了半天，终于找到地方了。
 
-
-> **（原外链配图已失效移除，请以正文说明为准）**
+![这里写图片描述](https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/recovered/e469fbef3c23.jpg)
 
 如图1，图2所示，把components里面所有.NET scan at Build设置为none,这个可能是这个软件的bug把，我使用的是2011版本，免费的版本。
 真心的，我实验室解决问题的能手，实验室这些妹子如果没有我，我都不知道她们该怎么活下去。

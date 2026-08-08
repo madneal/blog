@@ -14,11 +14,7 @@ lastmod: "2026-08-08"
 
 为了兼容 16 位的 MS-DOS 程序，Windows 为文件名较长的文件（文件夹）生成了对应的 windows 8.3 短文件名。在 Windows 下，对应的短文件名可以使用 `dir /x` 命令来查看。如下图，`.gitconfig` 对应的短文件名就是 `GITCON~1`.
 
-
-
-> **（原外链配图已失效移除，请以正文说明为准）**
-
-
+![FxOYFA.png](https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/recovered/d28b47baf074.png)
 
 基于此特性，并结合 IIS 对于请求路径中包含通配符不同的响应的特性，IIS 对于存在的短文件名的响应码为 404，对不存在的短文件名的响应码是 400.根据这个特点，可以暴力破解出 IIS 中存在的短文件名。关于短文件漏洞， Soroush Dalili 在 2012 年就有[论文](https://soroush.secproject.com/downloadable/microsoft_iis_tilde_character_vulnerability_feature.pdf)是关于这方面的研究。里面详细阐述了 IIS 短文件名的漏洞利用原理。
 

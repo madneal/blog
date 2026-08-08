@@ -163,11 +163,7 @@ public void addKeywordTo(String keyword, UserExample userExample) {
 
 总结以下，导致这个 SQL 注入的原因还是开发没有按照规范来写，自己造轮子写了一个方法来进行模糊查询，殊不知带来了 SQL 注入漏洞。其实，Mybatis generator 已经为每个字段生成了丰富的方法，只要合理使用，就一定可以避免 SQL 注入问题。
 
-
-
-> **（原外链配图已失效移除，请以正文说明为准）**
-
-
+> **（配图未能自动恢复）** 原地址：`https://p4.ssl.qhimg.com/t019817257e653fdf5e.jpg`
 
 ## 使用 #{} 可以避免 SQL 注入吗
 
@@ -175,11 +171,7 @@ public void addKeywordTo(String keyword, UserExample userExample) {
 
 首先我们需要先搞清楚 MyBatis 中 `#{}` 是如何声明的。当参数通过 `#{}` 声明的，参数就会通过 PreparedStatement 来执行，即预编译的方式来执行。预编译你应该不陌生，因为在 JDBC 中就已经有了预编译的接口。这也对应了开头文中我们提到的一点，MyBatis 并不是能解决 SQL 注入的核心，预编译才是。预编译不仅可以对 SQL 语句进行转义，避免 SQL 注入，还可以增加执行效率。MyBatis 底层其实也是通过 JDBC 来实现的。以 MyBatis 3.3.1 为例，jdbc 中的 SqlRunner 就设计到具体 SQL 语句的实现。
 
-
-
-> **（原外链配图已失效移除，请以正文说明为准）**
-
-
+> **（配图未能自动恢复）** 原地址：`https://s2.ax1x.com/2019/11/01/KHvCy6.png`
 
 以 update 方法为例,可以看到就是通过 JAVA 中 PreparedStatement 来实现 sql 语句的预编译。
 
@@ -209,11 +201,7 @@ jdbc:mysql://localhost:3306/mybatis?&useServerPrepStmts=true&cachePrepStmts=true
 
 数据库 SQL 执行包含多个阶段如下图所示，但我们这里针对于 SQL 语句客户端的预编译在发送到服务端之前就已经完成了。在服务器端主要考虑的就是性能问题，这不是本文的重点。当然，每一个数据库实现的预编译方式可能都有一些差别。但是对于防止 SQL 注入，在 MyBatis 中只要使用 `#{}` 就可以了，因为这样就会实现 SQL 语句的参数化，避免直接引入恶意的 SQL 语句并执行。
 
-
-
-> **（原外链配图已失效移除，请以正文说明为准）**
-
-
+> **（配图未能自动恢复）** 原地址：`https://s2.ax1x.com/2019/11/02/KqtZxe.png`
 
 ## MyBatis generator 的使用
 
@@ -260,11 +248,7 @@ jdbc:mysql://localhost:3306/mybatis?&useServerPrepStmts=true&cachePrepStmts=true
 </generatorConfiguration>
 ```
 
-
-
-> **（原外链配图已失效移除，请以正文说明为准）**
-
-
+> **（配图未能自动恢复）** 原地址：`https://s2.ax1x.com/2019/11/02/KqIDBj.png`
 
 在这里我想强调的是一个关键参数的配置，即 `targetRuntime` 参数。这个参数有2种配置项，即 `MyBatis3` 和 `MyBatis3Simple`，`MyBatis3` 为默认配置项。MyBatis3Simple 只会生成基本的增删改查，而 MyBatis3 会生成带条件的增删改查，所有的条件都在 XXXexample 中封装。使用 MyBatis3 时，enableSelectByExample，enableDeleteByExample，enableCountByExample 以及 enableUpdateByExample 这些属性为 true，就会生成相应的动态语句。这也就是我们上述 `Example_Where_Clause` 生成的原因。
 

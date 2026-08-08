@@ -31,58 +31,39 @@ lastmod: "2026-08-08"
 
 ## 实例##
 
-
-> **（原外链配图已失效移除，请以正文说明为准）**
+![这里写图片描述](https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/recovered/91265d443ef9.jpg)
 
  
 以这个为例，我们用PCA的方法将这组二维数据降到一维
 因为这个矩阵的每行已经是零均值，所以我们可以直接求协方差矩阵：
 
-
-
-> **（原外链配图已失效移除，请以正文说明为准）**
-
+![这里写图片描述](https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/recovered/4150c55b36ae.jpg)
 
 然后求其特征值和特征向量，求解后的特征值为：
 λ1=2,λ2=2/5
 其对应的特征向量分别是：
 
-
-> **（原外链配图已失效移除，请以正文说明为准）**
-
-
+![这里写图片描述](https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/recovered/d3cca79930e8.jpg)
 
 由于对应的特征向量分别是一个通解，c1和c2可取任意实数。那么标准化后的特征向量为：
 
-
-
-> **（原外链配图已失效移除，请以正文说明为准）**
-
+![这里写图片描述](https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/recovered/9596fc6ef53e.jpg)
 
 因此我们的矩阵P是：
 
-
-> **（原外链配图已失效移除，请以正文说明为准）**
-
+![这里写图片描述](https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/recovered/bb6cdfae9502.jpg)
 
 可以验证协方差矩阵C的对角化：
 
-
-> **（原外链配图已失效移除，请以正文说明为准）**
-
+![这里写图片描述](https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/recovered/a6107922368f.jpg)
 
 最好我们用P的第一行诚意数据矩阵，就得到了降维后的数据表示：
 
-
-> **（原外链配图已失效移除，请以正文说明为准）**
-
+![这里写图片描述](https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/recovered/d98d895323ac.jpg)
 
 降维后的投影结果如下图：
 
-
-> **（原外链配图已失效移除，请以正文说明为准）**
-
-
+![这里写图片描述](https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/recovered/86838377b46b.png)
 
 PCA本质上是将方差最大的方向作为主要特征，并且在各个正交方向上将数据“离相关”，也就是让它们在不同的正交方向上没有相关性。
 因此，PCA也存在一些限制，例如它可以很好地解除线性相关，但是对于高阶相关性就没有办法了。对于存在高阶相关性的数据，可以考虑Kernel PCA,通过Kernel将非线性相关转化为线性相关。另外，PCA假设数据各特征分布在正交方向上，如果在非正交方向上存在几个方差较大的方向，PCA的效果就大打折扣。

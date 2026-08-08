@@ -20,15 +20,11 @@ lastmod: "2026-08-08"
 他这个效果就是鼠标放在左半部分和右半部分，整个网页的布局颜色会相互变化，我贴上前后两张图来比较一下，你们就明白了。
 当鼠标放在左半部分：
 
-
-> **（原外链配图已失效移除，请以正文说明为准）**
-
+![这里写图片描述](https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/recovered/3d8874cd0a77.jpg)
 
 当鼠标放在右半部分：
 
-
-> **（原外链配图已失效移除，请以正文说明为准）**
-
+![这里写图片描述](https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/recovered/53a8ba475c86.jpg)
 
 可能静态的图片看不太出效果，但是动态看起来还是比较酷的，最关键的是它的代码其实很简单。
 

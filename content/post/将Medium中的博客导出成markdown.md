@@ -18,11 +18,7 @@ Medium 文章格式显示地非常优雅，但是存在一个问题。众所周�
 * 将 [export-medium](https://github.com/neal1991/export-medium) clone 或者下载到本地。
 * 在 Chrome 浏览中打开`chrome://extensions`,加载已解压的拓展程序，选择项目文件夹
 
-
-
-> **（原外链配图已失效移除，请以正文说明为准）**
-
-
+![这里写图片描述](https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/recovered/ee06d4e4b8fd.png)
 
 这两种方法都是可以支持安装的。目前这个插件的功能主要是把Medium上面的文章解析成 markdown 格式的文本，用了一个简单的库去渲染（事实上我觉得挺鸡肋的），然后你只要点击一个按钮就可以把文本复制到剪切板，就可以复制到编辑器了，是不是很方便。
 

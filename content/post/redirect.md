@@ -83,7 +83,7 @@ true
 
 [
 
-> **（原外链配图已失效移除，请以正文说明为准）**
+> **（配图未能自动恢复）** 原地址：`https://s3.ax1x.com/2021/01/12/sY0h9I.png`
 
 ](https://imgchr.com/i/sY0h9I)
 
@@ -91,7 +91,7 @@ true
 
 [
 
-> **（原外链配图已失效移除，请以正文说明为准）**
+> **（配图未能自动恢复）** 原地址：`https://s3.ax1x.com/2021/01/12/sYBB5j.png`
 
 ](https://imgchr.com/i/sYBB5j)
 
@@ -128,7 +128,7 @@ public RedirectView redirect(@RequestParam String service) {
 
 [
 
-> **（原外链配图已失效移除，请以正文说明为准）**
+> **（配图未能自动恢复）** 原地址：`https://s3.ax1x.com/2021/01/15/s0bnpD.png`
 
 ](https://imgchr.com/i/s0bnpD)
 
