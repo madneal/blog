@@ -8,15 +8,17 @@ Date: 2026-08-08
 2. **Internet Archive Wayback CDX** for `s1/s2/s3/z3.ax1x.com` snapshots
 3. Temporary local recovery files, then upload to the `madneal/blog-image`
    repository (content-addressed by URL hash)
+4. CSDN article `102735460` (the current `i-blog.csdnimg.cn/blog_migrate/`
+   copies of the original Ax1x images)
 
 ## Results
 
 | Metric | Count |
 |--------|------:|
 | Fragile image URLs inventoried | 285 |
-| Successfully recovered and uploaded to `blog-image` | **131** |
-| Not found in public archives | **154** |
-| Recovery rate | **45%** |
+| Successfully recovered and uploaded to `blog-image` | **142** |
+| Not found in public archives | **143** |
+| Recovery rate | **50%** |
 
 ### By host (recovered)
 
@@ -27,7 +29,7 @@ Date: 2026-08-08
 
 Unrecovered images keep a note with the **original URL** so they can be fixed later if a mirror appears.
 
-Count: 154
+Count: 143
 
 ## Next manual options
 
@@ -130,18 +132,7 @@ Count: 154
 - `https://s2.ax1x.com/2019/08/31/mxiIde.png`
 - `https://s2.ax1x.com/2019/09/23/uiofjs.th.png`
 - `https://s2.ax1x.com/2019/10/18/Kernqe.png`
-- `https://s2.ax1x.com/2019/10/21/K1g2se.png`
-- `https://s2.ax1x.com/2019/10/21/K1yur9.png`
-- `https://s2.ax1x.com/2019/10/22/KG1gjf.png`
-- `https://s2.ax1x.com/2019/10/22/KG8uo4.png`
-- `https://s2.ax1x.com/2019/10/22/KG9eQx.png`
-- `https://s2.ax1x.com/2019/10/22/KGAamq.png`
-- `https://s2.ax1x.com/2019/10/22/KGE4rn.png`
-- `https://s2.ax1x.com/2019/10/22/KGkTLq.png`
-- `https://s2.ax1x.com/2019/10/23/KtG1Jg.png`
 - `https://s2.ax1x.com/2019/10/23/Kta5ff.th.png`
-- `https://s2.ax1x.com/2019/10/23/KtdwuQ.png`
-- `https://s2.ax1x.com/2019/10/23/KtuIAJ.png`
 - `https://s2.ax1x.com/2019/11/01/KHvCy6.png`
 - `https://s2.ax1x.com/2019/11/02/KL1Qk8.png`
 - `https://s2.ax1x.com/2019/11/02/KLM0te.png`
@@ -203,12 +194,12 @@ the blog keeps only CDN references in article content.
 
 - 进程：卡住的 Wayback 恢复任务已结束/清理
 - 图床仓库：`madneal/blog-image`（`images/recovered/`）
-- 已 `git push` 更新 `MIGRATION-MAP.tsv`（131 条成功映射）
+- 已 `git push` 更新 `MIGRATION-MAP.tsv`（142 条成功映射）
 - CDN 格式：`https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/recovered/<hash>.ext`
 - 博客正文：所有已恢复图与原始失效外链 **已全部替换为 CDN**
-  - 替换次数：140
-  - 唯一 CDN 图：120
+  - 替换次数：151
+  - 唯一 CDN 图：130
   - 正文中不再残留可用的 ax1x / `img.blog.csdn.net` 外链（失败项仅在「未能恢复」备注里保留原 URL）
-- 未能恢复：124 处备注 + 原地址，见下方列表
+- 未能恢复：113 处备注 + 原地址，见下方列表
 
 验证：GitHub raw 抽样 `200` 且为合法 PNG 魔数。
