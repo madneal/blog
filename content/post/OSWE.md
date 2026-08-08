@@ -11,7 +11,7 @@ date: "2020-09-06"
 
 原文来自于安全客，https://www.anquanke.com/post/id/217301
 
-![ww1smR.png](https://s1.ax1x.com/2020/09/13/ww1smR.png)
+![ww1smR.png](https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/recovered/42125b140416.png)
 
 终于收到了 Offsensive Security 的官方邮件通知最终结果，我的 OSWE 之旅也算是尘埃落定。打算以本文回顾一下自己的 OSWE 的准备过程，包括 AWAE 课程的学习和准备以及我在考试过程中踩得一些坑，希望对 OSWE 有兴趣的人能有所帮助。
 
@@ -66,3 +66,8 @@ AWAE 的准备过程以及 OSWE 的过程都是一个比较复杂和纠结的过
 * https://portswigger.net/web-security/all-materials
 
 声明：本文经安全客授权发布，转载请联系安全客平台。
+
+
+## 译者实践注
+
+本文为技术译文/整理，原文版权归原作者所有。阅读时建议结合自身环境验证命令与结论；若原文年代较早，请以官方最新文档与安全通告为准。欢迎通过 issue 或邮件指出过时之处。

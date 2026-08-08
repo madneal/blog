@@ -1,30 +1,61 @@
 ---
-title: "latex中large的作用域问题"
-author: Neal
-summary: "本文围绕《latex中large的作用域问题》梳理论文写作和LaTeX相关的背景、方法和实践细节，可作为排查与学习记录。"
-description: "在毕业论文的写作过程中，遇到了一个\\large 作用域的问题。假设下面有三种写法：I am cool \\large{you are right}, yeah, yeah, yeah
-I am cool {\\large you are right}, yeah, yeah, yeah
-I am cool 
-\\begin{large}
-you are right
-\\end{large}, yeah, y"
-tags: [LaTeX]
+title: "LaTeX 中 large 命令的作用域：为什么第一种写法会污染后面全文"
+author: "Neal"
+summary: "对比 large 的三种写法与分组作用域，解释字体切换命令如何收尾，给出论文排版实用建议。"
+tags: [LaTeX, 论文写作]
 categories: [论文写作]
-date: "2017-01-06 22:09:53"
+date: "2017-01-06"
+lastmod: "2026-08-08"
 ---
 
-在毕业论文的写作过程中，遇到了一个`\large` 作用域的问题。假设下面有三种写法：
-```[latex]
+
+写毕业论文时，我踩过一次 `\large` 的坑：只想放大三个词，结果后面整段都变大。根因是 **字体大小命令的作用域靠分组（group）**，不是靠「函数参数」那种直觉。
+
+## 三种写法
+
+```latex
 I am cool \large{you are right}, yeah, yeah, yeah
+
 I am cool {\large you are right}, yeah, yeah, yeah
-I am cool 
+
+I am cool
 \begin{large}
 you are right
 \end{large}, yeah, yeah, yeah
 ```
-我们希望的结果是you are right，这三个单词可以放大，而其他的文字仍然是正常大小，那么以后三个哪些是正确的呢？
-下面且看这三个命令的分别显示结果：
-![large1](http://img.blog.csdn.net/20170106220409363?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvbmVhbDE5OTE=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast)
-![large2](http://img.blog.csdn.net/20170106220438270?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvbmVhbDE5OTE=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast)
-![large3](http://img.blog.csdn.net/20170106220457091?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvbmVhbDE5OTE=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast)
-很明显可以看的出来，第二个和第三个是正确的，而第一个不是正确的。第一个后面的文字都受到了前面`\large` 的影响，也变成了放大的字体。这就是`\large`的作用域问题，第一条命令并没有限制好作用域。可以看的出来，应该要把命令放在花括号中。第三种写法也是可以工作的，像一般的环境都是有这种写法的，但是这种写法比较麻烦，不是特别推荐。
+
+期望：只有 `you are right` 变大。
+
+## 结果
+
+1. **错误**：`\large{you are right}`  
+   `\large` 是 **声明式** 字体命令，不是 `\textbf` 那种必吃参数的宏。后面的 `{...}` 只是普通分组内容，**不会**自动结束 `\large`。于是 `\large` 一直生效到当前组结束——常常是到环境/文档更大范围，于是后面的 `yeah` 也变大。
+
+2. **正确**：`{\large you are right}`  
+   显式分组：进入 `{` 后切换 large，`}` 结束恢复原字体。
+
+3. **正确但啰嗦**：`\begin{large}...\end{large}`  
+   环境自带分组，效果对，但为短文本过重。
+
+## 同类命令
+
+`\tiny \scriptsize \footnotesize \small \normalsize \large \Large \LARGE \huge \Huge` 都是声明式，正确局部用法统一为：
+
+```latex
+{\Large 标题片段}
+```
+
+相对地，`\textbf{...}` `\textit{...}` `\emph{...}` 是带参数的命令，写法不同。
+
+## 实用建议
+
+| 场景 | 建议 |
+|------|------|
+| 临时放大几词 | `{\large ...}` |
+| 标题 | 用 `\section` 等结构命令 |
+| 全文默认字号 | 文档类选项 `11pt`/`12pt` |
+| 强调 | 优先语义命令 `\emph` |
+
+## 小结
+
+LaTeX 里「看起来像函数」的不一定吃参数。**字体大小靠分组收尾**；记住 `{\large ...}` 就能避免「放大传染病」。旧文截图外链可能失效，但结论不变。

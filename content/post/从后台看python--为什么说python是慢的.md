@@ -8,6 +8,7 @@ python是一种动态类型，解释型语言，它的值都是存储在分散�
 tags: [Python]
 categories: [python]
 date: "2015-12-08 10:14:12"
+lastmod: "2026-08-08"
 ---
 
 python越来越作为一种科学技术研究的语言越来越流行，可是我们经常听到一个问题，python是慢的。那么我们从后台分析一下，为什么python是慢的。
@@ -65,6 +66,7 @@ c = a + b
 
 ## 3.python的对象模型导致存储效率低下 ##
 python存储数据效率低下的原因，主要可以从下图看出：
-![这里写图片描述](http://img.blog.csdn.net/20151208101154529)
+
+![这里写图片描述](https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/recovered/a6b879c41beb.png)
 
 当然说了python这么多缺点，为什么python用的人还这么多，因为它很简单啊。python用起来的确很简单，就我个人的使用感受而言，除了matlab，我没有看过比python还要简单的语言了。而且python的开源的库很多，所以做很多东西都很方便。

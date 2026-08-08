@@ -1,35 +1,74 @@
 ---
-title: "nodejs爬虫编码问题"
+title: "Node.js 爬虫中文乱码：GBK/GB2312 正确解码"
 author: Neal
-summary: "本文围绕《nodejs爬虫编码问题》梳理web前端、JavaScript和后端相关的背景、方法和实践细节，可作为排查与学习记录。"
-description: "最近再做一个nodejs网站爬虫的项目，但是爬一些网站的数据出现了中文字符乱码的问题。查了一下，主要是因为不是所有的网站的编码格式都是utf-8,还有一些网站用的是gb2312或者gbk的编码格式。所以需要做一个处理来进行编码的解码。至于网站的编码怎么看，可以通过去检查中的network去看。 
- 
-根据相应的编码格式，进行相应的设置。utf-8就不要说了，下面就以gbk为例，说一下解码的方式。va"
-tags: [JavaScript, 后端]
+summary: "爬取非 UTF-8 站点时中文乱码：用 encoding:null 拿 Buffer，再用 iconv-lite 按实际编码解码；附 charset 探测与常见坑。"
+tags: [JavaScript, Node.js, 后端]
 categories: [web前端]
-date: "2016-04-16 18:03:14"
+date: "2016-04-16"
+lastmod: "2026-08-08"
 ---
 
-最近再做一个nodejs网站爬虫的项目，但是爬一些网站的数据出现了中文字符乱码的问题。查了一下，主要是因为不是所有的网站的编码格式都是utf-8,还有一些网站用的是gb2312或者gbk的编码格式。所以需要做一个处理来进行编码的解码。至于网站的编码怎么看，可以通过去检查中的network去看。
-![这里写图片描述](http://img.blog.csdn.net/20160416170259695)
-根据相应的编码格式，进行相应的设置。utf-8就不要说了，下面就以gbk为例，说一下解码的方式。
+## 现象
 
+写 Node 爬虫时，部分站点中文变成「锟斤拷」或乱码。原因通常不是 cheerio 坏了，而是：**页面不是 UTF-8**，却被按 UTF-8 解成了字符串。
+
+国内老站仍常见 **GBK / GB2312**。浏览器能正常显示，是因为 HTTP 头或 `<meta charset>` 声明了编码；你的脚本若默认 UTF-8，就会错。
+
+## 怎么确认编码
+
+1. DevTools → Network → 文档响应头 `Content-Type: text/html; charset=gbk`  
+2. 查看源码 `<meta charset="gbk">` / `gb2312`  
+3. 仍不确定时，可用 `chardet` 类库做探测（不要 100% 盲信）
+
+## 正确做法：先拿字节，再解码
+
+`request`（或其它 HTTP 库）若自动把 body 转成字符串，会按错误编码损坏数据。应：
+
+1. 禁用自动字符串解码，拿到 **Buffer**  
+2. 用 `iconv-lite` 按真实编码 decode  
+
+```javascript
+const request = require('request');
+const cheerio = require('cheerio');
+const iconv = require('iconv-lite');
+
+request(
+  {
+    url: 'https://example.com/',
+    encoding: null, // 关键：body 为 Buffer
+  },
+  (err, res, body) => {
+    if (err) throw err;
+
+    // 按站点实际编码修改
+    const html = iconv.decode(body, 'gbk');
+    const $ = cheerio.load(html);
+    console.log($('head title').text());
+  }
+);
 ```
-var request = require('request');
-var cheerio = request('cheerio');
-var iconv = require('iconv-lite');
 
-request ({
-	url : 'http://www.taobao.com',
-	encodeing = null
-	},function(err,res,body){
-	if (err) throw err;
-	// decode the content of the website
-	body = iconv.decode(body,'gbk');
+注意旧笔记里的笔误：`encodeing` 应为 `encoding`；`cheerio` 不要写成 `request('cheerio')`。
 
-	var $ = cheerio.load(body);
+## 现代写法（axios / fetch）
 
-	console.log($('head title').text());
-}）
+```javascript
+const axios = require('axios');
+const iconv = require('iconv-lite');
+
+const res = await axios.get(url, { responseType: 'arraybuffer' });
+const html = iconv.decode(Buffer.from(res.data), 'gbk');
 ```
-或者是使用一个gbk包，但我觉得还是上面的方式比较好。
+
+## 常见坑
+
+| 坑 | 说明 |
+|----|------|
+| 先 `toString('utf8')` 再转 | 信息已丢，无法救 |
+| 编码写死 gbk | 多站点要按响应头切换 |
+| 忽略压缩 | 确保先解 gzip 再解码 |
+| 合规 | 爬虫需遵守 robots/授权与频率限制 |
+
+## 小结
+
+乱码问题的本质是 **字节序列被用错字符集解释**。爬虫链路固定为：**Buffer → 判定 charset → iconv-lite → 再 parse DOM**。

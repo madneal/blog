@@ -10,6 +10,7 @@ Parent"
 tags: [JavaScript]
 categories: [web前端]
 date: "2015-10-24 14:03:33"
+lastmod: "2026-08-08"
 ---
 
 在javascript里面看到javascript的继承模式和传统的继承模式是有区别的，就想查资料看一下到底有区别，就看到了这篇文章，觉得讲得还可以，暂时先放上来，以后有别的东西再补充：
@@ -37,7 +38,9 @@ console.log(parent.getName());//parent
 console.log(child.getName());//child
 ```
 这种事最简单实现原型继承的方法，直接把父类的对象复制给子类的构造函数的原型，这样子类的对象就可以访问到父类以及父类构造函数的`protytype`
-![这里写图片描述](http://img.blog.csdn.net/20151024131631757)
+
+![这里写图片描述](https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/recovered/43ba319054de.png)
+
 这种方法的优点就是实现起来比较简单，不需要任何特殊的操作；同时他的缺点也很明显，如果子类需要做跟父类构造函数中相同的初始化动作，那么就得在子类构造函数中再重复一遍父类中的操作：
 
 ```
@@ -107,7 +110,9 @@ console.log(parent.getName());//myParent
 console.log(child.getName());//myChild
 ```
 这样我们只需要在子类构造函数中执行一次父类的构造函数，同时又可以继承父类原型中的属性，这也比较原型的初衷，就是吧需要复用的内容放在原型中，我们可以继承原型中可复用的内容
-![这里写图片描述](http://img.blog.csdn.net/20151024140246905)
+
+![这里写图片描述](https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/recovered/41a7dd9062d4.png)
+
 ## 临时构造函数模式 ##
 上面借用构造函数模式还是存在问题，它把父类的原型直接赋值给子类的原型，这会造成一个问题，就是如果对子类的原型做了修改，那么这个修改同时也会影响到父类的原型，进而影响父类对象。
 

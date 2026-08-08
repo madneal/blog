@@ -1,91 +1,104 @@
 ---
-title: "剑指offer学习--实现单例模式"
+title: "剑指 Offer：C# 实现单例模式"
 author: Neal
-summary: "本文围绕《剑指offer学习--实现单例模式》展开，重点梳理加同步锁前后两次判断实例是否已存在、利用静态构造函数和实现按需创建实例等内容，提炼背景、思路与实践注意点。"
-description: "只能生成一个实例的类是为了实现单例模式的类型。加同步锁前后两次判断实例是否已存在我们只是在实例还没有创建之前加锁操作，以保证只有一个线程创建出实例。而当实例已经创建之后，我们已经不需要再做加锁操作了。public sealed class Singleton
-{
-    private Singelton()
-    {
-    }
-private static object syncObj = n"
-tags: [算法]
-categories: [winform开发]
-date: "2015-11-13 12:48:17"
+summary: "双重检查锁、静态构造函数、嵌套类延迟初始化三种 C# 单例写法，说明线程安全与懒加载差异，并修正旧文笔误。"
+tags: [算法, C#, 设计模式]
+categories: [设计模式]
+date: "2015-11-13"
+lastmod: "2026-08-08"
 ---
 
-只能生成一个实例的类是为了实现单例模式的类型。
-## 加同步锁前后两次判断实例是否已存在 ##
-我们只是在实例还没有创建之前加锁操作，以保证只有一个线程创建出实例。而当实例已经创建之后，我们已经不需要再做加锁操作了。
+## 目标
 
-```
+保证一个类在进程内 **只有一个实例**，并提供全局访问点。面试与桌面端缓存/日志里常见。
+
+## 1. 双重检查锁（懒加载）
+
+```csharp
 public sealed class Singleton
 {
-	private Singelton()
-	{
-	}
-private static object syncObj = new object();
+    private static readonly object SyncObj = new object();
+    private static Singleton _instance;
 
-private static Singleton instance = null;
-public static Singleton Instance
-{
-	get
-	{
-		if (instance == null)
-		{
-			locak(syncObj)
-			{
-				if (instance == null)
-					instance = new Singleton();				
-			}
-		}
-		return instance;
-	}
-}
-}
-```
-## 利用静态构造函数 ##
+    private Singleton() { }
 
-```
-public seled class Singleton
-{
-	private Singelton()
-	{
-	}
-
-	private static Singleton instance = new Singleton();
-	public static Singleton Instance
-	{
-		get
-		{
-			return instance;
-		}
-	}
+    public static Singleton Instance
+    {
+        get
+        {
+            if (_instance == null)
+            {
+                lock (SyncObj)
+                {
+                    if (_instance == null)
+                        _instance = new Singleton();
+                }
+            }
+            return _instance;
+        }
+    }
 }
 ```
-由于C#中调用静态构造函数时初始化静态变量，.NET运行时能够保证只调用一次静态构造函数，这样我们就能够保证只初始化一次instance。C#中调用静态构造函数的时机不是由程序员掌控的，而是当.NET运行时发现第一使用一个类型的时候自动调用该类型的静态构造函数。在Singleton中，实例instance并不是第一次调用属性Singleton.Instance的时候创建的，而是在第一次用到Singleton的时候就会被创建。
-## 实现按需创建实例 ##
 
-```
+外层判断避免每次都加锁；内层判断防止多线程重复创建。
+
+## 2. 静态字段 + 运行时保证
+
+```csharp
 public sealed class Singleton
 {
-	Singleton()
-	{
-	}
-
-	public static Singleton Instance;
-	{
-		get
-		{
-			return Nested.instance;
-		}
-	}
-
-	class Nested
-	{
-		static Nested()
-		{
-		}
-		internal static readonly Singleton instance = new Singleton();
-	}
+    private static readonly Singleton InstanceField = new Singleton();
+    private Singleton() { }
+    public static Singleton Instance => InstanceField;
 }
 ```
+
+.NET 保证类型初始化线程安全；实例在类型首次使用时创建，不一定等于首次访问 `Instance` 属性的时刻（取决于是否触碰了类型其它成员）。
+
+## 3. 嵌套类延迟初始化
+
+```csharp
+public sealed class Singleton
+{
+    private Singleton() { }
+    public static Singleton Instance => Nested.Instance;
+
+    private class Nested
+    {
+        internal static readonly Singleton Instance = new Singleton();
+        static Nested() { }
+    }
+}
+```
+
+只有真正用到 `Instance` 时才初始化嵌套类型，懒加载更干净。
+
+## 现代 C#
+
+也可使用 `Lazy<T>`：
+
+```csharp
+private static readonly Lazy<Singleton> Lazy =
+    new(() => new Singleton());
+public static Singleton Instance => Lazy.Value;
+```
+
+## 注意
+
+- `sealed` 防止派生破坏单例  
+- 多 AppDomain / 分布式不等于进程内单例  
+- 旧文 `locak`/`Singelton`/`seled` 均为拼写错误  
+
+## 小结
+
+要线程安全懒加载：双重检查、`Lazy<T>` 或嵌套类；要简单：静态只读字段。先说清「是否懒加载 + 是否线程安全」，再写代码。
+
+
+## 面试怎么讲
+
+1. 先定义：唯一实例 + 全局访问  
+2. 再说线程安全与懒加载是否需要  
+3. 给出一种实现并分析  
+4. 主动提：测试困难、隐藏依赖，现代更爱依赖注入  
+
+能讲清 trade-off，比默写三种模板更加分。

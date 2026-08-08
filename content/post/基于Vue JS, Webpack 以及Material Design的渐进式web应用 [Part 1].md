@@ -701,3 +701,8 @@ Git commit: [39360f251da153c780cd148dc3cf234348bb1e87](https://github.com/charle
 *   [weather app](https://neal1991.github.io/pwa/)
 *   [subway-shanghai](https://neal1991.github.io/subway-shanghai/)
     ​
+
+
+## 译者实践注
+
+本文为技术译文/整理，原文版权归原作者所有。阅读时建议结合自身环境验证命令与结论；若原文年代较早，请以官方最新文档与安全通告为准。欢迎通过 issue 或邮件指出过时之处。

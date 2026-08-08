@@ -8,6 +8,7 @@ python manage.py createsuperuser
 tags: [Python, 后端]
 categories: [web前端]
 date: "2015-10-11 13:02:59"
+lastmod: "2026-08-08"
 ---
 
 接着上一节的内容来说。我们将继续关注与上一节制作的polls应用以及Django自动产生额度管理网站。

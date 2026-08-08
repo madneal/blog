@@ -81,11 +81,19 @@ true
 
 很明显，问题出现在 `parseURL` 这个方法上，它错误地解析了这个链接的 host，如果这个链接中包含 `@` 符号（在实际利用场景中还需要配合 `#` 符号进行利用，这个在后文还会提到）。那么下面就看看这个 `parseURL` 方法，这个函数位于 [`org.dubbo.common.utils.UrlUtils.java`](https://github.com/apache/dubbo/blob/2d9583adf26a2d8bd6fb646243a9fe80a77e65d5/dubbo-common/src/main/java/org/apache/dubbo/common/utils/UrlUtils.java#L67) 中。不如打个断点，进去看看。
 
-[![sY0h9I.png](https://s3.ax1x.com/2021/01/12/sY0h9I.png)](https://imgchr.com/i/sY0h9I)
+[
+
+![Dubbo parseURL 调试](https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/recovered/anquanke-t01171b863223a65709.png)
+
+](https://imgchr.com/i/sY0h9I)
 
 在 `parseURL` 方法中并没有特别之处，到这处 `URL u = URL.valueOf(url);`，进入到 `valueOf` 这个函数中。
 
-[![sYBB5j.png](https://s3.ax1x.com/2021/01/12/sYBB5j.png)](https://imgchr.com/i/sYBB5j)
+[
+
+![Dubbo URL.valueOf 调试](https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/recovered/anquanke-t01bac4fe9353921d53.png)
+
+](https://imgchr.com/i/sYBB5j)
 
 上面的逻辑就是如果 url 中包含 `@` 符号的话，那么就先解析出 `username` 为 `evailhost#`，从而得出 host 为 `whitehost`。正是因为这一步解析导致解析出的 host 不正确。关于这个问题，我也一直很纠结这到底算不算一个安全漏洞。不过仔细想想，严格意义上这还不能算作一个安全漏洞，更应该算是一个 bug。我一开始有写一个报告提供给 dubbo 的官方安全邮箱，不过一直没有收到回复，后来还是给他们的仓库提了一个 [issue](https://github.com/apache/dubbo/issues/7103)。我的修复建议是 `valueOf` 里面的逻辑就不要自己去造轮子实现了，还不如使用 JDK 的方法去解析 URL。
 
@@ -118,7 +126,11 @@ public RedirectView redirect(@RequestParam String service) {
 
 `%23` 是 `#` 符号 url 编码的结果，那么这两个链接的结果会是一样的吗？答案是否定的，因为对于浏览器来说，或者说 url 的标准规范来说，`#` 和 `%23` 有着截然不同的含义。
 
-[![s0bnpD.png](https://s3.ax1x.com/2021/01/15/s0bnpD.png)](https://imgchr.com/i/s0bnpD)
+[
+
+![URL fragment 与编码](https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/recovered/anquanke-t01820e367ea8804c3a.png)
+
+](https://imgchr.com/i/s0bnpD)
 
 在 url 中，`#` 部分的内容被称为 fragment，一般是用于定位页面的内容，像一般页面中的一级标题二级标题，经常是通过这个来进行定位的。这个符号在目前前端框架中的单页面应用也有着广泛的使用。所以，如果传入的参数是 `http://evilhost#@whitehost`，那么实际传入的仅仅只是 `http://evilhost`。
 

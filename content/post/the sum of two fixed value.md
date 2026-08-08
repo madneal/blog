@@ -6,6 +6,7 @@ description: "the sum of two fixed valuedescriptionInput an array and an integer
 tags: [算法]
 categories: [算法OJ]
 date: "2016-10-26 17:34:25"
+lastmod: "2026-08-08"
 ---
 
 the sum of two fixed value

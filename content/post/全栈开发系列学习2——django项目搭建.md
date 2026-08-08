@@ -72,7 +72,9 @@ MYSQL_DB_NAME  = 'web_dev_tutorial'
 
 ##展示代码##
 当你解压代码的时候，你应该可以看到以下的基本结构：
-![这里写图片描述](http://img.blog.csdn.net/20151010105008694)
+
+![这里写图片描述](https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/recovered/01224b88b23b.jpg)
+
 这有一些关键部分：
 web_dev_tutorial文件夹
 

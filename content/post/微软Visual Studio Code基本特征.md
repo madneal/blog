@@ -6,6 +6,7 @@ description: "Visual Studio Code它的核心功能还是作为一个代码编辑
 tags: [开发工具]
 categories: [IT新闻]
 date: "2015-05-02 07:09:46"
+lastmod: "2026-08-08"
 ---
 
 Visual Studio Code它的核心功能还是作为一个代码编辑器。和其他的代码编辑器一样，VScode采取通用的UI和布局，浏览器在左边，显示所有的文件和文件夹，右边你打开的文件的编辑页面。
@@ -30,7 +31,9 @@ VScode中并不区分是打开文件夹还是打开项目。如果你打开的�
 code c:\src\webapp
 ```
 换句话说，打开包含项目的文件夹能够有效地打开项目：
-![这里写图片描述](http://img.blog.csdn.net/20150502065832553)
+
+![这里写图片描述](https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/recovered/8a1a3cd6f88e.png)
+
 打开当前文件夹：
 
 ```
@@ -45,7 +48,10 @@ VScode布局简单，能够最大化编辑界面并且也能够留下足够的�
  - 视图栏  可以让你在不同的视图中进行切换
  
  每次你打开VScode都会恢复到上一次关闭的状态。文件夹布局如下所示。
- ![这里写图片描述](http://img.blog.csdn.net/20150502070649040)
+ 
+
+![这里写图片描述](https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/recovered/204533011716.png)
+
  不是把文件放在不同的tab之中，VScode可以最多同时打开3个编辑器。
  ## 并排编辑 ##
  你可以最多可以并排打开3个编辑器。
@@ -53,5 +59,8 @@ VScode布局简单，能够最大化编辑界面并且也能够留下足够的�
  
  - Ctrl 在浏览器中打开一个文件
  - comman+\ 将编辑器分成两个
- ![这里写图片描述](http://img.blog.csdn.net/20150502072259377)
+ 
+
+![这里写图片描述](https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/recovered/522e7f3ea9f6.png)
+
  无论何时你打开另外一个文件，编辑器将会激活正在打开的文件。

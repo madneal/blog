@@ -1,201 +1,101 @@
 ---
-title: "使用js实现图片轮滑效果"
-author: Neal
-summary: "本文围绕《使用js实现图片轮滑效果》梳理web前端和前端相关的背景、方法和实践细节，可作为排查与学习记录。"
-description: "经常在购物网站，看到那种图片轮滑的效果，所以看到有人实现了，所以我也就学习下了。 
-首先贴出html代码"
-tags: [前端]
+title: "原生 JS 实现图片轮播：结构、样式与交互"
+author: "Neal"
+summary: "用 HTML/CSS/JS 实现带指示点与左右箭头的轮播：绝对定位叠图、自动播放、悬停暂停，以及无障碍与性能注意点。"
+tags: [前端, JavaScript, CSS]
 categories: [web前端]
-date: "2015-10-21 19:57:40"
+date: "2015-10-21"
+lastmod: "2026-08-08"
 ---
 
-经常在购物网站，看到那种图片轮滑的效果，所以看到有人实现了，所以我也就学习下了。
-首先贴出html代码：
 
-```
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>document</title>
-    <link rel="stylesheet" type="text/css" href="style.css">
-    <script type="text/javascript" src="javascript.js"></script>
-</head>
-<body>
-<div id="flash">
-    <ul id="pic">
-        <li style="display:block"><img src=""></li>
-        <li><img src="" ></li>
-        <li><img src=""></li>
-        <li><img src=""></li>
-        <li><img src=""></li>
-        <li><img src=""></li>
-    </ul>
-    <ol id="num">
-        <li class="activate">1</li>
-        <li>2</li>
-        <li>3</li>
-        <li>4</li>
-        <li>5</li>
-        <li>6</li>
-    </ol>
-    <a href="javascript:;" class="arrow" id="left">&lt;</a>
-    <a href="javascript:;" class="arrow" id="right">&gt;</a>
+电商首页那种「几秒换一张、可点圆点、可点左右箭头」的效果，叫轮播（carousel）。框架很多，但自己用原生 JS 写一遍，能搞清 **显示层、状态、定时器** 三件事。
+
+## HTML 结构
+
+```html
+<div id="flash" class="carousel">
+  <ul id="pic" class="slides">
+    <li class="is-active"><img src="1.jpg" alt="slide 1"></li>
+    <li><img src="2.jpg" alt="slide 2"></li>
+    <li><img src="3.jpg" alt="slide 3"></li>
+  </ul>
+  <ol id="num" class="dots"></ol>
+  <button type="button" id="left" class="arrow" aria-label="上一张">‹</button>
+  <button type="button" id="right" class="arrow" aria-label="下一张">›</button>
 </div>
+```
 
-</body>
-</html>
-```
-图像的原路径我就不制定了，css文件
+要点：图片用有意义的 `alt`；箭头用 `button` 而不是空链接，对键盘与无障碍更友好。
 
-```
-* {
-    margin: 0;
-    padding: 0;
-    list-style: none;
-}
-a
-{
-    text-decoration: none;
-    color: #fff;
-}
-#flash
-{
-    width: 730px;
-    height: 454px;
-    margin: 100px auto;
-    position: relative;
-    cursor: pointer;
-}
-#pic li
-{
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: 1;
-    display: none;
-}
-#num
-{
-    position: absolute;
-    left: 40%;
-    bottom: 10px;
-    z-index: 2;
-    cursor:default;
-}
-#num li
-{
-    float: left;
-    width: 20px;
-    height: 20px;
-    border-radius: 50%;
-    background: #666;
-    margin: 3px;
-    line-height: 20px;
-    text-align: center;
-    color: #fff;
-    cursor: pointer;
-}
-#num li.active
-{
-    background: #f00;
-}
-.arrow{
-    height: 60px;
-    width: 30px;
-    line-height: 60px;
-    text-align: center;
-    display: block;
-    position: absolute;
-    top:45%;
-    background-color: rgba(0,0,0,0.3);
-    z-index: 3;
-    display: none;
-}
-.arrow:hover
-{
-    background: rgba(0,0,0,0.7);
-}
-#flash:hover .arrow
-{
-    display: block;
-}
-#left
-{
-    left: 2%;
-}
-#right
-{
-    right: 2%;
-}
-```
-js代码：
+## CSS 关键
 
+```css
+.carousel { position: relative; width: 730px; height: 454px; overflow: hidden; }
+.slides li { position: absolute; inset: 0; display: none; }
+.slides li.is-active { display: block; }
+.dots { position: absolute; left: 50%; bottom: 12px; transform: translateX(-50%); z-index: 2; }
+.dots li { display: inline-block; width: 10px; height: 10px; margin: 0 4px; border-radius: 50%; background: #666; cursor: pointer; }
+.dots li.is-active { background: #f00; }
+.arrow { position: absolute; top: 50%; z-index: 2; transform: translateY(-50%); }
+#left { left: 8px; } #right { right: 8px; }
 ```
-function $(id) {
-    return typeof id==='string'?document.getElementById(id):id;
-}
-window.onload=function(){
-    var index=0;
-    var timer=null;
-    var pic=$("pic").getElementsByTagName("li");
-    var num=$("num").getElementsByTagName("li");
-    var flash=$("flash");
-    var left=$("left");
-    var right=$("right");
-    //单击左箭头
-    left.onclick=function()
-    {
-        index--;
-        if (index<0)
-        {index=num.length-1};
-        changeOption(index);
-    }
-    //单击右箭头
-    right.onclick=function(){
-        index++;
-        if (index>=num.length) {index=0};
-        changeOption(index);
-    }
-    //鼠标划在窗口上面，停止计时器
-    flash.onmouseover=function(){
-        clearInterval(timer);
-    }
-    //鼠标离开窗口，开启计时器
-    flash.onmouseout=function()
-    {
-        timer=setInterval(run,2000)
-    }
-    //鼠标划在页签上面，停止计时器，手动切换
-    for(var i=0;i<num.length;i++)
-    {
-        num[i].id=i;
-        num[i].onmouseover=function()
-        {
-            clearInterval(timer);
-            changeOption(this.id);
-        }
-    }
-    //定义计时器
-    timer=setInterval(run,2000)
-    //封装函数run
-    function run(){
-        index++;
-        if (index>=num.length) {index=0};
-        changeOption(index);
-    }
-    //封装函数changeOption
-    function changeOption(curindex)
-    {
-        console.log(index)
-        for(var j=0;j<num.length;j++){
-            pic[j].style.display="none";
-            num[j].className="";
-        }
-        pic[curindex].style.display="block";
-        num[curindex].className="active";
-        index=curindex;
-    }
-}
+
+所有 slide 叠在同一位置，只显示带 `is-active` 的那一张。也可用 `opacity` + `transition` 做淡入淡出。
+
+## JavaScript 逻辑
+
+```javascript
+(function () {
+  const slides = [...document.querySelectorAll('#pic li')];
+  const dotsBox = document.querySelector('#num');
+  let index = 0;
+  let timer = null;
+
+  // 生成圆点
+  slides.forEach((_, i) => {
+    const li = document.createElement('li');
+    if (i === 0) li.className = 'is-active';
+    li.addEventListener('click', () => go(i));
+    dotsBox.appendChild(li);
+  });
+  const dots = [...dotsBox.children];
+
+  function go(i) {
+    slides[index].classList.remove('is-active');
+    dots[index].classList.remove('is-active');
+    index = (i + slides.length) % slides.length;
+    slides[index].classList.add('is-active');
+    dots[index].classList.add('is-active');
+  }
+
+  document.querySelector('#left').onclick = () => go(index - 1);
+  document.querySelector('#right').onclick = () => go(index + 1);
+
+  function play() { timer = setInterval(() => go(index + 1), 3000); }
+  function stop() { clearInterval(timer); }
+  const root = document.querySelector('#flash');
+  root.addEventListener('mouseenter', stop);
+  root.addEventListener('mouseleave', play);
+  play();
+})();
 ```
-如果想看结果可以上http://neal1991.pythonanywhere.com，这个有实现结果的。
+
+状态只有一个 `index`；所有 UI 都从 `go` 派生，避免左右箭头与圆点各写一套。
+
+## 常见坑
+
+1. **定时器叠加**：每次 `play` 前先 `clearInterval`。  
+2. **图片未统一尺寸**：容器会被撑乱，CSS 里固定高宽并 `object-fit: cover`。  
+3. **只有 display 切换无过渡**：要动画需 `opacity` 或位移轨道。  
+4. **移动端**：需考虑滑动手势；也可用 `scroll-snap` 做更现代方案。  
+
+## 无障碍与性能
+
+- 自动播放应提供暂停（悬停/按钮）  
+- 用户 `prefers-reduced-motion` 时可关闭自动播放  
+- 非首屏图 `loading="lazy"`，首图优先  
+
+## 小结
+
+轮播 = **绝对定位叠图 + 当前索引 + 定时器**。原生实现几十行就够理解；上线项目可再换 Swiper 等库，但原理相同。旧笔记里的完整 CSS/JS 可按本文结构重写，比复制一长串无注释代码更易维护。

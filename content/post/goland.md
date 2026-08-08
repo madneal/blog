@@ -7,6 +7,7 @@ tags: [Go, 开发工具]
 keywords: [goland,Go]
 categories: [开发工具]
 date: "2022-05-01"
+lastmod: "2026-08-08"
 ---
 
 在 Go 的开发过程中，经常遇到一个非常麻烦的问题就是 `JSON` 的解析。因为 Go 中的 `JSON` 的解析，一般来说需要定义对应 `JSON` 的 struct。或者使用 `interface{}` 类型来进行定义，然后再进行类型的转换。当然这在 Python 中可能两三句话就搞定了。
