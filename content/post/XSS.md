@@ -31,19 +31,19 @@ AMP4Email（也称为动态邮件）是 Gmail 的一项新功能，可以让电�
 
 AMP4Email 具有[强验证器](https://github.com/ampproject/amphtml/blob/master/validator/validator-main.protoascii)，简而言之，它是允许在动态邮件中使用的标签和属性的强大白名单。你可以在 https://amp.gmail.dev/playground/ 上尝试，你还可以给自己发送动态电子邮件来研究工作原理！
 
-> **（配图未能自动恢复）** 原地址：`https://s2.ax1x.com/2019/11/18/Mceabq.png`
+![AMP4Email playground](https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/recovered/eda7135b2922.png)
 
 图1. AMP4Email playground
 
 如果你尝试添加验证器未明确允许的任何 HTML 元素或属性，则会收到错误消息。
 
-> **（配图未能自动恢复）** 原地址：`https://s2.ax1x.com/2019/11/18/McmnWF.png`
+![AMP 验证器](https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/recovered/98537118ed83.png)
 
 图2. AMP 验证器禁止使用任意脚本标签
 
 在使用 AMP4Email 并尝试各种方法绕过它时，我注意到标签中不允许 id 属性（图3）。
 
-> **（配图未能自动恢复）** 原地址：`https://s2.ax1x.com/2019/11/18/McuZ2F.png`
+![AMP4Email id 属性限制](https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/recovered/4c8911ad3327.png)
 
 图3.不允许使用属性 id
 
