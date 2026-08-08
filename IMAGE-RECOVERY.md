@@ -15,15 +15,23 @@ Date: 2026-08-08
 6. CSDN article `100582212` (the current migrated Holiday screenshots)
 7. CSDN article `103170498` (the three migrated AMP4Email screenshots still
    present on the current page)
+8. CSDN author profile `neal1991` and the current article pages for the
+   historical posts matched in this batch, including `100582191`, `100582195`,
+   `100582200`, `100582211`, `100582218`, `100582224`, `100582227`,
+   `100582250`, `100582275`, `100582279`, `100582283`, `100582284`,
+   `101444760`, `102878866`, `103331595`, `104681926`, `105631406`,
+   `109140473`, `109712783`, `115986928`, `118256877`, and `120148069`
+9. Tencent Cloud Developer column `madMen` for cross-checking article titles;
+   no Tencent image was used where the article did not match the local post
 
 ## Results
 
 | Metric | Count |
 |--------|------:|
 | Fragile image URLs inventoried | 285 |
-| Successfully recovered and uploaded to `blog-image` | **164** |
-| Not found in public archives | **121** |
-| Recovery rate | **58%** |
+| Successfully recovered and uploaded to `blog-image` | **213** |
+| Remaining image placeholders in blog posts | **39** |
+| Recovery rate against the 285-item inventory | **75%** |
 
 ### By host (recovered)
 
@@ -34,7 +42,9 @@ Date: 2026-08-08
 
 Unrecovered images keep a note with the **original URL** so they can be fixed later if a mirror appears.
 
-Count: 121
+The historical URL inventory below predates the latest CSDN matching pass.
+The authoritative current count is the 39 placeholders listed in the
+article-by-article section at the end of this report.
 
 ## Next manual options
 
@@ -44,7 +54,7 @@ Count: 121
 - Search old CSDN article pages for newer `img-blog.csdnimg.cn` hashes (content may have been re-uploaded)
 
 
-## Unrecovered URL list
+## Historical unrecovered URL inventory
 
 - `https://s1.ax1x.com/2018/02/17/9tMvlT.jpg`
 - `https://s1.ax1x.com/2018/10/26/i612ng.png`
@@ -177,12 +187,28 @@ the blog keeps only CDN references in article content.
 
 - 进程：卡住的 Wayback 恢复任务已结束/清理
 - 图床仓库：`madneal/blog-image`（`images/recovered/`）
-- 已 `git push` 更新 `MIGRATION-MAP.tsv`（165 条记录，164 个唯一源 URL）
+- 本轮追加 49 条 CSDN 迁移记录到 `MIGRATION-MAP.tsv`
 - CDN 格式：`https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/recovered/<hash>.ext`
 - 博客正文：所有已恢复图与原始失效外链 **已全部替换为 CDN**
-  - 替换次数：174
-  - 唯一 CDN 图：153
+  - 当前正文 CDN 引用：204 个唯一资源
   - 正文中不再残留可用的 ax1x / `img.blog.csdn.net` 外链（失败项仅在「未能恢复」备注里保留原 URL）
-- 未能恢复：90 处备注 + 原地址，见下方列表
+- 当前未能恢复：39 处备注 + 原地址，按文章列于下方
 
 验证：GitHub raw 抽样 `200` 且为合法 PNG 魔数。
+
+## Current remaining placeholders by article
+
+These are the 39 image positions that could not be matched with sufficient
+confidence from the public CSDN and Tencent Cloud pages in this pass:
+
+- `Chrome最新在野零日漏洞.md`: 8
+- `被动扫描器之Chrome插件.md`: 6
+- `XSS.md`（GMail XSS）: 5
+- `使用浏览器作为代理从公网攻击内网.md`: 5
+- `Mybaits和SQL注入的恩恩怨怨.md`: 4
+- `redirect.md`: 3
+- `聊聊答题应用题库的建立.md`: 3
+- `流量分析的瑞士军刀--zeek.md`: 2
+- `PWK以及OSCP最常见的问题.md`: 1
+- `botnet.md`: 1
+- `演化计算会议.md`: 1

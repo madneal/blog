@@ -35,7 +35,7 @@ java -agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=5005 -jar bur
 
 可以现在程序中打一下断点。接着就是编译 jar 包，并且启动 IDE 的 DEBUG。将 jar 包部署到 Burp 中，下面就可以快乐地调试了。
 
-> **（配图未能自动恢复）** 原地址：`https://s2.ax1x.com/2019/08/31/mxiIde.png`
+![Burp 插件调试](https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/recovered/csdn-3d16835ddc318893428d5bc360e06169.jpeg)
 
 ## Burp 开发
 

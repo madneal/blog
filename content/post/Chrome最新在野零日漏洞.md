@@ -32,7 +32,7 @@ date: "2019-11-10"
 
 攻击利用朝鲜语新闻门户上的水坑式注入。在主页中插入了恶意的 JavaScript 代码，恶意代码又从远程站点加载了分析脚本。
 
-> **（配图未能自动恢复）** 原地址：`https://s2.ax1x.com/2019/11/02/KL1Qk8.png`
+![Chrome 漏洞分析截图](https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/recovered/csdn-e109ed9866dd24a7a21ae1df6863f969.png)
 
 **重定向到漏洞利用登录页面**
 

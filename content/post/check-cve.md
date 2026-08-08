@@ -13,7 +13,7 @@ lastmod: "2026-08-08"
 
 可以通过 https://cve.circl.lu/api/ 可以看到 API 文档。可以通过 cve id 以及 product 以及其他更多信息来查询。最有用的 API 就是这一个，
 
-> **（配图未能自动恢复）** 原地址：`https://s2.ax1x.com/2019/07/04/ZUIwgH.png`
+![CVE API 查询结果](https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/recovered/csdn-48bad90f16e0675fc64b9be85abadcd2.jpeg)
 
 可以通过 vendor 以及 product 获取指定 vendor 和 product 的 cve 列表。这个 API 返回的结果是一个 JSON 数组，我们需要在这里面过滤出相应的版本号以及 edition 版本。另外由于请求的结果一般是一个很长的 json 数据，我的做法是第一次请求，可以吧结果保存成 JSON 文件，第二次请求的时候首先检查这个 JSON 文件的最近修改时间，如果最近修改时间小于指定的天数，比如 3 天，如果 3 天内修改过的话，直接从 JSON 文件加载数据，否则重新发送请求，加载数据。
 

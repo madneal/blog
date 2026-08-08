@@ -170,5 +170,4 @@ transform: translate(-100px, -300px)
 
 欢迎搜索微信号 mad_coder 或者扫描二维码关注公众号：
 
-> **（配图未能自动恢复）** 原地址：`http://ozfo4jjxb.bkt.clouddn.com/map.png`
-
+![上海地铁线路图](https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/recovered/csdn-5452fa9e839c0b314fc3a853c3de3ec2.png)

