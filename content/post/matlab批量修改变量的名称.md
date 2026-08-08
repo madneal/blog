@@ -74,3 +74,41 @@ end
 ## 小结
 
 批量重命名的本质是：**文件名 → 新变量名 → save**。能用 struct 动态字段就别用 `eval`；旧实验脚本可以继续跑，新脚本请写得可维护一些。
+
+
+## 完整可运行示例
+
+假设目录下有 `gds1.mat` … `gds5.mat`，内部变量均为 `gds`：
+
+```matlab
+n = 5;
+for i = 1:n
+    oldFile = sprintf('gds%d.mat', i);
+    S = load(oldFile);
+    newName = sprintf('gds%d', i);
+    out = struct(newName, S.gds);
+    save(oldFile, '-struct', 'out');
+    fprintf('rewrote %s variable as %s\n', oldFile, newName);
+end
+```
+
+若只想在内存里汇总、不改文件：
+
+```matlab
+allData = struct();
+for i = 1:n
+    S = load(sprintf('gds%d.mat', i));
+    allData.(sprintf('gds%d', i)) = S.gds;
+end
+% 使用 allData.gds3 ...
+```
+
+## 何时该换存储格式
+
+实验一多，`.mat` 同名变量会反复折磨人。可考虑：
+
+- 每个文件只存 `data` 字段，文件名编码参数  
+- 改用 `table` / CSV / HDF5，参数进元数据  
+- 小项目用 `containers.Map` 管理  
+
+批处理重命名是权宜之计；**命名规范** 才是长久方案。

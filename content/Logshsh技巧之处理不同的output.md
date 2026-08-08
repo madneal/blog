@@ -1,16 +1,89 @@
 ---
 title: "Logstash技巧之处理不同的output"
 author: Neal
-summary: "本文围绕《Logstash技巧之处理不同的output》梳理工具相关的背景、方法和实践细节，可作为排查与学习记录。"
+summary: "Logstash 多输出时，如何用 clone 让 Kafka 与 ES 使用不同字段集：场景、配置思路、替代方案与注意点。"
 cover: "/img/post-covers/logshsh-output-d17ae3fd1f.jpg"
-tags: [工具]
-keywords: [插件, logstash]
+tags: [工具, Logstash, ELK]
+keywords: [插件, logstash, clone]
 categories: [工具]
 date: "2020-05-18"
+lastmod: "2026-08-08"
 ---
 
-之前在用 Logstash 遇到了一个棘手的小问题，一直没找到好的解决方案，后来找到了一个有用的插件，分享一下。场景是这样的，Logstash 有两个 output，一个是 output 到 Kafka，另外一个则是 ES。但是对于 Kafka，希望能够移除日志中的 @timestamp 字段，对于 ES 则希望能够进行保留。
+## 场景
 
-![YWmZlt.png](https://s1.ax1x.com/2020/05/18/YWmZlt.png)
+用 Logstash 时遇到一个小需求：
 
-在 filter 里面，其实可以使用 mutate 插件来修改字段的，但是在 output 里面，我没有找到有什么办法可以来进行区分。这个问题困扰了很长时间，直到别人告诉我一个新的插件，clone。通过 clone 插件，可以将事件备份一份，并且进行相应的处理。
+- **Output A → Kafka**：不希望带 `@timestamp`（或其它字段）  
+- **Output B → Elasticsearch**：需要保留 `@timestamp`
+
+在 **filter** 阶段用 `mutate { remove_field => ... }` 会作用在整条事件上，**所有 output 一起少字段**。我需要的是：**同一条日志，不同出口，字段集不同**。
+
+## 思路：先 clone，再分别改
+
+`clone` 过滤器可以把当前事件复制出一份（或多份），并打上 type/tags，之后在 filter 里按类型分支处理，最后在 output 用 `if` 分流。
+
+概念流：
+
+```text
+input → filter(clone) → filter(对 clone 删字段) → output(if 原事件→ES, if clone→Kafka)
+```
+
+## 配置示意
+
+```ruby
+filter {
+  # 复制一份，type 设为 kafka_copy（名称自定）
+  clone {
+    clones => ["kafka_copy"]
+  }
+
+  if [type] == "kafka_copy" {
+    mutate {
+      remove_field => ["@timestamp"]
+      # 也可 remove 其它仅 ES 需要的字段
+    }
+  }
+}
+
+output {
+  if [type] != "kafka_copy" {
+    elasticsearch {
+      hosts => ["http://es:9200"]
+      index => "app-logs-%{+YYYY.MM.dd}"
+    }
+  }
+
+  if [type] == "kafka_copy" {
+    kafka {
+      topic_id => "app-logs"
+      codec => json
+    }
+  }
+}
+```
+
+注意：
+
+1. `clone` 之后原事件与副本都会继续走后续 filter，务必用 **条件** 包住删除逻辑。  
+2. 字段名、`type`/`tags` 策略按你现有流水线习惯调整；有人用 `tags` 而不是 `type`。  
+3. 版本差异：查阅你使用的 Logstash 版本文档确认 `clone` 插件是否默认可用。
+
+## 其它做法
+
+| 做法 | 说明 |
+|------|------|
+| 两条 pipeline | 清晰，但维护成本高 |
+| 仅在 Kafka codec/处理器侧丢字段 | 取决于下游是否支持 |
+| 在 ES 用 ingest pipeline | 适合「ES 多字段、Kafka 全量」的反场景 |
+| 上游直接分叉（Filebeat 多 output） | 有时比 Logstash 更简单 |
+
+## 坑
+
+- **事件翻倍**：clone 后吞吐与 license/资源按两条计，量大时要评估。  
+- **顺序与指纹**：副本是独立事件，幂等与去重逻辑要分开想。  
+- **监控**：失败重试时确认两个 output 的死信策略。  
+
+## 小结
+
+多 output 要「同学不同貌」，优先 **clone + 条件 mutate + 条件 output**。这比在 output 插件里找「按目的地删字段」更通用，也是当时卡住很久后最省事的解法。

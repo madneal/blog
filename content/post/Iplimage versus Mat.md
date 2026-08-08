@@ -53,3 +53,25 @@ IplImage ipl = cvIplImage(mat); // 视 OpenCV 版本 API 略有差异
 ## 小结
 
 「有的方法只有 IplImage 才有」在早期部分成立，现在几乎不成立。把 IplImage 当作历史兼容层即可；**默认 Mat**。
+
+
+## 现代代码骨架
+
+```cpp
+#include <opencv2/opencv.hpp>
+using namespace cv;
+
+int main() {
+    Mat img = imread("a.jpg");
+    if (img.empty()) return 1;
+    Mat gray;
+    cvtColor(img, gray, COLOR_BGR2GRAY);
+    imshow("g", gray);
+    waitKey(0);
+    return 0;
+}
+```
+
+全程无需 `IplImage`。若链接老插件返回 `IplImage*`，在边界 `cvarrToMat` 一次，内部仍用 `Mat`。
+
+OpenCV 4 文档与示例均以 `Mat` 为准；继续学 IplImage 性价比低。

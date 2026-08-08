@@ -85,3 +85,18 @@ LaTeX 表格的基本单元是 `tabular`：先声明每一列怎么对齐，再�
 ## 小结
 
 先掌握 `tabular` + `table` + `caption`，再换成 `booktabs` 三线表，就覆盖了 80% 的论文表格需求。简单，但是要写对浮动与引用。
+
+
+## 单元格内换行与宽度
+
+```latex
+egin{tabular}{p{4cm}c}
+长文本会在固定宽度内换行 & 短 \
+\end{tabular}
+```
+
+## 引用表格
+
+正文写：`见表~ef{tab:complexity}`。编译需 **两次** 才能解析引用。
+
+掌握最小表后，再学 `booktabs`、`multirow`、`longtable` 即可覆盖绝大多数论文表。

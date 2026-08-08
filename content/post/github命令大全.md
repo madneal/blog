@@ -1,120 +1,129 @@
 ---
-title: "github命令大全"
+title: "Git 常用命令速查（从配置到协作）"
 author: Neal
-summary: "本文围绕《github命令大全》展开，重点梳理github安装、配置工具和建立版本库等内容，提炼背景、思路与实践注意点。"
-description: "github是一种开源的版本控制工具，现在已经得到很多人的应用。所以想介绍一下github的一些使用。github安装github提供了桌面客户端，我们也可以通过命令行的方式来进行控制。 
-windows 
-https://windows.github.com 
-mac 
-https://mac.github.com配置工具对于本地版本配置用户信息git config --global user.n"
+summary: "按场景整理 Git 常用命令：配置、提交、分支、暂存、历史与撤销。纠正「GitHub=Git」的说法，便于日常检索。"
 tags: [Git, 开发工具]
-categories: [web前端]
-date: "2015-10-25 22:30:00"
+categories: [开发工具]
+date: "2015-10-25"
+lastmod: "2026-08-08"
 ---
 
-github是一种开源的版本控制工具，现在已经得到很多人的应用。所以想介绍一下github的一些使用。
-## github安装 ##
-github提供了桌面客户端，我们也可以通过命令行的方式来进行控制。
-windows
-https://windows.github.com
-mac
-https://mac.github.com
-## 配置工具 ##
-对于本地版本配置用户信息
-```
-git config --global user.name "username"
-git config --global user.email "email"
-```
-上面的分别是设置用户名和邮箱
-## 建立版本库 ##
-```
-git init project-name
-//create a new local repost with the specified name
-git clone url
-//download a project and its entire version history
-```
-## 提交变化版本 ##
+> 说明：标题沿用旧文，但正文区分 **Git**（版本控制系统）与 **GitHub**（托管平台）。下列为命令行 Git。
 
+## 配置
+
+```bash
+git config --global user.name "yourname"
+git config --global user.email "you@example.com"
+git config --global core.editor "vim"
+git config --list
 ```
+
+## 创建与克隆
+
+```bash
+git init
+git clone <url>
+git clone <url> <dir>
+```
+
+## 日常提交
+
+```bash
 git status
-// list all new of modified files to be committed
-git diff
-//show file differences not yet staged
-git add file
-//snapshot the file in preparation for versioning
-git diff --staged
-//show file difference between staging and the last file version
-git reset file
-//unstage the file, but preserve its contents
-git commit -m "description message"
+git diff                 # 工作区 vs 暂存区
+git diff --staged        # 暂存区 vs HEAD
+git add <file>
+git add -p               # 交互暂存
+git reset HEAD <file>    # 取消暂存，保留修改
+git commit -m "msg"
+git commit --amend       # 改最后一次提交（未推送时）
+```
 
-```
-## 群组版本控制 ##
-```
+## 分支
+
+```bash
 git branch
-//list all local branches in the current respority
-git branch branch-name
-//create a new branch
-git checkout branch-name
-//switch to the specific branch and update the working directory
-git merge branch
-//combine the specified branch's history into the current branch
-git branch -d branch-name
-//delete the specified branch
+git branch <name>
+git switch <name>        # 或 git checkout <name>
+git switch -c <name>
+git merge <branch>
+git branch -d <name>
 ```
-## 重构文件名 ##
-```
-git rm [file]
-//delete the file from the working directory and stage the deletion
-git rm --cached [file]
-//remove the file from version control but pressure the file locally
-git mv [file-origin] [file-renamed]
-//change the file name and prepare it for commit
-```
-## 排除版本控制 ##
 
+## 远程
+
+```bash
+git remote -v
+git fetch
+git pull
+git push -u origin HEAD
 ```
+
+## 暂存现场
+
+```bash
+git stash push -m "wip"
+git stash list
+git stash pop
+git stash drop
+```
+
+## 历史
+
+```bash
+git log --oneline --graph -20
+git log --follow -- <file>
+git show <commit>
+```
+
+## 撤销（慎用）
+
+```bash
+git restore <file>           # 丢弃工作区修改
+git revert <commit>          # 新提交抵消
+git reset --soft <commit>    # 回退提交，保留暂存
+git reset --hard <commit>    # 危险：丢本地未推送工作
+```
+
+## .gitignore 示例
+
+```gitignore
 *.log
 build/
-temp-*
-```
-以.log为结尾的文件都不会被进行版本控制
-```
-git ls-files --other --ignored --exclude-standard
-//list all ignored files in the project
+node_modules/
+.DS_Store
 ```
 
-```
-git stash
-//temprarily store all modified tracked files
-git stash pop
-//restore the most recently stashed files
-git stash list 
-//list all stashed changesets
-git stash drop
-//discard the most recently stashed changeset
-```
+## 小结
 
-```
-git log
-//list version history for the current branch
-git log --follow [file]
-list version history for a file
-git diff [first-branch]...[second-branch]
-//show content differences between two branches
-git showw [commit]
-//output metadata and content change of the specified commit
-```
+先建立 **工作区 / 暂存区 / 提交 / 远程** 四层模型，再记命令会快很多。需要桌面客户端可用 GitHub Desktop 等，但原理仍是这套 Git 对象模型。
 
-```
-git reset [commit]
-//undo all commits after[commit],preserve changes locally
-git reset --hard [commit]
-//discard all history and changes back to the specified commit
-```
 
-```
-git fetch [bookmark]
-//download all history from the respority bookmark
-git merge ［bookmark]
-```
+## 推荐日常工作流
+
+1. 从 `main`/`master` 拉最新：`git switch main && git pull`  
+2. 开功能分支：`git switch -c feature/x`  
+3. 小步提交，信息写清「为什么」  
+4. 推远程并发 PR，避免直接推受保护分支  
+5. 评审合并后删除已合并分支  
+
+## 易混概念
+
+| 概念 | 含义 |
+|------|------|
+| 工作区 | 你正在改的文件 |
+| 暂存区 | `git add` 后等待 commit 的快照 |
+| HEAD | 当前提交指针 |
+| origin | 默认远程名，不是特殊协议 |
+
+把命令当「改这四层状态的工具」，比死记参数快。需要撤销时先问：改动是否已推送？未推送可用 reset；已推送优先 revert。
+
+
+## 远程协作最小集
+
+本地提交只存在于你的磁盘；`git push` 之后同事才能 `fetch`/`pull` 到。冲突发生在合并双方都改了同一区域时：打开文件找冲突标记，手动保留正确版本，再 `add` + `commit` 完成合并。
+
+若误把密钥、大文件提交进历史，应立刻轮换密钥，并使用 `git filter-repo` 等工具清理历史（超出本文范围，但务必知道「删文件再 commit 一次」不够）。
+
+命令速查解决的是「语法」；协作规范（分支命名、PR 模板、保护主分支）解决的是「团队怎么不乱」。两者都要。
