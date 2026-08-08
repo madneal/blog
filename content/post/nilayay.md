@@ -125,3 +125,8 @@ NilAway 在 Go 单体库中集中部署，与 Bazel+Nogo 框架紧密集成，�
 ## 致谢
 
 NilAway 最初是 Joshua Turcotti（Uber intern ’22）的实习项目，并得到了以下 Uber 博士实习生的重大贡献：Shubham Ugare, Narges Shadab, and Zhiqiang Zang。我们还要感谢 Uber 的 Go 单体仓库团队与我们合作开发 NilAway，特别感谢 Dmitriy Shirchenko。
+
+
+## 译者实践注
+
+本文为技术译文/整理，原文版权归原作者所有。阅读时建议结合自身环境验证命令与结论；若原文年代较早，请以官方最新文档与安全通告为准。欢迎通过 issue 或邮件指出过时之处。

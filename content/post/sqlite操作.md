@@ -1,4 +1,5 @@
 ---
+draft: true
 title: "SQLite 实用操作：CSV 导入、乱码、时区与 database is locked"
 author: Neal
 summary: "命令行导入 CSV、中文乱码、datetime 本地时间，以及 database is locked 的常见原因与关闭连接习惯。"

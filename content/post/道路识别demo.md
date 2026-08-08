@@ -1,4 +1,5 @@
 ---
+draft: true
 title: "简易车道线检测 Demo：OpenCvSharp 与 C++ OpenCV"
 author: "Neal"
 summary: "回顾早期车道线检测流水线：降采样、ROI、灰度、高斯、Canny、概率霍夫，并说明角度过滤与工程局限。"

@@ -1,4 +1,5 @@
 ---
+draft: true
 title: "LaTeX 中 large 命令的作用域：为什么第一种写法会污染后面全文"
 author: "Neal"
 summary: "对比 large 的三种写法与分组作用域，解释字体切换命令如何收尾，给出论文排版实用建议。"

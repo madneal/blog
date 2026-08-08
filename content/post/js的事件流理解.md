@@ -1,4 +1,5 @@
 ---
+draft: true
 title: "js的事件流理解"
 author: Neal
 summary: "本文围绕《js的事件流理解》展开，重点梳理事件捕获和事件冒泡、DOM事件流和事件处理程序等内容，提炼背景、思路与实践注意点。"
@@ -6,6 +7,7 @@ description: "面试问到js的事件流，当时说的不是很清楚，现在�
 tags: [JavaScript]
 categories: [web前端]
 date: "2016-03-05 17:19:32"
+lastmod: "2026-08-08"
 ---
 
 面试问到js的事件流，当时说的不是很清楚，现在觉得有必要把这个弄清楚。

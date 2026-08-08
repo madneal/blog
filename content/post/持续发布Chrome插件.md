@@ -18,25 +18,31 @@ CircleCI 是一款持续集成产品，和 Travis 非常类似，都属于 Githu
 
 首先，创建一个 Google API 项目，可以直接点击[这个链接](https://console.developers.google.com/projectcreate?organizationId=0)创建。
 
-![VG6DzV.png](https://s2.ax1x.com/2019/06/02/VG6DzV.png)
+
+
+> **（原外链配图已失效移除，请以正文说明为准）**
+
+
 
 在创建项目之后，我们需要开启 "Chrome Web Store API"。在 Library 中搜索这个 API， 并且将其 ENABLE。
 
-![VGW99s.png](https://s2.ax1x.com/2019/06/02/VGW99s.png)
+
+
+> **（原外链配图已失效移除，请以正文说明为准）**
+
+
 
 在 ENABLE 这个 API 之后，就可以点击 "CREATE CREDENTIALS" 创建口令了。确保你已经选择了对应创建的 project。值得注意的一点是，你创建的应该是 OAuth client ID 类型的，确保你选择了正确的类型。
 
-![VGWwvt.png](https://s2.ax1x.com/2019/06/02/VGWwvt.png)
 
-![VwGYRK.png](https://s2.ax1x.com/2019/06/07/VwGYRK.png)
+
+> **（原外链配图已失效移除，请以正文说明为准）**
 
 在创建 OAuth client ID 之前，你需要填写一些信息，你需要在 OAuth consent screen 填写一些东西，可以就填写一下 Application name，其它的可以暂时先不填。接着你就可以创建 OAuth client ID 了，选择 Other 类型来进行创建。这样你的 client ID 以及 client secret 就创建好了。
 
-![VwG5on.png](https://s2.ax1x.com/2019/06/07/VwG5on.png)
 
-![VwG7WV.png](https://s2.ax1x.com/2019/06/07/VwG7WV.png)
 
-[![VwGjeJ.png](https://s2.ax1x.com/2019/06/07/VwGjeJ.png)](https://imgchr.com/i/VwGjeJ)
+> **（原外链配图已失效移除，请以正文说明为准）**
 
 通过访问下面的链接来生成一个 code。记得使用你自己的 client ID 来替换下面链接中的 `$CLIENT_ID`。访问链接后，会弹出授权链接，允许之后就会出现 code 了，保存好这个信息。
 
@@ -44,9 +50,9 @@ CircleCI 是一款持续集成产品，和 Travis 非常类似，都属于 Githu
 https://accounts.google.com/o/oauth2/auth?response_type=code&scope=https://www.googleapis.com/auth/chromewebstore&client_id=$CLIENT_ID&redirect_uri=urn:ietf:wg:oauth:2.0:oob
 ```
 
-[![VwJ4XD.png](https://s2.ax1x.com/2019/06/07/VwJ4XD.png)](https://imgchr.com/i/VwJ4XD)
 
-[![VwJjc8.png](https://s2.ax1x.com/2019/06/07/VwJjc8.png)](https://imgchr.com/i/VwJjc8)
+
+> **（原外链配图已失效移除，请以正文说明为准）**
 
 现在我们应该有 3 个字段信息， client ID, client secret 以及我们刚刚获取的 code。下面我们要做的就是获取一个叫做 refresh token 的东西。你可以按照以下命令来获取 refresh token，你需要使用 curl 以及 jq 这两个工具。和上面一样，记得替换下面命令中相对应的变量。因为需要访问谷歌，你需要确保你的终端可以访问谷歌。在成功执行这个命令之后，就可以获取 refresh token 了，保存好这个信息。
 
@@ -56,7 +62,11 @@ curl "https://accounts.google.com/o/oauth2/token" -d "client_id=$CLIENT_ID&clien
 
 最后一步就是获取 Chrome 插件的 Application ID。这一步是最简单的了，你只要访问你的 Chrome 插件，就可以在插件的 URL 中可以看到这个插件的 Application ID 了。现在我们已经拿到了我们所有需要的信息，下面就是如何使用 CirecleCI 来进行配置来完成发布任务了。
 
-[![Vwt6Rx.png](https://s2.ax1x.com/2019/06/07/Vwt6Rx.png)](https://imgchr.com/i/Vwt6Rx)
+
+
+> **（原外链配图已失效移除，请以正文说明为准）**
+
+
 
 ```
 curl "https://accounts.google.com/o/oauth2/token" -d "client_id=235111551101-bv1v37f62thpa48jv58rojbjpkjjis7e.apps.googleusercontent.com&client_secret=cxCM40gME_odlELuVr4B9eSD&code=4/YgFSGSQuhSec7WDVF-4x4YOEOp9moHZ8Bm0pgUIxSY9x9EzvE7_sjIo&grant_type=authorization_code&redirect_uri=urn:ietf:wg:oauth:2.0:oob" | jq '.refresh_token'
@@ -112,7 +122,11 @@ Chrome 插件的打包其实比较简单。只要将文件夹打包成 zip 压�
 
 不过这里有一点值得注意的是，这里面有一些敏感信息，包括 `CLIENT_ID`，`CLIENT_SECRET`以及 `REFRESH_TOKEN` 这些信息。我们不希望在脚本里面直接配这些信息。那么我们就需要在环境变量中配置这些变量的信息了。可以在 CircleCI 里面来进行环境变脸的配置，找到对应的 project 来进行环境变量的配置。
 
-![V09fTs.png](https://s2.ax1x.com/2019/06/07/V09fTs.png)
+
+
+> **（原外链配图已失效移除，请以正文说明为准）**
+
+
 
 你也可以通过配置工作流将不同的步骤分开独立，并且支持步骤之间的依赖，比如 build 工作流依赖于 test 工作流，如果 test 工作流没有完成，就没有办法进行 build 工作流。同时，还可以进行条件的过滤，比如只针对特定的分支，或者特定的标签。下面是我的 Chrome 插件 [image-host](https://github.com/neal1991/image-host) 的完整的配置文件。
 

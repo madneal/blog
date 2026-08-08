@@ -1,4 +1,5 @@
 ---
+draft: true
 title: "常用颜色的 RGB 值速查与色彩模型笔记"
 author: "Neal"
 summary: "整理常见颜色的 RGB 三元组，说明 0–255 含义，并补充 HEX、OpenCV 的 BGR 顺序差异与使用注意。"

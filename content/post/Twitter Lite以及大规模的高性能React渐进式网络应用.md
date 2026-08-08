@@ -289,3 +289,8 @@ window.navigator.serviceWorker.register('/sw.js');
 通过延迟ServiceWorker的注册直到我们完成了额外的API，CSS以及图片资源的请求，我们可以让页面完成渲染并且是响应式的，在下面的截图可以看到（下面的）。
 
 总的来说，这是我们在[Twitter Lite](https://mobile.twitter.com/)的开发过程中的众多性能提升的列表。当然还会有更多的事情，我们希望能够继续分享我们发现的问题，以及我们克服问题所做的工作。关于事实以及耕作React以及PWA的更多状态，可以在Twitter上关注[我](https://mobile.twitter.com/paularmstrong)以及[我的团队](https://mobile.twitter.com/paularmstrong/lists/twitter-lite/members)。
+
+
+## 译者实践注
+
+本文为技术译文/整理，原文版权归原作者所有。阅读时建议结合自身环境验证命令与结论；若原文年代较早，请以官方最新文档与安全通告为准。欢迎通过 issue 或邮件指出过时之处。

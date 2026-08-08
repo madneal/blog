@@ -1,4 +1,5 @@
 ---
+draft: true
 title: "初识NuGet"
 author: Neal
 summary: "本文围绕《初识NuGet》展开，重点梳理资源等内容，提炼背景、思路与实践注意点。"
@@ -8,6 +9,7 @@ NuGet现在已经移植到代码管理平台github了，链接地址为https://g
 tags: [开发工具, 学习笔记]
 categories: [开发工具]
 date: "2015-04-12 16:32:36"
+lastmod: "2026-08-08"
 ---
 
 因为想查一查opencvsharp的东西，然后发觉这个包可以再NuGet上面可以直接下载。我也经常在很多地方都可以看到NuGet，所以我想写下来，记录下来。

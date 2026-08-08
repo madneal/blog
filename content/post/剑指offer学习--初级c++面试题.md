@@ -1,4 +1,5 @@
 ---
+draft: true
 title: "剑指offer学习--初级c++面试题"
 author: Neal
 summary: "本文围绕《剑指offer学习--初级c++面试题》梳理cpp和算法相关的背景、方法和实践细节，可作为排查与学习记录。"
@@ -8,6 +9,7 @@ description: "定义一个空的类型，里面没有任何成员函数和成员
 tags: [算法]
 categories: [cpp]
 date: "2015-10-21 13:28:02"
+lastmod: "2026-08-08"
 ---
 
 1. 定义一个空的类型，里面没有任何成员函数和成员变量，对该类型求sizeof,得到的结果是多少？

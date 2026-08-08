@@ -297,3 +297,8 @@ _注：本文为客座文章，由渗透测试人员 [Julen Garrido Estévez](ht
 如果你还没试过，我强烈建议你亲自体验一下 Burp AI。所有 [Burp Suite Professional](/burp/pro) 许可证都附带 10,000 免费 credits，因此基本没有试错成本。
 
 [了解更多 Burp AI](https://portswigger.net/burp/ai)
+
+
+## 译者实践注
+
+本文为技术译文/整理，原文版权归原作者所有。阅读时建议结合自身环境验证命令与结论；若原文年代较早，请以官方最新文档与安全通告为准。欢迎通过 issue 或邮件指出过时之处。

@@ -1,4 +1,5 @@
 ---
+draft: true
 title: "indexDB的概念"
 author: Neal
 summary: "本文围绕《indexDB的概念》梳理web前端和学习笔记相关的背景、方法和实践细节，可作为排查与学习记录。"
@@ -10,6 +11,7 @@ IndexDB进行数据库操作之前要先进行交易。所谓交易，就是将�
 tags: [学习笔记]
 categories: [web前端]
 date: "2015-10-07 09:49:59"
+lastmod: "2026-08-08"
 ---
 
 IndexDB利用数据键(key)访问，通过索引功能搜索数据，适用于大量的结构化数据，如日历，通讯簿或者记事本。

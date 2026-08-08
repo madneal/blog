@@ -90,7 +90,11 @@ GShark 是我之前开源的一款 Github 敏感信息监测的系统，之前�
 
 通过上面几步就可以启动 GShark 服务了。GShark 目前仅仅由我一个人维护，希望可以吸收社区优秀的建议，欢迎 PR。可以扫码加入微信群。
 
-[![uiofjs.th.png](https://s2.ax1x.com/2019/09/23/uiofjs.th.png)](https://imgchr.com/i/uiofjs)
+
+
+> **（原外链配图已失效移除，请以正文说明为准）**
+
+
 
 ## 总结
 

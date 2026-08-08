@@ -1,4 +1,5 @@
 ---
+draft: true
 title: "实现combobox模糊查询的时候报错 InvalidArgument=“0”的值对于“index”无效"
 author: Neal
 summary: "本文围绕《实现combobox模糊查询的时候报错 InvalidArgument=“0”的值对于“index”无效》梳理winform开发和学习笔记相关的背景、方法和实践细节，可作为排查与学习记录。"
@@ -7,6 +8,7 @@ description: "因为要对combobox实现模糊查询，因为系统实现的匹�
 tags: [学习笔记]
 categories: [winform开发]
 date: "2015-05-02 17:51:23"
+lastmod: "2026-08-08"
 ---
 
 因为要对combobox实现模糊查询，因为系统实现的匹配只能从左到右进行匹配，所以利用两个list来进行模糊匹配，主要代码如下：

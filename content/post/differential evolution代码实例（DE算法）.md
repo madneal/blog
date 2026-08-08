@@ -1,4 +1,5 @@
 ---
+draft: true
 title: "差分进化（DE）算法原理与 MATLAB 示例"
 author: "Neal"
 summary: "讲清 DE 的变异、交叉、选择三步，参数 F/CR/N 的含义，并给出可运行的 MATLAB 最小化示例与调参注意点。"

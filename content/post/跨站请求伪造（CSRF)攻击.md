@@ -9,7 +9,11 @@ keywords: [CSRF,web安全,XSS]
 date: "2019-02-21"
 ---
 
-![kRIUNn.png](https://s2.ax1x.com/2019/02/21/kRIUNn.png)
+
+
+> **（原外链配图已失效移除，请以正文说明为准）**
+
+
 
 ## 概述
 

@@ -8,6 +8,7 @@ keywords: [Burp,Burp 插件,web安全,IDEA]
 description: "开发 Burp 插件，并学会如何调试"
 categories: [安全开发]
 date: "2019-08-31"
+lastmod: "2026-08-08"
 ---
 
 Burp 是 web安全测试中不可或缺的神器。每一个师傅的电脑里面应该都有一个 Burp。同时 Burp 和很多其他神器一样，它也支持插件。但是目前总体来说网上 Burp 插件开发的资料不是特别特别的丰富。今天我也来讲讲自己如何从一个完全不会 Burp 插件开发的小白如何学习 Burp 插件的开发。
@@ -20,7 +21,11 @@ Burp 是 web安全测试中不可或缺的神器。每一个师傅的电脑里�
 
 首先是在 IDEA 里面配置调试。点击右上角里面的配置，点击 "Edit Configurations" 就可以进入对 DEBUG 的配置页面。新增一个 Remote 配置，命名可以随自己的喜好。
 
-![mxiIde.png](https://s2.ax1x.com/2019/08/31/mxiIde.png)
+
+
+> **（原外链配图已失效移除，请以正文说明为准）**
+
+
 
 2. 命令行启动 Burp
 
@@ -34,7 +39,11 @@ java -agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=5005 -jar bur
 
 可以现在程序中打一下断点。接着就是编译 jar 包，并且启动 IDE 的 DEBUG。将 jar 包部署到 Burp 中，下面就可以快乐地调试了。
 
-![nSZGi8.png](https://s2.ax1x.com/2019/09/01/nSZGi8.png)
+
+
+> **（原外链配图已失效移除，请以正文说明为准）**
+
+
 
 ## Burp 开发
 
@@ -75,3 +84,19 @@ public void processProxyMessage(boolean messageIsRequest, final IInterceptedProx
 ## 总结
 
 其实总的来说 Burp 插件开发并不特别困难，只要当一个合格的 API 调用者就可以了。网上目前也有很多开源的 Burp 插件代码，其实你可以找一个感兴趣的 Burp 插件代码看一下，你就可以快速地了解这些 API 的作用。其实 Burp 的 Extender 中的 APIs 就已经列出了所有可用的 API 接口。
+
+
+## 调试与工程化建议
+
+- 用官方 Extender API 文档 + 示例项目起步  
+- IDE 远程调试或日志级别可切换，避免「打 jar → 重启 Burp」死循环  
+- 版本控制插件源码，CI 编译发布  
+- 权限最小化：插件能碰的流量范围要克制  
+
+## 插件能解决的问题
+
+被动扫描规则、高亮、自动打标签、与企业内部平台联动、AI 辅助分析（需注意数据出域）。先解决自己每天重复的 10 分钟，再考虑发布社区。
+
+## 小结
+
+Burp 插件开发的门槛在环境与调试，不在 Java 语法。把调试链路打通，后面都是 API 熟悉度问题。

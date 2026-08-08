@@ -1,4 +1,5 @@
 ---
+draft: true
 title: "MATLAB：批量 load 后按文件名重命名变量"
 author: "Neal"
 summary: "多个 .mat 内变量同名时，用脚本按文件名重命名并写回；对比 eval 与动态字段名，并提醒 eval 的风险。"

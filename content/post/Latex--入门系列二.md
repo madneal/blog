@@ -1,4 +1,5 @@
 ---
+draft: true
 title: "Latex--入门系列二"
 author: Neal
 summary: "本文围绕《Latex--入门系列二》展开，重点梳理基本的使用、TeX会产生什么和输出文件等内容，提炼背景、思路与实践注意点。"
@@ -8,6 +9,7 @@ tags: [LaTeX]
 keywords: [latex]
 categories: [论文写作]
 date: "2016-12-06 20:24:10"
+lastmod: "2026-08-08"
 ---
 
 Latex 专业的参考

@@ -1,4 +1,5 @@
 ---
+draft: true
 title: "如何查找 Django 的安装路径与版本信息"
 author: "Neal"
 summary: "用 django.__file__、pip show、python -c 等方式定位 Django 安装目录，并说明虚拟环境、多 Python 并存时的排查思路。"

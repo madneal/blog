@@ -1,4 +1,5 @@
 ---
+draft: true
 title: "javascript中无法将string转化为json对象"
 author: Neal
 summary: "本文围绕《javascript中无法将string转化为json对象》梳理web前端和JavaScript相关的背景、方法和实践细节，可作为排查与学习记录。"
@@ -7,6 +8,7 @@ description: "在一次项目之中，我要对请求的相应做一些处理，
 tags: [JavaScript]
 categories: [web前端]
 date: "2016-07-01 16:34:48"
+lastmod: "2026-08-08"
 ---
 
 在一次项目之中，我要对请求的相应做一些处理，得到的响应差不多是这中格式‘{total:1,result:[{"age":1}]}'.可以看到我拿到的这个相应和JSON的格式是非常相似的，一开始我认为只要用JSON.parse进行转化，但是这始终会报错，无法进行转化。后来我用了个笨办法把前面的东西都去掉了拿到'[{"age":1}]'进行转化。

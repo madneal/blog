@@ -20,7 +20,11 @@ date: "2018-10-31"
 
 讲完了起源，接着讲一讲这个系统的原理。基本上，这类工具都是首先会在 Github 申请相应的 token 来实现，接着通过相应的 API 来进行爬取。本项目主要是基于 Google 的 [go-github](https://github.com/google/go-github)。这个 API 使用起来还是比较方便的。通过这个 API 我们可实现在 Github 来进行搜索，其实这基本上等同于 [Advanced Search](https://github.com/search/advanced?)。因为 API 提供的搜索能力肯定就是 Github 本身所具有的搜索能力。最基本的包括关键及，以及一些 owner 信息以及 star 数等等。
 
-[![iWe0kn.md.png](https://s1.ax1x.com/2018/10/31/iWe0kn.md.png)](https://imgchr.com/i/iWe0kn)
+
+
+> **（原外链配图已失效移除，请以正文说明为准）**
+
+
 
 另外一点就是 Github 的搜索是基于 elasticsearch 的，因此也是支持 lucene 语法的。GShark 的黑名单过滤其实就是通过这个规则来实现的。
 

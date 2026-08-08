@@ -1,4 +1,5 @@
 ---
+draft: true
 title: "LaTeX 画一张简单三线表"
 author: "Neal"
 summary: "从 tabular 基础列格式讲到 booktabs 三线表、caption/label 与跨页长表入口，给出论文里最常用的最小模板。"
@@ -97,6 +98,7 @@ LaTeX 表格的基本单元是 `tabular`：先声明每一列怎么对齐，再�
 
 ## 引用表格
 
-正文写：`见表~ef{tab:complexity}`。编译需 **两次** 才能解析引用。
+正文写：`见表~
+ef{tab:complexity}`。编译需 **两次** 才能解析引用。
 
 掌握最小表后，再学 `booktabs`、`multirow`、`longtable` 即可覆盖绝大多数论文表。
