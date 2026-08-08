@@ -1,5 +1,4 @@
 ---
-draft: true
 title: "PCA算法和实例"
 author: Neal
 summary: "本文围绕《PCA算法和实例》展开，重点梳理PCA算法和实例等内容，提炼背景、思路与实践注意点。"

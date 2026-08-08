@@ -1,5 +1,4 @@
 ---
-draft: true
 title: "利用tesseract-ocr进行验证码识别"
 author: Neal
 summary: "本文围绕《利用tesseract-ocr进行验证码识别》梳理计算机视觉和学习笔记相关的背景、方法和实践细节，可作为排查与学习记录。"

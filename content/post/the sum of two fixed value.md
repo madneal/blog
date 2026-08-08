@@ -1,5 +1,4 @@
 ---
-draft: true
 title: "the sum of two fixed value"
 author: Neal
 summary: "本文围绕《the sum of two fixed value》梳理算法OJ和算法相关的背景、方法和实践细节，可作为排查与学习记录。"

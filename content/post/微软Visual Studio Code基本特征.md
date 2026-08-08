@@ -1,5 +1,4 @@
 ---
-draft: true
 title: "微软Visual Studio Code基本特征"
 author: Neal
 summary: "本文围绕《微软Visual Studio Code基本特征》展开，重点梳理文件，文件夹以及项目、打开VScode和基本布局等内容，提炼背景、思路与实践注意点。"

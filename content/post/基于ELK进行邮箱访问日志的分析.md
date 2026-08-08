@@ -1,5 +1,4 @@
 ---
-draft: true
 title: "基于ELK进行邮箱访问日志的分析"
 author: Neal
 summary: "本文围绕《基于ELK进行邮箱访问日志的分析》展开，重点梳理系统搭建、Logstash和filter等内容，提炼背景、思路与实践注意点。"

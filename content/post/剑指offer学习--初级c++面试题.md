@@ -1,5 +1,4 @@
 ---
-draft: true
 title: "剑指offer学习--初级c++面试题"
 author: Neal
 summary: "本文围绕《剑指offer学习--初级c++面试题》梳理cpp和算法相关的背景、方法和实践细节，可作为排查与学习记录。"

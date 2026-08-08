@@ -1,5 +1,4 @@
 ---
-draft: true
 title: "javascript的继承模式"
 author: Neal
 summary: "本文围绕《javascript的继承模式》展开，重点梳理基本模式、借用构造函数和临时构造函数模式等内容，提炼背景、思路与实践注意点。"

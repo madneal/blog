@@ -1,12 +1,15 @@
-# AdSense remediation status (final)
+# AdSense remediation status
 
 Date: 2026-08-08
 
-## Targets met
+## Current state
 
 | Metric | Result |
 |--------|--------|
-| Public posts with prose < 800 | **0** |
+| Public posts | **199** |
+| Draft posts | **4** |
+| Public posts with prose < 800 | **61** |
+| Public posts with prose < 300 | **0** |
 | About / Privacy trust pages | Yes |
 | Menu + footer links | Yes |
 | Root page layout warning | Fixed (`layouts/_default/single.html`) |
@@ -17,12 +20,17 @@ Date: 2026-08-08
 ## Content actions
 
 - Expanded high-value security/engineering posts
-- `draft: true` on low-value / off-niche / obsolete thin posts (~67)
+- `draft: true` remains only on four clearly obsolete or low-value pages; the
+  previously broad draft batch was rolled back so substantive technical notes
+  remain publicly accessible.
+- Recovered body images are stored in `madneal/blog-image` and referenced by
+  CDN URLs; binary copies are intentionally not kept in this repository.
 - Translator practice notes on public translations
 
 ## Re-review advice
 
-1. Merge & deploy this branch
-2. Wait for Google recrawl (Search Console)
-3. Then request AdSense review
-4. Optional later: GA4 ID, further archive of non-core long posts
+1. Review whether the 61 shorter public posts should be expanded or grouped
+2. Merge & deploy this branch
+3. Wait for Google recrawl (Search Console)
+4. Then request AdSense review
+5. Optional later: GA4 ID and further archive of non-core long posts

@@ -1,5 +1,4 @@
 ---
-draft: true
 title: "Django学习——开发你的第一个Django应用2"
 author: Neal
 summary: "本文围绕《Django学习——开发你的第一个Django应用2》展开，重点梳理产生一个管理员用户、开发服务器和进入管理员网站等内容，提炼背景、思路与实践注意点。"

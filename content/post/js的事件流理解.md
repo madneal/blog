@@ -1,5 +1,4 @@
 ---
-draft: true
 title: "js的事件流理解"
 author: Neal
 summary: "本文围绕《js的事件流理解》展开，重点梳理事件捕获和事件冒泡、DOM事件流和事件处理程序等内容，提炼背景、思路与实践注意点。"

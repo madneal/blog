@@ -1,5 +1,4 @@
 ---
-draft: true
 title: "初识NuGet"
 author: Neal
 summary: "本文围绕《初识NuGet》展开，重点梳理资源等内容，提炼背景、思路与实践注意点。"

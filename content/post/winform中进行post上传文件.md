@@ -1,5 +1,4 @@
 ---
-draft: true
 title: "WinForms 里用 HTTP POST 上传文件的正确姿势"
 author: "Neal"
 summary: "从早期 HttpWebRequest 裸 POST 出发，说明流读取顺序错误、Content-Type/multipart、校验头，以及迁移到 HttpClient 的写法。"

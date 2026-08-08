@@ -1,5 +1,4 @@
 ---
-draft: true
 title: "道路模型--linear-parabolic model"
 author: Neal
 summary: "本文围绕《道路模型--linear-parabolic model》梳理计算机视觉相关的背景、方法和实践细节，可作为排查与学习记录。"

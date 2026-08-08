@@ -1,5 +1,4 @@
 ---
-draft: true
 title: "moongoose对象无法新增删除属性"
 author: Neal
 summary: "本文围绕《moongoose对象无法新增删除属性》梳理web前端和JavaScript相关的背景、方法和实践细节，可作为排查与学习记录。"

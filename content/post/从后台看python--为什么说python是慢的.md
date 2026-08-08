@@ -1,5 +1,4 @@
 ---
-draft: true
 title: "从后台看python--为什么说python是慢的"
 author: Neal
 summary: "本文围绕《从后台看python--为什么说python是慢的》展开，重点梳理2.python是一种解释型的语言而不是编译型的和3.python的对象模型导致存储效率低下等内容，提炼背景、思路与实践注意点。"

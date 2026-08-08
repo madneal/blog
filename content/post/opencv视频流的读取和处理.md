@@ -1,5 +1,4 @@
 ---
-draft: true
 title: "opencv视频流的读取和处理"
 author: Neal
 summary: "本文围绕《opencv视频流的读取和处理》梳理计算机视觉和安全相关的背景、方法和实践细节，可作为排查与学习记录。"

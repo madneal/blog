@@ -1,5 +1,4 @@
 ---
-draft: true
 title: "LaTeX 画一张简单三线表"
 author: "Neal"
 summary: "从 tabular 基础列格式讲到 booktabs 三线表、caption/label 与跨页长表入口，给出论文里最常用的最小模板。"

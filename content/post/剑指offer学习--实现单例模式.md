@@ -1,5 +1,4 @@
 ---
-draft: true
 title: "剑指 Offer：C# 实现单例模式"
 author: Neal
 summary: "双重检查锁、静态构造函数、嵌套类延迟初始化三种 C# 单例写法，说明线程安全与懒加载差异，并修正旧文笔误。"

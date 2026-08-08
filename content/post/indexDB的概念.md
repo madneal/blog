@@ -1,5 +1,4 @@
 ---
-draft: true
 title: "indexDB的概念"
 author: Neal
 summary: "本文围绕《indexDB的概念》梳理web前端和学习笔记相关的背景、方法和实践细节，可作为排查与学习记录。"
