@@ -1,51 +1,86 @@
 ---
-title: "latex算法步骤如何去掉序号"
-author: Neal
-summary: "本文围绕《latex算法步骤如何去掉序号》梳理论文写作、算法和LaTeX相关的背景、方法和实践细节，可作为排查与学习记录。"
-description: "想去掉latex算法步骤前面的序号，如下 
- 
-我想去掉每个算法步骤前面的数字序号，1，2，3，因为我已经写了step。我们只需要引用 algorithmic 这个包就可以了，"
-tags: [算法, LaTeX]
+title: "LaTeX 算法环境：去掉 algorithmic 自动行号"
+author: "Neal"
+summary: "当步骤里已经写了 Step 1/2/3 时，如何去掉 algorithmic 自动编号，并对比 algorithm2e / algpseudocode 的常见写法。"
+tags: [LaTeX, 算法, 论文写作]
 categories: [论文写作]
-date: "2015-11-06 19:03:15"
+date: "2015-11-06"
+lastmod: "2026-08-08"
 ---
 
-想去掉latex算法步骤前面的序号，如下
-![这里写图片描述](http://img.blog.csdn.net/20151106185801079)
-我想去掉每个算法步骤前面的数字序号，1，2，3，因为我已经写了step。我们只需要引用a lgorithmic这个包就可以了，代码如下：
 
+论文里贴伪代码时，`algorithm` + `algorithmic` 很常见。默认会在每一行前面自动加 `1: 2: 3:`。若你已经在文本里写了 `Step 1. ...`，就会出现 **双重编号**，既难看也浪费栏宽。
+
+## 目标效果
+
+只要：
+
+```text
+Step 1. ...
+Step 2. ...
 ```
-\usepackage{algorithmic}
+
+不要：
+
+```text
+1: Step 1. ...
+2: Step 2. ...
+```
+
+## 做法：用 `algorithmic` 且不启用行号包变体
+
+```latex
+\usepackage{algorithm}
+\usepackage{algorithmic} % 注意：不是 algorithmicx 的那套命令混用
+
 \begin{algorithm}[htb]
-\caption{SDE}
-\label{alg2}
-\begin{algorithmic}
-\STATE Step 1. Compute the covariance matrix $C$ of the current population, then apply Eigen decomposition to $C$ as follows:
-\begin{equation}
-\label{eve}
-C=EDE^T
-\end{equation}
-where $E$ is the eigenvector matrix of the population, $E^T$ is the corresponding transposed matrix. $D$ is a diagonal matrix composed of eigenvalues.
-
-\STATE Step 2. Compute the the projection of the population with eigenvector matrix $E$.
-\begin{equation}
-\label{proj}
-P=X_G\cdot{E} 
-\end{equation}
-
-\STATE Step 3. Operate the mutation in Eigen coordinate sysytem.
-\begin{equation}
-\label{mut}
-P'=P_{r_1}+F\cdot(P_{r_2}-P_{r_3})
-\end{equation}
-where $P_{r_1}$, $P_{r_2}$ and $P_{r_3}$ are sampled randomly from the projection $P$, $P'$ is the projection of mutation vector.
-
-\STATE Step 4. Transform $P'$ to original coordinate system to obtain next generation of population $X_{G+1}$.
-\begin{equation}\label{org}
-  X_{G+1}=P'\cdot{E^T}
-\end{equation}
-
+\caption{SDE 主流程}
+\label{alg:sde}
+\begin{algorithmic}  % 某些版本可用 \begin{algorithmic}[0] 关闭编号
+\STATE Step 1. 计算当前种群协方差矩阵 $C$，并做特征分解 $C=EDE^{T}$。
+\STATE Step 2. 将种群投影到特征坐标：$P=X_{G}E$。
+\STATE Step 3. 在特征坐标中做差分变异，得到 $P'$。
+\STATE Step 4. 变换回原坐标：$X_{G+1}=P'E^{T}$。
 \end{algorithmic}
 \end{algorithm}
 ```
-ok,搞定
+
+说明：
+
+- 经典 `algorithms` 束中的 `algorithmic`，**不显式给行号参数** 时通常就不带 `1: 2:`。  
+- 若你用的是 `algpseudocode`（`algorithmicx`），默认 `\begin{algorithmic}[1]` 会编号；改成：
+
+```latex
+\begin{algorithmic}[0]
+\State Step 1. ...
+\end{algorithmic}
+```
+
+`[0]` 表示不显示行号。
+
+## 两套宏包不要混
+
+| 体系 | 常见命令 | 行号 |
+|------|----------|------|
+| `algorithmic` | `\STATE \IF \FOR` | 老风格 |
+| `algpseudocode` | `\State \If \For` | `\begin{algorithmic}[1]` |
+| `algorithm2e` | `\If{...}\tcp{...}` | 自带另一套选项 |
+
+混用会导致「Undefined control sequence」。选一套用到底。
+
+## 需要引用某一步怎么办
+
+若关掉自动编号又想引用，可以：
+
+- 在 Step 文本里写死编号，正文写「见算法 1 的 Step 3」  
+- 或使用 `algorithmicx` 的线标签功能（需要编号时再打开）  
+
+## 排版建议
+
+1. 长公式不要硬塞进 `\STATE` 一行，可 `\STATE` + `equation` 环境。  
+2. `\caption` 写「做什么」，细节放步骤。  
+3. 双栏模板注意算法浮动体用 `[t]`/`[htbp]`，避免漂到附录。  
+
+## 小结
+
+双重编号 = 自动行号 + 手写 Step 冲突。要么去掉自动行号（`[0]` 或换不编号的 `algorithmic`），要么删掉手写 Step 改用纯行号。论文里我更偏好 **手写 Step + 无自动行号**，审稿人按步骤讨论更自然。

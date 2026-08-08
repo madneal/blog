@@ -43,6 +43,18 @@ copyright = "© This post is licensed under a Creative Commons Attribution-NonCo
   identifier = "tags"
   url = "/tags/"
 
+[[menu.main]]
+  name = "About"
+  weight = 40
+  identifier = "about"
+  url = "/about/"
+
+[[menu.main]]
+  name = "Privacy"
+  weight = 50
+  identifier = "privacy"
+  url = "/privacy/"
+
 # Add your own params here
 [params]
   author = "Neal"
