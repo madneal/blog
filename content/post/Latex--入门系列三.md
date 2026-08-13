@@ -28,7 +28,7 @@ I am text. Yes.
 \end{tabular}
 ```
 
-最终产生的表格的排版是这个样子的*tab（原图链接已失效且无法恢复，已移除）*
+最终产生的表格的排版是这个样子的![tab](https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/recovered/fix-mirror-Latex--00.gif)
 
 ### 特殊符号的总结
 
@@ -38,7 +38,7 @@ I am text. Yes.
 
 * **%**是用来注释的，这个是单行注释。如果你要注释大段的代码的时候，为了避免插入过多的百分号，你可以把这些字符放在`\iffalse`和`\fi`里面。
 
-* **_**和**^**分别作为下标和上标。你也可以同时使用上标和下标，比如：*formula1（原图链接已失效且无法恢复，已移除）*
+* **_**和**^**分别作为下标和上标。你也可以同时使用上标和下标，比如：![formula1](https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/recovered/fix-mirror-Latex--05.png)
 
 * **~**是一个硬空格，它对于排版是有影响的，它是具有大小的，并且不可分连的空格，就像&nbsp一样的。它很有用比如：`A.~Smith`以及在引用的图表的时候`Figure~\ref{dataflow}`,这确保了作者姓名或者图片和数字之间不会在行与行之间分隔。（也可以使用其他的办法来解决这个问题，比如mbox，不会强制使用特殊的空格大小）
 
@@ -48,15 +48,15 @@ I am text. Yes.
 
 * **\**用于开始一个命令。有一些可能是比较特殊的(`\\`用于换行，`\>`用于tab缩进)，一般化的话应该是这样的`\commandname`。当然这可能会有看起来不太相同的使用方法：
 
-  * 一次效果函数，比如使用`\ss`来获得一个德国字母*\ss（原图链接已失效且无法恢复，已移除）*。
+  * 一次效果函数，比如使用`\ss`来获得一个德国字母![\ss](https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/recovered/fix-mirror-Latex--06.png)。
 
-  * 状态改变，比如粗体，强调，比如`text-{\em a-tron}`会产生*text-{\em a-tron}（原图链接已失效且无法恢复，已移除）*。（花括号是来限制作用的范围的）
+  * 状态改变，比如粗体，强调，比如`text-{\em a-tron}`会产生![text-{\em a-tron}](https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/recovered/fix-mirror-Latex--16.png)。（花括号是来限制作用的范围的）
 
   * 使用命令取得相应的值，一般是使用`{}`或者`[]`。比如：
 
-    * `\textsc{SmallCaps}`产生*\textsc{SmallCaps}（原图链接已失效且无法恢复，已移除）*
+    * `\textsc{SmallCaps}`产生![\textsc{SmallCaps}](https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/recovered/fix-mirror-Latex--22.png)
     * `\caption{Description`用于标题说明，一般用于图表。
-    * 口音和发声符号，比如`\'{e} \v{o}`来产生*\'{e} \v{o}（原图链接已失效且无法恢复，已移除）*
+    * 口音和发声符号，比如`\'{e} \v{o}`来产生![\'{e} \v{o}](https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/recovered/fix-mirror-Latex--23.png)
 
   * 使用`\begin`和`end`是定义环境，从而和其他内容区分处理，比如：
 
@@ -75,13 +75,13 @@ I am text. Yes.
 * **#**是在内部使用的，比如`\newcommand`
 
 
-为了在文本里面使用上述的一些字符，你需要添加反斜杠使用`\$ \{ \% \} \_ \#`从而产生*\$ \{ \% \} \#（原图链接已失效且无法恢复，已移除）*
+为了在文本里面使用上述的一些字符，你需要添加反斜杠使用`\$ \{ \% \} \_ \#`从而产生![\$ \{ \% \} \#](https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/recovered/fix-mirror-Latex--24.png)
 
 这里也有几个意外情况，`\\`是一个字面上的换行，`\~`是一个插入符号。
 
 对于反斜杠如何表示，可以使用`$\backslash$`
 
-对于其他的一些插入符号，你可以将参数不加设置，`\~{}, \^{}`，这样也能获得你想要的比如*foo \^{} bar \~{} quu #（原图链接已失效且无法恢复，已移除）*
+对于其他的一些插入符号，你可以将参数不加设置，`\~{}, \^{}`，这样也能获得你想要的比如![foo \^{} bar \~{} quu #](https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/recovered/fix-mirror-Latex--25.png)
 
 对于等宽字体你也可以使用inline verbatim，比如`\verb|^|, \verb|~|, \verb|\|`
 
@@ -92,7 +92,7 @@ I am text. Yes.
 为了在非URL文本里面获得波浪符号，当然还有其他的办法，比如[swung dash](https://en.wikipedia.org/wiki/Dash#Swung_dash)
 
 * 你可以获得一个不一样的波浪符号（在空格之上）通过使用`\~{}, \textasciitilde, \char \~`。这个波浪符号位置比较高，大多数人并不喜欢用。
-* 如果你希望在等宽字体里面使用波浪符号，一个简单的方法是使用verbatim环境，可能没有内联的使用起来那么方便`\verb|foo/~var`*\verb|foo/~bar|（原图链接已失效且无法恢复，已移除）*
+* 如果你希望在等宽字体里面使用波浪符号，一个简单的方法是使用verbatim环境，可能没有内联的使用起来那么方便`\verb|foo/~var`![\verb|foo/~bar|](https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/recovered/fix-mirror-Latex--27.png)
 * `texttidlebelow`（依赖包textcomp）的位置更低，但是不能够以波浪符号粘贴复制。它在某些字体面，位置可能特别低，这个可能和字体相关。
 * `$\sim$`对于大多数情况来说就不太常用了，一般在数学环境里面用的比较多。
 
@@ -106,7 +106,7 @@ I am text. Yes.
 
 `\newcommand\thicktilde{{\lower.74ex\hbox{\texttt{\char`\~}}}}`
 
-你可以产生`a\thintilde b\thicktilde c`看起来就是这样*a\thintilde b\thicktilde c（原图链接已失效且无法恢复，已移除）*
+你可以产生`a\thintilde b\thicktilde c`看起来就是这样![a\thintilde b\thicktilde c](https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/recovered/fix-mirror-Latex--28.png)
 
 作为对比：
 
@@ -114,4 +114,4 @@ I am text. Yes.
 
 当你希望使用一个字面上的插入符号，`\^{}`是一个高的发音符号，你也可以在verbatim样式里面使用，比如：
 
-*\verb|x=x^2|（原图链接已失效且无法恢复，已移除）*
+![\verb|x=x^2|](https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/recovered/fix-mirror-Latex--29.png)
