@@ -27,8 +27,18 @@ COVER = re.compile(
     re.M | re.I,
 )
 HTML_SRC = re.compile(
-    r"""(?:src)=["']([^"']+\.(?:png|jpe?g|gif|webp|svg|ico|bmp))(?:\?[^"']*)?["']""",
+    r"""(?:src)=["']([^"']+)["']""",
     re.I,
+)
+# Hosts that serve images without a file extension in the URL path
+EXTENSIONLESS_IMAGE_HOSTS = (
+    "googleusercontent.com",
+    "ggpht.com",
+    "blogspot.com",
+    "blogger.com",
+    "twimg.com",
+    "fbcdn.net",
+    "cdninstagram.com",
 )
 # bare image-like URLs in markdown (conservative)
 BARE_URL = re.compile(
@@ -50,6 +60,31 @@ class ImageRef:
     status: str = "unknown"  # ok|inaccessible|skip
     reason: str = ""
     http_code: Optional[int] = None
+
+
+
+def _looks_like_image_ref(ref: str) -> bool:
+    """True if ref is a plausible image URL/path for inventory purposes."""
+    if not ref or ref.startswith("#") or ref.startswith("data:") or ref.startswith("javascript:"):
+        return False
+    r = ref.split("?")[0].split("#")[0]
+    low = r.lower()
+    if any(low.endswith(ext) for ext in (".png", ".jpg", ".jpeg", ".gif", ".webp", ".svg", ".ico", ".bmp")):
+        return True
+    # local paths under /img/ or images/
+    if low.startswith("/img/") or low.startswith("img/") or "/images/" in low or low.startswith("/images/"):
+        return True
+    if low.startswith("http://") or low.startswith("https://"):
+        try:
+            host = urlparse(ref).netloc.lower()
+        except ValueError:
+            return False
+        if any(h in host for h in EXTENSIONLESS_IMAGE_HOSTS):
+            return True
+        # common image CDN path segments without extension
+        if any(seg in low for seg in ("/image", "/images/", "/img/", "/photo", "/media/", "/cms/images/")):
+            return True
+    return False
 
 
 def extract_refs(path: Path, blog_root: Path) -> List[ImageRef]:
@@ -76,7 +111,9 @@ def extract_refs(path: Path, blog_root: Path) -> List[ImageRef]:
     for m in COVER.finditer(text):
         add("cover", "cover", m.group(1))
     for m in HTML_SRC.finditer(text):
-        add("html", "", m.group(1))
+        src = m.group(1).strip()
+        if _looks_like_image_ref(src):
+            add("html", "", src)
     # bare urls only if not already captured
     for m in BARE_URL.finditer(text):
         add("bare", "", m.group(1))

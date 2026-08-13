@@ -48,5 +48,31 @@ class TestExtract(unittest.TestCase):
             self.assertEqual(st["/img/missing.png"], "inaccessible")
 
 
+    def test_extensionless_googleusercontent_html(self):
+        with tempfile.TemporaryDirectory() as td:
+            root = Path(td)
+            content = root / "content"
+            content.mkdir()
+            md = content / "c.md"
+            md.write_text(
+                '<p><img src="https://lh3.googleusercontent.com/ABC123xyzNoExt"></p>\n'
+                '<img src="https://example.com/script.js">\n'
+                "![](https://2.bp.blogspot.com/foo/bar.png)\n",
+                encoding="utf-8",
+            )
+            refs = p.extract_refs(md, root)
+            refs_set = {r.ref for r in refs}
+            self.assertIn("https://lh3.googleusercontent.com/ABC123xyzNoExt", refs_set)
+            self.assertIn("https://2.bp.blogspot.com/foo/bar.png", refs_set)
+            # non-image script should not be inventoried as html image
+            self.assertNotIn("https://example.com/script.js", refs_set)
+
+    def test_looks_like_image_ref_helper(self):
+        self.assertTrue(p._looks_like_image_ref("https://lh3.googleusercontent.com/xyz"))
+        self.assertTrue(p._looks_like_image_ref("/img/recovered/a.png"))
+        self.assertFalse(p._looks_like_image_ref("https://example.com/app.js"))
+        self.assertFalse(p._looks_like_image_ref("javascript:void(0)"))
+
+
 if __name__ == "__main__":
     unittest.main()

@@ -56,7 +56,7 @@ date: "2019-01-28"
 
 
 
-![](https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/recovered/fix-31a1f21042aa.png)
+![](https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/recovered/fix-blogspot-stego-5.png)
 
 根据 API 参考资料，这两个 API 协同工作，用于读取存储在 PDF 文件中的名为 “icon” 的图像流。
 
@@ -64,7 +64,7 @@ date: "2019-01-28"
 
 object-131 中名为 “icon” 的图标流可以保存为 “jpg” 文件，并在图像查看器中查看，没有问题。 如下所示：
  
-<p align="center"> <img src="https://lh3.googleusercontent.com/IPN1eis6eIjQjZsiQR4MRlkGGbw1Zb8P324LrOzw6LFIagc_KB4bsyY8xlc1T1TfSeofYKOkxTbOiXJihanQ9NG2Ky1Ya2CDxjphMhHmwSJJ3ZMl744Xz3DnVGLqDLnXZkMRwF0U">
+<p align="center">*配图（原图链接已失效且无法恢复，已移除）*
 
 <p align="center">当图像仍然可见时，恶意数据隐藏在图像中</p>
 </p>
