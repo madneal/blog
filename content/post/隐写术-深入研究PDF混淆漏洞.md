@@ -56,7 +56,7 @@ date: "2019-01-28"
 
 
 
-![](https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/recovered/sekurak-amp4email-image-5.png)
+![](https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/recovered/fix-31a1f21042aa.png)
 
 根据 API 参考资料，这两个 API 协同工作，用于读取存储在 PDF 文件中的名为 “icon” 的图像流。
 
