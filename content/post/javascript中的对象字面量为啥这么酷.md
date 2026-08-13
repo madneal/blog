@@ -75,7 +75,7 @@ myNumbers.propertyExists('collection'); // => false
 
 我们也可展望下未来可以下心的提议在（[第二部分](https://github.com/sebmarkbage/ecmascript-rest-spread#status-of-this-proposal)）：通过使用对象中的rest以及spread属性
 
-*Infographic（原图链接已失效且无法恢复，已移除）*
+![Infographic](https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/recovered/fix-object-literal-infographic-1.jpg)
 
 ### 1.在对象构造函数中设置原型
 
@@ -136,7 +136,7 @@ As you know already, one option to access the prototype of an existing object is
 
 即使`__proto__`看起来十分简单，但是还是又一些特殊的情形需要注意：
 
-*Infographic（原图链接已失效且无法恢复，已移除）*
+![Infographic](https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/recovered/fix-object-literal-infographic-2.jpg)
 
 只允许在对象字面量中使用一次`__proto__`。一旦重复使用就会出现下面的错误：
 

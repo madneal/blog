@@ -68,7 +68,7 @@ I am text. Yes.
     \end{verbatim}
     ```
 
-    会产生* \begin{verbatim}In the verbatim environment,  text appears with almost no treatment.There's also no need for manual TeX newlines (\\)\end{verbatim}（原图链接已失效且无法恢复，已移除）*
+    会产生![ \begin{verbatim}In the verbatim environment,  text appears with almost no treatment.There's also no need for manual TeX newlines (\\)\end{verbatim}](https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/recovered/fix-mirror-Latex--00.gif)
 
   这些命令有选择项和参数项，对于每一个命令都有着相应的设置。有一些命令定义后，你可以用几种方式使用，但是一般的使用时选择项在参数项之前，比如对于`\command[option1,option2]{argument}`你可以用`\comman{argument}`作为基本使用。
 
@@ -110,7 +110,11 @@ I am text. Yes.
 
 作为对比：
 
-*\begin{tabular}{lll} & & result \\\hline\verb#url# package                                         & & \url{foo/~bar~} \\\verb|\~{}| ~and~ \verb|\textasciitilde|                  & & foo/\~{}bar\~{} \\\verb|{\tt \~{}}| ~and~ \verb|\textt{\~{}}|           & & foo/{\tt \~{}}bar{\tt \~{}} \\simple {\hspace{-.25ex}\lower.72ex\hbox{\texttt{\~{}}}} in verbatim environment                            & & \verb|foo/~bar| \\\verb#\texttildelow#                                      & & foo/\texttildelow bar\texttildelow \\basic \verb#$\sim$#                                          & & foo/{$\sim$}bar{$\sim$} \\~\\~~~~~~~~~~~~~~~~~~~~~~~mucking about: \\tweaked \verb|\sim|                                        & & foo/{\raise.17ex\hbox{$\scriptstyle\sim$}}bar{\raise.17ex\hbox{$\scriptstyle\sim$}} \\tweaked \verb|\sim| {\small (looks in monospace context)}  & & {\tt foo/{\raise.17ex\hbox{$\scriptstyle\sim$}}bar{\raise.17ex\hbox{$\scriptstyle\sim$}} } \\lowered diacritic tilde, mathtt                             & & {foo/{\lower.92ex\hbox{\mathtt{\char`\~}}}bar{\lower.92ex\hbox{\mathtt{\char`\~}}} } \\lowered diacritic tilde, texttt                             & & {\tt foo/{\lower.74ex\hbox{\texttt{\char`\~}}}bar{\lower.74ex\hbox{\texttt{\char`\~}}} } \\\hline\end{tabular}（原图链接已失效且无法恢复，已移除）*
+（对比表原图已失效，以下为表格源码）
+
+```latex
+\begin{tabular}{lll} & & result \\\hline\verb#url# package                                         & & \url{foo/~bar~} \\\verb|\~{}| ~and~ \verb|\textasciitilde|                  & & foo/\~{}bar\~{} \\\verb|{\tt \~{}}| ~and~ \verb|\textt{\~{}}|           & & foo/{\tt \~{}}bar{\tt \~{}} \\simple {\hspace{-.25ex}\lower.72ex\hbox{\texttt{\~{}}}} in verbatim environment                            & & \verb|foo/~bar| \\\verb#\texttildelow#                                      & & foo/\texttildelow bar\texttildelow \\basic \verb#$\sim$#                                          & & foo/{$\sim$}bar{$\sim$} \\~\\~~~~~~~~~~~~~~~~~~~~~~~mucking about: \\tweaked \verb|\sim|                                        & & foo/{\raise.17ex\hbox{$\scriptstyle\sim$}}bar{\raise.17ex\hbox{$\scriptstyle\sim$}} \\tweaked \verb|\sim| {\small (looks in monospace context)}  & & {\tt foo/{\raise.17ex\hbox{$\scriptstyle\sim$}}bar{\raise.17ex\hbox{$\scriptstyle\sim$}} } \\lowered diacritic tilde, mathtt                             & & {foo/{\lower.92ex\hbox{\mathtt{\char`\~}}}bar{\lower.92ex\hbox{\mathtt{\char`\~}}} } \\lowered diacritic tilde, texttt                             & & {\tt foo/{\lower.74ex\hbox{\texttt{\char`\~}}}bar{\lower.74ex\hbox{\texttt{\char`\~}}} } \\\hline\end{tabular}
+```
 
 当你希望使用一个字面上的插入符号，`\^{}`是一个高的发音符号，你也可以在verbatim样式里面使用，比如：
 
