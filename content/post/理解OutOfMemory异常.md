@@ -7,7 +7,7 @@ keywords: [OutOfMemory,Error,JAVA,Exception]
 date: "2018-05-26"
 ---
 
-*overflow.jpg（原图链接已失效且无法恢复，已移除）*
+![overflow.jpg](https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/recovered/fix-wechat-oom-00-overflow.jpg)
 
 OutOfMemoryError 异常应该可以算得上是一个非常棘手的问题。JAVA 的程序员不用像苦逼的 C 语言程序员手动地管理内存，JVM 帮助他们分配内存，释放内存。但是当遇到内存相关的问题，就比如 OutOfMemoryError，如何去排查并且解决就变成一个非常令人头疼的问题。在 JAVA 中，所有的对象都存储在堆中，通常如果 JVM 无法再分配新的内存，内存耗尽，并且垃圾回收器无法及时回收内存，就会抛出 OutOfMemoryError。
 
