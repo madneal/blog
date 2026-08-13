@@ -37,7 +37,7 @@ Wmic, 即 Windows Management Instrumentation Command-Line Utility，通过这个
 
 这样我们就可以获取补丁的安装的相关信息了，但是这样的结果可能看起来不是很直观，所以我们还可以进行相应的格式化。`wmic qfe list full /format:table`，这样就可以把结果以表格的形式展现出来。加入我们还希望将结果导出来，我们可以将其导出比较好看的 html 表格形式：`wmic qfe list full /fomrmat:htble > qfe.html`。
 
-![htable.png](http://ozfo4jjxb.bkt.clouddn.com/htable.png)
+*htable.png（原图链接已失效且无法恢复，已移除）*
 
 如果不希望在结果中显示所有的字段，可以使用 `wmic qfe list brief` 或者 使用 `wmic qfe get hotfixid,installedon` 获取希望展示的字段。还可以使用其他的字段，比如 `description`, `installedby` 等等。
 
@@ -57,7 +57,7 @@ Wmic, 即 Windows Management Instrumentation Command-Line Utility，通过这个
 
 当然关于 wmic 还有很多更高阶的玩法。比如，就有 WMI Query Language 能够提供查询功能，有点类似于 SQL，部分关键字是一样的，比如常见的 where 以及 select。可以在一些工具中使用 WQL 语法，比如在运行中输入 `wbemttest` 就可以打开 wmi 的测试工具。
 
-![wbemtest.png](http://ozfo4jjxb.bkt.clouddn.com/wbemtest.png)
+*wbemtest.png（原图链接已失效且无法恢复，已移除）*
 
 在本地连接之后，就可以通过查询语句来查询一些信息了。比如，`select * from win32_process` 就可以看到一些进程相关的信息。关于测试工具的更过用法，参考[这篇文章](https://www.codeproject.com/Articles/46390/WMI-Query-Language-by-Example)。
 

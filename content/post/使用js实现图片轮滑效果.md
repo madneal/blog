@@ -16,9 +16,9 @@ lastmod: "2026-08-08"
 ```html
 <div id="flash" class="carousel">
   <ul id="pic" class="slides">
-    <li class="is-active"><img src="1.jpg" alt="slide 1"></li>
-    <li><img src="2.jpg" alt="slide 2"></li>
-    <li><img src="3.jpg" alt="slide 3"></li>
+    <li class="is-active"><img src="https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/recovered/fix-carousel-slide-1.png" alt="slide 1"></li>
+    <li><img src="https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/recovered/fix-carousel-slide-2.png" alt="slide 2"></li>
+    <li><img src="https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/recovered/fix-carousel-slide-3.png" alt="slide 3"></li>
   </ul>
   <ol id="num" class="dots"></ol>
   <button type="button" id="left" class="arrow" aria-label="上一张">‹</button>

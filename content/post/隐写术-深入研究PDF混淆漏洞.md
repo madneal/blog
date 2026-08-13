@@ -26,7 +26,7 @@ date: "2019-01-28"
 
 样本首先在 2017-10-10 提交给 VirusTotal，文件名为 “oral-b oxyjet spec.pdf”。
 
-![](https://lh4.googleusercontent.com/ORMvSEL5-R-yLYe8ow9YzjUkUWBfXSTxa8d55dxZhoot91KnVhLvyvjd0nBUbPJk9sH433KsJDgdSZnu52NWm-9mbf5uPQv-gMGalUX918rX7HSAJyFj3OQq1zpNsUqrKVlc_Qrf)
+*配图（原图链接已失效且无法恢复，已移除）*
 
 上周只有 1 个 AV 引擎检测到这种攻击（但是，截至写作时，检测增加到 5/57）。
 * https://www.virustotal.com/#/file/ebc5617447c58c88d52be6218384158ccf96ec7d7755179a31d209a95cd81a69/detection
@@ -39,12 +39,12 @@ date: "2019-01-28"
 
 在该样本中使用两层混淆。 第一层是我们之前公开的 - "this.getPageNumWords()" 以及 "this.getPageNthWord()" 方法。该漏洞使用 "this.getPageNumWords()" 以及 "this.getPageNthWord()" 来读取和执行隐藏为“内容”的 Javascript。 相关代码可以在 PDF stream-64中找到。
 
-![](https://lh6.googleusercontent.com/Qa4otHEzSjZlj4B65CmnfgutxzaTfn4EugYFlSf0BaMQdyntnVpxr7qzgwjAdzY3Ue97axGjscZtt2dumd7bKlutVi1aDi9ElBSPm17xJkgmIPM902ailGHvnOGRjtfpy_ADT_-_)
+*配图（原图链接已失效且无法恢复，已移除）*
 <p align="center"><b>stream-64</b></p>
 
 第二层是新的，这是我们本文的重点。 “Javascript 内容”存储在 stream-119 中，让我们看看它什么样。
 
-![](https://lh6.googleusercontent.com/daXGdDM5pyT4_kjmoaPsX9jnXZRbq9fIF22cHznr97dqymfQ8TLJ1KpnsK7LswND3Tfo-cVqXG_VyxOD_amxM2Pi_bpUFUzG1xLPJLq_-EIzLDWS4PBHGZzcb4Aw0aXZEpipBv0X)
+*配图（原图链接已失效且无法恢复，已移除）*
 
 美化 Javascript 后，显示如下：
 
@@ -56,7 +56,7 @@ date: "2019-01-28"
 
 
 
-![](https://2.bp.blogspot.com/-2-4DtAFE_2c/XEdN0UrwVrI/AAAAAAAAAFc/3q4W0pMMGkwmnhuyXBe-8yCkqUAvWEwYQCLcBGAs/s1600/5.png)
+![](https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/recovered/sekurak-amp4email-image-5.png)
 
 根据 API 参考资料，这两个 API 协同工作，用于读取存储在 PDF 文件中的名为 “icon” 的图像流。
 
@@ -73,7 +73,7 @@ object-131 中名为 “icon” 的图标流可以保存为 “jpg” 文件，�
 
 最终执行的 Javascript 是什么样的？在成功去混淆之后，这是一段真实的代码。
  
-![](https://lh4.googleusercontent.com/Iun-DdCJrtuagzxaB1eYLCX5_Ecu0MCTTV-P3cBxUGlxJKdVSIqFsnCTZFMym2HzpUIvKqpoEDK8gEt6WMmfxWBdgJCqHIRgTC25dDjKOMoxcCstabRGkRsIWMq9BNb6xzd0VqNR)
+*配图（原图链接已失效且无法恢复，已移除）*
 
 因此，我们确认这个漏洞利用为 CVE-2013-3346。
 

@@ -23,7 +23,7 @@ Hassan Ud-Deen | 2026 年 1 月 16 日 00:00（UTC）
 
 _注：本文为客座文章，由渗透测试人员 [Julen Garrido Estévez](https://www.linkedin.com/in/julen-garrido-estevez/)（@b3xal）撰写。_  
 
-![](https://portswigger.net/cms/images/7a/13/2696-article-julen-garrido-quote.png)  
+![](https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/recovered/fix-b2b83ec7e201.png)  
 
 - [方法论](#方法论)  
 - [关键结果](#关键结果)  
@@ -77,7 +77,7 @@ _注：本文为客座文章，由渗透测试人员 [Julen Garrido Estévez](ht
 
 下面摘录的是最具代表性的会话片段。这些数据来自我在受控环境下的测试，用于调优如何编写最佳提示词。  
 
-![](https://portswigger.net/cms/images/66/30/8fcd-article-image_3_1.png)  
+![](https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/recovered/fix-0df66c7a0ddb.png)  
 
 ## 关键结果  
 
@@ -124,9 +124,9 @@ _注：本文为客座文章，由渗透测试人员 [Julen Garrido Estévez](ht
 
 第一个场景是一个商品网站，用户可以浏览商品并查看描述。我之前观察到：请求不存在的商品会触发重定向，而重定向后的请求里有一个 `message` 参数会在页面中反射显示。这种反射提示了可能存在 [XSS](https://portswigger.net/web-security/cross-site-scripting) 或 SSTI。
 
-![](https://portswigger.net/cms/images/d6/e3/311a-article-image_5_1.png)
+![](https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/recovered/fix-6e6f804cdb8f.png)
 
-![](https://portswigger.net/cms/images/31/d9/444d-article-image_6_1.png)
+![](https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/recovered/fix-1b4fb6d80efa.png)
 
 我给 Burp AI 一个聚焦的提示词：
 
@@ -150,21 +150,21 @@ _注：本文为客座文章，由渗透测试人员 [Julen Garrido Estévez](ht
 
 结果是：迅速且高效地得到了一个干净、可用的 SSTI PoC。
 
-![](https://portswigger.net/cms/images/ac/1a/a737-article-image_6_2_highres_from_docx.png)
+![](https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/recovered/fix-494a98a03b9a.png)
 
-![](https://portswigger.net/cms/images/29/4d/6f5b-article-image_7_1_highres_from_docx.png)
+![](https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/recovered/fix-90b7405cf766.png)
 
-![](https://portswigger.net/cms/images/18/59/0870-article-image_7_2_highres_from_docx.png)
+![](https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/recovered/fix-d3ae1dd30dd6.png)
 
-![](https://portswigger.net/cms/images/e9/b7/ede7-article-image_7_3_highres_from_docx.png)
+![](https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/recovered/fix-09e7bedc7bf9.png)
 
 ### 示例 B — 不安全反序列化
 
 第二个测试中，我关注一个商品页面：登录后它会发放一个序列化的 PHP 对象作为 session cookie。基于之前测试，我知道如果能操纵这个 cookie，可能就能拿到其他用户的会话。
 
-![](https://portswigger.net/cms/images/73/e9/c9ed-article-image_8_1.png)
+![](https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/recovered/fix-554955664c59.png)
 
-![](https://portswigger.net/cms/images/0c/8f/e0d7-article-image_8_2.png)
+![](https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/recovered/fix-5686e7ba5995.png)
 
 这次我让 Burp AI 调查 `session` cookie：
 
@@ -188,11 +188,11 @@ _注：本文为客座文章，由渗透测试人员 [Julen Garrido Estévez](ht
 
 成本约 €0.34，既快又省。
 
-![](https://portswigger.net/cms/images/e9/cd/1584-article-image_9_1_highres_from_docx.png)
+![](https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/recovered/fix-6b120dc3e5cd.png)
 
-![](https://portswigger.net/cms/images/0f/f3/5611-article-image_9_2_highres_from_docx.png)
+![](https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/recovered/fix-95777093cb97.png)
 
-![](https://portswigger.net/cms/images/6a/4f/d5a2-article-image_10_1.png)
+![](https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/recovered/fix-cacf694dad62.png)
 
 这两个示例让我看到：Burp AI 并不只是跑固定 payload 或“打勾式检查”；它会主动分析每个情境，按反馈调整策略，并以一种很类人的方式确认漏洞。感觉就像有一位经验丰富的测试人员在后台安静地工作：速度很快，但也足够谨慎。
 
@@ -221,7 +221,7 @@ _注：本文为客座文章，由渗透测试人员 [Julen Garrido Estévez](ht
 
 较长任务会受到内部 20 步限制，但 AI 也可能在得到结果后提前退出。就像前面的示例一样，我倾向于在提示词里加入明确的停止条件。“确认即停止”不仅能防止过度测试，也有助于控制成本与速度。
 
-![](https://portswigger.net/cms/images/47/71/6977-article-image_12_1.png)
+![](https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/recovered/fix-31a1f21042aa.png)
 
 ## 提示词模板
 

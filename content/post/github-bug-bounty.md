@@ -19,7 +19,7 @@ date: "2023-01-16"
 >
 >LICENSE: [MIT](https://opensource.org/licenses/MIT)
 
-![](/images/blogimages/inside-gitLab-public-bug-bounty-program.png)
+*配图（原图链接已失效且无法恢复，已移除）*
 
 每年，GitLab 的[应用安全团队](https://about.gitlab.com/handbook/security/security-engineering/application-security/) 都会回顾 GitLab 漏洞赏金计划的亮点。
 
