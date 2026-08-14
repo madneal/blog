@@ -49,7 +49,7 @@ OSWE 的考试既需要对代码的审计，寻找漏洞，又需要 exploit 的
 
 官方对于报告是有提供一个模板的，包括 [.doc](https://www.offensive-security.com/awae/OSWE-Exam-Report.doc) 格式以及 [.odt](https://www.offensive-security.com/awae/OSWE-Exam-Report.odt) 格式。但是 word 有一个问题就是越到后面保存就会变得很卡，尤其一般这个报告写得应该还是比较长的。另外一个问题就是格式问题，后面我在调整目录的时候就导致很多地方的格式又乱掉了，很多地方又得重新调整。所以后面我创建了一个 Tex 的模板，[oswe-report-template](https://github.com/madneal/oswe-report-template).Tex 相对于 word 来说，格式是一直稳定的，所以会省略很多调整格式的烦劳，所以一般在科研论文的写作中，很多人都比较喜爱使用 Tex。我基本上是按照官方的模板百分百还原了，感兴趣的可以尝试看看。
 
-![](https://camo.githubusercontent.com/585680983a5ad6b78367c0575b246f64490285be/68747470733a2f2f73312e617831782e636f6d2f323032302f30392f30342f7769624c576a2e706e67)
+![OSWE Exam Report TeX template screenshot](https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/recovered/fix-oswe-screenshot.png)
 
 报告提交之后，10个工作日以内会给出结果的，我差不多是6天的时间。收到结果的邮件是凌晨，当时我凌晨醒了一下结果就看到了。虽然没有想象中那么兴奋，但是知道结果之后我还是睡不着了。毕竟，之前也是一直焦灼地等待结果。邮件主要就是确认一下证件上的姓名，如果姓名没有问题的话就是反馈一下收件地址，因为新冠的原因，证件寄过来可能非常久。
 
