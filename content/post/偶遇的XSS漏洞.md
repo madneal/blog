@@ -16,7 +16,7 @@ date: "2019-08-22"
 
 简单粗暴地在代码仓库中搜索了一下 `window.location.href`，发现代码仓库中有多处使用了 `window.location.href`。不过我们很快就发现了一个有趣的代码，正是重定向页面的代码。
 
-![m0w7lR.png](https://s2.ax1x.com/2019/08/22/m0w7lR.png)
+![m0w7lR.png](https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/recovered/e50a45799159.png)
 
 关键代码就是：`window.location.href = decodeURIComponent("$returnUrl");`。这段代码没有对 `returnUrl` 做任何的处理，而且这段代码就是直接放在 `script` 标签中。毫无疑问，这种一定会导致 XSS 漏洞，可以通过构造 `returnUrl` 来闭合双引号从而导致 XSS 漏洞。比如，`"alert(/xss/);//`，这段代码就可以导致 XSS 漏洞。
 

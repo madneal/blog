@@ -10,7 +10,7 @@ date: "2021-09-06"
 
 上周末回了一趟老家，高速来回行驶了800多公里。所以我很想结合这一次的高速的经验分享一下电车的高速形式经验，或许也能帮助一些鹏友解答电车在高速形式上面的问题。我的车之前的文章也提到过，小鹏 P7，长续航智尊版，选配了 NGP 辅助驾驶功能。当然，这篇文章的经验也主要是我本身这次的高速之行的感受，并不一定适用于所有的情况。
 
-[![h5ZTud.png](https://z3.ax1x.com/2021/09/06/h5ZTud.png)](https://imgtu.com/i/h5ZTud)
+![高速驾驶记录](https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/recovered/csdn-c93b77568fa442d7dd6d65d923835177.jpeg)
 
 ## 续航，谁先倒下？
 

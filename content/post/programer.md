@@ -109,13 +109,11 @@ Star是衡量一个开源项目是否受欢迎的重要标准之一（当然也�
 这个是一个webpack的插件。一开始是因为[基于Vue JS, Webpack 以及Material Design的渐进式web应用 [Part 1](基于Vue JS, Webpack 以及Material Design的渐进式web应用 [Part 1])这篇文章。因为这个教程里面使用了一个`pwa-manifest-webpack-plugin`插件，但是这个插件有一点比较蛋疼的是它用了一个特别蛋疼的包`lwip`。其实它里面只使用了`lwip`几个函数，但是这个`lwip`却需要一大堆依赖，而且在windows上平台上安装始终有问题，后来我就想自己写一个webpack 插件。我的这个插件应该和刚才的差不多，只不过我使用另外一个包[jimp](https://github.com/oliver-moran/jimp)。这个包的依赖相对来说少得多，从而也没有上一个插件的问题。这是我的第一个npm包，发布一个npm包的确比较简单，确定合适的`package.json`，只要执行`npm publish`就可以了。同时，还在这个项目里面添加了Travis CI，装逼挺好的。
 ### [pwa](https://github.com/neal1991/pwa)
 
-![](http://i1.piimg.com/588926/b94a4f4357c4f637.png)
-![](http://i4.buimg.com/588926/dc958de8b9576279.png)
+*weather-pwa（原图链接已失效且无法恢复，已移除）*
 我的第一个pwa，是一个天气应用。可以添加几个城市，因为使用的是雅虎的API，这个API需要一个woeid，我还写了一个小爬虫的项目[woeid-parser](https://github.com/neal1991/woeid-parser)去爬取woeid。不过后来我发觉这个API不是很准，这个项目因此也放弃维护了。
 ### [subway-shanghai](https://github.com/neal1991/subway-shanghai)
 
-![clipboard.png](http://i4.buimg.com/588926/f2f5d8c5668318f2.png)
-![](http://i2.muimg.com/588926/790b2c633856443f.jpg)
+![subway-shanghai](https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/recovered/fix-final2-pwa--01.gif)
 因为我平常比较喜欢看地铁线路图，所以我觉得用pwa做一个上海地铁线路图挺方便的，还可以离线使用。这个pwa有部分内容是借鉴了搜狗地图的，不过它那是动态生成SVG，这对于我的pwa来说，代价太大了。所以我是在html中包含svg地图，并且通过离线缓存，也减少了网络请求。这个pwa还可以支持缩放以及显示站点的首末时间表，感兴趣的可以通过[这个链接](https://neal1991.github.io/subway-shanghai/)，强烈建议通过chrome浏览器来使用，还可添加到桌面。
 ### [graduation](https://github.com/neal1991/graduation)
 这个仓库其实是我毕业论文，目前还是private的，等毕业之后，应该会将这个仓库公开。老实说这次的确是装了一次大逼，在写这篇论文latex遇到了不少坑，最后还是要转换成word才能查重，真是折腾。不过过程中还是积攒了一些东西，latex写论文真心方便，讲良心，如果可以latex，我是绝对不会用word的，排版差距太大了。
@@ -160,3 +158,8 @@ Chrome浏览器应该是这辈子最爱的浏览器了，没有之一。讲道�
 其实自己内心对于技术真的有一种很深层的渴望。但是现在还是觉得自己处在一个瓶颈期，虽然自己励志于在前端能够有着更加长远的发展。目前前端端异常的活跃，但是前端圈的高层次开发人员还是稀缺的，充斥的是大量的初级开发人员，以及非科班出身转前端的，因此这个圈子多少充满了戾气，撕逼的到处可见。另一方面，不知道自己工作以后还可不可以在前端有更加长远的发展。
 其实老实说，我当初选择前端还是因为那时候我是觉得HTML5的跨平台性比较好，IOS亦或是ANDROID都会受平台限制，web应用有着天生的优势，跨平台，易部署，这些都是前端开发与生俱来的优势。现在JavaScript发展越来越迅猛。知名的Atwood定律：凡是能用JavaScript写出来的，最终都会用JavaScript写出来。Javascript基本上涉足了各个方面的开发任务，JavaScript担任的角色也越来越多。
 大牛们，总是常说，要跳出自己的舒适区。其实，这一点真的很难做，因为人都是喜欢呆在自己觉得舒适的地方，做自己习惯做的事情。可是，如果始终局限于一个区域，那么始终也只能是井底之蛙，坐井观天。我觉得，始终不要给自己划一个什么圈子叫什么所谓的前端圈，做东西还是要多看看外面的东西，这样似乎才能看到新东西。
+
+
+## 译者实践注
+
+本文为技术译文/整理，原文版权归原作者所有。阅读时建议结合自身环境验证命令与结论；若原文年代较早，请以官方最新文档与安全通告为准。欢迎通过 issue 或邮件指出过时之处。

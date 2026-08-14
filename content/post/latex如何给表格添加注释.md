@@ -1,46 +1,80 @@
 ---
-title: "latex如何给表格添加注释"
-author: Neal
-summary: "本文围绕《latex如何给表格添加注释》梳理论文写作和LaTeX相关的背景、方法和实践细节，可作为排查与学习记录。"
+title: "LaTeX 表格脚注：用 threeparttable 给表格加注释"
+author: "Neal"
+summary: "论文表格需要对单元格加说明时，用 threeparttable + tablenotes 的完整写法、常见错误，以及和 table note 的对比。"
 cover: "/img/post-covers/latex-table-notes-651947993c.jpg"
-description: "在latex中，想给表格添加注释，可以使用threeparttable这个包 
-代码如下：\\usepackage{threeparttable}
-\\begin{table*}
-\\begin{threeparttable}
-\\centering \\caption{Statistical results of the IGD values of the final populations obtaine"
-tags: [LaTeX]
-keywords: [latex]
+tags: [LaTeX, 论文写作]
 categories: [论文写作]
-date: "2015-12-10 15:41:52"
+date: "2015-12-10"
+lastmod: "2026-08-08"
 ---
 
-在latex中，想给表格添加注释，可以使用threeparttable这个包
-代码如下：
 
-```
+写实验论文时，表格里经常要解释「粗体表示更优」「单位是秒」「某列为 30 次独立运行的均值」。把说明塞进 caption 会又臭又长；直接写在表格外又对不齐。`threeparttable` 就是为这种「表 + 脚注」准备的。
+
+## 最小工作示例
+
+```latex
 \usepackage{threeparttable}
-\begin{table*}
-\begin{threeparttable}
-\centering \caption{Statistical results of the IGD values of the final populations obtained by RM-MEDA and RM-MEDA-II on the 10 test instances over 30 runs.}
-\label{TAB1}
-\begin{tabular}{l|cccc|cccc}\hline\hline
-instance&\multicolumn{4}{c}{RM-MEDA}&\multicolumn{4}{|c}{RM-MEDA-II}\\
-&mean&std.&best&worst&mean&std.&best&worst\\\hline
-$F_{1}$	&$3.90e-03$	&$1.39e-04$	&$3.70e-03$	&$4.20e-03$	&$\textbf{3.60e-03}$	&$1.02e-04$	&$3.40e-03$	&$3.80e-03$\\\\
-$F_{2}$	&$3.80e-03$	&$1.43e-04$	&$3.50e-03$	&$4.10e-03$	&$\textbf{3.70e-03}$	 &$9.83e-05$	&$3.50e-03$	&$3.90e-03$\\\\
-$F_{3}$	&$7.20e-03$	&$3.90e-03$	&$3.60e-03$	&$1.55e-02$	&$\textbf{6.70e-03}$	 &$1.10e-03$	&$3.80e-03$	&$8.50e-03$\\\\
-$F_{4}$	&$5.03e-02$	&$1.30e-03$	&$4.82e-02$	&$5.35e-02$	&$\textbf{5.08e-02}$	 &$2.10e-03$	&$4.81e-02$	&$5.62e-02$\\\\
-$F_{5}$	&$5.30e-03$	&$3.00e-03$	&$4.40e-03$	&$2.12e-02$	&$\textbf{4.50e-03}$	 &$1.53e-04$	&$4.20e-03$	&$4.80e-03$\\\\
-$F_{6}$	&$8.30e-03$	&$2.10e-03$	&$5.70e-03$	&$1.50e-02$	&$1.62e-02$	 	     &$2.30e-02$ &$5.40e-03$	&$1.20e-01$\\\\
-$F_{7}$	&$1.60e-01$	&$2.35e-01$	&$7.96e-02$	&$1.03e+0$	&$1.76e-01$	 	     &$2.33e-01$ &$3.28e-02$  &$1.02e+0$\\\\
-$F_{8}$	&$6.59e-02$	&$3.50e-03$	&$6.05e-02$	&$7.69e-02$	&$\textbf{6.37e-02}$	 &$3.60e-03$	&$5.81e-02$	&$7.65e-02$\\\\
-$F_{9}$	&$8.00e-03$	&$2.80e-03$	&$5.80e-03$	&$1.48e-02$	&$\textbf{7.70e-03}$	 &$3.20e-03$	&$5.40e-03$	&$2.24e-02$\\\\
-$F_{10}$ &$1.25e+02$	&$2.35e+01$	&$2.27e+01$	&$1.44e+02$	&$\textbf{2.36e+02}$	 &$3.48e+01$	&$5.02e+0$	&$1.38e+02$\\
-\hline\hline 
-\end{tabular}
-\begin{tablenotes}
-\item[1] The bolder ones mean better.
-\end{tablenotes}
-\end{threeparttable}
+\usepackage{booktabs} % 可选，更美观的三线表
+
+\begin{table}[htbp]
+  \centering
+  \begin{threeparttable}
+    \caption{两种算法在测试集上的 IGD 统计（30 次独立运行）}
+    \label{tab:igd}
+    \begin{tabular}{lcccc}
+      \toprule
+      Instance & mean & std & best & worst \\
+      \midrule
+      $F_1$ & $3.90\times10^{-3}$ & $1.39\times10^{-4}$ & $3.70\times10^{-3}$ & $4.20\times10^{-3}$ \\
+      $F_2$ & $\mathbf{3.70\times10^{-3}}$\tnote{1} & $9.83\times10^{-5}$ & $3.50\times10^{-3}$ & $3.90\times10^{-3}$ \\
+      \bottomrule
+    \end{tabular}
+    \begin{tablenotes}
+      \small
+      \item[1] 粗体表示在该实例上更优。
+      \item 所有结果在相同随机种子策略下复现。
+    \end{tablenotes}
+  \end{threeparttable}
+\end{table}
+```
+
+要点：
+
+1. `table` 负责浮动与 caption  
+2. `threeparttable` 把「表体 + 注释」绑成同一宽度逻辑  
+3. `\tnote{1}` 在单元格里打标记，`tablenotes` 里用 `\item[1]` 对应  
+
+## 双栏模板用 `table*`
+
+会议模板常是双栏，宽表要用 `table*`：
+
+```latex
+\begin{table*}[htbp]
+  \begin{threeparttable}
+    % ... tabular ...
+  \end{threeparttable}
 \end{table*}
 ```
+
+## 常见坑
+
+| 现象 | 原因 | 处理 |
+|------|------|------|
+| 注释比表格宽出去 | 没用 threeparttable，只是手写段落 | 包进 `threeparttable` |
+| `\tnote` 未定义 | 包未导入或写在环境外 | `\usepackage{threeparttable}` |
+| 编号与正文引用混乱 | caption 的 label 放错位置 | `\label` 紧跟 `\caption` 后 |
+| 与 `beamer` 不兼容折腾 | 幻灯片表格脚注需求不同 | 幻灯片直接写在 frame 底部更简单 |
+
+## 和 `\footnote` 的区别
+
+在 `tabular` 里直接 `\footnote` 往往失效或跑到错误位置。`threeparttable` 的 `\tnote` 是表格语义上的注释，不会和页脚注混用，审稿人读表更自然。
+
+## 排版建议
+
+- 注释用 `\small` 或 `\footnotesize`，避免比正文还抢眼  
+- 指标单位、运行次数、硬件环境优先放 caption 第一句，细节放 notes  
+- 统计显著性若只对部分格成立，用 `tnote` 逐个标，不要只在 caption 含糊说「部分加粗」  
+
+掌握 `threeparttable` 之后，实验表从「一堆数」变成「可独立阅读的结果单元」，这在 rebuttal 阶段特别省事。

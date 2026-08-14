@@ -8,7 +8,7 @@ categories: [安全]
 date: "2019-01-04"
 ---
 
-[![FLfTnU.md.png](https://s2.ax1x.com/2019/01/09/FLfTnU.md.png)](https://imgchr.com/i/FLfTnU)
+![FLfTnU.md.png](https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/recovered/87d08ac8d6d3.png)
 
 ## 什么是 DDOS
 

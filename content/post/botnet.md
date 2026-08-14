@@ -31,7 +31,8 @@ CoinMiner.Stantinko 不会直接与其[矿池](https://en.wikipedia.org/wiki/Min
 
 此类视频的描述由以十六进制格式的挖矿的代理 IP 地址字符串组成。例如，图1中显示的 YouTube 视频的描述为 "03101f1712dec626"，它对应于两个十六进制格式的 IP 地址- 03101f17 对应于十进制点分四进制格式的 3.16.31[.]23，而 12dec626 对应 18.222.198[.]38。截至本文，格式已稍作调整。 IP地址当前用 “!!!!” 括起来，简化了解析过程，并防止了 YouTube 视频 HTML 结构的更改导致解析器无法正常工作。
 
-![QS2kVI.png](https://s2.ax1x.com/2019/11/26/QS2kVI.png)
+![Stantinko YouTube 视频描述](https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/recovered/tencent-1412367-36evz4en71.png)
+
 图1.示例 YouTube 视频，其描述为模块提供了与矿池通信的 IP 地址
 
 在早期版本中，YouTube URL 在 CoinMiner.Stantinko 二进制文件中是硬编码编写的。当前，模块改为接收视频标识符作为命令行参数。然后，该参数用于以 https://www.youtube.com/watch?v=%PARAM% 的形式构造 YouTube URL。加密货币挖矿模块由 Stantinko 的 [BEDS](https://www.welivesecurity.com/wp-content/uploads/2017/07/Stantinko.pdf) 组件执行，或者由 rundll32.exe 通过我们未捕获到的的批处理文件执行，模块是从格式为 ％TEMP％\％RANDOM％\％RANDOM_GUID％.dll 本地文件系统位置加载。

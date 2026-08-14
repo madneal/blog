@@ -9,6 +9,7 @@ tags: [安全, 安全开发, 前端, 工程化]
 keywords: [medium,markdown,chrome extension]
 categories: [开发工具]
 date: "2017-09-23 16:33:06"
+lastmod: "2026-08-08"
 ---
 
 [Medium](https://medium.com)（需要翻墙访问）是国外非常知名的一个博客平台。上面经常有很多知名的技术大牛在上面发布博客，现在一般国内的搬运的技术文章大多数都是来自于这个平台。
@@ -17,11 +18,11 @@ Medium 文章格式显示地非常优雅，但是存在一个问题。众所周�
 * 将 [export-medium](https://github.com/neal1991/export-medium) clone 或者下载到本地。
 * 在 Chrome 浏览中打开`chrome://extensions`,加载已解压的拓展程序，选择项目文件夹
 
-![这里写图片描述](http://img.blog.csdn.net/20170923163242479?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvbmVhbDE5OTE=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast)
+![这里写图片描述](https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/recovered/ee06d4e4b8fd.png)
 
 这两种方法都是可以支持安装的。目前这个插件的功能主要是把Medium上面的文章解析成 markdown 格式的文本，用了一个简单的库去渲染（事实上我觉得挺鸡肋的），然后你只要点击一个按钮就可以把文本复制到剪切板，就可以复制到编辑器了，是不是很方便。
 
-![clipboard.png](http://okja9ah81.bkt.clouddn.com/export-to-meidum.gif)
+*export-to-medium.gif（原图链接已失效且无法恢复，已移除）*
 
 目前可能很多页面做的不是特别好看，欢迎大家感兴趣的可以试用或者向我提建议。
 

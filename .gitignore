@@ -9,3 +9,8 @@ resources/_gen/
 themes/**/node_modules/
 wechat_publish/
 
+# Local AdSense review artifacts; do not publish audit data with the site.
+ADSENSE-AUDIT.md
+ADSENSE-DELETE-RESCORE.md
+ADSENSE-FINAL-STATUS.md
+adsense-content-audit.csv

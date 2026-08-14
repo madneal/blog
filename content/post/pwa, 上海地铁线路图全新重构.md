@@ -40,7 +40,7 @@ const str = JSON.stringify(result);
 
 将整个地图理解成一个 Map 组件，再将其分为 4 个小组件：
 
-![map.png](http://ozfo4jjxb.bkt.clouddn.com/map.png)
+![map.png](https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/recovered/fix-final2-pwa--00.png)
 
 * Label: 地图上的文本信息，包括地铁站名，线路名称
 * Station: 地铁站点，包括普通站点和中转站点
@@ -119,7 +119,7 @@ transform: translate(-100px, -300px)
 这样实现了整个 svg 图位置的偏移，使用 lighthouse 进行分析，性能分降到了 70 多分。继续想想有没有其他的方法，后来我想在最左上上角定义一个箭头动画。
 
 ```html
-<img src="right_arrow.png" alt="right arrow" title="right arrow" class="right-arrow"/>
+<img src="https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/recovered/fix-pwa-right-arrow.png" alt="right-arrow">
 ```
 
 ```css 
@@ -139,7 +139,7 @@ transform: translate(-100px, -300px)
 } 
 ```
 
-![right_arrow.gif](http://ozfo4jjxb.bkt.clouddn.com/right_arrow.gif)
+![right_arrow.gif](https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/recovered/fix-final2-pwa--02.gif)
 
 这样我们就可以创建一个循环向右移动的动画，提示用户向右滑动。部署之后发现性能分立马降到 0，索性也就放弃了这个做法。最后来时决定采用 `transform: translateX(-200px) translateY(-300px);` ，因为这样通过 css3 的属性可以在一些移动设备上还可以利用 GPU 加速，并且 translateX 不会引起页面的重绘或者重排，只会导致图层重组，最小避免对性能的影响。
 
@@ -153,7 +153,7 @@ transform: translate(-100px, -300px)
 
 ## 结语
 
-![commits.png](http://ozfo4jjxb.bkt.clouddn.com/commits.png)
+*commits.png（原图链接已失效且无法恢复，已移除）*
 
 花了两个礼拜的时间完成了项目的完整的重构，从这一年来的 commit 记录可以看到三月份疯狂 commit 了一波，主要是第一个周末花费了两天的时间修改了好多代码，被那个 InfoCard 的状态切换搞了很久，后面就是针对性能做了一些优化。过程很痛苦，一度怀疑自己的 coding 能力。不过最后还是有以下感悟：
 
@@ -171,4 +171,4 @@ transform: translate(-100px, -300px)
 
 欢迎搜索微信号 mad_coder 或者扫描二维码关注公众号：
 
-![93cfyj.jpg](https://user-gold-cdn.xitu.io/2018/2/10/1617eae1b59c001c?w=258&h=258&f=jpeg&s=27683)
+![上海地铁线路图](https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/recovered/csdn-5452fa9e839c0b314fc3a853c3de3ec2.png)

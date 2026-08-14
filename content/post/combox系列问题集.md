@@ -1,4 +1,5 @@
 ---
+draft: true
 title: "combox系列问题集"
 author: Neal
 summary: "本文围绕《combox系列问题集》展开，重点梳理模糊查询等内容，提炼背景、思路与实践注意点。"
@@ -9,6 +10,7 @@ description: "你有没有遇到combox经常崩溃的情况，你是不是很莫
 tags: [学习笔记]
 categories: [开发工具]
 date: "2015-04-14 09:04:09"
+lastmod: "2026-08-08"
 ---
 
 visual studio崩溃

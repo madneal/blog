@@ -13,14 +13,19 @@ description: "在网上看到一个前端大牛的主页，觉得他有一个特
 tags: [前端]
 categories: [web前端]
 date: "2015-10-07 16:49:41"
+lastmod: "2026-08-08"
 ---
 
 在网上看到一个前端大牛的主页，觉得他有一个特效特别酷，一开始还以为是要用什么javascript代码来实现，但仔细看一下，发觉只是用几行css代码就搞定了，我觉得挺好的。
 他这个效果就是鼠标放在左半部分和右半部分，整个网页的布局颜色会相互变化，我贴上前后两张图来比较一下，你们就明白了。
 当鼠标放在左半部分：
-![这里写图片描述](http://img.blog.csdn.net/20151007164207760)
+
+![这里写图片描述](https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/recovered/3d8874cd0a77.jpg)
+
 当鼠标放在右半部分：
-![这里写图片描述](http://img.blog.csdn.net/20151007164238399)
+
+![这里写图片描述](https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/recovered/53a8ba475c86.jpg)
+
 可能静态的图片看不太出效果，但是动态看起来还是比较酷的，最关键的是它的代码其实很简单。
 
 ```

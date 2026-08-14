@@ -28,7 +28,7 @@ date: "2017-04-16 08:27:46"
 
 创建一个快速的web应用包含很多方面，包括：时间花费在什么地方，理解其发生的原因并且应用潜在的解决方案。不幸的是，从来就没有一个快速的修复方法。性能是一个持续的问题，涉及到需要对需要提高的内容的持续观察和检测。在Twitter Lite中，我们在很多方面进行了一些小的提升：从初始加载时间搭配React组件的渲染（以及避免再次渲染）到图像的加载等等。大多数的变化往往是非常小的，当所有的变化叠加在一起让我们开发出了最大的以及最快的[渐进式web应用](https://developers.google.com/web/progressive-web-apps/)。
 
-![timeline](http://i4.buimg.com/567571/b260f47416854328.png)
+*timeline（原图链接已失效且无法恢复，已移除）*
 
 ## 在继续阅读之前：
 
@@ -290,3 +290,8 @@ window.navigator.serviceWorker.register('/sw.js');
 通过延迟ServiceWorker的注册直到我们完成了额外的API，CSS以及图片资源的请求，我们可以让页面完成渲染并且是响应式的，在下面的截图可以看到（下面的）。
 
 总的来说，这是我们在[Twitter Lite](https://mobile.twitter.com/)的开发过程中的众多性能提升的列表。当然还会有更多的事情，我们希望能够继续分享我们发现的问题，以及我们克服问题所做的工作。关于事实以及耕作React以及PWA的更多状态，可以在Twitter上关注[我](https://mobile.twitter.com/paularmstrong)以及[我的团队](https://mobile.twitter.com/paularmstrong/lists/twitter-lite/members)。
+
+
+## 译者实践注
+
+本文为技术译文/整理，原文版权归原作者所有。阅读时建议结合自身环境验证命令与结论；若原文年代较早，请以官方最新文档与安全通告为准。欢迎通过 issue 或邮件指出过时之处。

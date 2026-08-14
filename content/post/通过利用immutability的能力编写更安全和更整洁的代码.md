@@ -132,3 +132,8 @@ Immutability和并发之间有什么关系呢？因为做个操作能够在函�
 Immutability对于你理解和学习函数式编程是非常重要的一个概念。你可能希望了解mmutableJS](https://facebook.github.io/immutable-js)，其由Facebook开发者编写。这个library提供了某些不可变的数据机构，比如 **Map**, **Set**以及**List**.
 
 [Immutable.js, persistent data structures and structural sharing](Immutable.js, persistent data structures and structural sharing)（译者注：墙外地址）
+
+
+## 译者实践注
+
+本文为技术译文/整理，原文版权归原作者所有。阅读时建议结合自身环境验证命令与结论；若原文年代较早，请以官方最新文档与安全通告为准。欢迎通过 issue 或邮件指出过时之处。

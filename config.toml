@@ -1,6 +1,6 @@
 baseURL = "https://madneal.com"
 #baseURL = "https://cdn.jsdelivr.net/gh/neal1991/neal1991.github.io"
-languageCode = "en"
+languageCode = "zh-cn"
 title = "Neal's Blog"
 theme = "hugo-nuo"
 enableRobotsTXT = true
@@ -15,7 +15,9 @@ timeZone = "Asia/Shanghai"
       unsafe = true
 
 # Google Analytics UA number
-googleAnalytics = "UA-104405154-2"
+# Universal Analytics retired; set GA4 measurement ID when available
+# googleAnalytics = "G-XXXXXXXX"
+googleAnalytics = ""
 
 # Copyright of your post
 copyright = "© This post is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License，please give source if you wish to quote or reproduce."
@@ -43,6 +45,18 @@ copyright = "© This post is licensed under a Creative Commons Attribution-NonCo
   identifier = "tags"
   url = "/tags/"
 
+[[menu.main]]
+  name = "About"
+  weight = 40
+  identifier = "about"
+  url = "/about/"
+
+[[menu.main]]
+  name = "Privacy"
+  weight = 50
+  identifier = "privacy"
+  url = "/privacy/"
+
 # Add your own params here
 [params]
   author = "Neal"
@@ -52,7 +66,7 @@ copyright = "© This post is licensed under a Creative Commons Attribution-NonCo
   wechat = "img/wechat.jpg"
   seotitle = "Neal 的博客"
   subtitle = "Development & Security"
-  description = "全栈工程师的进击"
+  description = "Neal 的技术博客：Web 安全、安全工程与开发实践"
   paginate = 10
   summaryLength = 220
 

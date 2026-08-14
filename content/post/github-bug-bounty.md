@@ -19,7 +19,7 @@ date: "2023-01-16"
 >
 >LICENSE: [MIT](https://opensource.org/licenses/MIT)
 
-![](/images/blogimages/inside-gitLab-public-bug-bounty-program.png)
+![](https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/recovered/fix-tencent-2216978-03.png)
 
 每年，GitLab 的[应用安全团队](https://about.gitlab.com/handbook/security/security-engineering/application-security/) 都会回顾 GitLab 漏洞赏金计划的亮点。
 
@@ -74,3 +74,8 @@ _注：数据为截至 2022 年 12 月 16 日。_
 一如既往，与我们行业最好的安全研究人员（包括许多新人）一起工作真的很高兴。 GitLab 的 AppSec 团队致力于在漏洞赏金计划和奖励的透明度方面成为行业领导者。 [让我们知道我们在做什么](https://gitlab.com/gitlab-com/gl-security/appsec/hackerone-questions/) 这样我们就可以迭代我们的程序流程。
 
 为 2023 年干杯 - 快乐挖洞！
+
+
+## 译者实践注
+
+本文为技术译文/整理，原文版权归原作者所有。阅读时建议结合自身环境验证命令与结论；若原文年代较早，请以官方最新文档与安全通告为准。欢迎通过 issue 或邮件指出过时之处。

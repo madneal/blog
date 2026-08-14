@@ -9,7 +9,7 @@ categories: [安全]
 date: "2019-09-22"
 ---
 
-![E4RxRs.png](https://s2.ax1x.com/2019/05/13/E4RxRs.png)
+![E4RxRs.png](https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/recovered/d4886d8e0f5f.png)
 
 ## 介绍
 
@@ -119,19 +119,19 @@ There seem to be nothing special. For a normal box, http service will be the sta
 smbclient -L 10.10.10.134
 ```
 
-![E4k8CF.png](https://s2.ax1x.com/2019/05/12/E4k8CF.png)
+![E4RxRs.png](https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/recovered/d4886d8e0f5f.png)
 
 With smbclient, we can see the smb shares of this box without any password. Try to access the share by `smbclient //10.10.10.134/sharename`. But the three shares cannot be accessed except `Backups`.
 
 通过 smbclient，我们可以在不使用密码的情况下看到这台靶机的共享。通过 `smbclient //10.10.10.134/sharename` 来尝试访问共享路径，我们发现只有 `Backups` 是可以访问的。
 
-![E4kygH.png](https://s2.ax1x.com/2019/05/12/E4kygH.png)
+![SMB 共享枚举](https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/recovered/58f0086ca9bf.jpeg)
 
 Access to the share of `Backups`: `smbclient //10.10.10.134/Backups`:
 
 访问共享 `Backups`: `smbclient //10.10.10.134/Backups`：
 
-![E4dx2D.png](https://s2.ax1x.com/2019/05/13/E4dx2D.png)
+![Backups 共享](https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/recovered/56fb0b53a3b1.jpeg)
 
 There is a note.txt in the share:
 
@@ -149,13 +149,13 @@ It does is a hint for something useful in the exploitation. It is inconvenient t
 mount -t cifs //10.10.10.134/Backups -o user=guest,password= /mnt/backups
 ```
 
-![E40VT1.png](https://s2.ax1x.com/2019/05/13/E40VT1.png)
+![挂载 Backups 共享](https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/recovered/2afb7f41d669.jpeg)
 
 Here, we can access the files directly. It may be a backup folder. After some exploration, we have found some interesting files.
 
 这样我们就可以直接访问文件了。这个可能是一个备份文件夹。在一些尝试之后，我们发现了一些有趣的文件。
 
-![E40w6g.png](https://s2.ax1x.com/2019/05/13/E40w6g.png)
+![备份文件](https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/recovered/fd63329d0edf.jpeg)
 
 VHD(virtual hard disk) files seem to be very interesting. According to the wiki, `VHD is a file format which represents a virtual hard disk drive (HDD). It may contain what is found on a physical HDD, such as disk partitions and a file system, which in turn can contain files and folders. It is typically used as the hard disk of a virtual machine`. So we may find more interesting contents in the VHD files. There are two vhd files, one is 37M, and the other is 5.1 G. The larger one seems to be attractive to us. But it will be inconvenient to download the whole vhd file. According to the discussions in the forum, the author has said that you don't have to download the vhd file. Try to mount the vhd file to kai:
 
@@ -169,21 +169,19 @@ The operation may cost some time if the network is not very stable. Then, the vh
 
 在网络不是很稳定的情况下这个操作还是蛮耗时的。接着，这个 VHD 文件就挂载成功了。这应该是一个系统硬盘，没有什么特别的信息。但是我们可以在里面发现一个 SAM 文件。安全帐户管理器（SAM）是 Windows 中用于存储用户密码的数据库文件。尝试访问 SAM 文件，`samdump2` 可以将哈希导出。
 
-![E40w6g.png](https://s2.ax1x.com/2019/05/13/E40w6g.png)
-
-![E4syKU.png](https://s2.ax1x.com/2019/05/13/E4syKU.png)
+![SAM 文件](https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/recovered/8eb8b5e3ec6a.jpeg)
 
 From the dumped hash, the hash of L4mpje seems to be useful. We can access [HashKiller](https://hashkiller.co.uk/Cracker) to crack the hash.
 
 从上面导出的哈希，L4mpje 的哈希看起来很有用。我们可以使用在线哈希破解网站 [HashKiller](https://hashkiller.co.uk/Cracker) 来破解哈希。
 
-![E4yEin.png](https://s2.ax1x.com/2019/05/13/E4yEin.png)
+![HashKiller 破解结果](https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/recovered/f322d73b4fa7.png)
 
 We cracked it! As we know the box opens ssh service, so try to access ssh with the user of L4mpje. Of course, we are in. 
 
 很容易我们就破解了这个哈希。而且据我们一开始获取的信息，这台靶机是开放了 ssh 服务的，所以我们尝试使用 L4mpje 作为用户名来登录。很幸运，我们进来了。
 
-![E4yzk9.png](https://s2.ax1x.com/2019/05/13/E4yzk9.png)
+![SSH 登录](https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/recovered/8dbeee5375c4.png)
 
 ## Privilege escalation·
 
@@ -193,15 +191,13 @@ After login with user L4mpje, we find that we have relatively limited permission
 
 在使用 L4mpje 用户登录成功后，我们发现我们的权限很有限。一般提权可以利用某些软件的漏洞来完成。所以，探测这个靶机安装了哪些软件很有意义。
 
-![E4chPs.png](https://s2.ax1x.com/2019/05/13/E4chPs.png)
+![程序枚举](https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/recovered/8e24b4bb2cb2.jpeg)
 
 We can find an interesting folder `mRemoteNG`. [It](https://github.com/mRemoteNG/mRemoteNG) is an open source remote connections management tool. But there is a problem that the connections user information can be obtained by the config files. For this box, someone has created a tool to crack the password in this config file. The config file is store is the AppData folder.
 
 我们发现了一个有趣的文件夹 `mRemoteNG`。[它](https://github.com/mRemoteNG/mRemoteNG)是一个开源的远程连接管理工具。它曾经有一个漏洞，可以通过配置文件获取用户的连接信息。对于这台靶机，已经有人创建了一个工具来破解这个配置文件中的密码。配置文件存储在 AppData 文件夹中。
 
-![E4g4Te.png](https://s2.ax1x.com/2019/05/13/E4g4Te.png)
-
-![E42wct.png](https://s2.ax1x.com/2019/05/13/E42wct.png)
+![mRemoteNG 配置](https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/recovered/681e98c3080d.jpeg)
 
 It seems that the password of Administrator is stored in the XML file. Someone has created [mremoteng-decrypt](https://github.com/kmahyyg/mremoteng-decrypt) to crack the password. It is so convenient thanks to his awesome work.
 
@@ -211,10 +207,10 @@ It seems that the password of Administrator is stored in the XML file. Someone h
 java -jar decipher_mremoteng.jar "aEWNFV5uGcjUHF0uS17QTdT9kVqtKCPeoC0Nw5dmaPFjNQ2kt/zO5xDqE4HdVmHAowVRdC7emf7lWWA10dQKiw=="
 ```
 
-![E42O3R.png](https://s2.ax1x.com/2019/05/13/E42O3R.png)
+![mRemoteNG 密文破解](https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/recovered/a49ddbfa2871.jpeg)
 
 Wow, we get the password of Administrator.
 
 最终，我们获取了 Administrator 的密码。
 
-![E42xu6.png](https://s2.ax1x.com/2019/05/13/E42xu6.png)
+![Administrator 密码](https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/recovered/2950f8e8ceaa.png)

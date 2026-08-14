@@ -7,6 +7,7 @@ description: "面试问到js的事件流，当时说的不是很清楚，现在�
 tags: [JavaScript]
 categories: [web前端]
 date: "2016-03-05 17:19:32"
+lastmod: "2026-08-08"
 ---
 
 面试问到js的事件流，当时说的不是很清楚，现在觉得有必要把这个弄清楚。

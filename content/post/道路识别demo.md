@@ -1,162 +1,69 @@
 ---
-title: "道路识别demo"
-author: Neal
-summary: "本文围绕《道路识别demo》展开，重点梳理opencvsharp版本和opencv版本等内容，提炼背景、思路与实践注意点。"
+title: "简易车道线检测 Demo：OpenCvSharp 与 C++ OpenCV"
+author: "Neal"
+summary: "回顾早期车道线检测流水线：降采样、ROI、灰度、高斯、Canny、概率霍夫，并说明角度过滤与工程局限。"
 cover: "/img/post-covers/road-recognition-demo-8d9902207c.jpg"
-description: "最近做的道路识别一开始终于弄懂了点东西，一开始在网上找到了一个简单的道路识别的opencvsharp的版本。我觉得opencvsharp真的是一个很好的东西，它封装了比opencv更多的数据结构和库，而且得益于.net平台的强大，使用起来也非常的便捷。唯一的缺点就是目前关于这方面的资料还是少之又少，后来我还是想一想把这个demo转换成cpp版本，也是一个非常简单的demo。opencvsharp版本"
-tags: [计算机视觉]
+tags: [计算机视觉, OpenCV, C#]
 categories: [计算机视觉]
-date: "2015-04-15 09:55:48"
+date: "2015-04-15"
+lastmod: "2026-08-08"
 ---
 
-最近做的道路识别一开始终于弄懂了点东西，一开始在网上找到了一个简单的道路识别的opencvsharp的版本。我觉得opencvsharp真的是一个很好的东西，它封装了比opencv更多的数据结构和库，而且得益于.net平台的强大，使用起来也非常的便捷。唯一的缺点就是目前关于这方面的资料还是少之又少，后来我还是想一想把这个demo转换成cpp版本，也是一个非常简单的demo。
-## opencvsharp版本 ##
 
+很早以前做道路/车道线相关练习时，先找到一个 **OpenCvSharp** 示例，再改成 C++ OpenCV。流水线经典而粗糙，但足够建立直觉。本文保留思路，并写明局限——它不是生产级自动驾驶感知。
+
+## 经典流水线
+
+```text
+读帧 → 缩小/模糊 → 取下半幅 ROI → 灰度
+    → Gaussian → Canny → HoughLinesP → 按角度过滤 → 画线
 ```
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Windows.Forms;
 
-using OpenCvSharp;
+| 步骤 | 作用 |
+|------|------|
+| ROI 裁剪 | 天空无车道，减计算、减误检 |
+| Canny | 提边缘 |
+| 概率霍夫 | 把边缘点聚成线段 |
+| 角度过滤 | 去掉近似水平的噪线（引擎盖、阴影） |
 
-namespace LaneDetection
-{
-    class Program
-    {
-        [STAThread]
-        static void Main()
-        {
-            CvCapture cap = CvCapture.FromFile("test1.mp4");
-            CvWindow w = new CvWindow("Lane Detection");
-            CvWindow canny = new CvWindow("Canny");
-            IplImage src, gray, dstCanny, halfFrame, smallImg;
-            CvMemStorage storage = new CvMemStorage();
-            CvSeq lines;
+## C++ 伪代码结构
 
-            while (CvWindow.WaitKey(10) < 0)
-            {
-                src = cap.QueryFrame();
-                halfFrame = new IplImage(new CvSize(src.Size.Width / 2, src.Size.Height / 2), BitDepth.U8, 3);
-                Cv.PyrDown(src, halfFrame, CvFilter.Gaussian5x5);
-
-                gray = new IplImage(src.Size, BitDepth.U8, 1);
-                dstCanny = new IplImage(src.Size, BitDepth.U8, 1);
-                storage.Clear();
-                
-                // Crop off top half of image since we're only interested in the lower portion of the video
-                int halfWidth = src.Width / 2;
-                int halfHeight = src.Height / 2;
-                int startX = halfWidth - (halfWidth / 2);
-                src.SetROI(new CvRect(0, halfHeight - 0, src.Width - 1, src.Height - 1));
-
-                gray.SetROI(src.GetROI());
-                dstCanny.SetROI(src.GetROI());
-
-                src.CvtColor(gray, ColorConversion.BgrToGray);
-                Cv.Smooth(gray, gray, SmoothType.Gaussian, 5, 5);
-                Cv.Canny(gray, dstCanny, 50, 200, ApertureSize.Size3);
-                canny.Image = dstCanny;
-                storage.Clear();
-                lines = dstCanny.HoughLines2(storage, HoughLinesMethod.Probabilistic, 1, Math.PI / 180, 50, 50, 100);
-
-                for (int i = 0; i < lines.Total; i++)
-                {
-                    CvLineSegmentPoint elem = lines.GetSeqElem<CvLineSegmentPoint>(i).Value;
-                    
-                    int dx = elem.P2.X - elem.P1.X;
-                    int dy = elem.P2.Y - elem.P1.Y;
-                    double angle = Math.Atan2(dy, dx) * 180 / Math.PI;
-
-                    if (Math.Abs(angle) <= 10)
-                        continue;
-
-                    if (elem.P1.Y > elem.P2.Y + 50  || elem.P1.Y < elem.P2.Y -50 )
-                    {
-                        src.Line(elem.P1, elem.P2, CvColor.Red, 2, LineType.AntiAlias, 0);
-                    }
-                }
-                src.ResetROI();
-                storage.Clear();
-                w.Image = src;
-            }
-        }
+```cpp
+while (capture.read(frame)) {
+    Mat roi = frame(Rect(0, frame.rows/2, frame.cols, frame.rows/2));
+    Mat gray, edges;
+    cvtColor(roi, gray, COLOR_BGR2GRAY);
+    GaussianBlur(gray, gray, Size(5,5), 0);
+    Canny(gray, edges, 50, 200);
+    vector<Vec4i> lines;
+    HoughLinesP(edges, lines, 1, CV_PI/180, 50, 50, 100);
+    for (auto l : lines) {
+        double angle = atan2(l[3]-l[1], l[2]-l[0]) * 180 / CV_PI;
+        if (fabs(angle) <= 10) continue; // 过滤近水平
+        line(roi, Point(l[0],l[1]), Point(l[2],l[3]), Scalar(0,0,255), 2);
     }
-}
-
-```
-
-## opencv版本 ##
-
-```
-#include "stdafx.h"
-#include <highgui.h>
-#include <cv.h>
-#include <math.h>
-
-using namespace cv;
-using namespace std;
-
-#define INF 99999999
-CvCapture* g_capture = NULL;
-
-int g_slider_pos = 0 ;
-int frame_count = 0;
-CvSeq* lines;
-
-
-int main(int argc,char* argv[])
-{                  
-    cvNamedWindow( "show");      
-	g_capture=cvCreateFileCapture( "D:\\road.avi");
-    IplImage* frame;
-    while(1)
-    {  
-		CvMemStorage* storage = cvCreateMemStorage();
-		frame=cvQueryFrame(g_capture);
-
-		//set the ROI of the original image
-		int x = 0,y = frame->height/2;
-		int width = frame->width,height = frame->height/2;
-
-		if(!frame) 
-			break; 
-
-		cvSetImageROI(frame,cvRect(x,y,width,height));
-		IplImage* gray = cvCreateImage(cvGetSize(frame),8,1);
-		cvCvtColor(frame,gray,CV_BGR2GRAY);
-
-		cvCanny(gray,gray,50,100);
-		cvShowImage("canny",gray);
-		cvSmooth(gray,gray,CV_GAUSSIAN,3,1,0);
-
-		//Hough
-		lines = cvHoughLines2(gray,storage,CV_HOUGH_PROBABILISTIC,1,CV_PI/180,50,90,50);
-
-		//select approprivate lines acoording to the slope
-		for (int i = 0;i < lines->total;i ++)
-		{
-			double k =INF;
-			CvPoint* line = (CvPoint*)cvGetSeqElem(lines,i);
-			int dx = line[1].x - line[0].x;
-			int dy = line[1].x - line[0].y;
-			double angle = atan2(dy,dx) * 180 /CV_PI;
-			if (abs(angle) <= 10)
-				continue;
-			if (line[0].y > line[1].y + 50 || line[0].y < line[1].y - 50)
-			{
-				cvLine(frame,line[0],line[1],CV_RGB(255,0,0),2,CV_AA);
-			}
-		}
-		cvResetImageROI(frame);		
-		cvShowImage( "show",frame);
-        char c = cvWaitKey(33);            
-        if(c==27)
-            break;
-    } 
-	cvReleaseCapture(&g_capture);
-	cvDestroyWindow( "show");               
-    return 0;
+    imshow("lane", frame);
+    if (waitKey(30) == 27) break;
 }
 ```
-非常希望有弄这方面的人能和我讨论一下，若转载请注明出处，谢谢。
+
+OpenCvSharp 版本 API 不同（`IplImage`/`CvCapture` 偏老），逻辑一致。新代码请优先 `Mat`。
+
+## 参数怎么调
+
+- **Canny 高低阈值**：比值常 1:2 或 1:3；过低噪点爆炸  
+- **Hough 阈值与最小线长**：城市车道可加长 `minLineLength`  
+- **角度**：水平过滤 10° 只是经验值，弯道/坡道要自适应  
+
+## 明显局限
+
+1. 强依赖边缘，雨夜、强光、磨损标线会挂  
+2. 无左右车道建模，只是「画很多红线」  
+3. 无时间序列跟踪，帧间抖动大  
+4. 老 API（`IplImage`）与现代 OpenCV4 不兼容  
+
+进阶应看：透视变换鸟瞰、滑动窗口拟合、U-Net 分割、或现成开源车道方案。
+
+## 小结
+
+这个 demo 的价值是 **跑通视觉流水线**，不是上街。若你仍在用 OpenCvSharp，建议迁移到 OpenCvSharp4 + `Mat`，并固定输入视频做回归，避免「调参玄学」。
