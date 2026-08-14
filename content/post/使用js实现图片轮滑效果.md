@@ -2,6 +2,7 @@
 title: "原生 JS 实现图片轮播：结构、样式与交互"
 author: "Neal"
 summary: "用 HTML/CSS/JS 实现带指示点与左右箭头的轮播：绝对定位叠图、自动播放、悬停暂停，以及无障碍与性能注意点。"
+cover: "/img/post-covers/js-carousel-48e629cb6b.jpg"
 tags: [前端, JavaScript, CSS]
 categories: [web前端]
 date: "2015-10-21"

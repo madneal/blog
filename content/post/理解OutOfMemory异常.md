@@ -1,6 +1,7 @@
 ---
 title: "理解 OutOfMemoryError 异常"
 summary: "本文围绕《理解 OutOfMemoryError 异常》展开，重点梳理发生 OutOfMemoryError 的原因等内容，提炼背景、思路与实践注意点。"
+cover: "/img/post-covers/oom-exception-d8f45c8d18.jpg"
 tags: [学习笔记]
 categories: ["后端"]
 keywords: [OutOfMemory,Error,JAVA,Exception]

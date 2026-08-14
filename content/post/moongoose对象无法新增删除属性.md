@@ -2,6 +2,7 @@
 title: "moongoose对象无法新增删除属性"
 author: Neal
 summary: "本文围绕《moongoose对象无法新增删除属性》梳理web前端和JavaScript相关的背景、方法和实践细节，可作为排查与学习记录。"
+cover: "/img/post-covers/mongoose-immutable-23f8d8f64e.jpg"
 description: "昨天用nodes中的moongoose去查询一个结果遇到一个大坑，这个坑貌似用moongoose可能会遇到。背景是这样的，我在nodejs中去查询document，得到的可以看作是一个对象list。在这个结果集中，我要去寻找这个结果中的某个属性是否和其他的结果重复，并给它添加一个属性作为标志。举例子，我们获得的结果就像是[{name:'neal',age:'18'},{name:'neal',age"
 tags: [JavaScript]
 categories: [web前端]

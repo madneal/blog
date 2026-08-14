@@ -2,6 +2,7 @@
 title: "Node.js 爬虫中文乱码：GBK/GB2312 正确解码"
 author: Neal
 summary: "爬取非 UTF-8 站点时中文乱码：用 encoding:null 拿 Buffer，再用 iconv-lite 按实际编码解码；附 charset 探测与常见坑。"
+cover: "/img/post-covers/nodejs-crawler-encoding-e4348aa7a6.jpg"
 tags: [JavaScript, Node.js, 后端]
 categories: [web前端]
 date: "2016-04-16"

@@ -2,6 +2,7 @@
 title: "LaTeX 表格脚注：用 threeparttable 给表格加注释"
 author: "Neal"
 summary: "论文表格需要对单元格加说明时，用 threeparttable + tablenotes 的完整写法、常见错误，以及和 table note 的对比。"
+cover: "/img/post-covers/latex-table-notes-651947993c.jpg"
 tags: [LaTeX, 论文写作]
 categories: [论文写作]
 date: "2015-12-10"

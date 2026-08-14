@@ -2,6 +2,7 @@
 title: "Qradar SIEM--查询利器 AQL"
 author: Neal
 summary: "本文围绕《Qradar SIEM--查询利器 AQL》展开，重点梳理Qradar、Tips和引号的使用等内容，提炼背景、思路与实践注意点。"
+cover: "/img/post-covers/qradar-siem-9ee2b7aa5f.jpg"
 description: ""
 tags: [安全, 安全运营]
 categories: [安全]

@@ -2,6 +2,7 @@
 title: "JavaScript是如何工作的：引擎，运行时间以及调用栈的概述"
 author: Neal
 summary: "本文围绕《JavaScript是如何工作的：引擎，运行时间以及调用栈的概述》展开，重点梳理概览、JavaScript 引擎和Runtime等内容，提炼背景、思路与实践注意点。"
+cover: "/img/post-covers/js-engine-runtime-dd329a49cd.jpg"
 description: "How JavaScript works: an overview of the engine, the runtime, and the call stackJavaScript是如何工作的：引擎，运行时间以及回调的概述
   原文：How JavaScript works: an overview of the engine, the runtime, and the call stack"
 tags: [JavaScript, 翻译]

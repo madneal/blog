@@ -2,6 +2,7 @@
 title: "CHEVP算法（CannyHough Estimation of Vanishing Points)"
 author: Neal
 summary: "本文围绕《CHEVP算法（CannyHough Estimation of Vanishing Points)》展开，重点梳理实验结果等内容，提炼背景、思路与实践注意点。"
+cover: "/img/post-covers/chevp-vanishing-ad2f3ea6c3.jpg"
 description: "这个算法是汪悦在 Lane detection and tracking using B-snake中提出来的。他在这篇论文中主要用的是B-snake模型，这个模型的主要优点是鲁棒性好，可以针对不同的情景进行处理，而且他将检测道路两边的边缘的问题转化成求解道路中间线的问题。 
 下面主要描述一下CHEVP算法：
 边缘像素提取 

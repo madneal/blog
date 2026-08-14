@@ -2,6 +2,7 @@
 title: "通过利用immutability的能力编写更安全和更整洁的代码"
 author: Neal
 summary: "本文围绕《通过利用immutability的能力编写更安全和更整洁的代码》展开，重点梳理Immutable数组、函数和并发等内容，提炼背景、思路与实践注意点。"
+cover: "/img/post-covers/immutability-clean-code-6d4cca8d12.jpg"
 description: "通过利用immutability的能力编写更安全和更整洁的代码
   原文：Write safer and cleaner code by leveraging the power of “Immutability”
   

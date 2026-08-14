@@ -2,6 +2,7 @@
 title: "微软Visual Studio Code基本特征"
 author: Neal
 summary: "本文围绕《微软Visual Studio Code基本特征》展开，重点梳理文件，文件夹以及项目、打开VScode和基本布局等内容，提炼背景、思路与实践注意点。"
+cover: "/img/post-covers/vscode-features-16ec6e28ac.jpg"
 description: "Visual Studio Code它的核心功能还是作为一个代码编辑器。和其他的代码编辑器一样，VScode采取通用的UI和布局，浏览器在左边，显示所有的文件和文件夹，右边你打开的文件的编辑页面。文件，文件夹以及项目VScode是基于文件和文件夹的，你可以立即开始通过打开一个文件和文件夹。除了这些，VScode能够读不同框架和平台定义的项目文件。比如，如果你打开的文件夹包含一个或者多个package"
 tags: [开发工具]
 categories: [IT新闻]

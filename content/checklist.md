@@ -2,6 +2,7 @@
 title: "安全与开发常用在线工具清单（持续整理）"
 author: "Neal"
 summary: "把原先只有链接的工具表，整理成按场景分类、带用途说明的清单：安全分析、前端调试、写作效率与学术排版。"
+cover: "/img/post-covers/checklist-academic-d07591de22.jpg"
 tags: [工具, 安全, 开发, 效率]
 categories: [工具]
 date: "2018-01-01"

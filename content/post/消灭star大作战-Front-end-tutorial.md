@@ -1,6 +1,7 @@
 ---
 title: "消灭 star 大作战--Front-end-tutorial"
 summary: "本文围绕《消灭 star 大作战--Front-end-tutorial》展开，重点梳理JavaScript、深拷贝和call 和 apply等内容，提炼背景、思路与实践注意点。"
+cover: "/img/post-covers/frontend-star-battle-1358204de4.jpg"
 tags: [学习笔记]
 categories: ["前端"]
 date: "2018-04-07"

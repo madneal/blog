@@ -2,6 +2,7 @@
 title: "剑指 Offer：二维数组中的查找"
 author: "Neal"
 summary: "杨氏矩阵从右上角或左下角出发，每次剔除一行或一列，O(n+m) 查找目标数；含正确索引计算与边界条件。"
+cover: "/img/post-covers/jianzhi-2d-search-38e801e9ca.jpg"
 tags: [算法, 剑指Offer, OJ]
 categories: [算法OJ]
 date: "2015-11-14"

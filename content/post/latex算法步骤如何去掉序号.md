@@ -2,6 +2,7 @@
 title: "LaTeX 算法环境：去掉 algorithmic 自动行号"
 author: "Neal"
 summary: "当步骤里已经写了 Step 1/2/3 时，如何去掉 algorithmic 自动编号，并对比 algorithm2e / algpseudocode 的常见写法。"
+cover: "/img/post-covers/latex-algo-numbers-b53d8ef71b.jpg"
 tags: [LaTeX, 算法, 论文写作]
 categories: [论文写作]
 date: "2015-11-06"

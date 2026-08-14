@@ -2,6 +2,7 @@
 title: "三步用 GitHub Pages 发布网站"
 author: Neal
 summary: "对应 GitHub 推出的简化 Pages 流程：建仓库、提交内容、开启 Pages；补充今天仍适用的注意点与和完整博客的区别。"
+cover: "/img/post-covers/github-pages-3steps-3eb7cb951b.jpg"
 tags: [Git, 开发工具, 博客, GitHub Pages]
 categories: [开发工具]
 date: "2016-12-09"

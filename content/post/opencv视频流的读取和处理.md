@@ -2,6 +2,7 @@
 title: "opencv视频流的读取和处理"
 author: Neal
 summary: "本文围绕《opencv视频流的读取和处理》梳理计算机视觉和安全相关的背景、方法和实践细节，可作为排查与学习记录。"
+cover: "/img/post-covers/opencv-video-stream-2821b4a623.jpg"
 description: "Opencv提供一个简单易用的框架以提取视频文件和USB摄像头中的图像帧，如果只是想读取某个视频，你只需要创建一个VideoCapture实例，然后在循环中提取每一帧。下面是一个简单的代码"
 tags: [安全, 计算机视觉]
 categories: [计算机视觉]

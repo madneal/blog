@@ -2,6 +2,7 @@
 title: "CSS 盒子模型：margin / padding / border 简写"
 author: Neal
 summary: "系统整理 padding、margin 的 1～4 值简写顺序，以及 border 简写与常见笔误，方便前端排版速查。"
+cover: "/img/post-covers/css-box-model-cbac40222f.jpg"
 tags: [前端, CSS]
 categories: [web前端]
 date: "2015-10-24"

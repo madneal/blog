@@ -2,6 +2,7 @@
 title: "HTTP 状态码速览：从 2xx 成功到 5xx 服务器错误"
 author: "Neal"
 summary: "按类别解释常见 HTTP 状态码语义、客户端应如何处理，以及安全测试里容易误读的 301/302/401/403/404/500。"
+cover: "/img/post-covers/http-status-codes-6de6734224.jpg"
 tags: [HTTP, Web, 工具]
 categories: [web前端]
 date: "2015-10-10"

@@ -2,6 +2,7 @@
 title: "什么是DDOS"
 author: Neal
 summary: "本文围绕《什么是DDOS》展开，重点梳理什么是 DDOS、DDOS 攻击类型和传输层 DDOS 攻击等内容，提炼背景、思路与实践注意点。"
+cover: "/img/post-covers/what-is-ddos-67eee4037e.jpg"
 tags: [安全, 漏洞分析]
 categories: [安全]
 date: "2019-01-04"

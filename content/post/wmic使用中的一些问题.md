@@ -2,6 +2,7 @@
 title: "Wmic 使用中的一些问题"
 author: Neal
 summary: "本文围绕《Wmic 使用中的一些问题》展开，重点梳理起源、程序和功能和补丁信息等内容，提炼背景、思路与实践注意点。"
+cover: "/img/post-covers/wmic-issues-e981579425.jpg"
 description: "Wmic, 即 Windows Management Instrumentation Command-Line Utility，通过这个工具我们可以获取计算本地的很多信息。"
 tags: [工具]
 keywords: [wmic,windows,补丁,patch]

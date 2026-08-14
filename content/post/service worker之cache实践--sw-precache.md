@@ -1,6 +1,7 @@
 ---
 title: "service worker之cache实践--sw-precache"
 summary: "本文围绕《service worker之cache实践--sw-precache》梳理前端相关的背景、方法和实践细节，可作为排查与学习记录。"
+cover: "/img/post-covers/sw-precache-86c9dd138e.jpg"
 tags: [前端]
 categories: ["前端"]
 date: 2017-04-22

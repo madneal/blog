@@ -2,6 +2,7 @@
 title: "PCA算法和实例"
 author: Neal
 summary: "本文围绕《PCA算法和实例》展开，重点梳理PCA算法和实例等内容，提炼背景、思路与实践注意点。"
+cover: "/img/post-covers/pca-algorithm-515c92de17.jpg"
 description: "PCA算法算法步骤： 
 假设有m条n维数据。 
 1. 将原始数据按列组成n行m列矩阵X 

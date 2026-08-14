@@ -2,6 +2,7 @@
 title: "什么是服务端伪造（SSRF）"
 author: Neal
 summary: "本文围绕《什么是服务端伪造（SSRF）》展开，重点梳理检测SSRF、避免SSRF和白名单和DNS解析等内容，提炼背景、思路与实践注意点。"
+cover: "/img/post-covers/what-is-ssrf-16006f66c9.jpg"
 description: "什么是服务端伪造（SSRF）
   原文：GitHub Pages and Single-Page Apps
   

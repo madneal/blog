@@ -2,6 +2,7 @@
 title: "改三个 JSON，让 Claude 桌面版用上你自己的 API"
 author: Neal
 summary: "Claude Desktop 默认只能官方账号登录。本文基于 cc-switch 源码分析与实操，讲解如何利用官方内置的 3p 企业网关模式，通过三个 JSON 配置文件让桌面版接入任意 Anthropic 兼容 API，并复用 Claude Code CLI 的现有配置。"
+cover: "/img/post-covers/claude-3p-gateway-v2-20260801.jpg"
 tags: [AI, 工具]
 keywords: [Claude, Claude Desktop, Claude Code, cc-switch, API, 网关, Anthropic]
 categories: [开发工具]

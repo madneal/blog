@@ -2,6 +2,7 @@
 title: "Git 常用命令速查（从配置到协作）"
 author: Neal
 summary: "按场景整理 Git 常用命令：配置、提交、分支、暂存、历史与撤销。纠正「GitHub=Git」的说法，便于日常检索。"
+cover: "/img/post-covers/github-commands-4310686421.jpg"
 tags: [Git, 开发工具]
 categories: [开发工具]
 date: "2015-10-25"

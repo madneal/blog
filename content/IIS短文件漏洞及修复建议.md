@@ -2,6 +2,7 @@
 title: "IIS短文件漏洞及修复建议"
 author: Neal
 summary: "本文围绕《IIS短文件漏洞及修复建议》展开，重点梳理什么是 IIS 短文件漏洞和漏洞修复等内容，提炼背景、思路与实践注意点。"
+cover: "/img/post-covers/iis-shortname-a30249031e.jpg"
 tags: [安全, Web安全, 漏洞分析]
 categories: [安全]
 date: "2019-01-14"

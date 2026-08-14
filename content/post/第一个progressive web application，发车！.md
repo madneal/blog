@@ -2,6 +2,7 @@
 title: "第一个progressive web application，发车！"
 author: Neal
 summary: "本文围绕《第一个progressive web application，发车！》梳理web前端和前端相关的背景、方法和实践细节，可作为排查与学习记录。"
+cover: "/img/post-covers/first-pwa-launch-ca189244ad.jpg"
 description: "progressive web application是谷歌推出的一种渐进式web应用，通过利用service-worker等来达到类似于原生应用，而且在chrome浏览器还可以添加到主页，完全就和一个app无异。老实说我觉得pwa是一个很好的发展方向，虽然小程序搞了一段时间不温不火，但是pwa的限制更少，再说还有谷歌支持，只不过现在部分浏览器可能支持的不是很好。 
 国内饿了么前段时间做了一个pwa"
 tags: [前端]

@@ -2,6 +2,7 @@
 title: "道路模型--linear-parabolic model"
 author: Neal
 summary: "本文围绕《道路模型--linear-parabolic model》梳理计算机视觉相关的背景、方法和实践细节，可作为排查与学习记录。"
+cover: "/img/post-covers/road-linear-parabolic-634992a94a.jpg"
 description: "读过很多道路追踪的论文，经常都需要道路模型的建模。我不知道是不是因为自己太笨还是怎样，好多人建的模型我实在无法理解他的用意何在，而且我真的深刻怀疑他们那些模型的参数是不是真的可以求出来。就比如这篇文章“lane detection and tracking using a new lane model and distance transform”,我实在无法理解他的建模，还有他的建模参数到底如何求"
 tags: [计算机视觉]
 categories: [计算机视觉]

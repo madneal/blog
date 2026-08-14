@@ -1,6 +1,7 @@
 ---
 title: "pwa, 上海地铁线路图全新重构"
 summary: "本文围绕《pwa, 上海地铁线路图全新重构》展开，重点梳理准备、设计和组件结构等内容，提炼背景、思路与实践注意点。"
+cover: "/img/post-covers/pwa-shanghai-metro-c2750396bd.jpg"
 tags: [JavaScript, 前端]
 keywords: [pwa,react,subway,shanghai,shanghai subway,上海地铁,上海]
 date: "2018-03-21"

@@ -2,6 +2,7 @@
 title: "nodejs回调大坑"
 author: Neal
 summary: "本文围绕《nodejs回调大坑》梳理web前端、JavaScript和后端相关的背景、方法和实践细节，可作为排查与学习记录。"
+cover: "/img/post-covers/nodejs-callback-hell-d05cca669d.jpg"
 description: "最近看到nodejs，因为有一个处理里面有好几个异步操作，调入回调大坑，不禁觉得很恶心，真的很讨厌发明这种写法的人，简直反社会！！！遂转载一篇解坑的文章，原文地址：http://www.infoq.com/cn/articles/nodejs-callback-hell/。Node.js需要按顺序执行异步逻辑时一般采用后续传递风格，也就是将后续逻辑封装在回调函数中作为起始函数的参数，逐层嵌套。这种风"
 tags: [JavaScript, 后端]
 categories: [web前端]
