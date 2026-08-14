@@ -7,7 +7,6 @@ from __future__ import annotations
 
 import argparse
 import concurrent.futures
-import hashlib
 import json
 import re
 import ssl
@@ -18,7 +17,7 @@ import urllib.request
 from collections import Counter, defaultdict
 from dataclasses import asdict, dataclass
 from pathlib import Path
-from typing import Iterable, List, Optional, Tuple
+from typing import List, Optional, Tuple
 from urllib.parse import urlparse
 
 MD_IMG = re.compile(r"!\[([^\]]*)\]\(([^)]+)\)")
@@ -45,11 +44,6 @@ BARE_URL = re.compile(
     r"""(?<![\(\["'])(https?://[^\s)\]"'<>]+\.(?:png|jpe?g|gif|webp|svg|ico|bmp)(?:\?[^\s)\]"'<>]*)?)""",
     re.I,
 )
-
-SKIP_HOST_PREFIXES = (
-    # code/docs examples often not real post images
-)
-
 
 @dataclass
 class ImageRef:
@@ -131,42 +125,74 @@ def local_path_for(ref: str, blog_root: Path) -> Optional[Path]:
     return blog_root / "static" / r
 
 
+def looks_like_image_bytes(data: bytes) -> bool:
+    """True if leading bytes match a common raster/vector image signature."""
+    if not data or len(data) < 3:
+        return False
+    if data[:8] == b"\x89PNG\r\n\x1a\n":
+        return True
+    if data[:3] == b"\xff\xd8\xff":
+        return True
+    if data[:6] in (b"GIF87a", b"GIF89a"):
+        return True
+    if len(data) >= 12 and data[:4] == b"RIFF" and data[8:12] == b"WEBP":
+        return True
+    if data[:2] in (b"BM", b"II", b"MM"):  # BMP / TIFF
+        return True
+    # SVG (text)
+    head = data.lstrip()[:256].lower()
+    if head.startswith(b"<?xml") and b"<svg" in head:
+        return True
+    if head.startswith(b"<svg"):
+        return True
+    # ICO
+    if len(data) >= 4 and data[:4] == b"\x00\x00\x01\x00":
+        return True
+    return False
+
+
+def _body_not_image_reason(data: bytes, ct: str) -> Optional[str]:
+    """Return failure reason if body is not an image payload."""
+    stripped = data.lstrip()
+    low = stripped[:64].lower()
+    if low.startswith((b"<!doctype", b"<html", b"{", b"<?xml")):
+        # allow SVG xml only
+        if not (b"<svg" in stripped[:512].lower()):
+            return f"body not image ct={ct}"
+    if not looks_like_image_bytes(data):
+        return f"body not image magic ct={ct}"
+    return None
+
+
 def probe_http(url: str, timeout: float = 12.0) -> Tuple[str, str, Optional[int]]:
-    """Return (status, reason, code). status in ok|inaccessible."""
+    """Return (status, reason, code). status in ok|inaccessible.
+
+    Always verifies GET body magic bytes so extension-mismatched CDN blobs
+    (e.g. Atom XML saved as .png) are not reported as ok.
+    """
     ctx = ssl.create_default_context()
     headers = {
         "User-Agent": "Mozilla/5.0 (compatible; blog-image-probe/1.0)",
         "Accept": "image/*,*/*;q=0.8",
     }
-    # HEAD first, then GET if needed
-    for method in ("HEAD", "GET"):
-        try:
-            req = urllib.request.Request(url, method=method, headers=headers)
-            with urllib.request.urlopen(req, timeout=timeout, context=ctx) as resp:
-                code = getattr(resp, "status", None) or resp.getcode()
-                ct = (resp.headers.get("Content-Type") or "").lower()
-                if method == "GET":
-                    # read small prefix to detect html error pages
-                    data = resp.read(64)
-                    if data.lstrip()[:15].lower().startswith((b"<!doctype", b"<html", b"{")):
-                        if "image" not in ct:
-                            return "inaccessible", f"body not image ct={ct}", code
-                if 200 <= int(code) < 400:
-                    # some CDNs return 200 html for missing
-                    if "text/html" in ct and "image" not in ct:
-                        return "inaccessible", f"html content-type {ct}", code
-                    return "ok", f"{method} {code} {ct}", int(code)
-                return "inaccessible", f"{method} {code}", int(code)
-        except urllib.error.HTTPError as e:
-            # some hosts reject HEAD
-            if method == "HEAD" and e.code in (403, 405, 501):
-                continue
-            return "inaccessible", f"HTTP {e.code}", e.code
-        except Exception as e:
-            if method == "HEAD":
-                continue
-            return "inaccessible", f"{type(e).__name__}: {e}", None
-    return "inaccessible", "unreachable", None
+    try:
+        req = urllib.request.Request(url, method="GET", headers=headers)
+        with urllib.request.urlopen(req, timeout=timeout, context=ctx) as resp:
+            code = getattr(resp, "status", None) or resp.getcode()
+            ct = (resp.headers.get("Content-Type") or "").lower()
+            data = resp.read(512)
+            if not (200 <= int(code) < 400):
+                return "inaccessible", f"GET {code}", int(code)
+            if "text/html" in ct and "image" not in ct:
+                return "inaccessible", f"html content-type {ct}", int(code)
+            bad = _body_not_image_reason(data, ct)
+            if bad:
+                return "inaccessible", bad, int(code)
+            return "ok", f"GET {code} {ct}", int(code)
+    except urllib.error.HTTPError as e:
+        return "inaccessible", f"HTTP {e.code}", e.code
+    except Exception as e:
+        return "inaccessible", f"{type(e).__name__}: {e}", None
 
 
 def probe_ref(ref: ImageRef, blog_root: Path) -> ImageRef:
@@ -197,6 +223,11 @@ def probe_ref(ref: ImageRef, blog_root: Path) -> ImageRef:
         ref.reason = "unresolved path"
         return ref
     if p.exists() and p.is_file() and p.stat().st_size > 0:
+        head = p.read_bytes()[:512]
+        if not looks_like_image_bytes(head):
+            ref.status = "inaccessible"
+            ref.reason = f"local not image {p.relative_to(blog_root)}"
+            return ref
         ref.status = "ok"
         ref.reason = f"local {p.relative_to(blog_root)}"
         return ref
@@ -271,20 +302,14 @@ def main(argv: Optional[List[str]] = None) -> int:
     probed = probe_all(refs, blog_root, workers=args.workers)
     summary = summarize(probed)
     bad = [r for r in probed if r.status == "inaccessible"]
+    items = [asdict(r) for r in (bad if args.only_inaccessible else probed)]
     payload = {
         "blog_root": str(blog_root),
         "generated_at": time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime()),
         "summary": summary,
         "inaccessible": [asdict(r) for r in bad],
-        "all" if not args.only_inaccessible else "inaccessible_only": (
-            [asdict(r) for r in probed] if not args.only_inaccessible else [asdict(r) for r in bad]
-        ),
+        "items": items,
     }
-    # simplify keys
-    if args.only_inaccessible:
-        payload["items"] = [asdict(r) for r in bad]
-    else:
-        payload["items"] = [asdict(r) for r in probed]
 
     args.out_json.parent.mkdir(parents=True, exist_ok=True)
     args.out_json.write_text(json.dumps(payload, ensure_ascii=False, indent=2), encoding="utf-8")

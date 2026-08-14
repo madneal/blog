@@ -21,7 +21,7 @@ Medium 文章格式显示地非常优雅，但是存在一个问题。众所周�
 
 这两种方法都是可以支持安装的。目前这个插件的功能主要是把Medium上面的文章解析成 markdown 格式的文本，用了一个简单的库去渲染（事实上我觉得挺鸡肋的），然后你只要点击一个按钮就可以把文本复制到剪切板，就可以复制到编辑器了，是不是很方便。
 
-![clipboard.png](https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/recovered/fix-mirror--Medium-markdown-00.jpg)
+*export-to-medium.gif（原图链接已失效且无法恢复，已移除）*
 
 目前可能很多页面做的不是特别好看，欢迎大家感兴趣的可以试用或者向我提建议。
 

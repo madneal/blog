@@ -23,7 +23,7 @@ Tex对于希望控制文本的人是非常友好的，一部分可能是因为�
 
 还有其他的一些优点和缺点。TeX的公式拍版是它的强项之一。在以前它可能是唯一较为正式的选择，即使像现在可以使用MathML或者MathType的时候，TeX也被认为是使用起来还是比较便利的。假如你以前还没有接触过TeX，那么你可尝试穿件下面的公式：
 
-![formula](https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/recovered/fix-mirror-Latex--00.gif)
+![formula](https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/recovered/fix-latex-s1-formula.png)
 
 在TeX仅仅使用`t) = h(t) \otimes g(t) \equiv \int h(\nu) g(t-\nu) d\nu`就可以搞定了。是不是看起来挺简单的。
 
@@ -47,7 +47,7 @@ LaTeX对于写文章，报告以及书籍有些基本的设置。
 
 ### 版本变化以及实现
 
-LaTeX最近通用![latex-v](https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/recovered/fix-mirror-Latex--05.png)经常写作是LaTeX2e。我认为你是在使用这个版本的。通常这也无关紧要，但是有一些老的命令我不会特别提及。
+LaTeX最近通用![latex-v](https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/recovered/fix-latex-s1-latex2e.png)经常写作是LaTeX2e。我认为你是在使用这个版本的。通常这也无关紧要，但是有一些老的命令我不会特别提及。
 
 注意这个版本以及老版本的LaTeX209是最通用的语言以及实现规范，并不针对特别的包或者实现。
 

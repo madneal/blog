@@ -73,6 +73,34 @@ class TestExtract(unittest.TestCase):
         self.assertFalse(p._looks_like_image_ref("https://example.com/app.js"))
         self.assertFalse(p._looks_like_image_ref("javascript:void(0)"))
 
+    def test_looks_like_image_bytes(self):
+        self.assertTrue(p.looks_like_image_bytes(b"\x89PNG\r\n\x1a\n" + b"\x00" * 16))
+        self.assertTrue(p.looks_like_image_bytes(b"\xff\xd8\xff\xe0" + b"\x00" * 16))
+        self.assertTrue(p.looks_like_image_bytes(b"GIF89a" + b"\x00" * 16))
+        self.assertTrue(p.looks_like_image_bytes(b"RIFF" + b"\x00" * 4 + b"WEBP" + b"\x00" * 8))
+        self.assertFalse(p.looks_like_image_bytes(b'<?xml version="1.0"?><feed xmlns="http://www.w3.org/2005/Atom">'))
+        self.assertFalse(p.looks_like_image_bytes(b"<!DOCTYPE html><html>"))
+        self.assertFalse(p.looks_like_image_bytes(b'{"error":true}'))
+        self.assertTrue(p.looks_like_image_bytes(b'<svg xmlns="http://www.w3.org/2000/svg"></svg>'))
+
+    def test_local_rejects_non_image_bytes(self):
+        with tempfile.TemporaryDirectory() as td:
+            root = Path(td)
+            static = root / "static" / "img"
+            static.mkdir(parents=True)
+            (static / "feed.png").write_text(
+                '<?xml version="1.0"?><feed xmlns="http://www.w3.org/2005/Atom"></feed>',
+                encoding="utf-8",
+            )
+            content = root / "content"
+            content.mkdir()
+            md = content / "d.md"
+            md.write_text("![](/img/feed.png)\n", encoding="utf-8")
+            refs = p.extract_refs(md, root)
+            probed = [p.probe_ref(r, root) for r in refs]
+            self.assertEqual(probed[0].status, "inaccessible")
+            self.assertIn("not image", probed[0].reason)
+
 
 if __name__ == "__main__":
     unittest.main()
