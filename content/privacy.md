@@ -3,7 +3,7 @@ title: "Privacy Policy"
 date: "2026-08-08"
 layout: "about"
 comments: false
-description: "madneal.com 隐私政策：说明本站如何处理访问数据、Cookie、分析与广告（含 Google AdSense）。"
+description: "madneal.com 隐私政策：说明本站如何处理访问数据、Cookie、分析与评论。"
 ---
 
 **生效日期：2026-08-08**  
@@ -41,7 +41,6 @@ description: "madneal.com 隐私政策：说明本站如何处理访问数据、
 
 - 记住偏好与基础站点功能
 - 统计访问量与内容表现
-- 展示广告并衡量广告效果（若启用广告）
 - 支持评论等互动功能
 
 你可以通过浏览器设置阻止或删除 Cookie。禁用后，部分功能（例如评论登录状态）可能不可用。
@@ -57,27 +56,17 @@ description: "madneal.com 隐私政策：说明本站如何处理访问数据、
 - 了解更多： [Google 隐私权政策](https://policies.google.com/privacy)
 - 可选退出： [Google Analytics Opt-out](https://tools.google.com/dlpage/gaoptout)
 
-### 3.2 Google AdSense（广告）
-
-本站可能展示 Google AdSense 提供的广告。Google 及其合作伙伴可能使用 Cookie 或设备标识，基于你在本站或其他网站上的访问情况投放广告。
-
-- Google 如何使用数据： [Google 广告与隐私说明](https://policies.google.com/technologies/ads)
-- 广告个性化设置： [广告设置](https://adssettings.google.com/)
-- 关于第三方 Cookie 的行业选择退出： [aboutads.info/choices](https://www.aboutads.info/choices/)（若适用于你所在地区）
-
-**说明：** 第三方供应商（含 Google）会使用 Cookie 来投放基于用户既往访问本网站或其他网站的广告。
-
-### 3.3 Disqus（评论）
+### 3.2 Disqus（评论）
 
 若页面启用评论，评论功能由 Disqus 提供。使用评论即可能适用 Disqus 的条款与隐私政策。
 
 - [Disqus Privacy Policy](https://help.disqus.com/en/articles/1717103-disqus-privacy-policy)
 
-### 3.4 内容分发与托管相关服务
+### 3.3 内容分发与托管相关服务
 
 站点可能通过 GitHub Pages 等托管/分发服务对外提供。相关访问日志按托管方政策处理。
 
-### 3.5 外链图片与嵌入内容
+### 3.4 外链图片与嵌入内容
 
 部分历史文章可能引用外部图床、代码托管或视频等资源。加载这些资源时，对应第三方可能收到你的请求信息（如 IP、Referer）。
 
@@ -89,7 +78,6 @@ description: "madneal.com 隐私政策：说明本站如何处理访问数据、
 - 分析哪些主题对读者更有帮助
 - 回复你的邮件或评论
 - 保障站点安全、排查滥用与故障
-- 在符合政策的前提下展示广告以支持内容创作
 
 ## 5. 信息共享
 
@@ -97,14 +85,14 @@ description: "madneal.com 隐私政策：说明本站如何处理访问数据、
 
 信息仅可能在以下情形中被共享：
 
-- **服务提供商**：为托管、分析、广告、评论等必要功能而使用的第三方
+- **服务提供商**：为托管、分析、评论等必要功能而使用的第三方
 - **法律要求**：在适用法律、法规、传票或政府要求下必须披露时
 - **权利保护**：为保护本站、读者或公众的权利、财产与安全所合理必要时
 
 ## 6. 数据保留
 
 - 邮件沟通：在处理完毕后按需要保留，不再需要时删除或归档
-- 分析与广告数据：由对应第三方按其政策保留
+- 分析数据：由对应第三方按其政策保留
 - 公开评论：在你或平台删除前可能持续展示
 
 ## 7. 数据安全
@@ -117,14 +105,13 @@ description: "madneal.com 隐私政策：说明本站如何处理访问数据、
 
 ## 9. 国际访问
 
-本站可从不同国家/地区访问。你的信息可能在你所在地以外的服务器上被处理（例如由 Google、GitHub、Disqus 等服务处理）。继续使用本站即表示你理解此种跨境处理可能发生。
+本站可从不同国家/地区访问。你的信息可能在你所在地以外的服务器上被处理（例如由 Google Analytics、GitHub、Disqus 等服务处理）。继续使用本站即表示你理解此种跨境处理可能发生。
 
 ## 10. 你的选择与权利
 
 视你所在地区法律，你可能享有访问、更正、删除个人数据，或限制/反对某些处理的权利。你也可以：
 
 - 通过浏览器管理 Cookie
-- 使用 Google 广告设置管理个性化广告
 - 要求删除你曾通过邮件提供的信息（在可行范围内）
 
 行使相关请求请发送邮件至： [bing.ecnu@gmail.com](mailto:bing.ecnu@gmail.com)
