@@ -60,7 +60,6 @@ copyright = "© This post is licensed under a Creative Commons Attribution-NonCo
 # Add your own params here
 [params]
   author = "Neal"
-  adsenseClient = "ca-pub-5932835142675120"
   avatar = "img/avatar.jpg"
   bg = "img/grey-prism.svg"
   wechat = "img/wechat.jpg"

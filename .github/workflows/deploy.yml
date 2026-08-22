@@ -40,9 +40,6 @@ jobs:
       - name: Build site
         run: hugo -t hugo-nuo
 
-      - name: Validate AdSense output
-        run: bash scripts/check-adsense.sh public
-
       - name: Disable Jekyll processing
         run: touch public/.nojekyll
 
