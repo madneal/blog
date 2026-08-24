@@ -1,5 +1,4 @@
 ---
-draft: true
 title: "installsheild2011打包程序internal build error 6213"
 author: Neal
 summary: "本文围绕《installsheild2011打包程序internal build error 6213》梳理winform开发和学习笔记相关的背景、方法和实践细节，可作为排查与学习记录。"
