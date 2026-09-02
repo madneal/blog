@@ -113,7 +113,7 @@ Star是衡量一个开源项目是否受欢迎的重要标准之一（当然也�
 我的第一个pwa，是一个天气应用。可以添加几个城市，因为使用的是雅虎的API，这个API需要一个woeid，我还写了一个小爬虫的项目[woeid-parser](https://github.com/neal1991/woeid-parser)去爬取woeid。不过后来我发觉这个API不是很准，这个项目因此也放弃维护了。
 ### [subway-shanghai](https://github.com/neal1991/subway-shanghai)
 
-![subway-shanghai](https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/recovered/fix-final2-pwa--01.gif)
+![subway-shanghai](/img/content/fix-final2-pwa--01.webp)
 因为我平常比较喜欢看地铁线路图，所以我觉得用pwa做一个上海地铁线路图挺方便的，还可以离线使用。这个pwa有部分内容是借鉴了搜狗地图的，不过它那是动态生成SVG，这对于我的pwa来说，代价太大了。所以我是在html中包含svg地图，并且通过离线缓存，也减少了网络请求。这个pwa还可以支持缩放以及显示站点的首末时间表，感兴趣的可以通过[这个链接](https://neal1991.github.io/subway-shanghai/)，强烈建议通过chrome浏览器来使用，还可添加到桌面。
 ### [graduation](https://github.com/neal1991/graduation)
 这个仓库其实是我毕业论文，目前还是private的，等毕业之后，应该会将这个仓库公开。老实说这次的确是装了一次大逼，在写这篇论文latex遇到了不少坑，最后还是要转换成word才能查重，真是折腾。不过过程中还是积攒了一些东西，latex写论文真心方便，讲良心，如果可以latex，我是绝对不会用word的，排版差距太大了。

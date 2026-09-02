@@ -31,19 +31,19 @@ AMP4Email（也称为动态邮件）是 Gmail 的一项新功能，可以让电�
 
 AMP4Email 具有[强验证器](https://github.com/ampproject/amphtml/blob/master/validator/validator-main.protoascii)，简而言之，它是允许在动态邮件中使用的标签和属性的强大白名单。你可以在 https://amp.gmail.dev/playground/ 上尝试，你还可以给自己发送动态电子邮件来研究工作原理！
 
-![AMP4Email playground](https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/recovered/eda7135b2922.png)
+![AMP4Email playground](/img/content/eda7135b2922.webp)
 
 图1. AMP4Email playground
 
 如果你尝试添加验证器未明确允许的任何 HTML 元素或属性，则会收到错误消息。
 
-![AMP 验证器](https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/recovered/98537118ed83.png)
+![AMP 验证器](/img/content/98537118ed83.webp)
 
 图2. AMP 验证器禁止使用任意脚本标签
 
 在使用 AMP4Email 并尝试各种方法绕过它时，我注意到标签中不允许 id 属性（图3）。
 
-![AMP4Email id 属性限制](https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/recovered/4c8911ad3327.png)
+![AMP4Email id 属性限制](/img/content/4c8911ad3327.webp)
 
 图3.不允许使用属性 id
 
@@ -118,7 +118,7 @@ Object.getOwnPropertyNames(window)
 
 那么访问 `window.test1` 时我们将得到什么？我直觉上希望得到具有该 id 的第一个元素（当你尝试调用`document.getElementById('#test1')` 时会发生这种情况。但是，在 Chromium 中，我们实际上得到了一个`HTMLCollection`！
 
-![window.test1 指向 HTMLCollection](https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/recovered/sekurak-amp4email-image-6.png)
+![window.test1 指向 HTMLCollection](/img/content/sekurak-amp4email-image-6.webp)
 
 图4. window.test1 指向 HTMLCollection
 
@@ -130,7 +130,7 @@ Object.getOwnPropertyNames(window)
 ```
 我们可以通过 `window.test1.test2` 访问第二个锚元素。
 
-![window.test1.test2 属性](https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/recovered/sekurak-amp4email-image-5.png)
+![window.test1.test2 属性](/img/content/sekurak-amp4email-image-5.webp)
 
 图5. 我们可以定义 window.test1.test2
 
@@ -147,13 +147,13 @@ Object.getOwnPropertyNames(window)
 
 我已经提到过，通过向元素添加我自己的 id 属性，AMP4Email 可能容易受到 DOM Clobbering 的攻击。为了找到可利用的条件，我决定看一下 `window` 的属性（图6）。立即引起注意的是开头的 AMP。
 
-![window 全局对象属性](https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/recovered/sekurak-amp4email-image-7.png)
+![window 全局对象属性](/img/content/sekurak-amp4email-image-7.webp)
 
 图6. window 全局对象的属性
 
 在这一点上，事实证明 AMP4Email 实际上对 DOM Clobbering 采取了某种保护措施，因为它严格禁止 id 属性的某些值，例如：`AMP`（图7）。
 
-![AMP 无效的 id 值](https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/recovered/sekurak-amp4email-image-8.png)
+![AMP 无效的 id 值](/img/content/sekurak-amp4email-image-8.webp)
 
 图7. AMP 是 AMP4Email 中的 id 的无效值
 
@@ -161,7 +161,7 @@ Object.getOwnPropertyNames(window)
 
 …然后我注意到控制台中有一个非常有趣的错误（图8）。
 
-![AMP4Email 脚本加载 404](https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/recovered/sekurak-amp4email-image-9.png)
+![AMP4Email 脚本加载 404](/img/content/sekurak-amp4email-image-9.webp)
 
 图8. 加载某些JS文件的 404 错误
 

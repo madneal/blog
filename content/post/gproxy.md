@@ -90,7 +90,7 @@ GShark 是我之前开源的一款 Github 敏感信息监测的系统，之前�
 
 通过上面几步就可以启动 GShark 服务了。GShark 目前仅仅由我一个人维护，希望可以吸收社区优秀的建议，欢迎 PR。可以扫码加入微信群。
 
-![GShark 编译运行](https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/recovered/csdn-2956403fd674070be2b828006509edec.png)
+![GShark 编译运行](/img/content/csdn-2956403fd674070be2b828006509edec.webp)
 
 ## 总结
 

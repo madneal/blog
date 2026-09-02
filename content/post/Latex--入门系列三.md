@@ -29,7 +29,7 @@ I am text. Yes.
 \end{tabular}
 ```
 
-最终产生的表格的排版是这个样子的![tab](https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/recovered/fix-latex-s3-tab.png)
+最终产生的表格的排版是这个样子的![tab](/img/content/fix-latex-s3-tab.webp)
 
 ### 特殊符号的总结
 
@@ -39,7 +39,7 @@ I am text. Yes.
 
 * **%**是用来注释的，这个是单行注释。如果你要注释大段的代码的时候，为了避免插入过多的百分号，你可以把这些字符放在`\iffalse`和`\fi`里面。
 
-* **_**和**^**分别作为下标和上标。你也可以同时使用上标和下标，比如：![formula1](https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/recovered/fix-latex-s3-formula1.png)
+* **_**和**^**分别作为下标和上标。你也可以同时使用上标和下标，比如：![formula1](/img/content/fix-latex-s3-formula1.webp)
 
 * **~**是一个硬空格，它对于排版是有影响的，它是具有大小的，并且不可分连的空格，就像&nbsp一样的。它很有用比如：`A.~Smith`以及在引用的图表的时候`Figure~\ref{dataflow}`,这确保了作者姓名或者图片和数字之间不会在行与行之间分隔。（也可以使用其他的办法来解决这个问题，比如mbox，不会强制使用特殊的空格大小）
 
@@ -49,15 +49,15 @@ I am text. Yes.
 
 * **\**用于开始一个命令。有一些可能是比较特殊的(`\\`用于换行，`\>`用于tab缩进)，一般化的话应该是这样的`\commandname`。当然这可能会有看起来不太相同的使用方法：
 
-  * 一次效果函数，比如使用`\ss`来获得一个德国字母![\ss](https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/recovered/fix-latex-s3-ss.png)。
+  * 一次效果函数，比如使用`\ss`来获得一个德国字母![\ss](/img/content/fix-latex-s3-ss.webp)。
 
-  * 状态改变，比如粗体，强调，比如`text-{\em a-tron}`会产生![text-{\em a-tron}](https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/recovered/fix-latex-s3-em.png)。（花括号是来限制作用的范围的）
+  * 状态改变，比如粗体，强调，比如`text-{\em a-tron}`会产生![text-{\em a-tron}](/img/content/fix-latex-s3-em.webp)。（花括号是来限制作用的范围的）
 
   * 使用命令取得相应的值，一般是使用`{}`或者`[]`。比如：
 
-    * `\textsc{SmallCaps}`产生![\textsc{SmallCaps}](https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/recovered/fix-latex-s3-textsc.png)
+    * `\textsc{SmallCaps}`产生![\textsc{SmallCaps}](/img/content/fix-latex-s3-textsc.webp)
     * `\caption{Description`用于标题说明，一般用于图表。
-    * 口音和发声符号，比如`\'{e} \v{o}`来产生![\'{e} \v{o}](https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/recovered/fix-latex-s3-accent.png)
+    * 口音和发声符号，比如`\'{e} \v{o}`来产生![\'{e} \v{o}](/img/content/fix-latex-s3-accent.webp)
 
   * 使用`\begin`和`end`是定义环境，从而和其他内容区分处理，比如：
 
@@ -69,20 +69,20 @@ I am text. Yes.
     \end{verbatim}
     ```
 
-    会产生![ \begin{verbatim}In the verbatim environment,  text appears with almost no treatment.There's also no need for manual TeX newlines (\\)\end{verbatim}](https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/recovered/fix-latex-s3-verbatim.png)
+    会产生![ \begin{verbatim}In the verbatim environment,  text appears with almost no treatment.There's also no need for manual TeX newlines (\\)\end{verbatim}](/img/content/fix-latex-s3-verbatim.webp)
 
   这些命令有选择项和参数项，对于每一个命令都有着相应的设置。有一些命令定义后，你可以用几种方式使用，但是一般的使用时选择项在参数项之前，比如对于`\command[option1,option2]{argument}`你可以用`\comman{argument}`作为基本使用。
 
 * **#**是在内部使用的，比如`\newcommand`
 
 
-为了在文本里面使用上述的一些字符，你需要添加反斜杠使用`\$ \{ \% \} \_ \#`从而产生![\$ \{ \% \} \#](https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/recovered/fix-latex-s3-specialchars.png)
+为了在文本里面使用上述的一些字符，你需要添加反斜杠使用`\$ \{ \% \} \_ \#`从而产生![\$ \{ \% \} \#](/img/content/fix-latex-s3-specialchars.webp)
 
 这里也有几个意外情况，`\\`是一个字面上的换行，`\~`是一个插入符号。
 
 对于反斜杠如何表示，可以使用`$\backslash$`
 
-对于其他的一些插入符号，你可以将参数不加设置，`\~{}, \^{}`，这样也能获得你想要的比如![foo \^{} bar \~{} quu #](https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/recovered/fix-latex-s3-caret-tilde.png)
+对于其他的一些插入符号，你可以将参数不加设置，`\~{}, \^{}`，这样也能获得你想要的比如![foo \^{} bar \~{} quu #](/img/content/fix-latex-s3-caret-tilde.webp)
 
 对于等宽字体你也可以使用inline verbatim，比如`\verb|^|, \verb|~|, \verb|\|`
 
@@ -93,7 +93,7 @@ I am text. Yes.
 为了在非URL文本里面获得波浪符号，当然还有其他的办法，比如[swung dash](https://en.wikipedia.org/wiki/Dash#Swung_dash)
 
 * 你可以获得一个不一样的波浪符号（在空格之上）通过使用`\~{}, \textasciitilde, \char \~`。这个波浪符号位置比较高，大多数人并不喜欢用。
-* 如果你希望在等宽字体里面使用波浪符号，一个简单的方法是使用verbatim环境，可能没有内联的使用起来那么方便`\verb|foo/~var`![\verb|foo/~bar|](https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/recovered/fix-latex-s3-verb-tilde.png)
+* 如果你希望在等宽字体里面使用波浪符号，一个简单的方法是使用verbatim环境，可能没有内联的使用起来那么方便`\verb|foo/~var`![\verb|foo/~bar|](/img/content/fix-latex-s3-verb-tilde.webp)
 * `texttidlebelow`（依赖包textcomp）的位置更低，但是不能够以波浪符号粘贴复制。它在某些字体面，位置可能特别低，这个可能和字体相关。
 * `$\sim$`对于大多数情况来说就不太常用了，一般在数学环境里面用的比较多。
 
@@ -107,7 +107,7 @@ I am text. Yes.
 
 `\newcommand\thicktilde{{\lower.74ex\hbox{\texttt{\char`\~}}}}`
 
-你可以产生`a\thintilde b\thicktilde c`看起来就是这样![a\thintilde b\thicktilde c](https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/recovered/fix-latex-s3-thintilde.png)
+你可以产生`a\thintilde b\thicktilde c`看起来就是这样![a\thintilde b\thicktilde c](/img/content/fix-latex-s3-thintilde.webp)
 
 作为对比：
 
@@ -119,4 +119,4 @@ I am text. Yes.
 
 当你希望使用一个字面上的插入符号，`\^{}`是一个高的发音符号，你也可以在verbatim样式里面使用，比如：
 
-![\verb|x=x^2|](https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/recovered/fix-latex-s3-xeq.png)
+![\verb|x=x^2|](/img/content/fix-latex-s3-xeq.webp)

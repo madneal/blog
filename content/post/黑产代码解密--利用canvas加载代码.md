@@ -137,7 +137,7 @@ readCodeFromImg();
 
 欢迎搜索微信号 mad_coder 或者扫描二维码关注公众号：
 
-![文章配图](https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/recovered/csdn-4d78a87c27ba79f6fbf86fae1158ebc3.jpeg)
+![文章配图](/img/content/csdn-4d78a87c27ba79f6fbf86fae1158ebc3.webp)
 
 ## 分析收获
 

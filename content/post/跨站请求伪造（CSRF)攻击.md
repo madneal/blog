@@ -9,7 +9,7 @@ keywords: [CSRF,web安全,XSS]
 date: "2019-02-21"
 ---
 
-![kRIUNn.png](https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/recovered/c6da1307d951.png)
+![kRIUNn.png](/img/content/c6da1307d951.webp)
 
 ## 概述
 

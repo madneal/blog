@@ -47,6 +47,21 @@ class TestExtract(unittest.TestCase):
             self.assertEqual(st["/img/ok.png"], "ok")
             self.assertEqual(st["/img/missing.png"], "inaccessible")
 
+    def test_local_asset_ok(self):
+        with tempfile.TemporaryDirectory() as td:
+            root = Path(td)
+            assets = root / "assets" / "img"
+            assets.mkdir(parents=True)
+            (assets / "cover.png").write_bytes(b"\x89PNG\r\n\x1a\n" + b"0" * 20)
+            content = root / "content"
+            content.mkdir()
+            md = content / "asset.md"
+            md.write_text('---\ncover: "/img/cover.png"\n---\n', encoding="utf-8")
+            refs = p.extract_refs(md, root)
+            probed = [p.probe_ref(r, root) for r in refs]
+            self.assertEqual(probed[0].status, "ok")
+            self.assertIn("assets/img/cover.png", probed[0].reason)
+
 
     def test_extensionless_googleusercontent_html(self):
         with tempfile.TemporaryDirectory() as td:

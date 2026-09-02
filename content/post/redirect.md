@@ -83,7 +83,7 @@ true
 
 [
 
-![Dubbo parseURL 调试](https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/recovered/anquanke-t01171b863223a65709.png)
+![Dubbo parseURL 调试](/img/content/anquanke-t01171b863223a65709.webp)
 
 ](https://imgchr.com/i/sY0h9I)
 
@@ -91,7 +91,7 @@ true
 
 [
 
-![Dubbo URL.valueOf 调试](https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/recovered/anquanke-t01bac4fe9353921d53.png)
+![Dubbo URL.valueOf 调试](/img/content/anquanke-t01bac4fe9353921d53.webp)
 
 ](https://imgchr.com/i/sYBB5j)
 
@@ -128,7 +128,7 @@ public RedirectView redirect(@RequestParam String service) {
 
 [
 
-![URL fragment 与编码](https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/recovered/anquanke-t01820e367ea8804c3a.png)
+![URL fragment 与编码](/img/content/anquanke-t01820e367ea8804c3a.webp)
 
 ](https://imgchr.com/i/s0bnpD)
 

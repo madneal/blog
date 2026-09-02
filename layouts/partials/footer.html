@@ -8,13 +8,12 @@
 </footer>
 
 <!-- Scripts -->
-{{ $hasVideo := and (eq .Kind "page") (or .Params.video (findRE "{{<\\s*video|\\.mp4|\\.webm|video-js" .RawContent 1)) }}
+{{ $hasVideo := and (eq .Kind "page") (or .Params.video (in .RawContent "{{< video") (in .RawContent "{{% video")) }}
 {{ $hasMath := and (eq .Kind "page") (or .Params.math (findRE "\\$\\$|\\\\\\[|\\\\\\(" .RawContent 1)) }}
 {{ if $hasVideo }}
 <script async src="//cdn.bootcss.com/video.js/6.2.8/alt/video.novtt.min.js"></script>
 {{ end }}
 {{ if $hasMath }}
-<script async src="//cdn.bootcss.com/mathjax/2.7.2/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 <script type="text/x-mathjax-config">
   MathJax.Hub.Config({
     tex2jax: {
@@ -36,8 +35,9 @@
     MathJax.Hub.getAllJax().map(v => v.SourceElement().parentNode.className += ' has-jax');
   });
 </script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 {{ end }}
-<script src="{{ "https://cdn.jsdelivr.net/gh/neal1991/neal1991.github.io/js/bundle.js" | relURL }}"></script>
+<script defer src="{{ "js/bundle.js" | relURL }}"></script>
 {{ if .Site.Params.googleTagManagerID }}  
 <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':  
 new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],  

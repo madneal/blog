@@ -1,0 +1,6 @@
+{{- $priority := eq .Ordinal 0 -}}
+<img src="{{ .Destination | safeURL }}"
+  alt="{{ .Text }}"
+  {{- with .Title }} title="{{ . }}"{{ end }}
+  decoding="async"
+  {{- if $priority }} fetchpriority="high"{{ else }} loading="lazy" fetchpriority="low"{{ end }}>

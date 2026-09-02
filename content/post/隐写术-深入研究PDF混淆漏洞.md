@@ -26,7 +26,7 @@ date: "2019-01-28"
 
 样本首先在 2017-10-10 提交给 VirusTotal，文件名为 “oral-b oxyjet spec.pdf”。
 
-![配图](https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/recovered/fix-stego-bs-00.png)
+![配图](/img/content/fix-stego-bs-00.webp)
 
 上周只有 1 个 AV 引擎检测到这种攻击（但是，截至写作时，检测增加到 5/57）。
 * https://www.virustotal.com/#/file/ebc5617447c58c88d52be6218384158ccf96ec7d7755179a31d209a95cd81a69/detection
@@ -39,12 +39,12 @@ date: "2019-01-28"
 
 在该样本中使用两层混淆。 第一层是我们之前公开的 - "this.getPageNumWords()" 以及 "this.getPageNthWord()" 方法。该漏洞使用 "this.getPageNumWords()" 以及 "this.getPageNthWord()" 来读取和执行隐藏为“内容”的 Javascript。 相关代码可以在 PDF stream-64中找到。
 
-![配图](https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/recovered/fix-stego-bs-01.png)
+![配图](/img/content/fix-stego-bs-01.webp)
 <p align="center"><b>stream-64</b></p>
 
 第二层是新的，这是我们本文的重点。 “Javascript 内容”存储在 stream-119 中，让我们看看它什么样。
 
-![配图](https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/recovered/fix-stego-bs-02.png)
+![配图](/img/content/fix-stego-bs-02.webp)
 
 美化 Javascript 后，显示如下：
 
@@ -56,7 +56,7 @@ date: "2019-01-28"
 
 
 
-![](https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/recovered/fix-blogspot-stego-5.png)
+![](/img/content/fix-blogspot-stego-5.webp)
 
 根据 API 参考资料，这两个 API 协同工作，用于读取存储在 PDF 文件中的名为 “icon” 的图像流。
 
@@ -64,7 +64,7 @@ date: "2019-01-28"
 
 object-131 中名为 “icon” 的图标流可以保存为 “jpg” 文件，并在图像查看器中查看，没有问题。 如下所示：
  
-![配图](https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/recovered/fix-stego-bs-03.png)
+![配图](/img/content/fix-stego-bs-03.webp)
 
 <p align="center">当图像仍然可见时，恶意数据隐藏在图像中</p>
  
@@ -72,7 +72,7 @@ object-131 中名为 “icon” 的图标流可以保存为 “jpg” 文件，�
 
 最终执行的 Javascript 是什么样的？在成功去混淆之后，这是一段真实的代码。
  
-![配图](https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/recovered/fix-stego-bs-04.png)
+![配图](/img/content/fix-stego-bs-04.webp)
 
 因此，我们确认这个漏洞利用为 CVE-2013-3346。
 

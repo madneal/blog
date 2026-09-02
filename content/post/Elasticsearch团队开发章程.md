@@ -127,7 +127,7 @@ date: "2018-06-16"
 
 欢迎搜索微信号 mad_coder 或者扫描二维码关注公众号：
 
-![文章配图](https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/recovered/csdn-833caf8c99dd5f5b3e0181731da74d2a.jpeg)
+![文章配图](/img/content/csdn-833caf8c99dd5f5b3e0181731da74d2a.webp)
 
 ## 译者实践注
 

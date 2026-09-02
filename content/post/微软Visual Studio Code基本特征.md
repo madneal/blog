@@ -33,7 +33,7 @@ code c:\src\webapp
 ```
 换句话说，打开包含项目的文件夹能够有效地打开项目：
 
-![这里写图片描述](https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/recovered/8a1a3cd6f88e.png)
+![这里写图片描述](/img/content/8a1a3cd6f88e.webp)
 
 打开当前文件夹：
 
@@ -51,7 +51,7 @@ VScode布局简单，能够最大化编辑界面并且也能够留下足够的�
  每次你打开VScode都会恢复到上一次关闭的状态。文件夹布局如下所示。
  
 
-![这里写图片描述](https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/recovered/204533011716.png)
+![这里写图片描述](/img/content/204533011716.webp)
 
  不是把文件放在不同的tab之中，VScode可以最多同时打开3个编辑器。
  ## 并排编辑 ##
@@ -62,6 +62,6 @@ VScode布局简单，能够最大化编辑界面并且也能够留下足够的�
  - comman+\ 将编辑器分成两个
  
 
-![这里写图片描述](https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/recovered/522e7f3ea9f6.png)
+![这里写图片描述](/img/content/522e7f3ea9f6.webp)
 
  无论何时你打开另外一个文件，编辑器将会激活正在打开的文件。
