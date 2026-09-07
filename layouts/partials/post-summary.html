@@ -1,0 +1,28 @@
+{{- $page := .page -}}
+{{- $priority := .priority | default false -}}
+<article class="post-entry">
+  <header class="post-header">
+    <h3 class="post-title"><a href="{{ $page.Permalink }}" class="post-link">{{ $page.Title }}</a></h3>
+    <p class="post-meta">@{{ if isset $page.Params "author" }}{{ $page.Params.author }}{{ else }}{{ $page.Site.Params.author }}{{ end }} · {{ $page.Date.Format "Jan 2, 2006" }} · {{ mul $page.ReadingTime 3 }} min read</p>
+  </header>
+  {{ with $page.Params.cover }}
+    {{- if hasPrefix . "https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/optimized/covers/" -}}
+      {{- $coverSmall := replaceRE "\\.webp$" "-320.webp" . -}}
+      {{- $coverLarge := replaceRE "\\.webp$" "-720.webp" . -}}
+      <img class="post-cover"
+        src="{{ $coverSmall }}"
+        srcset="{{ $coverSmall }} 320w, {{ $coverLarge }} 720w"
+        sizes="(max-width: 800px) 100vw, 128px"
+        width="1200" height="630"
+        alt="{{ $page.Title }}"
+        decoding="async"
+        {{- if $priority }} fetchpriority="high"{{ else }} loading="lazy" fetchpriority="low"{{ end }}>
+    {{- else -}}
+      <img class="post-cover" src="{{ . }}" width="1200" height="630" alt="{{ $page.Title }}" decoding="async"{{ if $priority }} fetchpriority="high"{{ else }} loading="lazy" fetchpriority="low"{{ end }}>
+    {{- end -}}
+  {{ end }}
+  <p class="post-summary">{{ if isset $page.Params "summary" }}{{ $page.Params.summary | plainify | htmlUnescape }}{{ else if isset $page.Params "description" }}{{ $page.Params.description | plainify | htmlUnescape }}{{ else }}{{ $page.Summary | plainify | htmlUnescape }}{{ end }}</p>
+  <footer class="post-footer">
+    <a class="read-more" href="{{ $page.Permalink }}">Read More →</a>
+  </footer>
+</article>

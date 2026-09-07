@@ -2,7 +2,7 @@
 title: "CSS 样式表引入：link 与 @import 的区别"
 author: Neal
 summary: "对比 HTML link 与 CSS @import：加载时机、可控性、性能建议，以及何时用哪一种。"
-cover: "/img/post-covers/css-import-ways-55e4b07683.jpg"
+cover: "https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/optimized/covers/d3718900e137911edfa7.webp"
 tags: [前端, CSS]
 categories: [web前端]
 date: "2015-10-06"

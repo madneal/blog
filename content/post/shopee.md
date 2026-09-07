@@ -2,7 +2,7 @@
 title: "Shopee 靠谱内推"
 author: Neal
 summary: "本文围绕《Shopee 靠谱内推》展开，重点梳理校招、自主投递和邮箱投递等内容，提炼背景、思路与实践注意点。"
-cover: "/img/post-covers/shopee-7d51953423.jpg"
+cover: "https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/optimized/covers/b214c8ae1ab66536ef63.webp"
 tags: [生活]
 categories: [内推]
 date: "2022-08-07"

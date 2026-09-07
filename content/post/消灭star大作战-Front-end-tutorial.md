@@ -1,7 +1,7 @@
 ---
 title: "消灭 star 大作战--Front-end-tutorial"
 summary: "本文围绕《消灭 star 大作战--Front-end-tutorial》展开，重点梳理JavaScript、深拷贝和call 和 apply等内容，提炼背景、思路与实践注意点。"
-cover: "/img/post-covers/frontend-star-battle-1358204de4.jpg"
+cover: "https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/optimized/covers/971f4b714bd5a59b9617.webp"
 tags: [学习笔记]
 categories: ["前端"]
 date: "2018-04-07"
@@ -166,7 +166,7 @@ Flex 主要用于二维空间的布局，伸缩性好，目前在主流浏览器
 
 欢迎搜索微信号 mad_coder 或者扫描二维码关注公众号：
 
-![文章配图](https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/recovered/csdn-833caf8c99dd5f5b3e0181731da74d2a.jpeg)
+![文章配图](https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/optimized/content/ad895f881b1534ac9111.webp)
 
 ## 译者实践注
 

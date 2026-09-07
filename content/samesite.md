@@ -2,7 +2,7 @@
 title: "SameSite 的七八事：Chrome 默认 Lax 之后，SSO iframe 为什么挂了"
 author: "Neal"
 summary: "从内网 SSO 在 iframe 中的 cookie 跨站问题出发，讲清 SameSite=Lax/Strict/None 的语义、Chrome 默认变化、以及安全与兼容的配置组合。"
-cover: "/img/post-covers/samesite-6b626a3e0a.jpg"
+cover: "https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/optimized/covers/d2564a6d034f6f57062c.webp"
 tags: [安全, Web安全, Cookie, 前端]
 categories: [安全]
 date: "2021-02-17"

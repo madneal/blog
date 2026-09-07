@@ -17,23 +17,25 @@
 {{- end -}}
 {{- $fontAwesome := "https://use.fontawesome.com/releases/v5.8.1/css/all.css" -}}
 {{- $fontAwesomeIntegrity := "sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" -}}
-  <!-- DNS Prefetch -->
-  <link href="//cdn.jsdelivr.net" rel="dns-prefetch">
-  <link href="//cdnjs.cloudflare.com" rel="dns-prefetch">
-  {{ with .Site.Params.fontAwesome }}
-  <link href="//use.fontawesome.com" rel="dns-prefetch">
-  {{ else }}
-  <link href="//at.alicdn.com" rel="dns-prefetch">
+{{- $isPost := and (eq .Kind "page") (eq .Type "post") -}}
+{{- $hasVideo := and $isPost (or .Params.video (in .RawContent "{{< video") (in .RawContent "{{% video")) -}}
+{{- $coverURL := $avatar.RelPermalink -}}
+{{- with .Params.cover -}}
+  {{- $coverURL = . | absURL -}}
+{{- end -}}
+
+  <!-- Only connect to third parties on pages that actually need them. -->
+  {{ if or (ne .Kind "page") (in .RawContent "cdn.jsdelivr.net") }}
+  <link href="https://cdn.jsdelivr.net" rel="preconnect">
   {{ end }}
-  <link href="//fonts.googleapis.com" rel="dns-prefetch">
-  <link href="//fonts.gstatic.com" rel="dns-prefetch">
-  {{ with .Site.Config.Services.Disqus.Shortname }}<link href="///disqus.com" rel="dns-prefetch">{{ end }}
-  {{ with .Site.Config.Services.Disqus.Shortname }}<link href="//c.disquscdn.com" rel="dns-prefetch">{{ end }}
+  {{ with .Site.Params.fontAwesome }}
+  <link href="https://use.fontawesome.com" rel="preconnect" crossorigin>
+  {{ end }}
   {{ with .Site.Params.Gitment }}<link href="//imsun.github.io" rel="dns-prefetch">{{ end }}
   {{ with .Site.Config.Services.GoogleAnalytics.ID }}<link href="//www.google-analytics.com" rel="dns-prefetch">{{ end }}
   {{ with .Site.Params.baidutongji }}<link href="//hm.baidu.com" rel="dns-prefetch">{{ end }}
 
-  {{ if and (eq .Kind "page") (eq .Type "post") }}
+  {{ if $isPost }}
 
   <!-- Page Author & Description -->
   {{ with .Params.author }}<meta name="author" content="{{ . }}">{{ end }}
@@ -45,7 +47,7 @@
     <meta name="twitter:site" content="@{{ .Site.Params.twitter | default $gohugoio }}">
     <meta name="twitter:title" content="{{ .Title }}">
     <meta name="twitter:description" content="{{ .Summary | plainify }}">
-    <meta name="twitter:image" content="{{ .Params.cover | absURL }}">
+    <meta name="twitter:image" content="{{ $coverURL }}">
   {{ else }}
     <meta name="twitter:card" content="summary">
     <meta name="twitter:site" content="@{{ .Site.Params.twitter | default $gohugoio }}">
@@ -59,7 +61,7 @@
   <meta property="og:title" content="{{ .Title }}">
   <meta property="og:description" content="{{ .Summary | plainify }}">
   <meta property="og:url" content="{{ .Permalink }}">
-  <meta property="og:image" content="{{ if isset .Params "cover" }}{{ .Params.cover | absURL }}{{ else }}{{ $avatar.RelPermalink }}{{ end }}">
+  <meta property="og:image" content="{{ $coverURL }}">
 
 {{ else }}
 
@@ -124,18 +126,14 @@
 <link rel="apple-touch-icon" href="{{ $icon152 | relURL }}">
 <link rel="manifest" href="{{ $manifest | relURL }}">
 
-<!-- Preload -->
-<link rel="preload" href="{{ $style.RelPermalink }}" as="style">
-<!-- FontAwesome is not preloaded because we use integrity and https://bugs.chromium.org/p/chromium/issues/detail?id=677022  -->
-{{ with .Site.Params.customStyle }}<link rel="preload" href="{{ $customStyle.RelPermalink }}" as="style">{{ end }}
-<link rel="preload" href="https://fonts.googleapis.com/css?family=Lobster" as="style">
-<link rel="preload" href="{{ $avatar.RelPermalink }}" as="image">
-<link rel="preload" href="{{ $bg.RelPermalink }}" as="image">
-
 <!-- Main Styles -->
 <style>
   body {
     background: rgb(244, 243, 241) url('{{ $bg.RelPermalink }}') repeat fixed;
+    background-attachment: scroll !important;
+  }
+  .title {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   }
 </style>
 <link rel="stylesheet" href="{{ $style.RelPermalink }}">
@@ -143,14 +141,8 @@
 <link rel="stylesheet" href="{{ $fontAwesome }}" {{ printf "integrity=%q" $fontAwesomeIntegrity | safeHTMLAttr }} crossorigin="anonymous">
 {{ end }}
 {{ with .Site.Params.customStyle }}<link rel="stylesheet" href="{{ $customStyle.RelPermalink }}">{{ end }}
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lobster">
-
-<!-- Medium Zoom -->
-{{ if and (eq .Kind "page") (eq .Type "post") }}
-<script src="https://cdn.jsdelivr.net/npm/medium-zoom@1.0.2/dist/medium-zoom.min.js"></script>
-{{ end }}
 
 <!-- Video.js Styles -->
-{{ if and (eq .Kind "page") (eq .Type "post") }}
+{{ if $hasVideo }}
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/video.js@7.3.0/dist/video-js.min.css">
 {{ end }}

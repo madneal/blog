@@ -2,7 +2,7 @@
 title: "Latex--入门系列一"
 author: Neal
 summary: "本文围绕《Latex--入门系列一》展开，重点梳理TeX, LaTeX以及他们的用法、Tex:排版和LATEX：文档编制等内容，提炼背景、思路与实践注意点。"
-cover: "/img/post-covers/latex-intro-1-ee43b57ea3.jpg"
+cover: "https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/optimized/covers/35f80cf6ffa50efbc0a9.webp"
 description: "Latex 专业的参考tex对于论文写作或者其他的一些需要拍版的写作来说，还是非常有意义的。我在网上看到这个对于Latex的入门介绍还是比较全面的，Arbitrary  reference .所以将会翻译出来，供初学者学习。TeX, LaTeX以及他们的用法Tex:排版Tex是Donald Knuth发明的一种排版语言。排版意味着从结构性的文本到审美的一个标准。在Tex里面，你可以控制文本的根本结构"
 tags: [LaTeX]
 categories: [论文写作]
@@ -24,7 +24,7 @@ Tex对于希望控制文本的人是非常友好的，一部分可能是因为�
 
 还有其他的一些优点和缺点。TeX的公式拍版是它的强项之一。在以前它可能是唯一较为正式的选择，即使像现在可以使用MathML或者MathType的时候，TeX也被认为是使用起来还是比较便利的。假如你以前还没有接触过TeX，那么你可尝试穿件下面的公式：
 
-![formula](https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/recovered/fix-latex-s1-formula.png)
+![formula](https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/optimized/content/6b8996b1ce1c190c8a5e.webp)
 
 在TeX仅仅使用`t) = h(t) \otimes g(t) \equiv \int h(\nu) g(t-\nu) d\nu`就可以搞定了。是不是看起来挺简单的。
 
@@ -48,7 +48,7 @@ LaTeX对于写文章，报告以及书籍有些基本的设置。
 
 ### 版本变化以及实现
 
-LaTeX最近通用![latex-v](https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/recovered/fix-latex-s1-latex2e.png)经常写作是LaTeX2e。我认为你是在使用这个版本的。通常这也无关紧要，但是有一些老的命令我不会特别提及。
+LaTeX最近通用![latex-v](https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/optimized/content/bd09696a147f764743ac.webp)经常写作是LaTeX2e。我认为你是在使用这个版本的。通常这也无关紧要，但是有一些老的命令我不会特别提及。
 
 注意这个版本以及老版本的LaTeX209是最通用的语言以及实现规范，并不针对特别的包或者实现。
 

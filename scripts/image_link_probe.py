@@ -118,11 +118,18 @@ def local_path_for(ref: str, blog_root: Path) -> Optional[Path]:
     if ref.startswith("http://") or ref.startswith("https://"):
         return None
     r = ref.split("?")[0]
-    if r.startswith("/"):
-        # Hugo static
-        return blog_root / "static" / r.lstrip("/")
-    # relative to content rarely used
-    return blog_root / "static" / r
+    relative = r.lstrip("/")
+    static_path = blog_root / "static" / relative
+    if static_path.exists():
+        return static_path
+
+    # Hugo Pipes resources live under assets/ but keep the same public URL.
+    asset_path = blog_root / "assets" / relative
+    if asset_path.exists():
+        return asset_path
+
+    # Keep the traditional static path in diagnostics when neither exists.
+    return static_path
 
 
 def looks_like_image_bytes(data: bytes) -> bool:
@@ -170,7 +177,13 @@ def probe_http(url: str, timeout: float = 12.0) -> Tuple[str, str, Optional[int]
     Always verifies GET body magic bytes so extension-mismatched CDN blobs
     (e.g. Atom XML saved as .png) are not reported as ok.
     """
-    ctx = ssl.create_default_context()
+    verify_paths = ssl.get_default_verify_paths()
+    system_ca = Path("/etc/ssl/cert.pem")
+    if verify_paths.cafile is None and system_ca.is_file():
+        # The python.org macOS runtime may not install its own CA bundle.
+        ctx = ssl.create_default_context(cafile=str(system_ca))
+    else:
+        ctx = ssl.create_default_context()
     headers = {
         "User-Agent": "Mozilla/5.0 (compatible; blog-image-probe/1.0)",
         "Accept": "image/*,*/*;q=0.8",
