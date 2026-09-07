@@ -2,7 +2,7 @@
 title: "PWK 以及 OSCP 最常见的问题"
 author: Neal
 summary: "本文围绕《PWK 以及 OSCP 最常见的问题》展开，重点梳理如何以及在哪参加 PWK、如何注册 PWK 以及 OSCP 考试和前提条件等内容，提炼背景、思路与实践注意点。"
-cover: "/img/post-covers/pwk-oscp-bf218fa961.jpg"
+cover: "https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/optimized/covers/fe02e8177043ff2e5d37.webp"
 tags: [安全, 渗透测试, 认证考试]
 keywords: [PWK,OSCP,渗透测试,认证,证书]
 categories: [安全]
@@ -49,7 +49,7 @@ OSCP 是永久的，一旦通过了，就彻底完成了。不需要像 CISSP �
 
 OSCP 最近涨价了，最低价格 999 刀。
 
-![PWK/OSCP 课程价格](/img/content/pwk-oscp-pricing.webp)
+![PWK/OSCP 课程价格](https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/optimized/content/10857709bf6bafd03045.webp)
 
 # 2020 年更新了
 

@@ -2,7 +2,7 @@
 title: "独立成分分析（Independent Component Analysis）"
 author: Neal
 summary: "本文围绕《独立成分分析（Independent Component Analysis）》展开，重点梳理定义、ICA的限制条件和白化等内容，提炼背景、思路与实践注意点。"
-cover: "/img/post-covers/ica-analysis-ed6a63b92a.jpg"
+cover: "https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/optimized/covers/f3689105f895ded720de.webp"
 description: "ICA是一种用于在统计数据中寻找隐藏的因素或者成分的方法。ICA是一种广泛用于盲缘分离的(BBS)方法，用于揭示随机变量或者信号中隐藏的信息。ICA被用于从混合信号中提取独立的信号信息。ICA在20世纪80年代提出来，但是知道90年代中后期才开始逐渐流行起来。
 ICA的起源可以来源于一个鸡尾酒会问题，我们假设三个观测点x1,x2,x3,放在房间里同时检测三个人说话，另三个人的原始信号为s1,s2,s"
 tags: [计算机视觉]
@@ -13,13 +13,13 @@ date: "2015-04-19 12:52:51"
 ICA是一种用于在统计数据中寻找隐藏的因素或者成分的方法。ICA是一种广泛用于盲缘分离的(BBS)方法，用于揭示随机变量或者信号中隐藏的信息。ICA被用于从混合信号中提取独立的信号信息。ICA在20世纪80年代提出来，但是知道90年代中后期才开始逐渐流行起来。
 ICA的起源可以来源于一个鸡尾酒会问题，我们假设三个观测点x1,x2,x3,放在房间里同时检测三个人说话，另三个人的原始信号为s1,s2,s3，则求解的过程可以如下图所示：
 
-![鸡尾酒会问题](/img/content/1983fe35fdc6.webp)
+![鸡尾酒会问题](https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/optimized/content/ea03c47513e1389f3ccd.webp)
 
 ## 定义 ##
 假设n个随机变量x1,x2,....xn,由n个随机变量s1,s2,...sn组成，并且这n个随机变量是相互独立的，可以用下面的公示表达：
 	
 
-![定义公式](/img/content/e339f24ed989.webp)
+![定义公式](https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/optimized/content/94f5f7898f77dbbe7a8e.webp)
 
 为了表达的方便，我们可以用向量的形式来表达：
 	**x = As**
@@ -33,7 +33,7 @@ ICA的起源可以来源于一个鸡尾酒会问题，我们假设三个观测�
 白化是一种比不相关性要稍微强一些的性质。对一个零均值的随即向量y进行白化处理，就是让它的组成成分不相关，并且让变量的方差相等。也就是说，变量y的协方差矩阵是单位矩阵：
 		
 
-![这里写图片描述](/img/content/e54b9e725fa1.webp)
+![这里写图片描述](https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/optimized/content/92f6a95ff734d6f85f59.webp)
 
 		
 
@@ -41,42 +41,42 @@ ICA的起源可以来源于一个鸡尾酒会问题，我们假设三个观测�
 ICA最基本的限制条件就是独立成分必须是非高斯分布的，这或许也是ICA早期没有流行起来的原因。我们假设变量x1和x2是高斯分布的，不相关的，且方差相等：
 	
 
-![高斯分布](/img/content/e320581206a1.webp)
+![高斯分布](https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/optimized/content/eb0b23972b0077484b2e.webp)
 
 下面的图表示联合概率分布，可以看出，我们无法判断任何关于变量x1和x2的方向信息，这就是为什么混合矩阵A不能被估计出来的原因：
 	
 
-![这里写图片描述](/img/content/c451b889df85.webp)
+![这里写图片描述](https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/optimized/content/163103614118b06c0e90.webp)
 
 ## 峭度 ##
 在这我们讲述一个利用峭度来进行ICA模型估计的方法，ICA的估计方法很多，这只是最基础的一个方法。
 对于变量y峭度可以由下面的公式定义：
 	
 
-![这里写图片描述](/img/content/28e76f64686c.webp)
+![这里写图片描述](https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/optimized/content/8fa836bb80f43b4485f8.webp)
 
 峭度是可正可负的，高斯分布变量的峭度是0，这也是为什么独立成分必须是非高斯分布的原因之一。峭度为负的变量分布称为次高斯分布，峭度为正的变量的分布则为超高斯分布，下图分别是拉普拉斯分布（超高斯分布）和均匀分布（次高斯分布）：
 	
 
-![这里写图片描述](/img/content/c42b6fc4bb77.webp)
+![这里写图片描述](https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/optimized/content/523f730a59684516ebea.webp)
 
 ## 基于峭度的梯度算法 ##
 我们经常利用峭度的绝对值或者平方来进行求解：
 	
 
-![这里写图片描述](/img/content/5e92b13a9f92.webp)
+![这里写图片描述](https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/optimized/content/d1d0d6262dd1a30f0550.webp)
 
 我们通过优化这个目标函数来估计ICA模型，z表示白化后的观察数据x。
 实际上，我们是使峭度极大化。我们会从某个方向向量w开始，然后计算在什么方向峭度的增长最快，我们则将方向向量w向这个方向移动。
 峭度绝对值的梯度可以如下计算：
 	
 
-![这里写图片描述](/img/content/587a81818814.webp)
+![这里写图片描述](https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/optimized/content/ac69d5f03f6939dc5d74.webp)
 
 下面是一个快速不动点算法基于峭度计算的流程图：
 	
 
-![这里写图片描述](/img/content/df696a26faf7.webp)
+![这里写图片描述](https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/optimized/content/48fe8d4620ab456aee49.webp)
 
 	## ICA估计的主要方法 ##
 	

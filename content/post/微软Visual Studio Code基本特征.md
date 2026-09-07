@@ -2,7 +2,7 @@
 title: "微软Visual Studio Code基本特征"
 author: Neal
 summary: "本文围绕《微软Visual Studio Code基本特征》展开，重点梳理文件，文件夹以及项目、打开VScode和基本布局等内容，提炼背景、思路与实践注意点。"
-cover: "/img/post-covers/vscode-features-16ec6e28ac.jpg"
+cover: "https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/optimized/covers/85965e67c63f198cb79a.webp"
 description: "Visual Studio Code它的核心功能还是作为一个代码编辑器。和其他的代码编辑器一样，VScode采取通用的UI和布局，浏览器在左边，显示所有的文件和文件夹，右边你打开的文件的编辑页面。文件，文件夹以及项目VScode是基于文件和文件夹的，你可以立即开始通过打开一个文件和文件夹。除了这些，VScode能够读不同框架和平台定义的项目文件。比如，如果你打开的文件夹包含一个或者多个package"
 tags: [开发工具]
 categories: [IT新闻]
@@ -33,7 +33,7 @@ code c:\src\webapp
 ```
 换句话说，打开包含项目的文件夹能够有效地打开项目：
 
-![这里写图片描述](/img/content/8a1a3cd6f88e.webp)
+![这里写图片描述](https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/optimized/content/de3466008090a2cf3fe2.webp)
 
 打开当前文件夹：
 
@@ -51,7 +51,7 @@ VScode布局简单，能够最大化编辑界面并且也能够留下足够的�
  每次你打开VScode都会恢复到上一次关闭的状态。文件夹布局如下所示。
  
 
-![这里写图片描述](/img/content/204533011716.webp)
+![这里写图片描述](https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/optimized/content/a221734294104b1f66dc.webp)
 
  不是把文件放在不同的tab之中，VScode可以最多同时打开3个编辑器。
  ## 并排编辑 ##
@@ -62,6 +62,6 @@ VScode布局简单，能够最大化编辑界面并且也能够留下足够的�
  - comman+\ 将编辑器分成两个
  
 
-![这里写图片描述](/img/content/522e7f3ea9f6.webp)
+![这里写图片描述](https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/optimized/content/65c934d844b190d311fc.webp)
 
  无论何时你打开另外一个文件，编辑器将会激活正在打开的文件。

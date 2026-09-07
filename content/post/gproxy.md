@@ -2,7 +2,7 @@
 title: "真香系列之 Golang 升级"
 author: Neal
 summary: "本文围绕《真香系列之 Golang 升级》展开，重点梳理升级 Golang 版本、原有代码升级和GShark等内容，提炼背景、思路与实践注意点。"
-cover: "/img/post-covers/gproxy-a3b61bd065.jpg"
+cover: "https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/optimized/covers/1e416df188187d5cc19f.webp"
 tags: [安全, 安全开发, Go]
 categories: [golang]
 date: "2019-09-23"
@@ -90,7 +90,7 @@ GShark 是我之前开源的一款 Github 敏感信息监测的系统，之前�
 
 通过上面几步就可以启动 GShark 服务了。GShark 目前仅仅由我一个人维护，希望可以吸收社区优秀的建议，欢迎 PR。可以扫码加入微信群。
 
-![GShark 编译运行](/img/content/csdn-2956403fd674070be2b828006509edec.webp)
+![GShark 编译运行](https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/optimized/content/18ed22e6b2edbfa1f474.webp)
 
 ## 总结
 

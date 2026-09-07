@@ -2,7 +2,7 @@
 title: "SFTP 未关闭 Session 导致服务器 sshd 进程残留"
 author: Neal
 summary: "JSch 使用 ChannelSftp 后只 disconnect channel 不够：必须关闭 Session，否则远端 sshd 会话进程堆积。附正确释放顺序与 finally 模板。"
-cover: "/img/post-covers/sftp-session-leak-457e2fd060.jpg"
+cover: "https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/optimized/covers/6a8a1da676cd93afe122.webp"
 tags: [后端, Java, 工具, SFTP]
 categories: [java开发]
 date: "2016-07-28"

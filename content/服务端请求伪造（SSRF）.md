@@ -2,7 +2,7 @@
 title: "服务端请求伪造（SSRF）攻击"
 author: Neal
 summary: "从原理到利用面：SSRF 如何把服务器变成代理，云元数据与内网风险，常见入口，以及过滤、白名单与架构层的防护清单。"
-cover: "/img/post-covers/ssrf-3c32b9e205.jpg"
+cover: "https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/optimized/covers/d8e1710091c150670fbe.webp"
 tags: [安全, Web安全, 漏洞分析, SSRF]
 categories: [安全]
 date: "2019-02-22"

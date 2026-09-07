@@ -1,7 +1,7 @@
 ---
 title: "pwa, 上海地铁线路图全新重构"
 summary: "本文围绕《pwa, 上海地铁线路图全新重构》展开，重点梳理准备、设计和组件结构等内容，提炼背景、思路与实践注意点。"
-cover: "/img/post-covers/pwa-shanghai-metro-c2750396bd.jpg"
+cover: "https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/optimized/covers/6db03c77deddabb2d70e.webp"
 tags: [JavaScript, 前端]
 keywords: [pwa,react,subway,shanghai,shanghai subway,上海地铁,上海]
 date: "2018-03-21"
@@ -40,7 +40,7 @@ const str = JSON.stringify(result);
 
 将整个地图理解成一个 Map 组件，再将其分为 4 个小组件：
 
-![map.png](/img/content/fix-final2-pwa--00.webp)
+![map.png](https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/optimized/content/2178100c7aac95f8f997.webp)
 
 * Label: 地图上的文本信息，包括地铁站名，线路名称
 * Station: 地铁站点，包括普通站点和中转站点
@@ -119,7 +119,7 @@ transform: translate(-100px, -300px)
 这样实现了整个 svg 图位置的偏移，使用 lighthouse 进行分析，性能分降到了 70 多分。继续想想有没有其他的方法，后来我想在最左上上角定义一个箭头动画。
 
 ```html
-<img src="/img/content/fix-pwa-right-arrow.webp" alt="right-arrow">
+<img src="https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/optimized/content/6d0e1bacbd8dd8bced31.webp" alt="right-arrow">
 ```
 
 ```css 
@@ -139,7 +139,7 @@ transform: translate(-100px, -300px)
 } 
 ```
 
-![right_arrow.gif](/img/content/fix-final2-pwa--02.webp)
+![right_arrow.gif](https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/optimized/content/f63c5274df3033bbc522.webp)
 
 这样我们就可以创建一个循环向右移动的动画，提示用户向右滑动。部署之后发现性能分立马降到 0，索性也就放弃了这个做法。最后来时决定采用 `transform: translateX(-200px) translateY(-300px);` ，因为这样通过 css3 的属性可以在一些移动设备上还可以利用 GPU 加速，并且 translateX 不会引起页面的重绘或者重排，只会导致图层重组，最小避免对性能的影响。
 
@@ -171,4 +171,4 @@ transform: translate(-100px, -300px)
 
 欢迎搜索微信号 mad_coder 或者扫描二维码关注公众号：
 
-![上海地铁线路图](/img/content/csdn-5452fa9e839c0b314fc3a853c3de3ec2.webp)
+![上海地铁线路图](https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/optimized/content/2178100c7aac95f8f997.webp)

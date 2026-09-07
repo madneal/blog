@@ -2,7 +2,7 @@
 title: "黑产代码解密--利用canvas加载代码"
 author: Neal
 summary: "本文围绕《黑产代码解密--利用canvas加载代码》梳理web security、安全和前端相关的背景、方法和实践细节，可作为排查与学习记录。"
-cover: "/img/post-covers/malware-canvas-decode-7f41d0c557.jpg"
+cover: "https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/optimized/covers/74f3d23d78d30f27872f.webp"
 description: ""
 tags: [安全, 前端]
 categories: [web security]
@@ -137,7 +137,7 @@ readCodeFromImg();
 
 欢迎搜索微信号 mad_coder 或者扫描二维码关注公众号：
 
-![文章配图](/img/content/csdn-4d78a87c27ba79f6fbf86fae1158ebc3.webp)
+![文章配图](https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/optimized/content/387c5c549c14ee6eb3d5.webp)
 
 ## 分析收获
 

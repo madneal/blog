@@ -6,13 +6,12 @@
     <p class="post-meta">@{{ if isset $page.Params "author" }}{{ $page.Params.author }}{{ else }}{{ $page.Site.Params.author }}{{ end }} · {{ $page.Date.Format "Jan 2, 2006" }} · {{ mul $page.ReadingTime 3 }} min read</p>
   </header>
   {{ with $page.Params.cover }}
-    {{- $coverPath := strings.TrimPrefix "/" . -}}
-    {{- with resources.Get $coverPath -}}
-      {{- $coverSmall := .Resize "320x webp q72" -}}
-      {{- $coverLarge := .Resize "720x webp q72" -}}
+    {{- if hasPrefix . "https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/optimized/covers/" -}}
+      {{- $coverSmall := replaceRE "\\.webp$" "-320.webp" . -}}
+      {{- $coverLarge := replaceRE "\\.webp$" "-720.webp" . -}}
       <img class="post-cover"
-        src="{{ $coverSmall.RelPermalink }}"
-        srcset="{{ $coverSmall.RelPermalink }} 320w, {{ $coverLarge.RelPermalink }} 720w"
+        src="{{ $coverSmall }}"
+        srcset="{{ $coverSmall }} 320w, {{ $coverLarge }} 720w"
         sizes="(max-width: 800px) 100vw, 128px"
         width="1200" height="630"
         alt="{{ $page.Title }}"

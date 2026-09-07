@@ -2,7 +2,7 @@
 title: "原生 JS 实现图片轮播：结构、样式与交互"
 author: "Neal"
 summary: "用 HTML/CSS/JS 实现带指示点与左右箭头的轮播：绝对定位叠图、自动播放、悬停暂停，以及无障碍与性能注意点。"
-cover: "/img/post-covers/js-carousel-48e629cb6b.jpg"
+cover: "https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/optimized/covers/56baf2b08762de8306e9.webp"
 tags: [前端, JavaScript, CSS]
 categories: [web前端]
 date: "2015-10-21"
@@ -17,9 +17,9 @@ lastmod: "2026-08-08"
 ```html
 <div id="flash" class="carousel">
   <ul id="pic" class="slides">
-    <li class="is-active"><img src="/img/content/fix-carousel-slide-1.webp" alt="slide 1"></li>
-    <li><img src="/img/content/fix-carousel-slide-2.webp" alt="slide 2"></li>
-    <li><img src="/img/content/fix-carousel-slide-3.webp" alt="slide 3"></li>
+    <li class="is-active"><img src="https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/optimized/content/a92b09d22995cf7861e5.webp" alt="slide 1"></li>
+    <li><img src="https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/optimized/content/358aa74966f1ebd20707.webp" alt="slide 2"></li>
+    <li><img src="https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/optimized/content/1e4b825ce0e55ce896d9.webp" alt="slide 3"></li>
   </ul>
   <ol id="num" class="dots"></ol>
   <button type="button" id="left" class="arrow" aria-label="上一张">‹</button>

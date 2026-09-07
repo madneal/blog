@@ -2,7 +2,7 @@
 title: "POI读取文件的最佳实践"
 author: Neal
 summary: "本文围绕《POI读取文件的最佳实践》展开，重点梳理word 篇和excel 篇等内容，提炼背景、思路与实践注意点。"
-cover: "/img/post-covers/poi-excel-3045fea56a.jpg"
+cover: "https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/optimized/covers/a30edc9fbd5b602b7a26.webp"
 description: "POI是 Apache 旗下一款读写微软家文档声名显赫的类库。应该很多人在做报表的导出，或者创建 word 文档以及读取之类的都是用过 POI。POI 也的确对于这些操作带来很大的便利性。我最近做的一个工具就是读取计算机中的 word 以及 excel 文件。下面我就两方面讲解以下遇到的一些坑：word 篇对于 word 文件，我需要的就是提取文件中正文的文字。所以可以创建一个方法来读取 doc 或"
 tags: [学习笔记]
 categories: [java开发]
@@ -50,7 +50,7 @@ org.apache.poi.poifs.filesystem.OfficeXmlFileException: The supplied data appear
 
 其实 doc 和 docx 的本质不同的，doc 是 OLE2 类型，而 docx 而是 OOXML 类型。如果你用压缩文件打开一个 docx 文件，你会发现一些文件夹：
 
-![这里写图片描述](/img/content/5076095300e7.webp)
+![这里写图片描述](https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/optimized/content/32883a4f1733272f6b65.webp)
 
 本质上 docx 文件就是一个 zip 文件，里面包含了一些 xml 文件。所以，一些 docx 文件虽然大小不大，但是其内部的 xml 文件确实比较大的，这也是为什么在读取某些看起来不是很大的 docx 文件的时候却耗费了大量的内存。
 

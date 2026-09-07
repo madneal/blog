@@ -2,7 +2,7 @@
 title: "如何写一个 burp 插件"
 author: Neal
 summary: "本文围绕《如何写一个 burp 插件》展开，重点梳理如何调试、Burp 开发和总结等内容，提炼背景、思路与实践注意点。"
-cover: "/img/post-covers/burp-dc55456394.jpg"
+cover: "https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/optimized/covers/539f2c5fc19c5e394021.webp"
 tags: [安全, Web安全, 安全开发, Burp]
 keywords: [Burp,Burp 插件,web安全,IDEA]
 description: "开发 Burp 插件，并学会如何调试"
@@ -21,7 +21,7 @@ Burp 是 web安全测试中不可或缺的神器。每一个师傅的电脑里�
 
 首先是在 IDEA 里面配置调试。点击右上角里面的配置，点击 "Edit Configurations" 就可以进入对 DEBUG 的配置页面。新增一个 Remote 配置，命名可以随自己的喜好。
 
-![nSZGi8.png](/img/content/b011a99f7497.webp)
+![nSZGi8.png](https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/optimized/content/a7c4dd6aca423d3ae759.webp)
 
 2. 命令行启动 Burp
 
@@ -35,7 +35,7 @@ java -agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=5005 -jar bur
 
 可以现在程序中打一下断点。接着就是编译 jar 包，并且启动 IDE 的 DEBUG。将 jar 包部署到 Burp 中，下面就可以快乐地调试了。
 
-![Burp 插件调试](/img/content/csdn-3d16835ddc318893428d5bc360e06169.webp)
+![Burp 插件调试](https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/optimized/content/fba4d6125d353336cfcd.webp)
 
 ## Burp 开发
 

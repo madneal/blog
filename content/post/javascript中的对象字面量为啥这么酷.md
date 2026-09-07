@@ -2,7 +2,7 @@
 title: "javascript中的对象字面量为啥这么酷"
 author: Neal
 summary: "本文围绕《javascript中的对象字面量为啥这么酷》展开，重点梳理1.在对象构造函数中设置原型和2.1proto使用的一些特别案例等内容，提炼背景、思路与实践注意点。"
-cover: "/img/post-covers/js-object-literal-1cfa5f7a48.jpg"
+cover: "https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/optimized/covers/46dab8d0b4844b3c1d14.webp"
 description: "原文链接 : Why object literals in JavaScript are cool
   原文作者 : Dmitri Pavlutin
   译者 : neal1991
@@ -76,7 +76,7 @@ myNumbers.propertyExists('collection'); // => false
 
 我们也可展望下未来可以下心的提议在（[第二部分](https://github.com/sebmarkbage/ecmascript-rest-spread#status-of-this-proposal)）：通过使用对象中的rest以及spread属性
 
-![Infographic](/img/content/fix-object-literal-infographic-1.webp)
+![Infographic](https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/optimized/content/fbcb725ed78c0936208e.webp)
 
 ### 1.在对象构造函数中设置原型
 
@@ -137,7 +137,7 @@ As you know already, one option to access the prototype of an existing object is
 
 即使`__proto__`看起来十分简单，但是还是又一些特殊的情形需要注意：
 
-![Infographic](/img/content/fix-object-literal-infographic-2.webp)
+![Infographic](https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/optimized/content/0f06213bb688e015a911.webp)
 
 只允许在对象字面量中使用一次`__proto__`。一旦重复使用就会出现下面的错误：
 

@@ -2,7 +2,7 @@
 title: "不到一分钟拿到可用 PoC：Julen Garrido Estévez 测试 Burp AI  "
 author: Neal
 summary: "PortSwigger 客座文译文：对比三种提示词风格，用 Academy 实验室验证 Burp AI 能否在约一分钟内产出可用 PoC，并附可复用的提示词与 Notes 模板。"
-cover: "/img/post-covers/burp-ai-0d500a4cf1.jpg"
+cover: "https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/optimized/covers/8d27bf494c797ce542e4.webp"
 tags: [安全, Web安全, AI, Burp]
 keywords: [Burp, AI]
 categories: [安全]
@@ -23,7 +23,7 @@ Hassan Ud-Deen | 2026 年 1 月 16 日 00:00（UTC）
 
 _注：本文为客座文章，由渗透测试人员 [Julen Garrido Estévez](https://www.linkedin.com/in/julen-garrido-estevez/)（@b3xal）撰写。_  
 
-![](/img/content/fix-b2b83ec7e201.webp)
+![](https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/optimized/content/ef91ae463fb50a6179b9.webp)
 
 - [方法论](#方法论)  
 - [关键结果](#关键结果)  
@@ -77,7 +77,7 @@ _注：本文为客座文章，由渗透测试人员 [Julen Garrido Estévez](ht
 
 下面摘录的是最具代表性的会话片段。这些数据来自我在受控环境下的测试，用于调优如何编写最佳提示词。  
 
-![](/img/content/fix-0df66c7a0ddb.webp)
+![](https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/optimized/content/d32930235ed7a12908af.webp)
 
 ## 关键结果  
 
@@ -124,9 +124,9 @@ _注：本文为客座文章，由渗透测试人员 [Julen Garrido Estévez](ht
 
 第一个场景是一个商品网站，用户可以浏览商品并查看描述。我之前观察到：请求不存在的商品会触发重定向，而重定向后的请求里有一个 `message` 参数会在页面中反射显示。这种反射提示了可能存在 [XSS](https://portswigger.net/web-security/cross-site-scripting) 或 SSTI。
 
-![](/img/content/fix-6e6f804cdb8f.webp)
+![](https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/optimized/content/b8e259e302a685a6c65a.webp)
 
-![](/img/content/fix-1b4fb6d80efa.webp)
+![](https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/optimized/content/7c7318baad9376102f17.webp)
 
 我给 Burp AI 一个聚焦的提示词：
 
@@ -150,21 +150,21 @@ _注：本文为客座文章，由渗透测试人员 [Julen Garrido Estévez](ht
 
 结果是：迅速且高效地得到了一个干净、可用的 SSTI PoC。
 
-![](/img/content/fix-494a98a03b9a.webp)
+![](https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/optimized/content/270b5a4e92be66021d33.webp)
 
-![](/img/content/fix-90b7405cf766.webp)
+![](https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/optimized/content/7941b06d2b45db680f88.webp)
 
-![](/img/content/fix-d3ae1dd30dd6.webp)
+![](https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/optimized/content/b16180663e14188e1ca0.webp)
 
-![](/img/content/fix-09e7bedc7bf9.webp)
+![](https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/optimized/content/e8f640b838fa4a5fa2b7.webp)
 
 ### 示例 B — 不安全反序列化
 
 第二个测试中，我关注一个商品页面：登录后它会发放一个序列化的 PHP 对象作为 session cookie。基于之前测试，我知道如果能操纵这个 cookie，可能就能拿到其他用户的会话。
 
-![](/img/content/fix-554955664c59.webp)
+![](https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/optimized/content/a1e995b31166cd30eda0.webp)
 
-![](/img/content/fix-5686e7ba5995.webp)
+![](https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/optimized/content/42a80dcb82b5a701429e.webp)
 
 这次我让 Burp AI 调查 `session` cookie：
 
@@ -188,11 +188,11 @@ _注：本文为客座文章，由渗透测试人员 [Julen Garrido Estévez](ht
 
 成本约 €0.34，既快又省。
 
-![](/img/content/fix-6b120dc3e5cd.webp)
+![](https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/optimized/content/4217d5d658594bf4a683.webp)
 
-![](/img/content/fix-95777093cb97.webp)
+![](https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/optimized/content/27c05dcad605b5e90c34.webp)
 
-![](/img/content/fix-cacf694dad62.webp)
+![](https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/optimized/content/f29fed8f01a9566eb799.webp)
 
 这两个示例让我看到：Burp AI 并不只是跑固定 payload 或“打勾式检查”；它会主动分析每个情境，按反馈调整策略，并以一种很类人的方式确认漏洞。感觉就像有一位经验丰富的测试人员在后台安静地工作：速度很快，但也足够谨慎。
 
@@ -221,7 +221,7 @@ _注：本文为客座文章，由渗透测试人员 [Julen Garrido Estévez](ht
 
 较长任务会受到内部 20 步限制，但 AI 也可能在得到结果后提前退出。就像前面的示例一样，我倾向于在提示词里加入明确的停止条件。“确认即停止”不仅能防止过度测试，也有助于控制成本与速度。
 
-![](/img/content/fix-31a1f21042aa.webp)
+![](https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/optimized/content/62792aa7a89d114b5e3f.webp)
 
 ## 提示词模板
 

@@ -2,7 +2,7 @@
 title: "service worker介绍"
 author: Neal
 summary: "本文围绕《service worker介绍》展开，重点梳理那么它是什么？、开始和只有你说HTTPS？等内容，提炼背景、思路与实践注意点。"
-cover: "/img/post-covers/service-worker-intro-416ab87250.jpg"
+cover: "https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/optimized/covers/bfeb16c9a2236b292d67.webp"
 description: "原文：Service workers explained
   
   译者：neal1991

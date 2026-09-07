@@ -2,14 +2,14 @@
 title: "Bastion -- Hack the box"
 author: Neal
 summary: "本文围绕《Bastion -- Hack the box》展开，重点梳理介绍、信息枚举和利用等内容，提炼背景、思路与实践注意点。"
-cover: "/img/post-covers/bastion-a6152de482.jpg"
+cover: "https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/optimized/covers/93b0cd5d1eae9e0ce04e.webp"
 description: ""
 tags: [安全, Web安全, 渗透测试, HTB]
 categories: [安全]
 date: "2019-09-22"
 ---
 
-![E4RxRs.png](/img/content/d4886d8e0f5f.webp)
+![E4RxRs.png](https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/optimized/content/dc73614b27d2a30da095.webp)
 
 ## 介绍
 
@@ -119,19 +119,19 @@ There seem to be nothing special. For a normal box, http service will be the sta
 smbclient -L 10.10.10.134
 ```
 
-![E4RxRs.png](/img/content/d4886d8e0f5f.webp)
+![E4RxRs.png](https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/optimized/content/dc73614b27d2a30da095.webp)
 
 With smbclient, we can see the smb shares of this box without any password. Try to access the share by `smbclient //10.10.10.134/sharename`. But the three shares cannot be accessed except `Backups`.
 
 通过 smbclient，我们可以在不使用密码的情况下看到这台靶机的共享。通过 `smbclient //10.10.10.134/sharename` 来尝试访问共享路径，我们发现只有 `Backups` 是可以访问的。
 
-![SMB 共享枚举](/img/content/58f0086ca9bf.webp)
+![SMB 共享枚举](https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/optimized/content/30719625735abecbd5a1.webp)
 
 Access to the share of `Backups`: `smbclient //10.10.10.134/Backups`:
 
 访问共享 `Backups`: `smbclient //10.10.10.134/Backups`：
 
-![Backups 共享](/img/content/56fb0b53a3b1.webp)
+![Backups 共享](https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/optimized/content/87fab4a9e6462e04610b.webp)
 
 There is a note.txt in the share:
 
@@ -149,13 +149,13 @@ It does is a hint for something useful in the exploitation. It is inconvenient t
 mount -t cifs //10.10.10.134/Backups -o user=guest,password= /mnt/backups
 ```
 
-![挂载 Backups 共享](/img/content/2afb7f41d669.webp)
+![挂载 Backups 共享](https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/optimized/content/4f77256e01bd31683c7a.webp)
 
 Here, we can access the files directly. It may be a backup folder. After some exploration, we have found some interesting files.
 
 这样我们就可以直接访问文件了。这个可能是一个备份文件夹。在一些尝试之后，我们发现了一些有趣的文件。
 
-![备份文件](/img/content/fd63329d0edf.webp)
+![备份文件](https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/optimized/content/396446f5adea7610bb7a.webp)
 
 VHD(virtual hard disk) files seem to be very interesting. According to the wiki, `VHD is a file format which represents a virtual hard disk drive (HDD). It may contain what is found on a physical HDD, such as disk partitions and a file system, which in turn can contain files and folders. It is typically used as the hard disk of a virtual machine`. So we may find more interesting contents in the VHD files. There are two vhd files, one is 37M, and the other is 5.1 G. The larger one seems to be attractive to us. But it will be inconvenient to download the whole vhd file. According to the discussions in the forum, the author has said that you don't have to download the vhd file. Try to mount the vhd file to kai:
 
@@ -169,19 +169,19 @@ The operation may cost some time if the network is not very stable. Then, the vh
 
 在网络不是很稳定的情况下这个操作还是蛮耗时的。接着，这个 VHD 文件就挂载成功了。这应该是一个系统硬盘，没有什么特别的信息。但是我们可以在里面发现一个 SAM 文件。安全帐户管理器（SAM）是 Windows 中用于存储用户密码的数据库文件。尝试访问 SAM 文件，`samdump2` 可以将哈希导出。
 
-![SAM 文件](/img/content/8eb8b5e3ec6a.webp)
+![SAM 文件](https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/optimized/content/3bbfb1a0cbf48f6d943f.webp)
 
 From the dumped hash, the hash of L4mpje seems to be useful. We can access [HashKiller](https://hashkiller.co.uk/Cracker) to crack the hash.
 
 从上面导出的哈希，L4mpje 的哈希看起来很有用。我们可以使用在线哈希破解网站 [HashKiller](https://hashkiller.co.uk/Cracker) 来破解哈希。
 
-![HashKiller 破解结果](/img/content/f322d73b4fa7.webp)
+![HashKiller 破解结果](https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/optimized/content/8a5482cbf3b4be8610b8.webp)
 
 We cracked it! As we know the box opens ssh service, so try to access ssh with the user of L4mpje. Of course, we are in. 
 
 很容易我们就破解了这个哈希。而且据我们一开始获取的信息，这台靶机是开放了 ssh 服务的，所以我们尝试使用 L4mpje 作为用户名来登录。很幸运，我们进来了。
 
-![SSH 登录](/img/content/8dbeee5375c4.webp)
+![SSH 登录](https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/optimized/content/c74c180cf39fa78f87e7.webp)
 
 ## Privilege escalation·
 
@@ -191,13 +191,13 @@ After login with user L4mpje, we find that we have relatively limited permission
 
 在使用 L4mpje 用户登录成功后，我们发现我们的权限很有限。一般提权可以利用某些软件的漏洞来完成。所以，探测这个靶机安装了哪些软件很有意义。
 
-![程序枚举](/img/content/8e24b4bb2cb2.webp)
+![程序枚举](https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/optimized/content/01408e60c9801c15c9e7.webp)
 
 We can find an interesting folder `mRemoteNG`. [It](https://github.com/mRemoteNG/mRemoteNG) is an open source remote connections management tool. But there is a problem that the connections user information can be obtained by the config files. For this box, someone has created a tool to crack the password in this config file. The config file is store is the AppData folder.
 
 我们发现了一个有趣的文件夹 `mRemoteNG`。[它](https://github.com/mRemoteNG/mRemoteNG)是一个开源的远程连接管理工具。它曾经有一个漏洞，可以通过配置文件获取用户的连接信息。对于这台靶机，已经有人创建了一个工具来破解这个配置文件中的密码。配置文件存储在 AppData 文件夹中。
 
-![mRemoteNG 配置](/img/content/681e98c3080d.webp)
+![mRemoteNG 配置](https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/optimized/content/b6b58fa51908ff96388b.webp)
 
 It seems that the password of Administrator is stored in the XML file. Someone has created [mremoteng-decrypt](https://github.com/kmahyyg/mremoteng-decrypt) to crack the password. It is so convenient thanks to his awesome work.
 
@@ -207,10 +207,10 @@ It seems that the password of Administrator is stored in the XML file. Someone h
 java -jar decipher_mremoteng.jar "aEWNFV5uGcjUHF0uS17QTdT9kVqtKCPeoC0Nw5dmaPFjNQ2kt/zO5xDqE4HdVmHAowVRdC7emf7lWWA10dQKiw=="
 ```
 
-![mRemoteNG 密文破解](/img/content/a49ddbfa2871.webp)
+![mRemoteNG 密文破解](https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/optimized/content/c028eef377be70763c53.webp)
 
 Wow, we get the password of Administrator.
 
 最终，我们获取了 Administrator 的密码。
 
-![Administrator 密码](/img/content/2950f8e8ceaa.webp)
+![Administrator 密码](https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/optimized/content/a36d7f63528ccffed059.webp)

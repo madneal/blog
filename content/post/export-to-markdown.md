@@ -2,7 +2,7 @@
 title: "大佬，您这是在借鉴嘛"
 author: Neal
 summary: "本文围绕《大佬，您这是在借鉴嘛》展开，重点梳理对比、插件介绍和我的插件等内容，提炼背景、思路与实践注意点。"
-cover: "/img/post-covers/export-to-markdown-fdb876aa1f.jpg"
+cover: "https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/optimized/covers/05c4d4d01b81b0777933.webp"
 tags: [前端, 工程化, 工具]
 categories: [前端开发]
 date: "2024-06-27"

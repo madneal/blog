@@ -2,7 +2,7 @@
 title: "Chrome 最新零日漏洞"
 author: Neal
 summary: "本文围绕《Chrome 最新零日漏洞》展开，重点梳理摘要、技术细节和有效载荷说明等内容，提炼背景、思路与实践注意点。"
-cover: "/img/post-covers/chrome-9fd05e71e1.jpg"
+cover: "https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/optimized/covers/4428b657bf595de177f8.webp"
 tags: [安全, Web安全, 漏洞分析, 前端]
 keywords: [Chrome,安全漏洞,零日漏洞,apt,卡巴斯基,javascript]
 categories: [安全]
@@ -32,7 +32,7 @@ date: "2019-11-10"
 
 攻击利用朝鲜语新闻门户上的水坑式注入。在主页中插入了恶意的 JavaScript 代码，恶意代码又从远程站点加载了分析脚本。
 
-![Chrome 漏洞分析截图](/img/content/csdn-e109ed9866dd24a7a21ae1df6863f969.webp)
+![Chrome 漏洞分析截图](https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/optimized/content/5b6ebafb57a1416013cb.webp)
 
 **重定向到漏洞利用登录页面**
 
@@ -40,19 +40,19 @@ date: "2019-11-10"
 
 然后，该脚本将加载另一个名为 .charlie.XXXXXXXX.js 的脚本。该 JavaScript 通过与浏览器的用户代理进行比较来检查受害者的系统是否能被感染，程序应在 64位 版本的 Windows 上运行，而不是 WOW64 进程；它还尝试获取浏览器的名称和版本。该漏洞试图利用 Google Chrome 浏览器中的 bug，脚本会检查该版本是否大于或等于65（当前的Chrome版本为78）：
 
-![Chrome 版本检测](/img/content/securelist-wizardopium-02.webp)
+![Chrome 版本检测](https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/optimized/content/a13e351e8af6e8d592a7.webp)
 
 **分析脚本（.charlie.XXXXXXXX.js）中 Chrome 版本检测**
 
 如果检测出浏览器版本，脚本将开始向攻击者的受控服务器 (behindcorona[.]com) 发送一些 AJAX 请求，其中路径名指向传递给脚本（xxxxxxx.php）的参数。首先需要获得一些将来有用的重要信息。该信息包括几个十六进制编码的字符串，这些字符串告诉脚本应从服务器下载多少个实际漏洞利用代码，以及图像文件的 URL，这个图片嵌入了最终载荷的密钥和RC4密钥从而对漏洞利用代码解密。
 
-![漏洞利用链](/img/content/securelist-wizardopium-03.webp)
+![漏洞利用链](https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/optimized/content/d246a5f4774ad6d12ffc.webp)
 
 **漏洞利用链– AJAX 请求 xxxxxxx.php**
 
 下载完所有代码块后，RC4 脚本将所有部分解密并拼接在一起，这为攻击者提供了一个包含完整浏览器漏洞的新 JavaScript 代码。为了解密这些部分，使用了之前的 RC4 密钥。
 
-![另一次 Chrome 版本检测](/img/content/securelist-wizardopium-04.webp)
+![另一次 Chrome 版本检测](https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/optimized/content/bc77ec4473b7614d2f73.webp)
 
 **另一次版本检测**
 
@@ -60,13 +60,13 @@ date: "2019-11-10"
 
 1. 对用户代理的字符串进行另一项检查–这次它检查浏览器版本是 76 还是77。这可能意味着漏洞利用作者仅使用这些版本（先前的漏洞利用阶段检查的版本号为65或更高）或过去使用曾在旧版 Chrome 中使用过其他漏洞利用。
 
-![混淆后的漏洞利用代码](/img/content/securelist-wizardopium-05.webp)
+![混淆后的漏洞利用代码](https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/optimized/content/ec9d2b8cde28456cc70e.webp)
 
 **混淆后的漏洞利用代码**
 
 2. 操作浏览器的内置 BigInt 类，这个类在 JavaScript 代码中执行 64 位算术很有用，例如，在 64位 环境中使用原生指针。通常情况下，漏洞利用开发者通过与32位数字实现自己的功能。但是，在这种情况下，使用的是BigInt，它应该更快，因为它是在浏览器的代码中本地实现的。漏洞利用开发者此处并未使用全部 64 位，而是使用较小的数字范围。这就是为什么它们实现一些功能以与数字的较高/较低部分兼容原因。
 
-![使用 64 位数字的代码片段](/img/content/securelist-wizardopium-06.webp)
+![使用 64 位数字的代码片段](https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/optimized/content/015b098603a3068a19cb.webp)
 
 **使用 64 位数字的代码片段**
 
@@ -84,7 +84,7 @@ date: "2019-11-10"
 
 该漏洞尝试执行许多操作来分配/释放内存以及其他技术，这些技术最终为攻击者提供了任意的读/写能力。这用于制作可以与 WebAssembly 和 FileReader 一起使用的特殊对象来执行嵌入的 Shellcode 有效载荷。
 
-![第一阶段 shellcode](/img/content/securelist-wizardopium-07.webp)
+![第一阶段 shellcode](https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/optimized/content/7b63f66123f51d854bb6.webp)
 
 **第一阶段 shellcode**
 
@@ -92,7 +92,7 @@ date: "2019-11-10"
 
 最终的有效载荷将作为加密的二进制文件（worst.jpg）下载，并由shellcode解密。
 
-![加密的有效载荷](/img/content/securelist-wizardopium-08.webp)
+![加密的有效载荷](https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/optimized/content/6c0008916a2a0edc1e90.webp)
 
 **加密的有效载荷– Worst.jpg**
 
@@ -106,7 +106,7 @@ SHA256: 35373d07c2e408838812ff210aa28d90e97e38f2d0132a86085b0d54256cc1cd
 
 这个文档包含两个文件：
 
-![有效载荷中的文件信息](/img/content/securelist-wizardopium-code.webp)
+![有效载荷中的文件信息](https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/optimized/content/4eb00017aec71a619499.webp)
 
 文件名: iohelper.exe
 

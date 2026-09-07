@@ -2,7 +2,7 @@
 title: "LaTeX 画一张简单三线表"
 author: "Neal"
 summary: "从 tabular 基础列格式讲到 booktabs 三线表、caption/label 与跨页长表入口，给出论文里最常用的最小模板。"
-cover: "/img/post-covers/latex-simple-table-1ce271729b.jpg"
+cover: "https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/optimized/covers/c73531e45f457b8466de.webp"
 tags: [LaTeX, 论文写作]
 categories: [论文写作]
 date: "2015-09-26"

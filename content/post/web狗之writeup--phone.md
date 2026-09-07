@@ -2,7 +2,7 @@
 title: "web 狗之writeup--phone"
 author: Neal
 summary: "本文围绕《web 狗之writeup--phone》展开，重点梳理正常用户、数据库名和表名等内容，提炼背景、思路与实践注意点。"
-cover: "/img/post-covers/webdog-phone-ctf-7187ad4868.jpg"
+cover: "https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/optimized/covers/a3bee8491b7ee2ee6d59.webp"
 description: ""
 tags: [学习笔记]
 categories: [CTF]

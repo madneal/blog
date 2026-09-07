@@ -2,7 +2,7 @@
 title: "nodejs回调大坑"
 author: Neal
 summary: "本文围绕《nodejs回调大坑》梳理web前端、JavaScript和后端相关的背景、方法和实践细节，可作为排查与学习记录。"
-cover: "/img/post-covers/nodejs-callback-hell-d05cca669d.jpg"
+cover: "https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/optimized/covers/f7163917a02be1a9576a.webp"
 description: "最近看到nodejs，因为有一个处理里面有好几个异步操作，调入回调大坑，不禁觉得很恶心，真的很讨厌发明这种写法的人，简直反社会！！！遂转载一篇解坑的文章，原文地址：http://www.infoq.com/cn/articles/nodejs-callback-hell/。Node.js需要按顺序执行异步逻辑时一般采用后续传递风格，也就是将后续逻辑封装在回调函数中作为起始函数的参数，逐层嵌套。这种风"
 tags: [JavaScript, 后端]
 categories: [web前端]
@@ -25,7 +25,7 @@ Node.js需要按顺序执行异步逻辑时一般采用后续传递风格，也�
 
 在JavaScript中，这个“后续逻辑体”就是我们常说的回调(callback)。这种作为参数的函数之所以被称为回调，是因为它一般在主程序中定义，由主程序交给库函数，并由它在需要时回来调用。而将回调函数作为参数的，一般是一个会占用较长时间的异步函数，要交给另一个线程执行，以便不影响主程序的后续操作。如下图所示：
 
-![这里写图片描述](/img/content/34ef40842d9a.webp)
+![这里写图片描述](https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/optimized/content/217c32c2ae195ab9f0c8.webp)
 
 下面一个例子说明回调样例的恶心之处：
 

@@ -1,14 +1,14 @@
 ---
 title: "理解 OutOfMemoryError 异常"
 summary: "本文围绕《理解 OutOfMemoryError 异常》展开，重点梳理发生 OutOfMemoryError 的原因等内容，提炼背景、思路与实践注意点。"
-cover: "/img/post-covers/oom-exception-d8f45c8d18.jpg"
+cover: "https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/optimized/covers/c7295ad5825ca5eeeb7b.webp"
 tags: [学习笔记]
 categories: ["后端"]
 keywords: [OutOfMemory,Error,JAVA,Exception]
 date: "2018-05-26"
 ---
 
-![overflow.jpg](/img/content/fix-wechat-oom-00-overflow.webp)
+![overflow.jpg](https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/optimized/content/7f2a41a73f27ad0a6d7b.webp)
 
 OutOfMemoryError 异常应该可以算得上是一个非常棘手的问题。JAVA 的程序员不用像苦逼的 C 语言程序员手动地管理内存，JVM 帮助他们分配内存，释放内存。但是当遇到内存相关的问题，就比如 OutOfMemoryError，如何去排查并且解决就变成一个非常令人头疼的问题。在 JAVA 中，所有的对象都存储在堆中，通常如果 JVM 无法再分配新的内存，内存耗尽，并且垃圾回收器无法及时回收内存，就会抛出 OutOfMemoryError。
 

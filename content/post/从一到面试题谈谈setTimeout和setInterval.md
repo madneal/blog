@@ -1,7 +1,7 @@
 ---
 title: "从一道面试题谈谈 setTimeout 和 setInterval"
 summary: "本文围绕《从一道面试题谈谈 setTimeout 和 setInterval》梳理前端和JavaScript相关的背景、方法和实践细节，可作为排查与学习记录。"
-cover: "/img/post-covers/settimeout-setinterval-28555f33a2.jpg"
+cover: "https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/optimized/covers/8da61669ac98ba469a83.webp"
 tags: [JavaScript]
 categories: ["前端"]
 date: "2018-04-21"
@@ -85,4 +85,4 @@ Fn()
 
 欢迎搜索微信号 mad_coder 或者扫描二维码关注公众号：
 
-![文章配图](/img/content/csdn-833caf8c99dd5f5b3e0181731da74d2a.webp)
+![文章配图](https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/optimized/content/ad895f881b1534ac9111.webp)

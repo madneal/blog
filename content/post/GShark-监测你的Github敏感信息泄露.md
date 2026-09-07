@@ -2,7 +2,7 @@
 title: "GShark-监测你的 Github 敏感信息泄露"
 author: Neal
 summary: "本文围绕《GShark-监测你的 Github 敏感信息泄露》展开，重点梳理起源、原理和遇到过的问题等内容，提炼背景、思路与实践注意点。"
-cover: "/img/post-covers/gshark-github-f645181ee8.jpg"
+cover: "https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/optimized/covers/c981808025dbe9a72bb7.webp"
 description: ""
 tags: [安全, 安全工程, Go, GShark]
 categories: [安全]
@@ -21,7 +21,7 @@ date: "2018-10-31"
 
 讲完了起源，接着讲一讲这个系统的原理。基本上，这类工具都是首先会在 Github 申请相应的 token 来实现，接着通过相应的 API 来进行爬取。本项目主要是基于 Google 的 [go-github](https://github.com/google/go-github)。这个 API 使用起来还是比较方便的。通过这个 API 我们可实现在 Github 来进行搜索，其实这基本上等同于 [Advanced Search](https://github.com/search/advanced?)。因为 API 提供的搜索能力肯定就是 Github 本身所具有的搜索能力。最基本的包括关键及，以及一些 owner 信息以及 star 数等等。
 
-![iWe0kn.md.png](/img/content/2560a0965682.webp)
+![iWe0kn.md.png](https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/optimized/content/cc9f7ccde15f5aac3708.webp)
 
 另外一点就是 Github 的搜索是基于 elasticsearch 的，因此也是支持 lucene 语法的。GShark 的黑名单过滤其实就是通过这个规则来实现的。
 

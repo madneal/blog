@@ -2,7 +2,7 @@
 title: "PCA算法和实例"
 author: Neal
 summary: "本文围绕《PCA算法和实例》展开，重点梳理PCA算法和实例等内容，提炼背景、思路与实践注意点。"
-cover: "/img/post-covers/pca-algorithm-515c92de17.jpg"
+cover: "https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/optimized/covers/934cb35d88af7e03e191.webp"
 description: "PCA算法算法步骤： 
 假设有m条n维数据。 
 1. 将原始数据按列组成n行m列矩阵X 
@@ -31,39 +31,39 @@ lastmod: "2026-08-08"
 
 ## 实例##
 
-![这里写图片描述](/img/content/91265d443ef9.webp)
+![这里写图片描述](https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/optimized/content/2fc20d25877962d65f7e.webp)
 
  
 以这个为例，我们用PCA的方法将这组二维数据降到一维
 因为这个矩阵的每行已经是零均值，所以我们可以直接求协方差矩阵：
 
-![这里写图片描述](/img/content/4150c55b36ae.webp)
+![这里写图片描述](https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/optimized/content/ce2c33e0dc202a29428f.webp)
 
 然后求其特征值和特征向量，求解后的特征值为：
 λ1=2,λ2=2/5
 其对应的特征向量分别是：
 
-![这里写图片描述](/img/content/d3cca79930e8.webp)
+![这里写图片描述](https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/optimized/content/9e595f197ea16ff826ed.webp)
 
 由于对应的特征向量分别是一个通解，c1和c2可取任意实数。那么标准化后的特征向量为：
 
-![这里写图片描述](/img/content/9596fc6ef53e.webp)
+![这里写图片描述](https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/optimized/content/a9aa7469fde1e6c177a4.webp)
 
 因此我们的矩阵P是：
 
-![这里写图片描述](/img/content/bb6cdfae9502.webp)
+![这里写图片描述](https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/optimized/content/9fa66952abd3a325fe92.webp)
 
 可以验证协方差矩阵C的对角化：
 
-![这里写图片描述](/img/content/a6107922368f.webp)
+![这里写图片描述](https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/optimized/content/e937a61c6d852eccddcf.webp)
 
 最好我们用P的第一行诚意数据矩阵，就得到了降维后的数据表示：
 
-![这里写图片描述](/img/content/d98d895323ac.webp)
+![这里写图片描述](https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/optimized/content/0673c2c5523bf0cce344.webp)
 
 降维后的投影结果如下图：
 
-![这里写图片描述](/img/content/86838377b46b.webp)
+![这里写图片描述](https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/optimized/content/965c793fc6ad918d6b48.webp)
 
 PCA本质上是将方差最大的方向作为主要特征，并且在各个正交方向上将数据“离相关”，也就是让它们在不同的正交方向上没有相关性。
 因此，PCA也存在一些限制，例如它可以很好地解除线性相关，但是对于高阶相关性就没有办法了。对于存在高阶相关性的数据，可以考虑Kernel PCA,通过Kernel将非线性相关转化为线性相关。另外，PCA假设数据各特征分布在正交方向上，如果在非正交方向上存在几个方差较大的方向，PCA的效果就大打折扣。

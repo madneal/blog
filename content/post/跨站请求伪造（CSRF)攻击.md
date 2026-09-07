@@ -2,14 +2,14 @@
 title: "跨站请求伪造（CSRF）攻击"
 author: Neal
 summary: "本文围绕《跨站请求伪造（CSRF）攻击》展开，重点梳理概述、CSRF 的工作原理和如何定位存在潜在漏洞的代码等内容，提炼背景、思路与实践注意点。"
-cover: "/img/post-covers/csrf-eefb2b6679.jpg"
+cover: "https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/optimized/covers/4071d8819d20809161a1.webp"
 tags: [安全, Web安全, 漏洞分析]
 categories: [安全]
 keywords: [CSRF,web安全,XSS]
 date: "2019-02-21"
 ---
 
-![kRIUNn.png](/img/content/c6da1307d951.webp)
+![kRIUNn.png](https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/optimized/content/f56eb7aa8f84e919e085.webp)
 
 ## 概述
 

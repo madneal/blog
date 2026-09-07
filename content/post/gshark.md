@@ -2,7 +2,7 @@
 title: "多平台的敏感信息检测工具-GShark"
 author: Neal
 summary: "本文围绕《多平台的敏感信息检测工具-GShark》展开，重点梳理架构、部署和发布步骤等内容，提炼背景、思路与实践注意点。"
-cover: "/img/post-covers/gshark-0a91e37472.jpg"
+cover: "https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/optimized/covers/bdb570f278d7e0bd059d.webp"
 tags: [安全, 安全工程, 工程化, GShark]
 categories: [安全]
 date: "2021-04-17"
@@ -113,7 +113,7 @@ proxy_pass http://127.0.0.1:8888;
 
 如果其实之前使用过 GShark 的用户，对于功能的使用应该有多了解，这里着重介绍一些增加的功能。在上面的发布完成之后，第一次进入应用 `http://localhost:8080`，会需要初始化数据库，只要输入数据库用户名、密码以及数据库名即可。进入系统，首先是服务器运行状态的监控界面。系统主要分为几个菜单，当然有一些可能还是有冗余，后续可能会考虑删除掉，其实核心功能主要就是搜索结果、管理、以及超级管理员菜单。
 
-![GShark 架构示意](/img/content/csdn-7967a2a12293fa9238d1bc2409fe8db1.webp)
+![GShark 架构示意](https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/optimized/content/cc7e26cc217d7b7aa0ff.webp)
 
 和之前一样，如果需要开启 scan 服务，那么首先需要添加 Github 或者 Gitlab 的 token，这个可以在 token管理菜单下进行添加。另外也需要根据自己的需求在规则管理里添加规则：
 

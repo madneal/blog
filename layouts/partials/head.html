@@ -22,15 +22,11 @@
 {{- $coverURL := $avatar.RelPermalink -}}
 {{- with .Params.cover -}}
   {{- $coverURL = . | absURL -}}
-  {{- $coverPath := strings.TrimPrefix "/" . -}}
-  {{- with resources.Get $coverPath -}}
-    {{- $coverURL = .Permalink -}}
-  {{- end -}}
 {{- end -}}
 
   <!-- Only connect to third parties on pages that actually need them. -->
-  {{ if and $isPost (in .RawContent "cdn.jsdelivr.net") }}
-  <link href="https://cdn.jsdelivr.net" rel="preconnect" crossorigin>
+  {{ if or (ne .Kind "page") (in .RawContent "cdn.jsdelivr.net") }}
+  <link href="https://cdn.jsdelivr.net" rel="preconnect">
   {{ end }}
   {{ with .Site.Params.fontAwesome }}
   <link href="https://use.fontawesome.com" rel="preconnect" crossorigin>
