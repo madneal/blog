@@ -3,7 +3,7 @@
 <article class="post-entry">
   <header class="post-header">
     <h3 class="post-title"><a href="{{ $page.Permalink }}" class="post-link">{{ $page.Title }}</a></h3>
-    <p class="post-meta">@{{ if isset $page.Params "author" }}{{ $page.Params.author }}{{ else }}{{ $page.Site.Params.author }}{{ end }} · {{ $page.Date.Format "Jan 2, 2006" }} · {{ mul $page.ReadingTime 3 }} min read</p>
+    <p class="post-meta">@{{ if isset $page.Params "author" }}{{ $page.Params.author }}{{ else }}{{ $page.Site.Params.author }}{{ end }} · {{ $page.Date.Format "Jan 2, 2006" }} · {{ $page.ReadingTime }} min read</p>
   </header>
   {{ with $page.Params.cover }}
     {{- if hasPrefix . "https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/optimized/covers/" -}}

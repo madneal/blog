@@ -20,19 +20,7 @@
       <p>There's nothing here.<br>Create an interesting post with the command:</p>
       <p><code>$ hugo new post/hello-world.md</code></p>
     {{ end }}
-    {{ if gt $paginator.TotalPages 1 }}
-      <footer class="list-footer">
-        <nav class="pagination">
-          <h3 class="offscreen">Pagination</h3>
-          {{ if $paginator.HasPrev }}
-            <a class="pagination-previous" href="{{ $paginator.Prev.URL }}">← Newer Posts</a>
-          {{ end }}
-          {{ if $paginator.HasNext }}
-            <a class="pagination-next" href="{{ $paginator.Next.URL }}">Older Posts →</a>
-          {{ end }}
-        </nav>
-      </footer>
-    {{ end }}
+    {{ partial "pagination.html" $paginator }}
   </section>
   {{ partial "footer.html" . }}
 {{ end }}
