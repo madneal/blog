@@ -2,7 +2,7 @@
 title: "markdown语法规则"
 author: Neal
 summary: "本文围绕《markdown语法规则》展开，重点梳理二级标题和三级标题等内容，提炼背景、思路与实践注意点。"
-cover: "/img/post-covers/markdown-syntax-3196fda990.jpg"
+cover: "https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/optimized/covers/c36286aca048d5298833.webp"
 description: "标题 
   标题是每篇文章最常用的格式，在markdown中如果要定义标题的话，只要在这段文字之前加#号就可以了。 
   # 一级标题 

@@ -2,7 +2,7 @@
 title: "indexDB的概念"
 author: Neal
 summary: "本文围绕《indexDB的概念》梳理web前端和学习笔记相关的背景、方法和实践细节，可作为排查与学习记录。"
-cover: "/img/post-covers/indexeddb-concept-0c37164332.jpg"
+cover: "https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/optimized/covers/6cd79f6ee44cbebf05d7.webp"
 description: "IndexDB利用数据键(key)访问，通过索引功能搜索数据，适用于大量的结构化数据，如日历，通讯簿或者记事本。 
 1. 以key/value成对保存数据 
 IndexDB和WebStorage都是以数据键值的方式来保存数据，只要创建索引，就可以进行数据搜索和排序。 

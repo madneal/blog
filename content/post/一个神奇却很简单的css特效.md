@@ -2,7 +2,7 @@
 title: "一个神奇却很简单的css特效"
 author: Neal
 summary: "本文围绕《一个神奇却很简单的css特效》梳理web前端和前端相关的背景、方法和实践细节，可作为排查与学习记录。"
-cover: "/img/post-covers/css-magic-effect-6cc9de2408.jpg"
+cover: "https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/optimized/covers/adfb38f548d261caf217.webp"
 description: "在网上看到一个前端大牛的主页，觉得他有一个特效特别酷，一开始还以为是要用什么javascript代码来实现，但仔细看一下，发觉只是用几行css代码就搞定了，我觉得挺好的。 
 他这个效果就是鼠标放在左半部分和右半部分，整个网页的布局颜色会相互变化，我贴上前后两张图来比较一下，你们就明白了。 
 当鼠标放在左半部分： 
@@ -20,11 +20,11 @@ lastmod: "2026-08-08"
 他这个效果就是鼠标放在左半部分和右半部分，整个网页的布局颜色会相互变化，我贴上前后两张图来比较一下，你们就明白了。
 当鼠标放在左半部分：
 
-![这里写图片描述](https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/recovered/3d8874cd0a77.jpg)
+![这里写图片描述](https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/optimized/content/7bb271a70be80a7c6b1e.webp)
 
 当鼠标放在右半部分：
 
-![这里写图片描述](https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/recovered/53a8ba475c86.jpg)
+![这里写图片描述](https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/optimized/content/904cd32402e69198b8ce.webp)
 
 可能静态的图片看不太出效果，但是动态看起来还是比较酷的，最关键的是它的代码其实很简单。
 

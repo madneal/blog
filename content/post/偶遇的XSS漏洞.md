@@ -2,7 +2,7 @@
 title: "偶遇 XSS 漏洞"
 author: Neal
 summary: "本文围绕《偶遇 XSS 漏洞》展开，重点梳理总结等内容，提炼背景、思路与实践注意点。"
-cover: "/img/post-covers/xss-fc96530d54.jpg"
+cover: "https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/optimized/covers/018f69e1bf8844d2e690.webp"
 tags: [安全, Web安全, 漏洞分析]
 categories: [安全]
 date: "2019-08-22"
@@ -16,7 +16,7 @@ date: "2019-08-22"
 
 简单粗暴地在代码仓库中搜索了一下 `window.location.href`，发现代码仓库中有多处使用了 `window.location.href`。不过我们很快就发现了一个有趣的代码，正是重定向页面的代码。
 
-![m0w7lR.png](https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/recovered/e50a45799159.png)
+![m0w7lR.png](https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/optimized/content/bc3758cac4825938710b.webp)
 
 关键代码就是：`window.location.href = decodeURIComponent("$returnUrl");`。这段代码没有对 `returnUrl` 做任何的处理，而且这段代码就是直接放在 `script` 标签中。毫无疑问，这种一定会导致 XSS 漏洞，可以通过构造 `returnUrl` 来闭合双引号从而导致 XSS 漏洞。比如，`"alert(/xss/);//`，这段代码就可以导致 XSS 漏洞。
 

@@ -2,7 +2,7 @@
 title: "在 PythonAnywhere 部署第一个 Django 应用"
 author: Neal
 summary: "从 Git 拉代码、建虚拟环境、配置 WSGI 到访问域名，梳理在 PythonAnywhere 上部署 Django 的基本步骤与注意点。"
-cover: "/img/post-covers/pythonanywhere-deploy-b513adb9a4.jpg"
+cover: "https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/optimized/covers/c2254d8d9eb68ae498c7.webp"
 tags: [Python, Django, 部署]
 categories: [后端]
 date: "2016-01-01"

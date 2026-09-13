@@ -2,7 +2,7 @@
 title: "僵尸网络 Stantinko 犯罪活动新增加密货币挖矿"
 author: Neal
 summary: "本文围绕《僵尸网络 Stantinko 犯罪活动新增加密货币挖矿》展开，重点梳理修改后的开源加密货币挖矿软件、挖矿代理的使用和加密货币挖矿软件能力等内容，提炼背景、思路与实践注意点。"
-cover: "/img/post-covers/botnet-c41a37b1cc.jpg"
+cover: "https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/optimized/covers/e180e80a7ef3128193ad.webp"
 keywords: [僵尸网络,挖矿,恶意软件,门罗币,加密货币,wmic,windows,补丁,patch]
 tags: [安全]
 categories: [安全情报]
@@ -31,7 +31,7 @@ CoinMiner.Stantinko 不会直接与其[矿池](https://en.wikipedia.org/wiki/Min
 
 此类视频的描述由以十六进制格式的挖矿的代理 IP 地址字符串组成。例如，图1中显示的 YouTube 视频的描述为 "03101f1712dec626"，它对应于两个十六进制格式的 IP 地址- 03101f17 对应于十进制点分四进制格式的 3.16.31[.]23，而 12dec626 对应 18.222.198[.]38。截至本文，格式已稍作调整。 IP地址当前用 “!!!!” 括起来，简化了解析过程，并防止了 YouTube 视频 HTML 结构的更改导致解析器无法正常工作。
 
-![Stantinko YouTube 视频描述](https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/recovered/tencent-1412367-36evz4en71.png)
+![Stantinko YouTube 视频描述](https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/optimized/content/0b3922b07a755b8f58a6.webp)
 
 图1.示例 YouTube 视频，其描述为模块提供了与矿池通信的 IP 地址
 

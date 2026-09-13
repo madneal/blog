@@ -2,7 +2,7 @@
 title: "将Medium中的博客导出成markdown"
 author: Neal
 summary: "本文围绕《将Medium中的博客导出成markdown》梳理开发工具、安全、安全开发、前端和工程化相关的背景、方法和实践细节，可作为排查与学习记录。"
-cover: "/img/post-covers/medium-export-md-8a10fe476b.jpg"
+cover: "https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/optimized/covers/e053fdf095fae7b0923f.webp"
 description: "Medium(https://medium.com)（需要翻墙访问）是国外非常知名的一个博客平台。上面经常有很多知名的技术大牛在上面发布博客，现在一般国内的搬运的技术文章大多数都是来自于这个平台。 
 Medium文章格式显示地非常优雅，但是存在一个问题。众所周知，markdown已经是最受程序猿欢迎的文本编辑格式之一。但是Medium仅仅支持markdown格式导入，不支持markdown格式的导出"
 tags: [安全, 安全开发, 前端, 工程化]
@@ -18,7 +18,7 @@ Medium 文章格式显示地非常优雅，但是存在一个问题。众所周�
 * 将 [export-medium](https://github.com/neal1991/export-medium) clone 或者下载到本地。
 * 在 Chrome 浏览中打开`chrome://extensions`,加载已解压的拓展程序，选择项目文件夹
 
-![这里写图片描述](https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/recovered/ee06d4e4b8fd.png)
+![这里写图片描述](https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/optimized/content/302dacd167930db90dfc.webp)
 
 这两种方法都是可以支持安装的。目前这个插件的功能主要是把Medium上面的文章解析成 markdown 格式的文本，用了一个简单的库去渲染（事实上我觉得挺鸡肋的），然后你只要点击一个按钮就可以把文本复制到剪切板，就可以复制到编辑器了，是不是很方便。
 

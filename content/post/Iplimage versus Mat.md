@@ -2,7 +2,7 @@
 title: "OpenCV：IplImage 与 Mat 该用哪个？"
 author: "Neal"
 summary: "对比 C-API 的 IplImage 与 C++ API 的 Mat：内存管理、生态现状，以及 cvarrToMat 转换与迁移建议。"
-cover: "/img/post-covers/iplimage-vs-mat-529bd2555a.jpg"
+cover: "https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/optimized/covers/d17c043bd102cfc3e71e.webp"
 tags: [计算机视觉, OpenCV]
 categories: [计算机视觉]
 date: "2015-04-15"

@@ -2,13 +2,13 @@
 title: "Help -- hack the box"
 author: Neal
 summary: "本文围绕《Help -- hack the box》展开，重点梳理Introduction和Infomation Enumeration等内容，提炼背景、思路与实践注意点。"
-cover: "/img/post-covers/help-hack-the-box-1d3051737a.jpg"
+cover: "https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/optimized/covers/9610400b9c420cb3a949.webp"
 tags: [安全, 渗透测试, HTB, Python]
 categories: [htb]
 date: "2019-04-22"
 ---
 
-![EFe80A.png](https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/recovered/1df0723f0d7c.png)
+![EFe80A.png](https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/optimized/content/b0f47ae48b44e425f433.webp)
 
 ## Introduction
 
@@ -52,13 +52,13 @@ gobuster -u http://10.10.10.121 -w /usr/share/dirbuster/wordlists/directory-list
 
 We have found an interesting folder called: `support`:
 
-![EFeHtx.png](https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/recovered/1e683a42015d.png)
+![EFeHtx.png](https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/optimized/content/9a9d946705954bf3a16b.webp)
 
 The 80 seems to be help support website. We will dive in  more later.
 
 For the `3000` port, it seems to be an express application. And nothing found for this.
 
-![EFeXcD.png](https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/recovered/760da5f9b8c4.png)
+![EFeXcD.png](https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/optimized/content/d11b96ab9b917d6feb91.webp)
 
 ## Exploitation
 
@@ -66,7 +66,7 @@ For the `3000` port, it seems to be an express application. And nothing found fo
 
 In the above, we can see `HelpDeskZ` on the web page. It may be a kind of product. Search related exploits, `searchsploit HelpDeskZ`.
 
-![EF0rkt.png](https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/recovered/75b478f48b80.png)
+![EF0rkt.png](https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/optimized/content/a068c5d497531b5bbc68.webp)
 
 There two exploits about `HelpDeskZ`. `Arbitrary File Upload` is interesting, it seems that it can be exploited without valid credentials. The payload can be seen [here](https://www.exploit-db.com/exploits/40300). It's really significant to understand the root cause of the exploit. So know the details of the payload will be beneficial.
 
@@ -113,7 +113,7 @@ if(!isset($error_msg) && $settings['ticket_attachment']==1){
 
 The most important code: `$filename = md5($_FILES['attachment']['name'].time()).".".$ext;`. We can find the rule of the name of the uploaded file. So it will be possible to find the uploaded attachment. And there is another stuff when submitted a reverse shell php file, you will get a hint: `File is not allowed`. However, the attachment has been uploaded. Because it will upload the attachment firstly. And then just give the error information.
 
-![EF4Ezd.png](https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/recovered/2dae3aaa1805.png)
+![EF4Ezd.png](https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/optimized/content/e9bc769c482a8055ea5a.webp)
 
 <pre>
 <b>if (!move_uploaded_file($_FILES['attachment']['tmp_name'], $uploadedfile)) {</b>
@@ -129,7 +129,7 @@ The most important code: `$filename = md5($_FILES['attachment']['name'].time()).
 
 Firstly, submit a ticket with the attachment of `a.php(php-reverse-shell.php` and will get error information `File is not allowed`. However, the script has been uploaded actually. 
 
-![EFe80A.png](https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/recovered/1df0723f0d7c.png)
+![EFe80A.png](https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/optimized/content/b0f47ae48b44e425f433.webp)
 
 Then, try to run the script:
 
@@ -145,7 +145,7 @@ timedatectl set-timezone GMT
 
 After modifying the timezone, still have not found anything. It has some problem with the url. Read the source code and you will find the upload directory should be: `UPLOAD_DIR.'tickets/`:
 
-![EFeHtx.png](https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/recovered/1e683a42015d.png)
+![EFeHtx.png](https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/optimized/content/9a9d946705954bf3a16b.webp)
 
 Hence, the url should be `http://10.10.10.121/support/uploads/tickets/`. So run the script:
 
@@ -188,7 +188,7 @@ print "Sorry, I did not find anything"
 
 Remember to set nc listen to a port in the beginning. After some time, the shell is returned.
 
-![EFeXcD.png](https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/recovered/760da5f9b8c4.png)
+![EFeXcD.png](https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/optimized/content/d11b96ab9b917d6feb91.webp)
 
 ## Privilege escalation
 
@@ -198,5 +198,5 @@ In contrast to the user shell, the root shell is extremely simple. But the basic
 
 Google for `linux kernel 4.4.0--116`. Congratulations! Find the [payload](https://github.com/SecWiki/linux-kernel-exploits/tree/master/2017/CVE-2017-16995). Just download the payload and compile. After execution, the root shell is obtained.
 
-![EF0rkt.png](https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/recovered/75b478f48b80.png)
+![EF0rkt.png](https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/optimized/content/a068c5d497531b5bbc68.webp)
 

@@ -2,7 +2,7 @@
 title: "lucene 中 query 的实现"
 author: Neal
 summary: "梳理 Lucene 常见 Query 类型与继承关系，并以 RegexpQuery 为入口说明 MultiTermQuery / AutomatonQuery 的职责边界。"
-cover: "/img/post-covers/lucene-query-060b1caf85.jpg"
+cover: "https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/optimized/covers/74c51eaaa1fc60368cf5.webp"
 tags: [后端, Java, Lucene, 学习笔记]
 categories: [java]
 date: "2018-10-09"

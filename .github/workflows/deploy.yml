@@ -38,7 +38,7 @@ jobs:
           git submodule update --init --depth 1 themes/hugo-nuo
 
       - name: Build site
-        run: hugo -t hugo-nuo
+        run: hugo --minify --cleanDestinationDir -t hugo-nuo
 
       - name: Disable Jekyll processing
         run: touch public/.nojekyll

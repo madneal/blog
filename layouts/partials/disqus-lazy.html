@@ -1,0 +1,37 @@
+{{- $shortname := .Site.Config.Services.Disqus.Shortname -}}
+<div id="disqus_thread">
+  <button class="comments-load" type="button">加载评论</button>
+</div>
+<script>
+(function () {
+  var container = document.getElementById('disqus_thread');
+  var button = container.querySelector('.comments-load');
+  var loaded = false;
+
+  function loadComments() {
+    if (loaded) return;
+    loaded = true;
+    button.remove();
+    window.disqus_config = function () {
+      this.page.url = {{ .Permalink | jsonify | safeJS }};
+    };
+    var script = document.createElement('script');
+    script.src = 'https://{{ $shortname }}.disqus.com/embed.js';
+    script.async = true;
+    script.setAttribute('data-timestamp', String(Date.now()));
+    (document.head || document.body).appendChild(script);
+  }
+
+  button.addEventListener('click', loadComments);
+  if ('IntersectionObserver' in window) {
+    var observer = new IntersectionObserver(function (entries) {
+      if (entries[0].isIntersecting) {
+        observer.disconnect();
+        loadComments();
+      }
+    }, { rootMargin: '600px 0px' });
+    observer.observe(container);
+  }
+})();
+</script>
+<noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>

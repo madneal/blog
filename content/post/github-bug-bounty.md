@@ -2,7 +2,7 @@
 title: "为什么 2022 年是漏洞赏金奖破纪录的一年"
 author: Neal
 summary: "本文围绕《为什么 2022 年是漏洞赏金奖破纪录的一年》梳理漏洞赏金、安全、漏洞分析、工程化和开源相关的背景、方法和实践细节，可作为排查与学习记录。"
-cover: "/img/post-covers/github-bug-bounty-0c504ef49e.jpg"
+cover: "https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/optimized/covers/c7e86accff8c886f611a.webp"
 tags: [安全, 漏洞分析, 工程化, 开源]
 keywords: [gitlab,漏洞赏金,h1]
 categories: [漏洞赏金]
@@ -19,7 +19,7 @@ date: "2023-01-16"
 >
 >LICENSE: [MIT](https://opensource.org/licenses/MIT)
 
-![](https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/recovered/fix-tencent-2216978-03.png)
+![](https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/optimized/content/fcc05fcb8335e57fce89.webp)
 
 每年，GitLab 的[应用安全团队](https://about.gitlab.com/handbook/security/security-engineering/application-security/) 都会回顾 GitLab 漏洞赏金计划的亮点。
 

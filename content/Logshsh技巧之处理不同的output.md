@@ -2,7 +2,7 @@
 title: "Logstash技巧之处理不同的output"
 author: Neal
 summary: "Logstash 多输出时，如何用 clone 让 Kafka 与 ES 使用不同字段集：场景、配置思路、替代方案与注意点。"
-cover: "/img/post-covers/logshsh-output-d17ae3fd1f.jpg"
+cover: "https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/optimized/covers/a37652e80918c9cac9b4.webp"
 tags: [工具, Logstash, ELK]
 keywords: [插件, logstash, clone]
 categories: [工具]

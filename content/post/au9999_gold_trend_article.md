@@ -2,7 +2,7 @@
 title: "从1243元跌回935元：近一年黄金到底变弱了吗？"
 author: Neal
 summary: "上金所 Au99.99 近一年复盘：从 1243 回落到 935，全年仍涨约 20%，但已从主升进入高位震荡。附均线、回撤与近十年收益，并标出关键价格区间。"
-cover: "/img/post-covers/au9999-gold-trend-2026-a240140de6.jpg"
+cover: "https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/optimized/covers/752c2e81db627722db83.webp"
 tags: [黄金, Au99.99, 投资, 数据分析]
 keywords: [黄金, Au99.99, 上海黄金交易所, 金价, 投资, 数据分析]
 categories: [投资]

@@ -2,7 +2,7 @@
 title: "利用 python 生成可视化报告"
 author: Neal
 summary: "本文围绕《利用 python 生成可视化报告》展开，重点梳理模板和Matplotlib等内容，提炼背景、思路与实践注意点。"
-cover: "/img/post-covers/python-viz-report-da553a5518.jpg"
+cover: "https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/optimized/covers/33081c996ec8c3a00dad.webp"
 description: ""
 tags: [Python, 数据可视化]
 categories: [python]

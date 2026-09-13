@@ -2,7 +2,7 @@
 title: "一键 Shell，我的 OSWE 之旅"
 author: Neal
 summary: "本文围绕《一键 Shell，我的 OSWE 之旅》展开，重点梳理初识 AWAE、AWAE 课程和OSWE 考试等内容，提炼背景、思路与实践注意点。"
-cover: "/img/post-covers/oswe-2ebbe0e7db.jpg"
+cover: "https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/optimized/covers/5f68abeeb0fc65e9c812.webp"
 tags: [安全, Web安全, 代码审计, 认证考试]
 keywords: [OSWE,OFFSEC,OSWE 考试,AWAE,certification,security certifications]
 categories: [安全]
@@ -11,7 +11,7 @@ date: "2020-09-06"
 
 原文来自于安全客，https://www.anquanke.com/post/id/217301
 
-![ww1smR.png](https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/recovered/42125b140416.png)
+![ww1smR.png](https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/optimized/content/c454a0b96ac9c7570f61.webp)
 
 终于收到了 Offsensive Security 的官方邮件通知最终结果，我的 OSWE 之旅也算是尘埃落定。打算以本文回顾一下自己的 OSWE 的准备过程，包括 AWAE 课程的学习和准备以及我在考试过程中踩得一些坑，希望对 OSWE 有兴趣的人能有所帮助。
 
@@ -49,7 +49,7 @@ OSWE 的考试既需要对代码的审计，寻找漏洞，又需要 exploit 的
 
 官方对于报告是有提供一个模板的，包括 [.doc](https://www.offensive-security.com/awae/OSWE-Exam-Report.doc) 格式以及 [.odt](https://www.offensive-security.com/awae/OSWE-Exam-Report.odt) 格式。但是 word 有一个问题就是越到后面保存就会变得很卡，尤其一般这个报告写得应该还是比较长的。另外一个问题就是格式问题，后面我在调整目录的时候就导致很多地方的格式又乱掉了，很多地方又得重新调整。所以后面我创建了一个 Tex 的模板，[oswe-report-template](https://github.com/madneal/oswe-report-template).Tex 相对于 word 来说，格式是一直稳定的，所以会省略很多调整格式的烦劳，所以一般在科研论文的写作中，很多人都比较喜爱使用 Tex。我基本上是按照官方的模板百分百还原了，感兴趣的可以尝试看看。
 
-![OSWE Exam Report TeX template screenshot](https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/recovered/fix-oswe-screenshot.png)
+![OSWE Exam Report TeX template screenshot](https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/optimized/content/296b543564e7952e1bec.webp)
 
 报告提交之后，10个工作日以内会给出结果的，我差不多是6天的时间。收到结果的邮件是凌晨，当时我凌晨醒了一下结果就看到了。虽然没有想象中那么兴奋，但是知道结果之后我还是睡不着了。毕竟，之前也是一直焦灼地等待结果。邮件主要就是确认一下证件上的姓名，如果姓名没有问题的话就是反馈一下收件地址，因为新冠的原因，证件寄过来可能非常久。
 

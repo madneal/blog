@@ -2,7 +2,7 @@
 title: "Django学习——开发你的第一个Django应用1"
 author: Neal
 summary: "本文围绕《Django学习——开发你的第一个Django应用1》展开，重点梳理创建一个项目、建立数据库和开发服务器等内容，提炼背景、思路与实践注意点。"
-cover: "/img/post-covers/django-app-1-5318f14be4.jpg"
+cover: "https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/optimized/covers/41c47350b8e0a3fa00af.webp"
 description: "突然对Django热情似火，所以就开学习了，我是根据官方文档学习的，所以我打算把官方文档翻译一遍，全当学习，首先贴官方文档的地址：https://docs.djangoproject.com/en/1.8/intro/tutorial01/。我是根据我自己的理解翻译，可能和官方有一些差入，如有不当之处，还望指正。 
 首先请确保你已经安装了python,Django是建立在python的基础之上，所以"
 tags: [Python, 后端]
@@ -110,7 +110,7 @@ Running migrations:
 `python manage.py shell`
 一旦你进入这个shell
 
-![这里写图片描述](https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/recovered/87c92cae1496.jpg)
+![这里写图片描述](https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/optimized/content/47c08b9ceb8d369f80a6.webp)
 
 但是我们会发现Question的对象是无意义的，我们还需要再做一些改变，打开`polls/models.py`，添加一个'_str_()`方法。
 ```

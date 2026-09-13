@@ -2,7 +2,7 @@
 title: "米哈游内推（历史记录）"
 author: "Neal"
 summary: "2021 年留下的社招/校招内推二维码记录。信息已过期，本文仅作归档说明，不构成招聘信息。"
-cover: "/img/post-covers/mihoyo-3fe15d7792.jpg"
+cover: "https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/optimized/covers/fb09a8629e85c9699a14.webp"
 tags: [生活, 归档]
 categories: [内推]
 date: "2021-08-07"

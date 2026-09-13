@@ -2,7 +2,7 @@
 title: "小鹏 P7 之殤"
 author: Neal
 summary: "本文围绕《小鹏 P7 之殤》梳理汽车相关的背景、方法和实践细节，可作为排查与学习记录。"
-cover: "/img/post-covers/xp-problem-73e1cb0955.jpg"
+cover: "https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/optimized/covers/38b1b17ab703353eaf96.webp"
 tags: [汽车]
 categories: [汽车]
 date: "2022-09-25"

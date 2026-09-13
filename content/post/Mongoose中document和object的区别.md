@@ -1,7 +1,7 @@
 ---
 title: "Mongoose中document和object的区别"
 summary: "本文围绕《Mongoose中document和object的区别》展开，重点梳理方法1、方法2和方法3等内容，提炼背景、思路与实践注意点。"
-cover: "/img/post-covers/mongoose-doc-obj-90680abcfe.jpg"
+cover: "https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/optimized/covers/eba102a232540cbbc6da.webp"
 tags: [JavaScript, 后端]
 categories: ["前端"]
 date: 2017-09-17

@@ -2,7 +2,7 @@
 title: "白名单，被谁饶过了？"
 author: Neal
 summary: "本文围绕《白名单，被谁饶过了？》展开，重点梳理起因、apache/dubbo 的问题和URL 的其它门道等内容，提炼背景、思路与实践注意点。"
-cover: "/img/post-covers/redirect-94d791bf63.jpg"
+cover: "https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/optimized/covers/b6295ef11beb5d98fa7a.webp"
 tags: [安全, Web安全, 漏洞分析, 代码审计]
 keywords: [架构,apache dubbo,开源,开放重定向,open redirect, SSRF, 开发,安全,代码审计,security,development,web security,]
 categories: [代码审计]
@@ -83,7 +83,7 @@ true
 
 [
 
-![Dubbo parseURL 调试](https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/recovered/anquanke-t01171b863223a65709.png)
+![Dubbo parseURL 调试](https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/optimized/content/13de32b6cf8e714c9313.webp)
 
 ](https://imgchr.com/i/sY0h9I)
 
@@ -91,7 +91,7 @@ true
 
 [
 
-![Dubbo URL.valueOf 调试](https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/recovered/anquanke-t01bac4fe9353921d53.png)
+![Dubbo URL.valueOf 调试](https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/optimized/content/4bba568babb9cdda2287.webp)
 
 ](https://imgchr.com/i/sYBB5j)
 
@@ -128,7 +128,7 @@ public RedirectView redirect(@RequestParam String service) {
 
 [
 
-![URL fragment 与编码](https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/recovered/anquanke-t01820e367ea8804c3a.png)
+![URL fragment 与编码](https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/optimized/content/4d21e588592864961f9d.webp)
 
 ](https://imgchr.com/i/s0bnpD)
 
