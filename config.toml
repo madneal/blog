@@ -51,12 +51,6 @@ copyright = "© This post is licensed under a Creative Commons Attribution-NonCo
   identifier = "about"
   url = "/about/"
 
-[[menu.main]]
-  name = "Privacy"
-  weight = 50
-  identifier = "privacy"
-  url = "/privacy/"
-
 # Add your own params here
 [params]
   author = "Neal"
