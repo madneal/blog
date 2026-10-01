@@ -1,6 +1,7 @@
 ---
 title: "A出认证，国货之光"
 author: "Neal"
+cover: "https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/optimized/covers/90c2d91110e8db937c19.webp"
 summary: "Anthropic 写文章提醒 GLM-5.3 的滥用风险，测试结果却让人想部署一个试试。至于安全防护，我更想知道它耽误了多少正常工作。"
 tags: [AI, 智谱, Claude, 网络安全]
 categories: [安全]
@@ -20,7 +21,7 @@ draft: false
 
 ## 先看它测出了什么
 
-![漏洞利用能力中文汇总：ExploitBench 与内部二进制利用测试的成功率对比](../../static/img/glm-5-3/exploitation-capability-zh.png)
+![漏洞利用能力中文汇总：ExploitBench 与内部二进制利用测试的成功率对比](https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/optimized/content/886f2d8378605fe131c1.webp)
 
 *图 1：漏洞利用测试成功率。两款 Claude 模型均关闭了安全防护，测试在隔离沙箱内进行；这里汇总结果，不展示 token 预算曲线。*
 
@@ -36,7 +37,7 @@ V8 漏洞利用测试，各跑 410 次，GLM-5.3 成功 50 次，Mythos Preview 
 
 证明完 GLM 能干活，Anthropic 开始展示它有多容易被拿去干坏事。
 
-![不同模型在模拟恶意请求下尝试连接目标的比例](../../static/img/glm-5-3/safeguard-comparison-zh.png)
+![不同模型在模拟恶意请求下尝试连接目标的比例](https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/optimized/content/8402d220a41817c04811.webp)
 
 *图 2：模拟恶意任务中尝试连接目标的比例，每格 50 次采样。锁形标记表示相关操作通常无法通过 Claude API 实施。*
 

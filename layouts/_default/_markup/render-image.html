@@ -1,9 +1,5 @@
-{{- $src := .Destination -}}
-{{- if hasPrefix $src "../../static/" -}}
-  {{- $src = strings.TrimPrefix "../../static/" $src | relURL -}}
-{{- end -}}
 {{- $priority := eq .Ordinal 0 -}}
-<img src="{{ $src | safeURL }}"
+<img src="{{ .Destination | safeURL }}"
   alt="{{ .Text }}"
   {{- with .Title }} title="{{ . }}"{{ end }}
   decoding="async"
