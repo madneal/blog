@@ -25,9 +25,9 @@ GitHub 只是演示中的代码来源。企业环境也可以接入内部 GitLab
 
 白盒扫描放在 Cloud Build 获取源码之后、应用镜像构建之前。扫描通过，流水线继续；发现需要阻断的问题或扫描执行失败，流水线终止。
 
-![Cloud Build 与 Cloud Run 白盒安全卡点架构图](/img/cloud-build-security/architecture-zh.png)
+![Cloud Build 与 Cloud Run 白盒安全卡点架构图](https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/optimized/content/5ad21011a96d778dd6dd.webp)
 
-[查看高清架构图](/img/cloud-build-security/architecture-zh.png)
+[查看高清架构图](https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/optimized/content/5ad21011a96d778dd6dd.webp)
 
 主流程自上而下，失败分支向左退出。各组件的职责如下：
 
