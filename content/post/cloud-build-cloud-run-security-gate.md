@@ -1,5 +1,5 @@
 ---
-title: "Cloud Build + Cloud Run：代码白盒安全卡点实践"
+title: "从自动发布到安全发布：Cloud Build 白盒扫描实践"
 author: "Neal"
 date: "2026-10-03T12:00:00+08:00"
 summary: "在 Cloud Build 中接入 Go-SAST，以硬编码检测验证源码扫描、失败阻断、镜像发布和 Cloud Run 部署的安全卡点。"
