@@ -1,7 +1,7 @@
 ---
 title: "从自动发布到安全发布：Cloud Build 白盒扫描实践"
 author: "Neal"
-cover: "https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/optimized/covers/e6214e967f8cfe7a4a48.webp"
+cover: "https://cdn.jsdelivr.net/gh/madneal/blog-image@main/images/optimized/covers/8577d5bbfff35a6c2b07.webp"
 date: "2026-10-03T12:00:00+08:00"
 summary: "在 Cloud Build 中接入 Go-SAST，以硬编码检测验证源码扫描、失败阻断、镜像发布和 Cloud Run 部署的安全卡点。"
 tags: [GCP, Cloud Build, Cloud Run, SAST, DevSecOps]
